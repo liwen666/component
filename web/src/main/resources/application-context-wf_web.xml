@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-3.2.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+
+    <!--1、引入property配置-->
+    <context:property-placeholder ignore-unresolvable="true" location="classpath*:/application.properties"/>
+    <!-- H2非内存模式数据库配置  查看客户端h2内存数据库使用-->
+	<!--<bean id="h2Service" class="com.hq.bpmn.h2.service.H2Service" init-method="initMethod" lazy-init="false" destroy-method="destoryMethod"></bean>-->
+
+    <bean id="busiDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="jdbcUrl" value="jdbc:oracle:thin:@192.168.100.120:1521:orcl"/>
+        <property name="driverClass" value="oracle.jdbc.driver.OracleDriver"/>
+        <property name="user" value="lw_bpmn"/>
+        <property name="password" value="1"/>
+        <property name="initialPoolSize" value="1"/>
+        <property name="minPoolSize" value="1"/>
+        <property name="maxPoolSize" value="10"/>
+        <property name="acquireIncrement" value="3"/>
+        <property name="maxStatements" value="8"/>
+        <property name="maxStatementsPerConnection" value="5"/>
+        <property name="maxIdleTime" value="1800"/>
+    </bean>
+    <!--alibaba druid-->
+    <!--<bean id="busiDataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init"-->
+          <!--destroy-method="close">-->
+        <!--&lt;!&ndash;基本属性 url、user、password&ndash;&gt;-->
+        <!--<property name="driverClassName" value="com.mysql.jdbc.Driver"/>-->
+        <!--<property name="url" value="jdbc:mysql://192.168.42.136:3306/component?useUnicode=true"/>-->
+        <!--<property name="username" value="root"/>-->
+        <!--<property name="password" value="root"/>-->
+
+        <!--&lt;!&ndash;配置初始化大小、最小、最大&ndash;&gt;-->
+        <!--<property name="initialSize" value="10"/>-->
+        <!--<property name="minIdle" value="10"/>-->
+        <!--<property name="maxActive" value="50"/>-->
+
+        <!--&lt;!&ndash;配置获取连接等待超时的时间&ndash;&gt;-->
+        <!--<property name="maxWait" value="60000"/>-->
+        <!--&lt;!&ndash;配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒&ndash;&gt;-->
+        <!--<property name="timeBetweenEvictionRunsMillis" value="60000"/>-->
+
+        <!--&lt;!&ndash;配置一个连接在池中最小生存的时间，单位是毫秒&ndash;&gt;-->
+        <!--<property name="minEvictableIdleTimeMillis" value="300000"/>-->
+
+        <!--<property name="validationQuery" value="SELECT 'x'"/>-->
+        <!--<property name="testWhileIdle" value="true"/>-->
+        <!--<property name="testOnBorrow" value="false"/>-->
+        <!--<property name="testOnReturn" value="false"/>-->
+
+        <!--&lt;!&ndash;打开PSCache，并且指定每个连接上PSCache的大小  如果用Oracle，则把poolPreparedStatements配置为true，mysql可以配置为false。&ndash;&gt;-->
+        <!--<property name="poolPreparedStatements" value="false"/>-->
+        <!--<property name="maxPoolPreparedStatementPerConnectionSize" value="20"/>-->
+
+        <!--&lt;!&ndash;配置监控统计拦截的filters&ndash;&gt;-->
+        <!--<property name="filters" value="wall,stat"/>-->
+    <!--</bean>-->
+    <!--2、扫描注解，不扫描@Controller注解的类-->
+    <context:component-scan base-package="com.temp.component">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+    <!--3、上传组件配置-->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="1024000"/>
+    </bean>
+    <bean id="wfTransactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="busiDataSource"/>
+    </bean>
+
+    <!--4、activiti集成spring-->
+    <bean id="processEngineConfiguration" class="org.activiti.spring.SpringProcessEngineConfiguration">
+        <property name="dataSource" ref="busiDataSource"/>
+        <property name="transactionManager" ref="wfTransactionManager"/>
+        <property name="databaseSchemaUpdate" value="true"/>
+        <property name="jobExecutorActivate" value="false"/>
+        <property name="jpaHandleTransaction" value="true"/>
+        <property name="jpaCloseEntityManager" value="true"/>
+        <property name="dbIdentityUsed" value="false"/>
+        <property name="history" value="audit"/>
+        <!-- 发布流程生成图片是正常显示中文 -->
+        <property name="activityFontName" value="微软雅黑"/>
+        <property name="labelFontName" value="微软雅黑"/>
+    </bean>
+
+    <bean id="processEngine" class="org.activiti.spring.ProcessEngineFactoryBean">
+        <property name="processEngineConfiguration" ref="processEngineConfiguration"/>
+    </bean>
+
+    <!-- 客户端重启服务自动初始化流程模板使用 -->
+    <!--<bean id="initH2TempDef" class="com.hq.bpmn.h2.service.InitTempDefService" init-method="initTempData" lazy-init="false" />-->
+
+    <!--<import resource="classpath:spring-mybatis-wf.xml"/>-->
+    <import resource="classpath:spring-redis-wf.xml"/>
+    <!--<import resource="classpath:spring-ws-wf.xml"/>-->
+    <!--<import resource="classpath:spring-quartz-wf.xml"/>-->
+    <tx:annotation-driven transaction-manager="wfTransactionManager"/>
+
+</beans>

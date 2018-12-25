@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+       
+
+    <!--
+        MethodInvokingJobDetailFactoryBean,implements Job,extends QuartzJobBean
+        1、定义工作任务的JobDetail
+            MethodInvokingJobDetailFactoryBean与JobDetailFactoryBean
+        2、定义触发器Trigger，并将工作任务与触发器绑定
+            一个触发器只能绑定一个任务，一个任务可以被多个触发器绑定
+        3、定义调度器Scheduler，并将trigger注册到Scheduler
+    -->
+    <bean id="mainTask_wfLog" class="com.temp.common.common.schedule.service.BusiLogSchedulService"/>
+    <!-- 你要执行的任务类 -->
+    <bean id="mainJob_wfLog" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="mainTask_wfLog"/>
+        <property name="targetMethod">
+            <value>execute</value>
+        </property>
+    </bean>
+    <bean id="timeTrigger_wfLog" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="mainJob_wfLog"/>
+        <property name="cronExpression" value="0/2 * 0-23 * * ?"/>
+    </bean>
+
+    <bean id="mainTask2_wfLog" class="com.temp.common.common.schedule.service.BusiLogSchedulService"/>
+    <bean id="mainJob2_wfLog" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="mainTask2_wfLog"/>
+        <property name="targetMethod">
+            <value>execute2</value>
+        </property>
+    </bean>
+    <bean id="timeTrigger2_wfLog" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="mainJob2_wfLog"/>
+        <!--
+			0 0 10,14,16 * * ? 每天上午10点，下午2点，4点
+			0 0/30 9-17 * * ?   朝九晚五工作时间内每半小时
+			0 0 12 ? * WED 表示每个星期三中午12点
+			"0 0 12 * * ?" 每天中午12点触发
+			"0 15 10 ? * *" 每天上午10:15触发
+			"0 15 10 * * ?" 每天上午10:15触发
+			"0 15 10 * * ? *" 每天上午10:15触发
+			"0 15 10 * * ? 2005" 2005年的每天上午10:15触发
+			"0 * 14 * * ?" 在每天下午2点到下午2:59期间的每1分钟触发
+			"0 0/5 14 * * ?" 在每天下午2点到下午2:55期间的每5分钟触发
+			"0 0/5 14,18 * * ?" 在每天下午2点到2:55期间和下午6点到6:55期间的每5分钟触发
+			"0 0-5 14 * * ?" 在每天下午2点到下午2:05期间的每1分钟触发
+			"0 10,44 14 ? 3 WED" 每年三月的星期三的下午2:10和2:44触发
+			"0 15 10 ? * MON-FRI" 周一至周五的上午10:15触发
+			"0 15 10 15 * ?" 每月15日上午10:15触发
+			"0 15 10 L * ?" 每月最后一日的上午10:15触发
+			"0 15 10 ? * 6L" 每月的最后一个星期五上午10:15触发
+			"0 15 10 ? * 6L 2002-2005" 2002年至2005年的每月的最后一个星期五上午10:15触发
+			"0 15 10 ? * 6#3" 每月的第三个星期五上午10:15触发
+			上面这个是quartz的语法 定时单位
+			 -->
+        <property name="cronExpression" value="0/10 * 0-23 * * ?"/>
+    </bean>
+    <bean id="2018;bpmnwf" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <list>
+                <ref local="timeTrigger_wfLog"/>
+                <ref local="timeTrigger2_wfLog"/>
+            </list>
+        </property>
+    </bean>
+</beans>

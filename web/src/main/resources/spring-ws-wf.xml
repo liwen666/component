@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:jaxws="http://cxf.apache.org/jaxws"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
+
+    <!--webservice相关配置-->
+    <!--     注册ws服务 -->
+    <!--<jaxws:endpoint id="bpmnCommonClientWs" implementor="com.hq.bpmn.webservice.clientws.impl.BpmnCommonClientWs"
+                    address="/webservice/common/client/bpmn"/>-->
+    <!--     访问ws的服务所需要的客户端 -->
+    <!--<bean id="sclientFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
+        <property name="serviceClass" value="com.hq.bpmn.sclient.IBpmnCommonServiceWs"/>
+        <property name="address" value="${swebserviceInterface}"/>
+    </bean>
+    <bean id="sClientBpmn" class="com.hq.bpmn.sclient.IBpmnCommonServiceWs" factory-bean="sclientFactory"
+          factory-method="create"/>-->
+
+
+    <!--      <jaxws:client id="sClientBpmn" address="http://127.0.0.1:7008/hqbpmn/webservice/common/service/bpmn?wsdl" -->
+    <!--         serviceClass="com.hq.bpmn.sclient.IBpmnCommonServiceWs"> -->
+    <!--     </jaxws:client> -->
+</beans>

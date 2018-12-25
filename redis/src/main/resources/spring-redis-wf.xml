@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:jaxws="http://cxf.apache.org/jaxws"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
+
+    <!--redis相关配置-->
+    <bean id="jedisPoolConfigWf" class="redis.clients.jedis.JedisPoolConfig">
+        <property name="maxIdle" value="${maxIdle}"/>
+        <property name="maxTotal" value="${maxTotal}"/>
+        <property name="minIdle" value="${minIdle}"/>
+        <property name="maxWaitMillis" value="${maxWaitMillis}"/>
+        <property name="testOnBorrow" value="${testOnBorrow}"/>
+    </bean>
+    <bean id="clusterHostAndPorts1" class="redis.clients.jedis.HostAndPort">
+        <constructor-arg index="0" value="${clusterJedisHost1}"/>
+        <constructor-arg index="1" value="${clusterJedisPort1}"/>
+    </bean> <bean id="clusterHostAndPorts2" class="redis.clients.jedis.HostAndPort">
+        <constructor-arg index="0" value="${clusterJedisHost2}"/>
+        <constructor-arg index="1" value="${clusterJedisPort2}"/>
+    </bean> <bean id="clusterHostAndPorts3" class="redis.clients.jedis.HostAndPort">
+        <constructor-arg index="0" value="${clusterJedisHost3}"/>
+        <constructor-arg index="1" value="${clusterJedisPort3}"/>
+    </bean> <bean id="clusterHostAndPorts4" class="redis.clients.jedis.HostAndPort">
+        <constructor-arg index="0" value="${clusterJedisHost4}"/>
+        <constructor-arg index="1" value="${clusterJedisPort4}"/>
+    </bean> <bean id="clusterHostAndPorts5" class="redis.clients.jedis.HostAndPort">
+        <constructor-arg index="0" value="${clusterJedisHost5}"/>
+        <constructor-arg index="1" value="${clusterJedisPort5}"/>
+    </bean> <bean id="clusterHostAndPorts6" class="redis.clients.jedis.HostAndPort">
+        <constructor-arg index="0" value="${clusterJedisHost6}"/>
+        <constructor-arg index="1" value="${clusterJedisPort6}"/>
+    </bean>
+    <bean id="bpmnJedisClusterWf" class="redis.clients.jedis.JedisCluster">
+        <constructor-arg index="0" type="java.util.Set">
+            <set>
+                <ref bean="clusterHostAndPorts1"/>
+                <ref bean="clusterHostAndPorts2"/>
+                <ref bean="clusterHostAndPorts3"/>
+                <ref bean="clusterHostAndPorts4"/>
+                <ref bean="clusterHostAndPorts5"/>
+                <ref bean="clusterHostAndPorts6"/>
+            </set>
+        </constructor-arg>
+        <constructor-arg index="1" type="org.apache.commons.pool2.impl.GenericObjectPoolConfig" ref="jedisPoolConfigWf"/>
+    </bean>
+    <bean id="bpmnJedisPool" class="redis.clients.jedis.JedisPool">
+        <constructor-arg index="0" type="org.apache.commons.pool2.impl.GenericObjectPoolConfig" ref="jedisPoolConfigWf"/>
+        <constructor-arg index="1" type="java.lang.String" value="${jedisHostSingle}"/>
+        <constructor-arg index="2" value="${jedisPortSingle}"/>
+    </bean>
+
+</beans>

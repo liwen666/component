@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hq.bpmn.schedule.dao.ActBusiLogDao" >
+<!--    <insert id="addLogId" parameterType="com.hq.bpmn.schedule.bean.ActBusiLogDomain">   -->
+<!--        INSERT INTO ACT_HQ_BUSI_LOGID (BUSILOGID,APPID) VALUES(#{busiLogId},#{appId})        -->
+<!--   </insert> -->
+  
+<!--    <insert id="batchAddLogId" parameterType="java.util.List"> -->
+<!--    	     INSERT INTO ACT_HQ_BUSI_LOGID -->
+<!-- 	  (BUSILOGID,APPID) -->
+<!-- 	SELECT  A.* -->
+<!-- 	FROM( -->
+<!-- 	<foreach collection="list" item="item" index="index" separator="UNION ALL"> -->
+<!-- 	 SELECT  -->
+<!-- 	       #{item.busiLogId,jdbcType=VARCHAR} BUSILOGID, -->
+<!-- 	       #{item.appId,jdbcType=VARCHAR} APPID -->
+<!-- 	     FROM dual -->
+<!--    </foreach> -->
+<!--    )A -->
+<!--     </insert> -->
+</mapper>

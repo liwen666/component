@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+
+    <!--1、数据源-->
+    <!--jndi-->
+    <!--客户端orcl   test_id_02，服务端orcl2   test_id_01   TEST_S-->
+    <!--<bean id="busiDataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+        <property name="jndiName" value="test_id_02"/>
+    </bean>-->
+    <bean id="h2dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="url" value="jdbc:h2:tcp://127.0.0.1:8043/mem:testbpmn"/>
+        <!--         <property name="url" value="jdbc:h2:tcp://192.168.9.180:8043/C:/Users/pc/Desktop/独立部署工作流/h2db/testbpmn;FILE_LOCK=NO"/> -->
+        <!--<property name="url" value="jdbc:h2:mem:hqbpmn"/>-->
+        <property name="driverClassName" value="org.h2.jdbcx.JdbcDataSource"/>
+        <property name="username" value="gacl"/>
+        <property name="password" value="123"/>
+        <property name="maxActive" value="255"/>
+        <property name="maxIdle" value="5"/>
+        <property name="maxWait" value="1800"/>
+    </bean>
+    <!--c3p0-->
+    <bean id="busiDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="jdbcUrl" value="jdbc:oracle:thin:@192.168.9.180:1521:orcl"/>
+        <property name="driverClass" value="oracle.jdbc.driver.OracleDriver"/>
+        <property name="user" value="zyzf_c"/>
+        <property name="password" value="zyzf_c"/>
+        <property name="initialPoolSize" value="1"/>
+        <property name="minPoolSize" value="1"/>
+        <property name="maxPoolSize" value="10"/>
+        <property name="acquireIncrement" value="3"/>
+        <property name="maxStatements" value="8"/>
+        <property name="maxStatementsPerConnection" value="5"/>
+        <property name="maxIdleTime" value="1800"/>
+    </bean>
+    <!--alibaba druid-->
+    <!-- <bean id="dataSource_druid" class="com.alibaba.druid.pool.DruidDataSource" init-method="init"
+          destroy-method="close">
+        基本属性 url、user、password
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://192.168.9.180:3306/hqbpmn?useUnicode=true"/>
+        <property name="username" value="root"/>
+        <property name="password" value="root"/>
+
+        配置初始化大小、最小、最大
+        <property name="initialSize" value="10"/>
+        <property name="minIdle" value="10"/>
+        <property name="maxActive" value="50"/>
+
+        配置获取连接等待超时的时间
+        <property name="maxWait" value="60000"/>
+        配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+        <property name="timeBetweenEvictionRunsMillis" value="60000"/>
+
+        配置一个连接在池中最小生存的时间，单位是毫秒
+        <property name="minEvictableIdleTimeMillis" value="300000"/>
+
+        <property name="validationQuery" value="SELECT 'x'"/>
+        <property name="testWhileIdle" value="true"/>
+        <property name="testOnBorrow" value="false"/>
+        <property name="testOnReturn" value="false"/>
+
+        打开PSCache，并且指定每个连接上PSCache的大小  如果用Oracle，则把poolPreparedStatements配置为true，mysql可以配置为false。
+        <property name="poolPreparedStatements" value="false"/>
+        <property name="maxPoolPreparedStatementPerConnectionSize" value="20"/>
+
+        配置监控统计拦截的filters
+        <property name="filters" value="wall,stat"/>
+    </bean> -->
+
+    <!--2、sqlSessionFactory配置-->
+    <!--<bean id="wfSqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">-->
+    <bean id="wfSqlSessionFactory" class="com.temp.common.common.mybatis.WfSqlSessionFactoryBean">
+        <property name="dataSource" ref="busiDataSource"/>
+        <property name="configLocation" value="classpath:mybatis-config-wf.xml"/>
+        <property name="mapperLocations">
+            <list>
+                <value>classpath*:com/temp/**/*_WfSqlMapper.xml</value>
+                <!--业务系统扩展的develop模块-->
+                <!--<value>classpath*:com/hq/bpmn/develop/**/mappers/**/*_WfSqlMapper.xml</value>-->
+            </list>
+        </property>
+    </bean>
+    <!--<bean id="wfH2SqlSessionFactory" class="com.hq.bpmn.common.bean.WfSqlSessionFactoryBean">
+        <property name="dataSource" ref="h2dataSource"/>
+        <property name="mapperLocations" value="classpath*:com/hq/bpmn/h2/dao/mappers/**/*_WfSqlMapper.xml"/>
+    </bean>-->
+
+    <!--3、自动扫描接口映射器-->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage"
+                  value="com.hq.bpmn.extras.dao,com.hq.bpmn.processinstance.dao,com.hq.bpmn.schedule.dao,com.hq.bpmn.bpmnanalysis.dao,com.hq.bpmn.templatedef.dao,com.hq.bpmn.unify.dao,com.hq.bpmn.model.dao,com.hq.bpmn.develop.unify.dao">
+        </property>
+        <property name="sqlSessionFactoryBeanName" value="wfSqlSessionFactory"/>
+    </bean>
+    <!--<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.hq.bpmn.h2.dao"/>
+        <property name="sqlSessionFactoryBeanName" value="wfH2SqlSessionFactory"/>
+    </bean>-->
+
+    <!--4、配置事务管理器-->
+    <!--<bean id="wfTransactionManager" class="org.springframework.transaction.jta.JtaTransactionManager"/>-->
+    <bean id="wfTransactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="busiDataSource"/>
+    </bean>
+    <tx:annotation-driven transaction-manager="wfTransactionManager"/>
+
+
+</beans>
