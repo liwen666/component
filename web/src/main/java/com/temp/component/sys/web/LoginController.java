@@ -4,6 +4,8 @@
 package com.temp.component.sys.web;
 
 import com.temp.common.common.web.AbstractBaseController;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,6 +27,7 @@ import java.util.Random;
  */
 @Controller
 public class LoginController extends AbstractBaseController {
+	public static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 	
 
 	/**
@@ -34,6 +37,10 @@ public class LoginController extends AbstractBaseController {
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String login(HttpServletRequest request, HttpServletResponse response, Model model) throws IOException {
 		System.out.println("登录成功！");
+		logger.debug("debug  tx");
+		logger.info("info  tx");
+		logger.warn("warn  tx");
+		logger.error("error  tx");
 		return "login";
 	}
 }
