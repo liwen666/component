@@ -1,0 +1,12 @@
+server:
+  port: 8083 #8181
+spring:
+  application:
+    name: microservice-provider-movie
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://user:liwen@localhost:8761/eureka  #注册 中心已经开启认证
+#  instance:
+#    prefer-ip-address: true
+#    instanceId: ${spring.application.name}:${spring.application.instance_id:${server.port}}
