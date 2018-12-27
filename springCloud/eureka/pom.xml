@@ -13,10 +13,17 @@
     <artifactId>eureka</artifactId>
     <dependencies>
         <!-- 注册中心 -->
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.cloud</groupId>-->
+            <!--<artifactId>spring-cloud-starter-eureka</artifactId>-->
+            <!--<version>1.4.6.RELEASE</version>-->
+        <!--</dependency>-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-eureka-server</artifactId>
+            <version>1.4.6.RELEASE</version>
         </dependency>
+
 
         <!-- 用于注册中心访问账号认证 -->
         <dependency>
