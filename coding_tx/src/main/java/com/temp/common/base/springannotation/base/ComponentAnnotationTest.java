@@ -1,14 +1,15 @@
 package com.temp.common.base.springannotation.base;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 
-@Configuration
+
 public class ComponentAnnotationTest {
     public static void main(String[] args) {
         AnnotationConfigApplicationContext annotationConfigApplicationContext = new AnnotationConfigApplicationContext();
-        annotationConfigApplicationContext.register(ComponentAnnotationTest.class);
+        annotationConfigApplicationContext.register(ScanClass.class);
         annotationConfigApplicationContext.refresh();
         InjectClass injectClass = annotationConfigApplicationContext.getBean(InjectClass.class);
         injectClass.print();

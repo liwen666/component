@@ -22,7 +22,7 @@
 
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>classpath:application-context-wf.xml</param-value>
+        <param-value>classpath:com/temp/component/redis/application-context-wf.xml</param-value>
     </context-param>
     <filter>
         <filter-name>encodingFilter</filter-name>

@@ -22,9 +22,8 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.util.*;
 
-import static org.junit.Assert.*;
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "classpath:application-context-wf.xml")
+@ContextConfiguration(locations = "classpath:application-context-web.xml")
 public class CacheServiceJedisImplTest {
     Logger logger = LoggerFactory.getLogger(CacheServiceJedisImplTest.class);
     @Autowired

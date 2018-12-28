@@ -13,7 +13,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "classpath:application-context-wf_web.xml")
+@ContextConfiguration(locations = "classpath:application-context-web.xml")
 public class TestContext {
     @Autowired
     ApplicationContext ctx;

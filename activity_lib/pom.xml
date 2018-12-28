@@ -15,6 +15,7 @@
     </properties>
     <groupId>com.temp.common</groupId>
     <artifactId>activity_lib</artifactId>
+    <packaging>jar</packaging>
     <dependencies>
         <dependency>
             <groupId>com.h2database</groupId>
