@@ -2,10 +2,16 @@
      http://localhost:8761/
      用户名 user  密码 12346
      
+#<!-- 用于注册中心访问账号认证 -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-security</artifactId>
+            </dependency> 
+     这个依赖不引入，只需要ip端口就能将微服务注册到eureka
      
      
      
-     添加配置文件application.properties，并且添加如下参数，才能创建一个真正可以使用的服务注册中心。
+# 添加配置文件application.properties，并且添加如下参数，才能创建一个真正可以使用的服务注册中心。
      
      ######eureka服务端######
      
