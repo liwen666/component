@@ -55,6 +55,12 @@
     <orderEntry type="library" name="Maven: org.activiti:activiti-bpmn-layout:5.14" level="project" />
     <orderEntry type="library" name="Maven: org.tinyjee.jgraphx:jgraphx:1.10.4.1" level="project" />
     <orderEntry type="module" module-name="redis" />
+    <orderEntry type="module" module-name="coding_tx" />
+    <orderEntry type="library" name="Maven: net.sf.json-lib:json-lib:jdk15:2.4" level="project" />
+    <orderEntry type="library" name="Maven: commons-beanutils:commons-beanutils:1.8.0" level="project" />
+    <orderEntry type="library" name="Maven: commons-collections:commons-collections:3.2.1" level="project" />
+    <orderEntry type="library" name="Maven: commons-lang:commons-lang:2.5" level="project" />
+    <orderEntry type="library" name="Maven: net.sf.ezmorph:ezmorph:1.0.6" level="project" />
     <orderEntry type="module" module-name="common" />
     <orderEntry type="library" name="Maven: org.quartz-scheduler:quartz:2.3.0" level="project" />
     <orderEntry type="library" name="Maven: com.zaxxer:HikariCP-java6:2.3.13" level="project" />

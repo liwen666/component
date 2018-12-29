@@ -11,7 +11,7 @@
 
     <groupId>com.temp.common</groupId>
     <artifactId>redis</artifactId>
-    <!--<packaging>jar</packaging>-->
+    <packaging>jar</packaging>
     <dependencies>
         <dependency>
             <groupId>com.temp.common</groupId>
@@ -21,6 +21,11 @@
         <dependency>
             <groupId>com.temp.common</groupId>
             <artifactId>activity_lib</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.temp.common</groupId>
+            <artifactId>coding_tx</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
 

@@ -11,6 +11,7 @@
 
     <groupId>com.temp.common</groupId>
     <artifactId>coding_tx</artifactId>
+    <packaging>jar</packaging>
     <dependencies>
         <dependency>
             <groupId>net.sf.json-lib</groupId>
@@ -18,6 +19,18 @@
             <version>2.4</version>
             <classifier>jdk15</classifier>
         </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>1.4.197</version>
+            <!--<scope>test</scope>-->
+        </dependency>
+        <dependency>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+            <version>1.4</version>
+        </dependency>
+
 
 
     </dependencies>

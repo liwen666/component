@@ -18,6 +18,10 @@ public class RedisUtils {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(RedisUtils.class);
 
+
+    public static void main(String[] args) {
+        System.out.println("user.dir  "+System.getProperty("user.dir"));
+    }
     public static String getStringKey(String prefix, String id) {
         return "str" + RedisKeyPrefixConstant.REDIS_SPLIT + prefix + id;
     }
@@ -248,5 +252,7 @@ public class RedisUtils {
         }
         return sb.toString();
     }
+
+
 
 }
