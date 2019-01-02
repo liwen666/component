@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bean id="dataSource" class="org.h2.jdbcx.JdbcConnectionPool"
+        destroy-method="dispose">
+        <constructor-arg>
+            <bean class="org.h2.jdbcx.JdbcDataSource">
+                <!-- 文件方式：必须与web.xml中配置的h2db文件名一致 -->
+                <property name="URL" value="jdbc:h2:r:/h2db/awbprint/x4z5gjb3" />
+                <property name="user" value="sa" />
+                <property name="password" value="sa" />
+            </bean>
+        </constructor-arg>
+    </bean>
