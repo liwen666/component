@@ -1,0 +1,6 @@
+org.springframework.context.ApplicationContextInitializer=\
+  com.temp.springcloud.base_boot2.init.DemoApplicationContextInitializer
+
+#  com.temp.springcloud.base_boot2.user.H2Service
+org.springframework.boot.SpringApplicationRunListener=\
+    com.temp.springcloud.base_boot2.listener.DemoSpringApplicationRunListener
