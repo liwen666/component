@@ -12,11 +12,16 @@ public class SpringService {
     private SpringExtendtion springExtendtion;
     @Autowired
     private MySpringService mySpringService;
+    @Autowired
+    private MySpringServiceChildren mySpringServiceChildren;
 
     public void excute(){
         System.out.println("执行自定义bean  manager by spring");
         myProxyController.getPageUri("manager my");
         springExtendtion.register();
         mySpringService.setName();
+        mySpringService.findAge();
+
+        mySpringServiceChildren.setName();
     }
 }

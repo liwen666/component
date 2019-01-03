@@ -5,6 +5,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class MySpringService {
     public  void setName(){
+
         System.out.println("--------------jjjj-------------");
+    }
+    public void findAge(){
+        System.out.println("============aaaa============");
     }
 }
