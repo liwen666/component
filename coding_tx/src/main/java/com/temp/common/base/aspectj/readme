@@ -1,0 +1,1 @@
+只有bean被spring管理之后，使用aspect注解切面方法才生效
