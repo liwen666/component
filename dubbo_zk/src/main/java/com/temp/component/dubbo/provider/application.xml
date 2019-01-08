@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://code.alibabatech.com/schema/dubbo
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/util
+        http://www.springframework.org/schema/util/spring-util.xsd"
+>
+    <context:property-placeholder location="classpath:config.properties"/>
+    <dubbo:application name="dubbo_provider" />
+
+    <!--<dubbo:registry  address="zookeeper:192.168.42.136:2181" />-->
+    <dubbo:registry protocol="zookeeper" address="192.168.42.136:2181" />
+
+    <dubbo:protocol accesslog="true" name="dubbo" port="20880" threads="205" threadpool="limited" />
+
+    <dubbo:annotation package="com.temp.component.dubbo" />
+    <dubbo:service interface="com.temp.component.dubbo.provider.IProduct" ref="productService" timeout="20000"/>
+    <!--<bean id="productService" class="com.temp.component.dubbo.provider.ProductService"/>-->
+
+    <context:component-scan base-package="com.temp.component.dubbo" />
+
+
+    <!--<import resource="redis-context.xml"/>-->
+
+</beans>

@@ -18,7 +18,7 @@ public class DemoApplicationContextInitializer implements ApplicationContextInit
         /**
          * 只注册并没有被加载
          */
-//        anotationApp.registerBean("h2service", H2Service.class);
+
         H2Service h2Service = H2Service.getH2Service();
         h2Service.run();
         System.out.println("自定义DemoApplicationContextInitializer的initialize方法");

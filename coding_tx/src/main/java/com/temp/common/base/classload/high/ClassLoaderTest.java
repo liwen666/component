@@ -20,7 +20,12 @@ public class ClassLoaderTest {
         for (Field f : declaredFields1) {
             f.setAccessible(true);
             System.out.println(f.getName());
+//            通过反射将字段的值修改；
+            System.out.println(f.get(myLoad));
+            f.set(myLoad,null);
+            System.out.println(f.get(myLoad));
         }
+
         Field[] fields = myLoad.getClass().getFields();
         for (Field f : fields) {
             f.setAccessible(true);

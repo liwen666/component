@@ -1,7 +1,9 @@
 package com.temp.springcloud.base_boot2;
 
+import com.temp.springcloud.base_boot2.init.CustomerDestoryBean;
 import org.h2.tools.Server;
 import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
@@ -20,6 +22,10 @@ public class BaseBoot2Application {
 		//配置事件监听器
 //		application.addListeners((ApplicationListener<?>) new MyApplicationListener());
 		ConfigurableApplicationContext context = SpringApplication.run(BaseBoot2Application.class, args);
+		ConfigurableListableBeanFactory beanFactory = context.getBeanFactory();
+		beanFactory.getBean("");
+		CustomerDestoryBean customer = (CustomerDestoryBean) context.getBeanFactory().getBean("customer");
+		customer.say();
 
 //		context.close();
 

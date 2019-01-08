@@ -25,6 +25,9 @@ public class TestController {
 		RestTemplate tpl = getRestTemplate();
 		//到注册中心找服务并调用服务
 		String json = tpl.getForObject("http://microservice-provider-user/hello/1", String.class);
+//		Object forObject = tpl.getForObject("http://microservice-provider-user/hello/1", Object.class);= tpl.getForObject("http://microservice-provider-user/hello/1", Object.class);
+//		第二个参数表示希望返回的结果
+
 		return json;
 	}
  

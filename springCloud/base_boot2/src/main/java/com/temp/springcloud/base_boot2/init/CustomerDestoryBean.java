@@ -6,7 +6,7 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Service;
 
-@Service
+@Service(value = "customer")
 public class CustomerDestoryBean implements ApplicationRunner,DisposableBean {
 
 
@@ -20,5 +20,9 @@ public class CustomerDestoryBean implements ApplicationRunner,DisposableBean {
     public void run(ApplicationArguments args) throws Exception {
         System.out.println("执行初始化");
 
+    }
+
+    public void say() {
+        System.out.println("hello");
     }
 }
