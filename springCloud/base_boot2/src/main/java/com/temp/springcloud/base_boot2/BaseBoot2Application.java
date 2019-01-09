@@ -23,7 +23,6 @@ public class BaseBoot2Application {
 //		application.addListeners((ApplicationListener<?>) new MyApplicationListener());
 		ConfigurableApplicationContext context = SpringApplication.run(BaseBoot2Application.class, args);
 		ConfigurableListableBeanFactory beanFactory = context.getBeanFactory();
-		beanFactory.getBean("");
 		CustomerDestoryBean customer = (CustomerDestoryBean) context.getBeanFactory().getBean("customer");
 		customer.say();
 

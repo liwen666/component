@@ -16,6 +16,6 @@ public class ApplicationListener {
         ConfigurableApplicationContext context =application.run(args);
         //发布事件
         context.publishEvent(new MyApplicationEvent(new Object()));
-        context.close();
+//        context.close();
     }
 }

@@ -1,0 +1,80 @@
+2019-01-09 09:17:22.977 [main] INFO  com.temp.springcloud.security.SpringSecurityTx - Starting SpringSecurityTx on MS-20181009BXWL with PID 492184 (D:\component\component\springCloud\base_boot2\target\classes started by Administrator in D:\component\component\springCloud)
+2019-01-09 09:17:23.006 [main] INFO  com.temp.springcloud.security.SpringSecurityTx - No active profile set, falling back to default profiles: default
+2019-01-09 09:17:24.884 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-01-09 09:17:24.886 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-01-09 09:17:24.918 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 25ms. Found 0 repository interfaces.
+2019-01-09 09:17:24.943 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-01-09 09:17:24.944 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-01-09 09:17:24.960 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5ms. Found 0 repository interfaces.
+2019-01-09 09:17:25.523 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$d62b3ae8] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-01-09 09:17:26.139 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8000 (http)
+2019-01-09 09:17:26.162 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8000"]
+2019-01-09 09:17:26.176 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-01-09 09:17:26.176 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/9.0.12
+2019-01-09 09:17:26.190 [main] INFO  org.apache.catalina.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\jdk_install\jdk1.8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\app\Administrator\product\11.2.0\dbhome_1\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;F:\soft\torsvn\bin;C:\Program Files\Git\cmd;C:\Users\Administrator\AppData\Local\Programs\Python\Python36;C:\Users\Administrator\AppData\Local\Programs\Python\Python36\Scripts;F:\soft\nodejs\;D:\jdk_install\jdk1.8\bin;D:\baidustorage\maven\apache-maven-3.5.3\bin;C:\Users\Administrator\AppData\Roaming\npm;.]
+2019-01-09 09:17:26.380 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-01-09 09:17:26.380 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 3253 ms
+2019-01-09 09:17:26.420 [main] INFO  o.s.boot.web.servlet.ServletRegistrationBean - Servlet dispatcherServlet mapped to [/]
+2019-01-09 09:17:26.422 [main] INFO  o.s.boot.web.servlet.ServletRegistrationBean - Servlet statViewServlet mapped to [/druid/*]
+2019-01-09 09:17:26.425 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-01-09 09:17:26.426 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'webStatFilter' to urls: [/*]
+2019-01-09 09:17:26.506 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2019-01-09 09:17:26.637 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2019-01-09 09:17:26.826 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-01-09 09:17:26.911 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.3.7.Final}
+2019-01-09 09:17:26.913 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2019-01-09 09:17:27.098 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-01-09 09:17:27.274 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-01-09 09:17:27.504 [main] INFO  o.hibernate.tool.schema.internal.SchemaCreatorImpl - HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@6c977dcf'
+2019-01-09 09:17:27.507 [main] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-01-09 09:17:28.591 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8000"]
+2019-01-09 09:17:28.601 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-01-09 09:17:28.619 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-01-09 09:17:28.619 [main] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2019-01-09 09:17:28.627 [main] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 8 ms
+2019-01-09 09:17:28.629 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8000 (http) with context path ''
+2019-01-09 09:17:28.633 [main] INFO  com.temp.springcloud.security.SpringSecurityTx - Started SpringSecurityTx in 7.833 seconds (JVM running for 8.733)
+2019-01-09 09:17:28.637 [main] INFO  c.t.s.s.controller.SqlFileExecutorController - ===========执行脚本文件：D:\component\component\springCloud\base_boot2\target\classes\com\temp\springcloud\sqlscript\sqlfiles\001_hqbpmn_20181211_v2.3.2.0_mfl_init.sql =========== 
+2019-01-09 09:17:28.649 [main] INFO  c.t.s.s.controller.SqlFileExecutorController - ===========执行脚本文件：D:\component\component\springCloud\base_boot2\target\classes\com\temp\springcloud\sqlscript\sqlfiles\002_hqbpmn_20181211_v2.3.2.0_lw_init.sql =========== 
+2019-01-09 09:20:50.929 [main] INFO  com.temp.springcloud.security.SpringSecurityTx - Starting SpringSecurityTx on MS-20181009BXWL with PID 491860 (D:\component\component\springCloud\base_boot2\target\classes started by Administrator in D:\component\component\springCloud)
+2019-01-09 09:20:50.932 [main] INFO  com.temp.springcloud.security.SpringSecurityTx - No active profile set, falling back to default profiles: default
+2019-01-09 09:20:51.751 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-01-09 09:20:51.753 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-01-09 09:20:51.868 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 108ms. Found 0 repository interfaces.
+2019-01-09 09:20:51.883 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-01-09 09:20:51.885 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-01-09 09:20:51.896 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 4ms. Found 0 repository interfaces.
+2019-01-09 09:20:52.395 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$a71b38d0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-01-09 09:20:53.072 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8000 (http)
+2019-01-09 09:20:53.091 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8000"]
+2019-01-09 09:20:53.099 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-01-09 09:20:53.100 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/9.0.12
+2019-01-09 09:20:53.112 [main] INFO  org.apache.catalina.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\jdk_install\jdk1.8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\app\Administrator\product\11.2.0\dbhome_1\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;F:\soft\torsvn\bin;C:\Program Files\Git\cmd;C:\Users\Administrator\AppData\Local\Programs\Python\Python36;C:\Users\Administrator\AppData\Local\Programs\Python\Python36\Scripts;F:\soft\nodejs\;D:\jdk_install\jdk1.8\bin;D:\baidustorage\maven\apache-maven-3.5.3\bin;C:\Users\Administrator\AppData\Roaming\npm;.]
+2019-01-09 09:20:53.338 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-01-09 09:20:53.339 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2358 ms
+2019-01-09 09:20:53.377 [main] INFO  o.s.boot.web.servlet.ServletRegistrationBean - Servlet dispatcherServlet mapped to [/]
+2019-01-09 09:20:53.378 [main] INFO  o.s.boot.web.servlet.ServletRegistrationBean - Servlet statViewServlet mapped to [/druid/*]
+2019-01-09 09:20:53.382 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-01-09 09:20:53.383 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'webStatFilter' to urls: [/*]
+2019-01-09 09:20:53.427 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2019-01-09 09:20:53.567 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2019-01-09 09:20:53.771 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-01-09 09:20:53.897 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.3.7.Final}
+2019-01-09 09:20:53.898 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2019-01-09 09:20:54.104 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-01-09 09:20:54.272 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-01-09 09:20:54.512 [main] INFO  o.hibernate.tool.schema.internal.SchemaCreatorImpl - HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@1d15c0a1'
+2019-01-09 09:20:54.515 [main] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-01-09 09:20:55.605 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8000"]
+2019-01-09 09:20:55.616 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-01-09 09:20:55.643 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-01-09 09:20:55.644 [main] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2019-01-09 09:20:55.651 [main] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 7 ms
+2019-01-09 09:20:55.653 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8000 (http) with context path ''
+2019-01-09 09:20:55.655 [main] INFO  com.temp.springcloud.security.SpringSecurityTx - Started SpringSecurityTx in 6.761 seconds (JVM running for 7.532)
+2019-01-09 09:20:55.660 [main] INFO  c.t.s.s.controller.SqlFileExecutorController - ===========执行脚本文件：D:\component\component\springCloud\base_boot2\target\classes\com\temp\springcloud\sqlscript\sqlfiles\001_hqbpmn_20181211_v2.3.2.0_mfl_init.sql =========== 
+2019-01-09 09:20:55.674 [main] INFO  c.t.s.s.controller.SqlFileExecutorController - ===========执行脚本文件：D:\component\component\springCloud\base_boot2\target\classes\com\temp\springcloud\sqlscript\sqlfiles\002_hqbpmn_20181211_v2.3.2.0_lw_init.sql =========== 

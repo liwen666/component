@@ -13,12 +13,14 @@
         <module>eureka</module>
         <module>eureka_client</module>
         <module>eureka_movie</module>
+        <module>dubbo_server</module>
+        <module>dubbo_client</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <!--<version>2.0.4.RELEASE</version>-->
-        <version>1.5.10.RELEASE</version>
+        <version>2.1.0.RELEASE</version>
+        <!--<version>1.5.10.RELEASE</version>-->
     </parent>
     <properties>
         <shiro.version>1.4.0-RC2</shiro.version>
@@ -33,7 +35,7 @@
         <commons-beanutils.version>1.9.1</commons-beanutils.version>
         <tomcat.version>8.5.35</tomcat.version>
         <activiti.version>5.22.0</activiti.version>
-        <spring.boot>2.0.4.RELEASE</spring.boot>
+        <spring.boot>2.1.0.RELEASE</spring.boot>
     </properties>
     <!-- 设定主仓库，按设定顺序进行查找。 -->
     <!--<repositories>-->

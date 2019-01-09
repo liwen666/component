@@ -1,0 +1,2 @@
+2019-01-09 09:17:26.618 [main] ERROR com.alibaba.druid.pool.DruidDataSource - testWhileIdle is true, validationQuery not set
+2019-01-09 09:20:53.541 [main] ERROR com.alibaba.druid.pool.DruidDataSource - testWhileIdle is true, validationQuery not set

@@ -11,8 +11,29 @@ spring:
     url: jdbc:h2:tcp://127.0.0.1:8043/mem:testbpmn
     username: root
     password:
+## security权限配置
+  security:
+    user:
+      name: lw
+      password: lw
+    filter:
+      dispatcher-types:
 
-
+##日志配置
+  logging:
+    config: classpath:logback-spring.xml
+  thymeleaf:
+    enabled: false
+    prefix: classpath:/templates/
+    suffix: .html
+  mvc:
+##静态资源配置陈宫
+    static-path-pattern: /static/**
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+    servlet:
+      load-on-startup: 1
 ##配置数据源
 
 
@@ -105,6 +126,6 @@ spring:
 #
 #
 ## security 使能
-##security:
-##  basic:
-##    enabled: false
+#security:
+#  basic:
+#    enabled: false
