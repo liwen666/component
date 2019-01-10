@@ -14,7 +14,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class DemoApplicationContextInitializer implements ApplicationContextInitializer {
     @Override
     public void initialize(ConfigurableApplicationContext applicationContext) {
-        AnnotationConfigServletWebServerApplicationContext anotationApp= (AnnotationConfigServletWebServerApplicationContext) applicationContext;
+//        AnnotationConfigServletWebServerApplicationContext anotationApp= (AnnotationConfigServletWebServerApplicationContext) applicationContext;
         /**
          * 只注册并没有被加载
          */

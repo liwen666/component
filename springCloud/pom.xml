@@ -15,12 +15,15 @@
         <module>eureka_movie</module>
         <module>dubbo_server</module>
         <module>dubbo_client</module>
+        <module>springboot-freemarker</module>
+        <module>springboot-validation-over-json</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.1.0.RELEASE</version>
-        <!--<version>1.5.10.RELEASE</version>-->
+        <!--<version>2.1.0.RELEASE</version>-->
+        <!--eurika用的是1.5-->
+        <version>1.5.10.RELEASE</version>
     </parent>
     <properties>
         <shiro.version>1.4.0-RC2</shiro.version>

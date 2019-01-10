@@ -22,18 +22,11 @@ spring:
 ##日志配置
   logging:
     config: classpath:logback-spring.xml
+##thymeleaf 页面跳转
   thymeleaf:
-    enabled: false
+#    enabled: false
     prefix: classpath:/templates/
     suffix: .html
-  mvc:
-##静态资源配置陈宫
-    static-path-pattern: /static/**
-    view:
-      prefix: /WEB-INF/jsp/
-      suffix: .jsp
-    servlet:
-      load-on-startup: 1
 ##配置数据源
 
 

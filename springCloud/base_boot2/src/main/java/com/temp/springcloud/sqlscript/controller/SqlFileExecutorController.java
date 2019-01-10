@@ -41,8 +41,11 @@ public class SqlFileExecutorController {
     @RequestMapping(value = "/initSqlScriptSource")
     public void initSqlScriptSource(HttpServletRequest request,
                                     HttpServletResponse response) throws Exception {
+        InputStream resourceAsStream = this.getClass().getResourceAsStream("");
+
         URL resource = this.getClass().getResource("");
         String dataPath = resource.getPath().substring(0, resource.getPath().lastIndexOf("/", resource.getPath().length() - 2)) + "/";
+        System.out.println(dataPath);
         List<String> sqlFilePath = new ArrayList<String>();
         String msg = "升级成功！";
         boolean flag = true;
@@ -54,7 +57,9 @@ public class SqlFileExecutorController {
         System.out.println( "4：通过web一级目录来匹配 ");
         try {
             getFiles(dataPath, sqlFilePath);
+//            getFiles(resourceAsStream,sqlFilePath);
             sortFiles(sqlFilePath);
+            System.out.println(sqlFilePath);
             for (String s : sqlFilePath) {
                 String sqlSource = null;
                 String appidFromeFilePath = getAppidFromeFilePath(s);
@@ -219,5 +224,10 @@ public class SqlFileExecutorController {
                 sqlFilePath.add(file.getPath());
             }
         }
+    }
+    private void getFiles(InputStream path, List<String> sqlFilePath) {
+
+//        File file = new File(path);
+
     }
 }

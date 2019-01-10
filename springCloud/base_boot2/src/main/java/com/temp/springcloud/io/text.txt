@@ -1,0 +1,4 @@
+第三种和第四种都是封装好的方法：
+Apache Commons IO的方法FileUtils.copyFile(source, dest);
+
+JDk以后才会有的Files.copy(source.toPath(), dest.toPath());

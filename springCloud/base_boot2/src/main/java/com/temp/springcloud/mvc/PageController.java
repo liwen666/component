@@ -9,6 +9,6 @@ public class PageController {
     @RequestMapping(value = "/index")
     public String findPage(){
         System.out.println("访问mvc配置页面");
-        return "home";
+        return "page";
     }
 }

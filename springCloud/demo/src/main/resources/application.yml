@@ -1,0 +1,20 @@
+
+server:
+  port: 8000
+#bean的命名必须小写
+spring:
+  mvc:
+##视图配置java类高于配置文件
+##静态资源配置陈宫
+    static-path-pattern: /static/**
+    view:
+      prefix: /
+      suffix: .jsp
+    servlet:
+      load-on-startup: 1
+#  resources:
+#    add-mappings: true
+#    static-locations: /JSP/
+##配置数据源
+
+

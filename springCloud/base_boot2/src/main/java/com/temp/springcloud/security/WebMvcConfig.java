@@ -43,9 +43,4 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
         super.addViewControllers(registry);
     }
 
-    @Override
-    protected void configureViewResolvers(ViewResolverRegistry registry) {
-        registry.viewResolver(new InternalResourceViewResolver("/WEB-INF/jsp/", ".jsp"));
-        super.configureViewResolvers(registry);
-    }
 }

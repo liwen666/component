@@ -12,7 +12,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 
 import java.sql.SQLException;
 
-@SpringBootApplication
+//@SpringBootApplication
 public class BaseBoot2Application {
 	Server server;
 	Server serverWeb;

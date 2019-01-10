@@ -181,6 +181,8 @@
         <appender-ref ref="WARN_FILE" />
         <appender-ref ref="ERROR_FILE" />
     </root>
+    <logger name="log4jdbc.log4j2" level="error"/>
+
 
     <!--生产环境:输出到文件-->
     <!--<springProfile name="pro">-->

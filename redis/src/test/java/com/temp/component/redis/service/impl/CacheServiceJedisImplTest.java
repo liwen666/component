@@ -43,7 +43,7 @@ public class CacheServiceJedisImplTest {
         Connection connection = dataSource.getConnection();
 //        String sql ="select * from act_hq_procinst  where id_ in('79c8373f61f14640be2f2b5e3e9c8f39','d03a617c053a4b9a91d8a5e7edd5ddd9')";
 //        String sql ="select * from act_hq_procinst";
-        String sql = "select ahp.* from act_hq_procinst  ahp where rownum<20";
+        String sql = "select * from act_hq_procinst  ";
         PreparedStatement preparedStatement = connection.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
         ResultSet resultSet = preparedStatement.executeQuery();
         System.out.println(resultSet.last());
@@ -69,7 +69,10 @@ public class CacheServiceJedisImplTest {
             }
         }//End for
         String colProcessIns[] = {"piId", "bpmnType", "ticketId", "pdId", "startUserId", null, "startTime", null};
-        System.out.println("数据-----" + Arrays.toString(data[0]));
+        if(row>0){
+            System.out.println("数据-----" + Arrays.toString(data[0]));
+        }
+//
         System.out.print("查询数据系统耗时：");
         System.out.println(System.currentTimeMillis() - first);
 
@@ -139,7 +142,10 @@ public class CacheServiceJedisImplTest {
 //        System.out.println( cacheServiceJedisImpl.removeMembershipUserCache(keyList));
         long first = System.currentTimeMillis();
         List<ProcessInstanceCache> stringProcessInstanceCacheMap = cacheMembershipGroup();
-        cacheServiceJedisImpl.cacheProcessInstance(stringProcessInstanceCacheMap.get(0));
+        if(stringProcessInstanceCacheMap.size()>0){
+            cacheServiceJedisImpl.cacheProcessInstance(stringProcessInstanceCacheMap.get(0));
+
+        }
         cacheServiceJedisImpl.cacheProcessInstance(stringProcessInstanceCacheMap);
         System.out.println(cacheServiceJedisImpl.getProcessInstanceCache("7EC08AF84FB4954EFB1CF15CEE1170E8", "0203"));
 //        cacheServiceJedisImpl.removeProcessInstanceCache("7EC08AF84FB4954EFB1CF15CEE1170E8","0203");

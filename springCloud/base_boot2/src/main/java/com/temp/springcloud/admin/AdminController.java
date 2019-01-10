@@ -13,6 +13,6 @@ public class AdminController {
     public String homePage(){
         logger.info("登录成功！");
 
-        return "index";
+        return "home";
     }
 }
