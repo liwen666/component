@@ -1,6 +1,5 @@
 package com.temp.common.base.aspectj.high;
 
-import netscape.security.Privilege;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.Signature;
 import org.aspectj.lang.annotation.*;
@@ -12,7 +11,6 @@ import org.springframework.stereotype.Component;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
-import java.security.Permission;
 
 @Aspect
 @Component

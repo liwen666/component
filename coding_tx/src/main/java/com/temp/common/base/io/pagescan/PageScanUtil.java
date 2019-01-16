@@ -23,6 +23,7 @@ public class PageScanUtil {
 //            String packageSearchPath = "classpath*:com/temp/springcloud/io/**/*";
             String packageSearchPath = "classpath*:com/temp/springcloud/sqlscript/**/*";
 //            String packageSearchPath = "classpath*:com/temp/springcloud/io/**/*.class";
+//            Resource[] resources = new PathMatchingResourcePatternResolver().getResources(packageSearchPath);
             Resource[] resources = PageScanUtil.resourcePatternResolver.getResources(packageSearchPath);
             boolean traceEnabled = PageScanUtil.logger.isTraceEnabled();
             boolean debugEnabled = PageScanUtil.logger.isDebugEnabled();

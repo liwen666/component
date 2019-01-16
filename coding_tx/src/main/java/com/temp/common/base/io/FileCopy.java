@@ -11,12 +11,14 @@ import java.util.Arrays;
 public class FileCopy {
     public static void main(String[] args) {
         URL resource = FileCopy.class.getResource("");
-        File f = new File("D:\\component\\component\\springCloud\\base_boot2\\src\\main\\iotarget");
-        File d = new File("D:\\component\\component\\springCloud\\base_boot2\\src\\main\\utils");
+        String s = "D:\\component\\component\\coding_tx\\src\\main\\java\\com\\temp\\common\\base\\io";
+        String target = "D:\\component\\component\\coding_tx\\src\\main/target";
+        File f = new File(s);
+        File d = new File(target);
         //删除文件
 //        delFile(f);
         //复制文件
-        fileCopy("D:\\component\\component\\springCloud\\base_boot2\\src\\main\\iotest", "D:\\component\\component\\springCloud\\base_boot2\\src\\main\\iotarget");
+        fileCopy(s, target);
 //        fileCopy_channel("D:\\component\\component\\springCloud\\base_boot2\\src\\main\\iotest", "D:\\component\\component\\springCloud\\base_boot2\\src\\main\\iotarget");
     }
 

@@ -21,8 +21,6 @@ public class UserServiceTest {
       System.out.println(service.getClass());
       service.add(new User());
       System.out.println("###");
-      Object beanService = context.getBean("beanService");
-      System.out.println(beanService);
 
       context.destroy();
 }

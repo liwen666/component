@@ -1,9 +1,8 @@
-package com.temp.springcloud.io.pagescan;
+package com.temp.common.base.util;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.io.Resource;
-import org.springframework.core.io.UrlResource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.core.io.support.ResourcePatternResolver;
 
@@ -22,7 +21,7 @@ public class PackageScanUtil {
     public static void main(String[] args) throws IOException {
 
 //        findCandidateComponents("com");
-        findResource("com.temp.springcloud.io");
+        findResource("com.temp");
 
     }
 
@@ -43,7 +42,7 @@ public class PackageScanUtil {
             System.out.println(resource.getFilename());
             System.out.println(resource.getURI());
             System.out.println(resource.getURL());
-            System.out.println(resource.isFile());
+//            System.out.println(resource.isFile());
         }
 
 
@@ -65,10 +64,15 @@ public class PackageScanUtil {
 
         }
         System.out.println("-----------------自定义文件查询---------------------");
-        URL resource = PackageScanUtil.class.getClassLoader().getResource("com/temp/springcloud/sqlscript");
+        URL resource = PackageScanUtil.class.getClassLoader().getResource("com/temp");
+        if(null!=resource){
+
+
 //        Resource r = new UrlResource(resource);
         File file = null;
         try {
+
+
             file = new File(resource.toURI().getSchemeSpecificPart());
         } catch (URISyntaxException e) {
             e.printStackTrace();
@@ -93,7 +97,7 @@ public class PackageScanUtil {
 //            }
 //
 //        }
-
+        }
         System.out.println("-----------------自定义文件查询---------------------");
         return resources;
     }
