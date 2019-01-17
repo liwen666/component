@@ -11,7 +11,7 @@
   Jar项目如何操作文件流
   使用classpath*:  加载文件
   localhost:8000/initSqlScript/initSqlScriptJarSource/
-##
+##文件上传  http://localhost:8000/file/fileUpload
   
   
   

@@ -69,17 +69,79 @@ public class SysUserController {
         } catch (final IOException e) {
             throw e;
         } finally {
-            if (is != null)
-                is.close();
-            if (fo != null)
-                fo.close();
+
             if (bis != null)
                 bis.close();
 
             if (bos != null)
                 bos.close();
+            if (is != null)
+                is.close();
+            if (fo != null)
+                fo.close();
         }
     }
+//    /*
+//     * 导入系统用户数据
+//     * @throws IOException
+//     */
+//    public void InputSysUsers() throws IOException{
+//        List<SysUser> userList = new ArrayList<SysUser>();
+//        SysUser s1 = new SysUser();
+//        s1.setEmail("534093268@qq.com");
+//        s1.setFirstName("lw");
+//        s1.setStatus(1);
+//        userList.add(s1);
+//
+//        String fileName="系统用户表-";
+//        //填充projects数据
+//        List<Map<String,Object>> list=createExcelRecord(userList);
+//        String columnNames[]={"姓名", "邮箱" ,"状态" };//列名
+////        String columnNames[]={"姓名", "性别", "邮箱", "电话", "部门", "角色", "状态", "创建时间"};//列名
+//        String keys[] = {"firstName", "email",  "status"};//map中的key
+////        String keys[] = {"name", "gender", "email", "phone", "department", "role", "status", "createTime"};//map中的key
+//        ByteArrayOutputStream os = new ByteArrayOutputStream();
+//        try {
+//            ExcelUtil.createWorkBook(list,keys,columnNames).write(os);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        byte[] content = os.toByteArray();
+//        os.close();
+//        InputStream is = new ByteArrayInputStream(content);
+//        // 设置response参数，可以打开下载页面
+////        res.reset();
+////        res.setContentType("application/vnd.ms-excel;charset=utf-8");
+////        res.setHeader("Content-Disposition", "attachment;filename="+ new String((fileName + ".xls").getBytes(), "iso-8859-1"));
+////        ServletOutputStream out = res.getOutputStream();
+//        File f = new File("D:\\component\\component\\coding_tx\\src\\main\\java\\com\\temp\\common\\base\\excel\\base\\lw.xls");
+//        if(f.exists()){f.createNewFile();}
+//        FileOutputStream fo = new FileOutputStream(f);
+//        BufferedInputStream bis = null;
+//        BufferedOutputStream bos = null;
+//        try {
+//            bis = new BufferedInputStream(is);
+//            bos = new BufferedOutputStream(fo);
+//            byte[] buff = new byte[2048];
+//            int bytesRead;
+//            // Simple read/write loop.
+//            while (-1 != (bytesRead = bis.read(buff, 0, buff.length))) {
+//                bos.write(buff, 0, bytesRead);
+//            }
+//        } catch (final IOException e) {
+//            throw e;
+//        } finally {
+//            if (is != null)
+//                is.close();
+//            if (fo != null)
+//                fo.close();
+//            if (bis != null)
+//                bis.close();
+//
+//            if (bos != null)
+//                bos.close();
+//        }
+//    }
 
     public static void main(String[] args) throws IOException {
         SysUserController sysUserController = new SysUserController();
