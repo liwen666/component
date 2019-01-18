@@ -49,6 +49,11 @@ BytesEncodingDetect s = new BytesEncodingDetect();
 String fileCode = BytesEncodingDetect.javaname[s.detectEncoding(new File(filePath))];
 return fileCode;
 }
+  public static String getJavaEncode(byte[] bytes){
+    BytesEncodingDetect s = new BytesEncodingDetect();
+    String fileCode = BytesEncodingDetect.javaname[s.detectEncoding(bytes)];
+    return fileCode;
+  }
 
 public static void readFile(String file, String code) {
 
@@ -770,7 +775,7 @@ class BytesEncodingDetect extends Encoding {
     * (byte)0xDF) == rawtext[i]) { // Two bytes if (i+1 < rawtextlen && (rawtext[i+1] & (byte)0xBF) == rawtext[i+1]) {
     * goodbytes += 2; i++; } } else if ((rawtext[i] & (byte)0xEF) == rawtext[i]) { // Three bytes if (i+2 < rawtextlen &&
     * (rawtext[i+1] & (byte)0xBF) == rawtext[i+1] && (rawtext[i+2] & (byte)0xBF) == rawtext[i+2]) { goodbytes += 3; i+=2; } } }
-    * 
+    *
     * score = (int)(100 * ((float)goodbytes/(float)rawtext.length)); // An all ASCII file is also a good UTF8 file, but I'd
     * rather it // get identified as ASCII. Can delete following 3 lines otherwise if (goodbytes == asciibytes) { score = 0; } //
     * If not above 90, reduce to zero to prevent coincidental matches if (score > 90) { return score; } else { return 0; }
@@ -4713,5 +4718,5 @@ class Encoding {
    nicename[ASCII] = "ASCII";
    nicename[OTHER] = "OTHER";
  }
- 
+
 }

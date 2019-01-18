@@ -1,5 +1,6 @@
 package com.temp.springcloud.fileupload;
 
+import com.temp.springcloud.fileupload.base.EncodingDetect;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadBase;
 import org.apache.commons.fileupload.FileUploadException;
@@ -61,7 +62,6 @@ public class FileController {
         for (Map.Entry<String, MultipartFile> fileEntry : fileMap.entrySet()) {
             //如果fileitem中封装的是普通输入项的数据
             //注意：不同的浏览器提交的文件名是不一样的，有些浏览器提交上来的文件名是带有路径的，如：  c:\a\b\1.txt，而有些只是单纯的文件名，如：1.txt
-            MultipartFile value = fileEntry.getValue();
             System.out.println(fileEntry.getKey() + "页面的  input   name");
             String fileName = fileEntry.getValue().getOriginalFilename();
             System.out.println("fileName-----getOriginalFilename" + fileName);
@@ -77,11 +77,17 @@ public class FileController {
             //如果需要限制上传的文件类型，那么可以通过文件的扩展名来判断上传的文件类型是否合法
             System.out.println("上传文件的扩展名为:" + fileExtName);
             //获取item中的上传文件的输入流
-            MultipartFile multipartFile = fileEntry.getValue();
             InputStream is = fileEntry.getValue().getInputStream();
-//            InputStreamReader isr = new InputStreamReader(is);
-            InputStreamReader isr = new InputStreamReader(is, "gb2312");
-//            InputStreamReader isr = new InputStreamReader(is, "gbk");
+            BufferedInputStream bis = new BufferedInputStream(is);
+            bis.mark(0);
+            byte [] cache = new byte[100];
+            bis.read(cache);
+            bis.reset();
+            String javaEncode = EncodingDetect.getJavaEncode(cache);
+            System.out.println("网络传输的文件编码是"+javaEncode);
+
+//            InputStreamReader isr = new InputStreamReader(is, "gb2312");
+            InputStreamReader isr = new InputStreamReader(bis,javaEncode);
             //得到文件保存的名称
             fileName = mkFileName(fileName);
             //得到文件保存的路径
@@ -100,7 +106,6 @@ public class FileController {
                 //使用FileOutputStream输出流将缓冲区的数据写入到指定的目录(savePath + "\\" + filename)当中
                 osw.write(buffer, 0, length);
             }
-
             //关闭输入流
             isr.close();
             is.close();
