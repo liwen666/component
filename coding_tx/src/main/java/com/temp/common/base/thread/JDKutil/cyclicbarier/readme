@@ -1,0 +1,12 @@
+和CountDownLatch 类似
+只是他可以循环让主线程执行
+例如100个线程没执行10个线程主线程执行一次
+
+
+/**
+			 * 表示有10个参与者  有一个被中断则其他的线程都会抛出 栅栏坏掉的异常
+			 * BrokenBarrierException
+			 */
+			if(i==5){
+				allsoldier[0].interrupt();
+			}

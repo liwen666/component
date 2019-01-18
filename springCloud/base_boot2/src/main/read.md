@@ -12,6 +12,11 @@
   使用classpath*:  加载文件
   localhost:8000/initSqlScript/initSqlScriptJarSource/
 ##文件上传  http://localhost:8000/file/fileUpload
+
+##中文乱码
+  首先获取到文件的byte  将byte根据编码规则转换为String 
+  在由string获取byte根据指定的编码规则，然后中文就会变成新的编码 
+  
   
   
   
