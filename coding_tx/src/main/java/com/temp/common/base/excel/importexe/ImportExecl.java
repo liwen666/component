@@ -52,46 +52,53 @@ public class ImportExecl {
                 e.printStackTrace();
             }
         }
-
+        int numberOfSheets = wookbook.getNumberOfSheets();
+        System.out.println(numberOfSheets);
         //得到一个工作表
-        Sheet sheet = wookbook.getSheetAt(0);
+        for(int sheetnum=0;sheetnum<numberOfSheets;sheetnum++){
+            Sheet sheet = wookbook.getSheetAt(sheetnum);
+            System.out.println("sheet====="+sheet.getSheetName());
 
-        //获得表头
-        Row rowHead = sheet.getRow(0);
-         for(int h=0;h<rowHead.getPhysicalNumberOfCells();h++)
-         {
-             System.out.println(rowHead.getCell(h));
-         }
-        //判断表头是否正确
-        System.out.println(rowHead.getPhysicalNumberOfCells());
-        if (rowHead.getPhysicalNumberOfCells() != 3) {
-            System.out.println("表头的数量不对!");
-        }
-
-
-        //获得数据的总行数
-        int totalRowNum = sheet.getLastRowNum();
-
-        //要获得属性
-        Object name = "";
-        int latitude = 0;
-
-        //获得所有数据
-        for (int i = 1; i <= totalRowNum; i++) {
-            //获得第i行对象
-            Row row = sheet.getRow(i);
-            int physicalNumberOfCells = row.getPhysicalNumberOfCells();
-            System.out.println(physicalNumberOfCells);
-            //获得获得第i行第0列的 String类型对象
-            for(int j=0;j<physicalNumberOfCells;j++){
-                Cell cell = row.getCell(j);
-                try {
-                    name = cell.getStringCellValue().toString();
-                } catch (Exception e) {
-                    name = cell.getNumericCellValue();
-                }
-                System.out.println("名字：" + name );
+            //获得表头
+            Row rowHead = sheet.getRow(0);
+            for(int h=0;h<rowHead.getPhysicalNumberOfCells();h++)
+            {
+                System.out.println(rowHead.getCell(h));
             }
+            //判断表头是否正确
+            System.out.println(rowHead.getPhysicalNumberOfCells());
+            if (rowHead.getPhysicalNumberOfCells() != 3) {
+                System.out.println("表头的数量不对!");
+            }
+
+
+            //获得数据的总行数
+            int totalRowNum = sheet.getLastRowNum();
+
+            //要获得属性
+            Object name = "";
+            int latitude = 0;
+
+            //获得所有数据
+            for (int i = 1; i <= totalRowNum; i++) {
+                //获得第i行对象
+                Row row = sheet.getRow(i);
+                int physicalNumberOfCells = row.getPhysicalNumberOfCells();
+                System.out.println(physicalNumberOfCells);
+                //获得获得第i行第0列的 String类型对象
+                for(int j=0;j<physicalNumberOfCells;j++){
+                    Cell cell = row.getCell(j);
+                    try {
+                        name = cell.getStringCellValue().toString();
+                    } catch (Exception e) {
+                        name = cell.getNumericCellValue();
+                    }
+                    System.out.println("名字：" + name );
+                }
+            }
+
+
         }
+
     }
 }
