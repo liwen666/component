@@ -20,7 +20,7 @@
    通过工具获取图片编码方式，以相同的编码写入一个新的文件即可  
 ##文件下载  http://localhost:8000/DownLoad/downFile
   文件的名字必须使用iso8859-1编码  否则中文文件名称无法显示
-  
+##EXCEL下载    http://localhost:8000/DownLoad/downExcel
   
   
 
