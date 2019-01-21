@@ -1,5 +1,7 @@
 package com.temp.common.base.io.base;
 
+import com.temp.common.base.io.high.EncodingDetect;
+
 import java.io.*;
 
 public class FileInputRead {
@@ -30,6 +32,7 @@ public class FileInputRead {
             System.out.println(new String(cache,0,rel,"utf8"));
             fos.write(cache,0,rel);
         }
+
         bis.reset();
         byte [] newbyte = new byte[100];
         rel =0;

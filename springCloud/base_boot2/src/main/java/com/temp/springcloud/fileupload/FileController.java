@@ -69,6 +69,7 @@ public class FileController {
             fileName = fileName.substring(fileName.lastIndexOf(File.separator) + 1);
             //得到上传文件的扩展名
             String fileExtName = fileName.substring(fileName.lastIndexOf(".") + 1);
+
             if ("zip".equals(fileExtName) || "rar".equals(fileExtName) || "tar".equals(fileExtName) || "jar".equals(fileExtName)) {
                 request.setAttribute("message", "上传文件的类型不符合！！！");
                 request.getRequestDispatcher("/message.jsp").forward(request, response);
@@ -79,7 +80,7 @@ public class FileController {
             //获取item中的上传文件的输入流
             InputStream is = fileEntry.getValue().getInputStream();
             BufferedInputStream bis = new BufferedInputStream(is);
-            bis.mark(0);
+            bis.mark(100);
             byte [] cache = new byte[100];
             bis.read(cache);
             bis.reset();
@@ -96,7 +97,15 @@ public class FileController {
             //创建一个文件输出流
             FileOutputStream fos = new FileOutputStream(savePathStr + File.separator + fileName);
 //            OutputStreamWriter osw = new OutputStreamWriter(fos, "gbk");
-            OutputStreamWriter osw = new OutputStreamWriter(fos, "utf8");
+
+
+            OutputStreamWriter osw;
+            if("png".equals(fileExtName)){
+//                osw = new OutputStreamWriter(fos);图片必须指定编码
+                osw = new OutputStreamWriter(fos, javaEncode);
+            }else{
+                osw = new OutputStreamWriter(fos, "utf8");
+            }
             //创建一个缓冲区
             char buffer[] = new char[1024];
             //判断输入流中的数据是否已经读完的标识
@@ -108,6 +117,7 @@ public class FileController {
             }
             //关闭输入流
             isr.close();
+            bis.close();
             is.close();
             //关闭输出流
             osw.close();
