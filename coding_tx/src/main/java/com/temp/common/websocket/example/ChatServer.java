@@ -62,7 +62,7 @@ public class ChatServer extends WebSocketServer {
 
 	@Override
 	public void onMessage(WebSocket conn, String message ) {
-		broadcast( message );
+		broadcast( message+"后台返回" );
 		System.out.println( conn + ": " + message );
 	}
 	@Override
