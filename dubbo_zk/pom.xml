@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>component</artifactId>
+        <groupId>com.temp.common</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.temp.common</groupId>
+    <artifactId>dubbo_zk</artifactId>
+
+    <properties>
+        <!--<dubbo.version>2.4.11</dubbo.version>-->
+        <dubbo.version>2.6.1</dubbo.version>
+        <zookeeper.version>3.4.6</zookeeper.version>
+        <curator.version>2.8.0</curator.version>
+    </properties>
+    <dependencies>
+
+        <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>dubbo</artifactId>
+                <version>${dubbo.version}</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>spring</artifactId>
+                    <groupId>org.springframework</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!--&lt;!&ndash; Zookeeper &ndash;&gt;-->
+        <dependency>
+            <groupId>org.apache.zookeeper</groupId>
+            <artifactId>zookeeper</artifactId>
+            <version>3.4.12</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>log4j</groupId>
+                    <artifactId>log4j</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-log4j12</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.temp.common</groupId>
+            <artifactId>coding_tx</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.sun.jdmk</groupId>
+                    <artifactId>jmxtools</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.14</version>
+        </dependency>
+        <dependency>
+            <groupId>com.101tec</groupId>
+            <artifactId>zkclient</artifactId>
+            <version>0.11</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-framework</artifactId>
+            <version>${curator.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-recipes</artifactId>
+            <version>${curator.version}</version>
+        </dependency>
+    </dependencies>
+<build>
+    <resources>
+        <resource>
+            <directory>${basedir}/src/main/java</directory>
+            <includes>
+                <include>**/*.xml</include>
+            </includes>
+        </resource>
+        <!--<resource>-->
+        <!--<directory>${basedir}/src/main/resources</directory>-->
+        <!--<includes>-->
+        <!--<include>*.xml</include>-->
+        <!--<include>*.properties</include>-->
+        <!--</includes>-->
+        <!--</resource>-->
+        <!--<resource>-->
+        <!--<directory>${basedir}/src/main/java</directory>-->
+        <!--<includes>-->
+        <!--<include>**/*.sql</include>-->
+        <!--</includes>-->
+        <!--</resource>-->
+    </resources>
+</build>
+</project>

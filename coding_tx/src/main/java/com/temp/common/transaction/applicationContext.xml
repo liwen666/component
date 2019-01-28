@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans  xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:jee="http://www.springframework.org/schema/jee"
+    xmlns:tx="http://www.springframework.org/schema/tx" 
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+    http://www.springframework.org/schema/tx 
+    http://www.springframework.org/schema/tx/spring-tx-3.0.xsd 
+    http://www.springframework.org/schema/jee 
+    http://www.springframework.org/schema/jee/spring-jee-3.0.xsd 
+    http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd"
+    default-lazy-init="true">   
+  
+  <!-- 两个数据源的功用配置，方便下面直接引用 -->
+     <bean id="abstractXADataSource" class="com.atomikos.jdbc.AtomikosDataSourceBean" init-method="init" 
+             destroy-method="close" abstract="true"> 
+        <property name="xaDataSourceClassName" value="com.mysql.jdbc.jdbc2.optional.MysqlXADataSource"/> 
+        <property name="poolSize" value="10" /> 
+        <property name="minPoolSize" value="10"/> 
+        <property name="maxPoolSize" value="30"/> 
+        <property name="borrowConnectionTimeout" value="60"/>  <!--获取连接失败重新获等待最大时间，在这个时间内如果有可用连接，将返回-->
+        <property name="reapTimeout" value="20"/> <!--最大获取数据时间，如果不设置这个值，Atomikos使用默认的5分钟，那么在处理大批量数据读取的时候，一旦超过5分钟，就会抛出类似 Resultset is close 的错误.-->        
+        <property name="maxIdleTime" value="60"/>    <!--最大闲置时间，超过最小连接池连接的连接将将关闭-->
+        <property name="maintenanceInterval" value="60" />  <!--连接回收时间-->    
+        <property name="loginTimeout" value="60" />     <!--java数据库连接池，最大可等待获取datasouce的时间-->
+        <property name="logWriter" value="60"/>
+        <property name="testQuery">
+            <value>select 1</value>
+        </property>
+
+    </bean> 
+    <!-- 配置第一个数据源 -->
+    <bean id="dataSource" parent="abstractXADataSource">
+         <!-- value只要两个数据源不同就行，随便取名 -->
+        <property name="uniqueResourceName" value="mysql/sitestone" />
+        <property name="xaDataSourceClassName"
+            value="com.mysql.jdbc.jdbc2.optional.MysqlXADataSource" />
+        <property name="xaProperties">
+            <props>
+                <prop key="URL">${jdbc.url}</prop>
+                <prop key="user">${jdbc.username}</prop>
+                <prop key="password">${jdbc.password}</prop>
+            </props>
+        </property>
+    </bean>
+
+    <!-- 配置第二个数据源-->
+    <bean id="dataSourceB" parent="abstractXADataSource">
+        <!-- value只要两个数据源不同就行，随便取名 -->
+        <property name="uniqueResourceName" value="mysql/sitesttwo" />
+        <property name="xaDataSourceClassName"
+            value="com.mysql.jdbc.jdbc2.optional.MysqlXADataSource" />
+        <property name="xaProperties">
+            <props>
+                <prop key="URL">${jdbca.url}</prop>
+                <prop key="user">${jdbca.username}</prop>
+                <prop key="password">${jdbca.password}</prop>
+            </props>
+        </property>
+    </bean>
+  
+  
+  
+    <!-- mysql数据源 -->
+    <bean id="master" class="com.atomikos.jdbc.AtomikosDataSourceBean"
+        init-method="init" destroy-method="close">
+        <description>master xa datasource</description>
+        <property name="uniqueResourceName">
+            <value>master</value>
+        </property>
+        <property name="xaDataSourceClassName" value="com.mysql.jdbc.jdbc2.optional.MysqlXADataSource" />
+        <property name="xaProperties">
+            <props>
+                <prop key="user">root</prop>
+                <prop key="password"></prop>
+                <prop key="URL">jdbc:mysql://127.0.0.1:3306/master</prop>
+            </props>
+        </property>     
+        <property name="poolSize" value="10"/> 
+    </bean>
+
+    <bean id="slave" class="com.atomikos.jdbc.AtomikosDataSourceBean"
+        init-method="init" destroy-method="close">
+        <description>slave xa datasource</description>
+        <property name="uniqueResourceName">
+            <value>slave</value>
+        </property>
+        <property name="xaDataSourceClassName">
+            <value>com.mysql.jdbc.jdbc2.optional.MysqlXADataSource</value>
+        </property>
+        <property name="xaProperties">
+            <props>
+                <prop key="user">root</prop>
+                <prop key="password"></prop>
+                <prop key="URL">jdbc:mysql://127.0.0.1:3306/slave</prop>
+            </props>
+        </property>     
+        <property name="poolSize" value="10"/>
+    </bean>
+	
+    <!-- atomikos事务管理器 -->
+    <bean id="atomikosTransactionManager" class="com.atomikos.icatch.jta.UserTransactionManager"
+        init-method="init" destroy-method="close">
+        <description>UserTransactionManager</description>
+        <property name="forceShutdown">
+            <value>true</value>
+        </property>
+    </bean>
+
+    <bean id="atomikosUserTransaction" class="com.atomikos.icatch.jta.UserTransactionImp">
+        <property name="transactionTimeout" value="300" />
+    </bean>
+
+    <!-- spring 事务管理器 -->
+    <bean id="springTransactionManager"
+        class="org.springframework.transaction.jta.JtaTransactionManager">
+        <property name="transactionManager">
+            <ref bean="atomikosTransactionManager" />
+        </property>
+        <property name="userTransaction">
+            <ref bean="atomikosUserTransaction" />
+        </property>
+    </bean>
+
+    <!-- spring　事务模板 -->
+    <bean id="transactionTemplate"
+        class="org.springframework.transaction.support.TransactionTemplate">
+        <property name="transactionManager">
+            <ref bean="springTransactionManager" />
+        </property>
+    </bean>  
+
+    <bean id="masterJdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <constructor-arg>
+            <ref bean="master" />
+        </constructor-arg>
+    </bean>
+
+    <bean id="slaveJdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <constructor-arg>
+            <ref bean="slave" />
+        </constructor-arg>
+    </bean>
+
+    <context:annotation-config />   
+    <tx:annotation-driven transaction-manager="springTransactionManager"/>  
+    <context:component-scan base-package="transaction" />   
+
+</beans>

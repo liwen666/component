@@ -1,0 +1,4 @@
+java  代码实现  jedis. eval ("local t1 = {'" + keys + "'} for k,v in pairs(t1) do redis.call('del',v) print(v) end",0);
+
+
+eval "local t1=redis.call('KEYS','s:membership*') for k,v in pairs(t1) do redis.call('del',v) print(v) end" 0

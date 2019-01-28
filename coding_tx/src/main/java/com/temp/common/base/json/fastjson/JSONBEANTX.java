@@ -5,11 +5,11 @@ import com.alibaba.fastjson.TypeReference;
 import com.temp.common.base.json.fastjson.bean.Course;
 import com.temp.common.base.json.fastjson.bean.Student;
 import com.temp.common.base.json.fastjson.bean.Teacher;
+import lombok.AllArgsConstructor;
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
-
 public class JSONBEANTX {
     //json字符串-简单对象型
     private static final String JSON_OBJ_STR = "{\"studentName\":\"lily\",\"studentAge\":12}";

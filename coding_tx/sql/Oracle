@@ -1,0 +1,23 @@
+
+   1.截取子字符串的位置
+   select substr('aaaa-bbbb-cc-dd',instr('aaaa-bbbb-cc-dd','-',-1)+1) from dual;
+   select substr('aaaa-bbbb-cc-dd',instr('aaaa-bbbb-cc-dd','-')+1) from dual;
+   select aht.category from act_hq_tem_def aht
+        where substr(aht.category,instr(aht.category,'_',-1)+1)=#{year}
+        group by aht.category
+
+   2.loop循环
+    declare
+      i number;
+    begin
+      i := 0;
+      loop
+        i := i + 1;
+        exit when i > 1000;
+        -- DBMS_OUTPUT.PUT_LINE('内:i=' || i);
+
+        insert into testbigdata (id) values (1);
+      END LOOP;
+      --DBMS_OUTPUT.PUT_LINE('外:i=' || i);
+    END;
+
