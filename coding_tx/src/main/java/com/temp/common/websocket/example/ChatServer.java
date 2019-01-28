@@ -23,6 +23,7 @@ package com.temp.common.websocket.example;/*
  *  OTHER DEALINGS IN THE SOFTWARE.
  */
 
+import com.alibaba.fastjson.JSONObject;
 import org.java_websocket.WebSocket;
 import org.java_websocket.handshake.ClientHandshake;
 import org.java_websocket.server.WebSocketServer;
@@ -30,14 +31,21 @@ import org.java_websocket.server.WebSocketServer;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.net.InetSocketAddress;
+import java.net.URLDecoder;
 import java.net.UnknownHostException;
 import java.nio.ByteBuffer;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * A simple WebSocketServer implementation. Keeps track of a "chatroom".
  */
 public class ChatServer extends WebSocketServer {
+	public static Map<String ,WebSocket> clientSocket = new HashMap<String,WebSocket>();
 
 	public ChatServer( int port ) throws UnknownHostException {
 		super( new InetSocketAddress( port ) );
@@ -50,7 +58,22 @@ public class ChatServer extends WebSocketServer {
 	@Override
 	public void onOpen(WebSocket conn, ClientHandshake handshake ) {
 		conn.send("Welcome to the server!"); //This method sends a message to the new client
-		broadcast( "new connection: " + handshake.getResourceDescriptor() ); //This method sends a message to all clients connected
+		String resourceDescriptor = "";
+		try {
+			 resourceDescriptor=URLDecoder.decode(handshake.getResourceDescriptor(),"UTF-8");
+			broadcast( "new connection: " + resourceDescriptor); //This method sends a message to all clients connected
+
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		String[] split = resourceDescriptor.split("\\?");
+		if(split.length>1){
+			String jsonParam=split[1];
+			JSONObject jsonObject = JSONObject.parseObject(jsonParam);
+			clientSocket.put((String) jsonObject.get("name"),conn);
+			System.out.println(jsonObject.get("name"));
+
+		}
 		System.out.println( conn.getRemoteSocketAddress().getAddress().getHostAddress() + " entered the room!" );
 	}
 
@@ -58,12 +81,17 @@ public class ChatServer extends WebSocketServer {
 	public void onClose(WebSocket conn, int code, String reason, boolean remote ) {
 		broadcast( conn + " has left the room!" );
 		System.out.println( conn + " has left the room!" );
+
 	}
 
 	@Override
 	public void onMessage(WebSocket conn, String message ) {
+		for(Map.Entry me:clientSocket.entrySet()){
+			System.out.println("连接有：  "+me.getKey());
+		}
 		broadcast( message+"后台返回" );
 		System.out.println( conn + ": " + message );
+		broadcast("定向发送", new ArrayList<WebSocket>(){{add(conn);}});
 	}
 	@Override
 	public void onMessage(WebSocket conn, ByteBuffer message ) {
