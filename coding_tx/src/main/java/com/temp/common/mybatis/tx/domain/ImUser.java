@@ -3,53 +3,55 @@ package com.temp.common.mybatis.tx.domain;
 import java.time.LocalDateTime;
 import java.io.Serializable;
 import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 /**
- * <p>
- * 
- * </p>
- *
- * @author tx
- * @since 2019-01-31
- */
+* <p>
+    * 
+    * </p>
+*
+* @author tx
+* @since 2019-01-31
+*/
 @Data
-@EqualsAndHashCode(callSuper = false)
+@Slf4j
+ @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
 public class ImUser implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+private static final long serialVersionUID = 1L;
 
-    private String id;
+private String id;
 
-    private String avatar;
+private String avatar;
 
-    private String name;
+private String name;
 
-    private String sign;
+private String sign;
 
-    private String mobile;
+private String mobile;
 
-    private String email;
+private String email;
 
-    private String password;
+private String password;
 
-    private String loginName;
+private String loginName;
 
-    private String defaultGroupId;
+private String defaultGroupId;
 
-    private LocalDateTime createDate;
+private LocalDateTime createDate;
 
-    private String createBy;
+private String createBy;
 
-    private LocalDateTime updateDate;
+private LocalDateTime updateDate;
 
-    private String updateBy;
+private String updateBy;
 
-    private String remarks;
+private String remarks;
 
-    private String delFlag;
+private String delFlag;
 
 
 }

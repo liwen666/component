@@ -11,6 +11,7 @@ import com.baomidou.mybatisplus.generator.config.builder.ConfigBuilder;
 import com.baomidou.mybatisplus.generator.config.po.TableInfo;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +23,7 @@ import java.util.Scanner;
  * @author 乐天
  * @since 2018-04-10
  */
+@Slf4j
 public class CodeGenerator {
 
     /**
@@ -55,8 +57,8 @@ public class CodeGenerator {
         gc.setAuthor("tx");
         gc.setOpen(false);
 
-//        gc.setBaseResultMap(true);
-//        gc.setBaseColumnList(true);
+        gc.setBaseResultMap(true);
+        gc.setBaseColumnList(true);
 //        gc.setControllerName("SSSSScontroller");//设置生成的controller名称
         // 是否覆盖已有文件
         gc.setFileOverride(true);
@@ -80,7 +82,7 @@ public class CodeGenerator {
         // 模版去github上看地址：
         /**https://github.com/baomidou/mybatis-plus/tree/3.0/mybatis-plus-generator/src/main/resources/templates*/
         //templateConfig.setEntity("/templates/entity.java");
-        //        templateConfig.setXml(null); 是否在mapper下生成xml文件
+//                templateConfig.setXml(null);// 是否在mapper下生成xml文件
         mpg.setTemplate(templateConfig);
 
 
@@ -115,7 +117,9 @@ public class CodeGenerator {
                 ConfigBuilder config = this.getConfig();
                 TemplateConfig template = config.getTemplate();
 //                template.setEntity("D:\\component\\component\\coding_tx\\src\\main\\java\\com\\temp\\common\\mybatis\\temp.java");
-
+                //设置自定义模板
+                templateConfig.setEntity("com/temp/common/mybatis/template/entity.java");
+                templateConfig.setXml("com/temp/common/mybatis/template/mapper.xml");
 
             }
         };
@@ -124,13 +128,12 @@ public class CodeGenerator {
             @Override
             public String outputFile(TableInfo tableInfo) {
                 // 自定义输入文件名称
-                return projectPath + "/src/main/resources/mapper/" + pc.getModuleName()
+                return projectPath + "/coding_tx/src/main/resources/mapperaaa/" + pc.getModuleName()
                         + "/" + tableInfo.getEntityName() + "Mapper" + StringPool.DOT_XML;
             }
         });
         cfg.setFileOutConfigList(focList);
         mpg.setCfg(cfg);
-//        mpg.setTemplate(new TemplateConfig().);
 
         // 策略配置
         StrategyConfig strategy = new StrategyConfig();
@@ -141,6 +144,7 @@ public class CodeGenerator {
 //        strategy.setRestControllerStyle(true);  //不设置表示加上@controller
 //        strategy.setSuperControllerClass("com.baomidou.ant.common.BaseController");
         strategy.setInclude(scanner("表名"));
+//        strategy.setExclude(..);
 //        strategy.setSuperEntityColumns("id");
         strategy.setControllerMappingHyphenStyle(true);
         strategy.setTablePrefix(pc.getModuleName() + "_");
