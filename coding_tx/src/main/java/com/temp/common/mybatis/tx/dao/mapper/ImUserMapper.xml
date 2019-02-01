@@ -26,4 +26,10 @@
         id, avatar, name, sign, mobile, email, password, login_name, default_group_id, create_date, create_by, update_date, update_by, remarks, del_flag
     </sql>
 
+    <select id="selectMy" resultMap="BaseResultMap">
+        select * from im_user where id='428edf4fcf0242a49198d32845b0b1ec'
+    </select>
+    <!--<select id="selectList" resultMap="BaseResultMap">-->
+        <!--select * from im_user where id=#{id}-->
+    <!--</select>-->
 </mapper>
