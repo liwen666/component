@@ -120,6 +120,7 @@ public class CodeGenerator {
                 //设置自定义模板
                 templateConfig.setEntity("com/temp/common/mybatis/template/entity.java");
                 templateConfig.setXml("com/temp/common/mybatis/template/mapper.xml");
+                templateConfig.setController("com/temp/common/mybatis/template/controller.java");
 
             }
         };
@@ -150,7 +151,7 @@ public class CodeGenerator {
         strategy.setTablePrefix(pc.getModuleName() + "_");
         mpg.setStrategy(strategy);
 //        mpg.setTemplateEngine(new FreemarkerTemplateEngine());
-        mpg.setTemplateEngine(new FreemarkerTemplateEngine());
+        mpg.setTemplateEngine(new MyFreemarkerTemplateEngine());
         mpg.execute();
     }
 }
