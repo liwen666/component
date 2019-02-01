@@ -189,6 +189,7 @@
                     <include>**/**.xml</include>
                     <include>**/**.jks</include>
                     <include>**/**.ftl</include>
+                    <include>**/**.html</include>
                 </includes>
             </resource>
         </resources>
