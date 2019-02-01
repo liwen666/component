@@ -1,17 +1,12 @@
 package com.temp.common.freemarker.high;
 
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.Reader;
-import java.io.Writer;
+import freemarker.template.Template;
+import freemarker.template.TemplateException;
+
+import java.io.*;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-
-import freemarker.template.Template;
-import freemarker.template.TemplateException;
 
 /**
  * Freemarker测试类
@@ -20,7 +15,7 @@ import freemarker.template.TemplateException;
  * @see [相关类/方法]（可选）
  * @since [产品/模块版本] （可选）
  */
-public class FreemarkerTest {
+public class FreemarkerTestLoad {
     public static void main(String[] args) throws IOException, TemplateException {
         Reader reader = new FileReader(new File("D:\\component\\component\\coding_tx\\src\\main\\java\\com\\temp\\common\\freemarker\\high\\test.ftl"));
         Template template = new Template("test", reader, null, "utf-8");

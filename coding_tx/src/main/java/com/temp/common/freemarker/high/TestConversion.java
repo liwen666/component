@@ -16,7 +16,7 @@ import java.util.Map;
 public class TestConversion {
     public static void main(String[] args) throws IOException, TemplateException {
         Map hashMap=new HashMap();
-        hashMap.put("username", "朱绍");
+        hashMap.put("username", "xl");
         hashMap.put("user",new User(){{this.setUsername("abc");}});
         hashMap.put("age", "17");
         hashMap.put("listaa", new ArrayList(){{add(new User(){{this.setUsername("abc");}});}});
