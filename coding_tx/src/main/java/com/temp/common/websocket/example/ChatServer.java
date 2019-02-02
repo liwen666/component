@@ -71,14 +71,33 @@ public class ChatServer extends WebSocketServer {
 			String jsonParam=split[1];
 			JSONObject jsonObject = JSONObject.parseObject(jsonParam);
 			clientSocket.put((String) jsonObject.get("name"),conn);
+
 			System.out.println(jsonObject.get("name"));
 
+		}
+		for(Map.Entry me:clientSocket.entrySet()){
+			System.out.println("连接有：  "+me.getKey());
 		}
 		System.out.println( conn.getRemoteSocketAddress().getAddress().getHostAddress() + " entered the room!" );
 	}
 
 	@Override
 	public void onClose(WebSocket conn, int code, String reason, boolean remote ) {
+		String resourceDescriptor = "";
+		try {
+			resourceDescriptor=URLDecoder.decode(conn.getResourceDescriptor(),"UTF-8");
+
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		String[] split = resourceDescriptor.split("\\?");
+		if(split.length>1){
+			String jsonParam=split[1];
+			JSONObject jsonObject = JSONObject.parseObject(jsonParam);
+			clientSocket.remove(jsonObject.get("name"));
+			System.out.println(jsonObject.get("name"));
+
+		}
 		broadcast( conn + " has left the room!" );
 		System.out.println( conn + " has left the room!" );
 
