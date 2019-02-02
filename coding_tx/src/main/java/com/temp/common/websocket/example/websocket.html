@@ -34,6 +34,7 @@ Welcome<br/><input id="text" type="text"/>
     //连接成功建立的回调方法
     websocket.onopen = function () {
         setMessageInnerHTML("WebSocket连接成功");
+
     }
 
     //接收到消息的回调方法
@@ -61,13 +62,10 @@ Welcome<br/><input id="text" type="text"/>
         websocket.close();
     }
     function openWebSocket() {
-
-        if ('WebSocket' in window) {
-            websocket = new WebSocket("ws://localhost:8887");
-        }
-        else {
-            alert('当前浏览器 Not support websocket')
-        }
+        // alert(websocket.readyState)
+        var url= encodeURI('ws://localhost:8887/web?{"name":"wl"}');
+        websocket = new WebSocket(url);
+        // alert(websocket.readyState)
     }
 
     //发送消息
