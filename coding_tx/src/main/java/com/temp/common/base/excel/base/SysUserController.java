@@ -52,8 +52,13 @@ public class SysUserController {
 //        res.setContentType("application/vnd.ms-excel;charset=utf-8");
 //        res.setHeader("Content-Disposition", "attachment;filename="+ new String((fileName + ".xls").getBytes(), "iso-8859-1"));
 //        ServletOutputStream out = res.getOutputStream();
-        File f = new File("D:\\component\\component\\coding_tx\\src\\main\\java\\com\\temp\\common\\base\\excel\\base\\lw.xls");
-        if(f.exists()){f.createNewFile();}
+//        File f = new File("D:\\component\\component\\coding_tx\\src\\main\\java\\com\\temp\\common\\base\\excel\\base\\lw.xls");
+//        if(f.exists()){f.createNewFile();}
+
+        File f = new File("D:\\idea2018workspace\\component\\coding_tx\\src\\main\\java\\com\\temp\\common\\base\\excel\\base\\lw.xls");
+        if(f.exists()){
+            f.createNewFile();
+        }
         FileOutputStream fo = new FileOutputStream(f);
         BufferedInputStream bis = null;
         BufferedOutputStream bos = null;
