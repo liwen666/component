@@ -41,9 +41,12 @@ public class MybatisMain {
 
         QueryWrapper<ImUser> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("id", "428edf4fcf0242a49198d32845b0b1ec");
+        System.out.println(queryWrapper.getSqlSegment());
+        queryWrapper.getParamNameValuePairs().forEach((k,v)-> System.out.println("key = " + k + " ; value = " + v));
         List<ImUser> messageList = baseMapper.selectList(queryWrapper);
+
         for (ImUser u : messageList) {
-            System.out.println(u.getName());
+            System.out.println(u.getName()+u.getEmail());
         }
 
     }

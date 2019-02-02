@@ -3,7 +3,7 @@
 <mapper namespace="com.temp.common.mybatis.tx.dao.ImUserMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.temp.common.mybatis.tx.domain.ImUser">
+    <resultMap id="BaseResultMap" type="com.temp.common.mybatis.geneator.CodeGenerator">
         <id column="id" property="id" />
         <result column="avatar" property="avatar" />
         <result column="name" property="name" />
@@ -29,7 +29,7 @@
     <select id="selectMy" resultMap="BaseResultMap">
         select * from im_user where id='428edf4fcf0242a49198d32845b0b1ec'
     </select>
-    <select id="selectList" resultMap="BaseResultMap">
-        select * from im_user where id = #{ew.paramNameValuePairs.MPGENVAL1}
-    </select>
+    <!--<select id="selectList" resultMap="BaseResultMap">-->
+        <!--select * from im_user where id=#{id}-->
+    <!--</select>-->
 </mapper>

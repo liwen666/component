@@ -51,6 +51,8 @@ public class CodeGenerator {
 
         // 全局配置
         GlobalConfig gc = new GlobalConfig();
+        // 是否覆盖已有文件
+        gc.setFileOverride(false);
         String projectPath = System.getProperty("user.dir");
 //        String projectPath = "D:\\component\\component\\coding_tx";
         gc.setOutputDir(projectPath + "/coding_tx/src/main/java");
@@ -60,8 +62,7 @@ public class CodeGenerator {
         gc.setBaseResultMap(true);
         gc.setBaseColumnList(true);
 //        gc.setControllerName("SSSSScontroller");//设置生成的controller名称
-        // 是否覆盖已有文件
-        gc.setFileOverride(true);
+
         mpg.setGlobalConfig(gc);
 
 
