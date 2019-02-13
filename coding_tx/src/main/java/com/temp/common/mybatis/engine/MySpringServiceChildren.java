@@ -1,6 +1,7 @@
 package com.temp.common.mybatis.engine;
 
 import com.baomidou.mybatisplus.extension.plugins.IllegalSQLInterceptor;
+import com.baomidou.mybatisplus.extension.plugins.PerformanceInterceptor;
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 import com.temp.common.aop.high.MySpringService;
 import org.apache.ibatis.plugin.Interceptor;
@@ -26,17 +27,17 @@ public class MySpringServiceChildren extends MySpringService {
 
 
     @Bean
-    public SqlSessionFactory getSqlSessionFactory(){
+    public SqlSessionFactory getSqlSessionFactory() {
         try {
             SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
             sqlSessionFactoryBean.setDataSource(dataSource);
             String packageSearchPath = "classpath*:" + "com.temp.common.mybatis".replaceAll("\\.", "/") + "/**/*Mapper.xml";
 
-        Resource[] resources = new PathMatchingResourcePatternResolver().getResources(packageSearchPath);
+            Resource[] resources = new PathMatchingResourcePatternResolver().getResources(packageSearchPath);
             sqlSessionFactoryBean.setMapperLocations(resources);
-            sqlSessionFactoryBean.setPlugins(findPlugins() );
+            sqlSessionFactoryBean.setPlugins(findPlugins());
             return sqlSessionFactoryBean.getObject();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
@@ -44,24 +45,11 @@ public class MySpringServiceChildren extends MySpringService {
 
     private Interceptor[] findPlugins() {
         Interceptor interceptor = new IllegalSQLInterceptor(); //对sql进行校验
-Interceptor me = new Interceptor() {
-    @Override
-    public Object intercept(Invocation invocation) throws Throwable {
-        System.out.println();
-        return null;
-    }
-
-    @Override
-    public Object plugin(Object o) {
-        return null;
-    }
-
-    @Override
-    public void setProperties(Properties properties) {
-
-    }
-};
-        return new Interceptor[]{interceptor,me};
+        Interceptor me = new InterceptorMe();
+        Interceptor sqlInter = new PerformanceInterceptor();
+        ((PerformanceInterceptor)sqlInter).setWriteInLog(true);
+        return new Interceptor[]{interceptor,me,sqlInter};
+//        return new Interceptor[]{me};
     }
 
 
