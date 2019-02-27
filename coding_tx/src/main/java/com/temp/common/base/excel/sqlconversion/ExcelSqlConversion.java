@@ -119,6 +119,7 @@ public class ExcelSqlConversion {
 
     private static void getImmediate(Map<String, List<String>> allSql) {
         StringBuffer sb =new StringBuffer();
+        int count =0;
         for(Map.Entry<String, List<String>> m:allSql.entrySet()){
             String tableName =  m.getKey();
             List<String> value = m.getValue();
@@ -126,10 +127,14 @@ public class ExcelSqlConversion {
                     "  if i = 1 then \n ");
                     for(String im :value){
                         sql.append(im+"\n");
+                        count++;
                     }
-            sql.append("end if;");
+            sql.append("else \n" +
+                    "    dbms_output.put_line('"+tableName+"');\n" +
+                    "end if;");
             sb.append(sql+"\n");
         }
         System.out.println(sb.toString());
+        System.out.println("创建  "+count+"   条索引");
     }
 }
