@@ -107,7 +107,7 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
-            <version>1.2.55</version>
+            <version>1.2.56</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
@@ -161,6 +161,11 @@
             <artifactId>mybatis-plus-core</artifactId>
             <version>3.0.7</version>
         </dependency>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-extension</artifactId>
+            <version>3.0.7</version>
+        </dependency>
 
         <dependency>
             <groupId>com.baomidou</groupId>
@@ -168,11 +173,13 @@
             <version>3.0.7</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/org.freemarker/freemarker -->
         <dependency>
-            <groupId>freemarker</groupId>
+            <groupId>org.freemarker</groupId>
             <artifactId>freemarker</artifactId>
-            <version>2.3.9</version>
+            <version>2.3.28</version>
         </dependency>
+
 
 
 
@@ -180,6 +187,28 @@
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>
             <version>3.4.6</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.56</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.56</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.google.zxing</groupId>
+            <artifactId>core</artifactId>
+            <version>2.2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.zxing</groupId>
+            <artifactId>javase</artifactId>
+            <version>2.2</version>
         </dependency>
 
 
