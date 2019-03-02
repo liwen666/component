@@ -72,8 +72,10 @@ public class WrapperTest {
             .eq("xxx", 123)
             .and(i -> i.eq("andx", 65444).le("ande", 66666))
             .ne("xxx", 222);
-        log(ew.getSqlSet());
+        log(ew.getSqlSet()+"-----------------");
         log(ew.getSqlSegment());
+        ew.getParamNameValuePairs().forEach((k, v) -> System.out.println("key = " + k + " ; value = " + v));
+
     }
 
     @Test
