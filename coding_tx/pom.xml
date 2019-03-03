@@ -188,6 +188,24 @@
             <version>4.3</version>
         </dependency>
 
+        <!--<dependency>-->
+            <!--<groupId>be.yildiz-games</groupId>-->
+            <!--<artifactId>module-window-swt-win64</artifactId>-->
+            <!--<version>LATEST</version>-->
+            <!--<exclusions>-->
+                <!--<exclusion>-->
+                    <!--<groupId>com.splunk.logging</groupId>-->
+                    <!--<artifactId>splunk-library-javalogging</artifactId>-->
+                <!--</exclusion>-->
+            <!--</exclusions>-->
+        <!--</dependency>-->
+        <dependency>
+            <groupId>org.hyperic</groupId>
+            <artifactId>sigar</artifactId>
+            <version>1.6</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.hyperic/sigar -->
 
         <dependency>
             <groupId>org.mybatis</groupId>
