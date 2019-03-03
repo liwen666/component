@@ -73,7 +73,7 @@ public class Test {
 	public static void main(String[] args) {
 		args = new String[2];
 		System.out.println(System.getProperty("user.dir"));
-		args[0] ="二维码测试";
+		args[0] ="老婆别生气了，我还是很爱你的！么么哒……" ;
 		args[1] = System.getProperty("user.dir")+"\\coding_tx\\src\\main\\java\\com\\temp\\common\\zxing\\test.png";
 		if (args.length != 2) {
 			System.out.println("java -cp core.jar;javase.jar;zxing_test.jar Test param1 param2");

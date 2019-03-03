@@ -59,7 +59,8 @@ public class CalcPi2 {
 		
 		try {
 			// read value from console and convert to integer
-			rounds =Integer.parseInt(System.console().readLine());
+//			rounds =Integer.parseInt(System.console().readLine());
+			rounds =1000;
 
 			// record time started
 			long time1 = System.currentTimeMillis();
