@@ -8,3 +8,5 @@ mvn install:install-file -DgroupId=org.java-websocket -DartifactId=Java-WebSocke
 
 mvn install:install-file -DgroupId=com.alibaba -DartifactId=fastjson -Dversion=1.2.57 -Dpackaging=jar -Dfile=fastjson-1.2.56.jar
 
+mvn install:install-file -DgroupId=org.swt -DartifactId=swt.win -Dversion=1.0 -Dpackaging=jar -Dfile=swt.jar
+
