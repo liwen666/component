@@ -12,3 +12,8 @@
 
 
 
+weblogic  登录错误用户被锁定  解决方式
+
+    1.删除domain下的edit.lok
+    2.删除config下的config.lok
+    3.删除service下的服务器里面的文件夹  只保留security文件夹
