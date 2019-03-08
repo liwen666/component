@@ -188,14 +188,6 @@
             <version>4.3</version>
         </dependency>
 
-
-        <dependency>
-            <groupId>io.grpc</groupId>
-            <artifactId>grpc-stub</artifactId>
-            <version>1.18.0</version>
-        </dependency>
-
-
         <!--<dependency>-->
             <!--<groupId>be.yildiz-games</groupId>-->
             <!--<artifactId>module-window-swt-win64</artifactId>-->
