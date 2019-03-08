@@ -37,7 +37,7 @@ public class HelloWorldClient {
     public static void main(String[] args) throws InterruptedException { 
         HelloWorldClient client = new HelloWorldClient("127.0.0.1",50051);
         for(int i=0;i<5;i++){
-            client.greet("world:"+i);
+            client.greet("helloworld:"+i);
         }
 
 
