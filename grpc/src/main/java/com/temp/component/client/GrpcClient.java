@@ -17,7 +17,7 @@ public class GrpcClient {
 
 
     public GrpcClient(String host,int port){
-        channel = ManagedChannelBuilder.forAddress(host,port)
+        channel = ManagedChannelBuilder.forAddress(host,port).usePlaintext()
                 .usePlaintext(true)
                 .build();
 
@@ -37,14 +37,14 @@ public class GrpcClient {
     }
 
     public static void main(String[] args) throws InterruptedException {
-        GrpcClient client = new GrpcClient("127.0.0.1",50000);
+        GrpcClient client = new GrpcClient("127.0.0.1",50001);
         for(int i=0;i<5;i++){
             client.greet("world:"+i);
         }
-       HelloWorldClient client1 = new HelloWorldClient("127.0.0.1",50051);
-        for(int i=0;i<5;i++){
-            client.greet("helloworld:"+i);
-        }
+//       HelloWorldClient client1 = new HelloWorldClient("127.0.0.1",50051);
+//        for(int i=0;i<5;i++){
+//            client1.greet("helloworld:"+i);
+//        }
 
 
     }

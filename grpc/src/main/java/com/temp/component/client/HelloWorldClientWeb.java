@@ -1,20 +1,22 @@
 package com.temp.component.client;
 
+
+import com.temp.component.grpc.GreeterGrpc;
+import com.temp.component.grpc.HelloReply;
+import com.temp.component.grpc.HelloRequest;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
-import io.grpc.examples.helloworld.GreeterGrpc;
-import io.grpc.examples.helloworld.HelloReply;
-import io.grpc.examples.helloworld.HelloRequest;
+
 import java.util.concurrent.TimeUnit;
 
 
-public class HelloWorldClient {
+public class HelloWorldClientWeb {
 
     private final ManagedChannel channel;
     private final GreeterGrpc.GreeterBlockingStub blockingStub;
 
 
-    public HelloWorldClient(String host,int port){ 
+    public HelloWorldClientWeb(String host, int port){
         channel = ManagedChannelBuilder.forAddress(host,port)
                 .usePlaintext(true) 
                 .build();
@@ -24,20 +26,20 @@ public class HelloWorldClient {
 
 
     public void shutdown() throws InterruptedException { 
-        channel.shutdown().awaitTermination(5, TimeUnit.SECONDS);
+        channel.shutdown().awaitTermination(5, TimeUnit.SECONDS); 
     }
 
     public  void greet(String name){ 
         HelloRequest request = HelloRequest.newBuilder().setName(name).build();
-        HelloReply   response = blockingStub.sayHello(request);
-        System.out.println(response.getMessage());
+        HelloReply response = blockingStub.sayHello(request);
+        System.out.println(response.getName()+response.getTime());
 
     }
 
     public static void main(String[] args) throws InterruptedException { 
-        HelloWorldClient client = new HelloWorldClient("127.0.0.1",50051);
+        HelloWorldClientWeb client = new HelloWorldClientWeb("127.0.0.1",50051);
         for(int i=0;i<5;i++){
-            client.greet("world:"+i);
+            client.greet("helloworld:"+i);
         }
 
 

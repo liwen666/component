@@ -13,7 +13,7 @@ import io.grpc.stub.StreamObserver;
 import java.io.IOException;
 
 public class GrpcService {
-    private int port = 50000;
+    private int port = 50001;
     private Server server;
 
     private void start() throws IOException {

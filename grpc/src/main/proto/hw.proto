@@ -1,16 +1,34 @@
+
+
 syntax = "proto3";
 
 option java_multiple_files = true;
-option java_package = "io.grpc.examples.helloworld";
+option java_package = "com.temp.component.grpc";
 option java_outer_classname = "HelloWorldProto";
 option objc_class_prefix = "HLW";
 
-package basedemo;
+package helloworld;
 
 // The greeting service definition.
 service Greeter {
   // Sends a greeting
   rpc SayHello (HelloRequest) returns (HelloReply) {}
+  rpc WMsg (WriteMsg) returns (ResultMsg) {}
+  rpc RMsg (ReadMsg) returns (ResultMsg) {}
+  rpc ListMsg(ReadMsg) returns (stream ResultMsg) {}
+}
+
+message WriteMsg {
+  string key = 1;
+  string value = 2;
+}
+
+message ReadMsg {
+  string key = 1;
+}
+
+message ResultMsg {
+  string result = 1;
 }
 
 // The request message containing the user's name.
@@ -20,5 +38,6 @@ message HelloRequest {
 
 // The response message containing the greetings
 message HelloReply {
-  string message = 1;
+  string name = 1;
+  int64 time = 2;
 }
