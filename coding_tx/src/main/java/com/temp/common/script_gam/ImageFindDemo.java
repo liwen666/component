@@ -1,20 +1,16 @@
 package com.temp.common.script_gam;
 
-import jdk.internal.util.xml.impl.Input;
 
 import java.awt.AWTException;
 import java.awt.Rectangle;
 import java.awt.Robot;
 import java.awt.Toolkit;
-import java.awt.event.InputEvent;
-import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
 
 import javax.imageio.ImageIO;
-import javax.swing.*;
 
 /**
  * 屏幕上查找指定图片
