@@ -1,15 +1,15 @@
 package com.temp.component.dubbo.provider;
  
-import org.apache.zookeeper.CreateMode;
-import org.apache.zookeeper.WatchedEvent;
-import org.apache.zookeeper.Watcher;
+import org.apache.zookeeper.*;
 import org.apache.zookeeper.ZooDefs.Ids;
-import org.apache.zookeeper.ZooKeeper;
- 
+import org.junit.Test;
+
+import java.io.IOException;
+
 public class ZooKeeperTest {
  
     public static void main(String[] args) throws Exception{
-        ZooKeeper zk = new ZooKeeper("192.168.42.220:2181", 3000, new Watcher() {
+        ZooKeeper zk = new ZooKeeper("192.168.42.136:2181", 3000, new Watcher() {
             public void process(WatchedEvent event) {
                 // TODO Auto-generated method stub
                 System.out.println(" receive event : " + event.getType().name());
@@ -32,5 +32,17 @@ public class ZooKeeperTest {
         System.out.println("==========查看节点是否被删除============");
         System.out.println("节点状态：" + zk.exists("/test", false));
         zk.close();
-    } 
+    }
+    @Test
+    public void insertNode() throws IOException, KeeperException, InterruptedException {
+        ZooKeeper zk = new ZooKeeper("192.168.42.136:2181", 3000, new Watcher() {
+            public void process(WatchedEvent event) {
+                // TODO Auto-generated method stub
+                System.out.println(" receive event : " + event.getType().name());
+            }
+        });
+        if (null == zk.exists("/test", false)) {
+            zk.create("/test", "znode1".getBytes(), Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
+        }
+    }
 }

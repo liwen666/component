@@ -15,6 +15,7 @@
 >
     <context:property-placeholder location="classpath:config.properties"/>
     <dubbo:application name="dubbo_provider" />
+    <!--<dubbo:application name="component" logger="slf4j" />-->
 
     <!--<dubbo:registry  address="zookeeper:192.168.42.136:2181" />-->
     <dubbo:registry protocol="zookeeper" address="192.168.42.136:2181" />

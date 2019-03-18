@@ -17,6 +17,7 @@
         <module>dubbo_client</module>
         <module>springboot-freemarker</module>
         <module>springboot-validation-over-json</module>
+        <module>kafkamq</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

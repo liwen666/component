@@ -4,7 +4,6 @@ server:
 #bean的命名必须小写
 h2service:
 
-
 spring:
   datasource:
     type: org.h2.jdbcx.JdbcDataSource
@@ -18,7 +17,7 @@ spring:
       password: lw
     filter:
       dispatcher-types:
-
+      
 ##日志配置
   logging:
     config: classpath:logback-spring.xml

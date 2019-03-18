@@ -1,8 +1,5 @@
 package com.temp.springcloud;
 
-import com.temp.springcloud.bean.UserDomain;
-import com.temp.springcloud.io.StreamToFile;
-import com.temp.springcloud.sqlscript.controller.SqlFileExecutorController;
 import com.temp.springcloud.sqlscript.controller.SqlFileExecutorControllerForJar;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,18 +30,18 @@ public class SpringSecurityTx  {
         ConfigurableListableBeanFactory beanFactory = run.getBeanFactory();
         DataSource bean = beanFactory.getBean(DataSource.class);
         SqlFileExecutorControllerForJar bean1    = beanFactory.getBean(SqlFileExecutorControllerForJar.class);
-        StreamToFile bean2 = beanFactory.getBean(StreamToFile.class);
-        System.out.println(bean2.getUser("n"));
+//        StreamToFile bean2 = beanFactory.getBean(StreamToFile.class);
+//        System.out.println(bean2.getUser("n"));
 
 
         bean1.initSqlScriptSource(null,null);
 
     }
-    @RequestMapping("/rest/{name}")
-    public UserDomain getUser(@PathVariable(value = "name")String name){
-        System.out.println(name);
-        UserDomain ud = new UserDomain("li","10");
-        return ud;
-    }
+//    @RequestMapping("/rest/{name}")
+//    public UserDomain getUser(@PathVariable(value = "name")String name){
+//        System.out.println(name);
+//        UserDomain ud = new UserDomain("li","10");
+//        return ud;
+//    }
 
 }
