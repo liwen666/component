@@ -57,12 +57,12 @@ public class CodeController {
 	char[] codeSequence = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J',
 			'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W',
 			'X', 'Y', 'Z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
-	@Value("${INIT_WIDTH}")
-	private String initWidth;
-	@Value("${INIT_HEIGTH}")
-	private String initHeight;
-	@Value("${INIT_COUNT}")
-	private String initCodeCount;
+	//	@Value("${INIT_WIDTH}")
+	private String initWidth ="120";
+	//	@Value("${INIT_HEIGTH}")
+	private String initHeight ="25";
+	//	@Value("${INIT_COUNT}")
+	private String initCodeCount ="4";
 
 	/**
 	 * 初始化验证图片属性
