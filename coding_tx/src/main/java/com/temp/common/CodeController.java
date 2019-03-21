@@ -116,6 +116,7 @@ public class CodeController {
 		// 创建一个随机数生成器类
 		Random random = new Random();
 		// 将图像填充为白色
+//		这是一个画笔。给它设置颜色 然后绘画各种内容
 		gd.setColor(Color.LIGHT_GRAY);
 		gd.fillRect(0, 0, width, height);
 		// 创建字体，字体的大小应该根据图片的高度来定。
