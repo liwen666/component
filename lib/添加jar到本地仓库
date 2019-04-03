@@ -13,6 +13,7 @@ mvn install:install-file -DgroupId=org.swt -DartifactId=swt.win -Dversion=1.0 -D
 mvn install:install-file -DgroupId=org.hyperic -DartifactId=sigar -Dversion=1.0 -Dpackaging=jar -Dfile=sigar.jar
 
 mvn install:install-file -DgroupId=org.hyperic -DartifactId=sigar -Dversion=1.6 -Dpackaging=jar -Dfile=sigar1.6.jar
+mvn install:install-file -DgroupId=eu.bitwalker -DartifactId=UserAgentUtils -Dversion=1.20 -Dpackaging=jar -Dfile=UserAgentUtils-1.20.jar
 
 
 
