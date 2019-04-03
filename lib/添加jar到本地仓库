@@ -16,6 +16,7 @@ mvn install:install-file -DgroupId=org.hyperic -DartifactId=sigar -Dversion=1.6 
 mvn install:install-file -DgroupId=eu.bitwalker -DartifactId=UserAgentUtils -Dversion=1.20 -Dpackaging=jar -Dfile=UserAgentUtils-1.20.jar
 mvn install:install-file -DgroupId=com.github.oshi -DartifactId=oshi-core -Dversion=3.1 -Dpackaging=jar -Dfile=oshi-core-3.1.jar
 mvn install:install-file -DgroupId=com.github.oshi -DartifactId=oshi-core -Dversion=3.13.0 -Dpackaging=jar -Dfile=oshi-core-3.13.0.jar
+mvn install:install-file -DgroupId=com.github.oshi -DartifactId=oshi-core -Dversion=3.13.0 -Dpackaging=jar -Dfile=oshi-core-3.13.0.jar
 
 
 
