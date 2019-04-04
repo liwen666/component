@@ -5,4 +5,6 @@
  ##http    302 重定向  400  请求失败  405 方法不允许   406 返回数据浏览器无法解析
  
  使用post  提交请求是，接收参数最好用 @RequestBody Map<String ,Object>  否则会遇到400  失败请求  
-  
+ 
+ #tomcat后台启动
+  setclasspath.bat  将  里面的java.exe  改成 javaw.exe  即可
