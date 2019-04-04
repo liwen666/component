@@ -18,5 +18,7 @@ mvn install:install-file -DgroupId=com.github.oshi -DartifactId=oshi-core -Dvers
 mvn install:install-file -DgroupId=com.github.oshi -DartifactId=oshi-core -Dversion=3.13.0 -Dpackaging=jar -Dfile=oshi-core-3.13.0.jar
 mvn install:install-file -DgroupId=com.github.oshi -DartifactId=oshi-core -Dversion=3.9.1 -Dpackaging=jar -Dfile=oshi-core-3.9.1.jar
 
+mvn install:install-file -DgroupId=com.github.theborakompanioni -DartifactId=thymeleaf-extras-shiro -Dversion=2.0.0 -Dpackaging=jar -Dfile=thymeleaf-extras-shiro-2.0.0.jar
+
 
 
