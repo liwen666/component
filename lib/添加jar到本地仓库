@@ -20,5 +20,10 @@ mvn install:install-file -DgroupId=com.github.oshi -DartifactId=oshi-core -Dvers
 
 mvn install:install-file -DgroupId=com.github.theborakompanioni -DartifactId=thymeleaf-extras-shiro -Dversion=2.0.0 -Dpackaging=jar -Dfile=thymeleaf-extras-shiro-2.0.0.jar
 
+mvn install:install-file -DgroupId=com.hq.bpmn -DartifactId=hqbpmn_service -Dversion=2.0.0 -Dpackaging=jar -Dfile=hqbpmn-server2.0.jar
+mvn install:install-file -DgroupId=com.hq.bpmn -DartifactId=hqbpmn_full -Dversion=2.3.2.12 -Dpackaging=jar -Dfile=hqbpmn_full.jar
+
+mvn install:install-file -DgroupId=com.oracle -DartifactId=ojdbc6 -Dversion=11.2.0 -Dpackaging=jar -Dfile=ojdbc6-11.2.0.jar
+
 
 
