@@ -11,7 +11,7 @@
 （6）设置名称和口令，字母数字，例如weblogic  选择编号操作
 
 
-
+输入错误按 ctrl+u
 weblogic  登录错误用户被锁定  解决方式
 
     1.删除domain下的edit.lok
