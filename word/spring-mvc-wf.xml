@@ -1,18 +1,38 @@
-
-配置springmvc的json转换器
-
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/context
-       http://www.springframework.org/schema/context/spring-context.xsd">
-
-
+       http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc
+       http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+    <!--配置springmvc的json转换器-->
+    <mvc:annotation-driven ignore-default-model-on-redirect="true">
+        <!-- 这里配置IE的json格式兼容性 -->
+        <mvc:message-converters register-defaults="false">
+            <bean class="org.springframework.http.converter.ByteArrayHttpMessageConverter"/>
+            <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+                <property name="supportedMediaTypes" value="text/plain;charset=UTF-8"/>
+            </bean>
+            <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+                <property name="supportedMediaTypes">
+                    <list>
+                        <value>
+                            appliaction/json;charset=UTF-8
+                        </value>
+                        <value>
+                            text/html;charset=UTF-8
+                        </value>
+                    </list>
+                </property>
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
     <!--、扫描@Controller注解的类-->
-    <context:component-scan base-package="com.hq.bpmn">
+    <context:component-scan base-package="com">
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
 
@@ -26,33 +46,33 @@
         </property>
     </bean>
 
-    <!-- 前端Json转换器 -->
-    <bean id="mappingJacksonHttpMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
-        <property name="supportedMediaTypes">
-            <list>
-                <bean class="org.springframework.http.MediaType">
-                    <constructor-arg index="0" value="text"/>
-                    <constructor-arg index="1" value="plain"/>
-                    <constructor-arg index="2" value="UTF-8"/>
-                </bean>
-                <bean class="org.springframework.http.MediaType">
-                    <constructor-arg index="0" value="*"/>
-                    <constructor-arg index="1" value="*"/>
-                    <constructor-arg index="2" value="UTF-8"/>
-                </bean>
-                <bean class="org.springframework.http.MediaType">
-                    <constructor-arg index="0" value="text"/>
-                    <constructor-arg index="1" value="*"/>
-                    <constructor-arg index="2" value="UTF-8"/>
-                </bean>
-                <bean class="org.springframework.http.MediaType">
-                    <constructor-arg index="0" value="application"/>
-                    <constructor-arg index="1" value="json"/>
-                    <constructor-arg index="2" value="UTF-8"/>
-                </bean>
-            </list>
-        </property>
-    </bean>
+    <!--&lt;!&ndash;&lt;!&ndash; 前端Json转换器 &ndash;&gt;&ndash;&gt; 方法一-->
+    <!--<bean id="mappingJacksonHttpMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">-->
+        <!--<property name="supportedMediaTypes">-->
+            <!--<list>-->
+                <!--<bean class="org.springframework.http.MediaType">-->
+                    <!--<constructor-arg index="0" value="text"/>-->
+                    <!--<constructor-arg index="1" value="plain"/>-->
+                    <!--<constructor-arg index="2" value="UTF-8"/>-->
+                <!--</bean>-->
+                <!--<bean class="org.springframework.http.MediaType">-->
+                    <!--<constructor-arg index="0" value="*"/>-->
+                    <!--<constructor-arg index="1" value="*"/>-->
+                    <!--<constructor-arg index="2" value="UTF-8"/>-->
+                <!--</bean>-->
+                <!--<bean class="org.springframework.http.MediaType">-->
+                    <!--<constructor-arg index="0" value="text"/>-->
+                    <!--<constructor-arg index="1" value="*"/>-->
+                    <!--<constructor-arg index="2" value="UTF-8"/>-->
+                <!--</bean>-->
+                <!--<bean class="org.springframework.http.MediaType">-->
+                    <!--<constructor-arg index="0" value="application"/>-->
+                    <!--<constructor-arg index="1" value="json"/>-->
+                    <!--<constructor-arg index="2" value="UTF-8"/>-->
+                <!--</bean>-->
+            <!--</list>-->
+        <!--</property>-->
+    <!--</bean>-->
     <bean
             class="org.springframework.web.servlet.view.UrlBasedViewResolver">
         <!--<property name="prefix" value="/WEB-INF/" />-->
