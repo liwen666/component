@@ -1,0 +1,37 @@
+DROP TABLE  IF EXISTS  ACT_ID_USER;
+create table ACT_ID_USER
+(
+  ID_         VARCHAR(64) not null,
+  REV_        INTEGER,
+  FIRST_      VARCHAR(255),
+  LAST_       VARCHAR(255),
+  EMAIL_      VARCHAR(255),
+  PWD_        VARCHAR(255),
+  PICTURE_ID_ VARCHAR(64),
+  STATUS_     VARCHAR(10) default 1,
+  STATE_      VARCHAR(10) default 1,
+  PROVINCE    VARCHAR(32)
+);
+DROP TABLE  IF EXISTS ACT_ID_GROUP;
+create table ACT_ID_GROUP
+(
+  ID_       VARCHAR(64) not null,
+  REV_      INTEGER,
+  NAME_     VARCHAR(255),
+  TYPE_     VARCHAR(255),
+  PID_      VARCHAR(64),
+  CATEGORY_ VARCHAR(64),
+  ORDERCODE INTEGER (18),
+  ORGCODE   VARCHAR(200),
+  PROVINCE  VARCHAR(32)
+);
+DROP TABLE  IF EXISTS ACT_ID_MEMBERSHIP;
+create table ACT_ID_MEMBERSHIP
+(
+  USER_ID_  VARCHAR(64) not null,
+  GROUP_ID_ VARCHAR(64) not null
+);
+
+
+
+
