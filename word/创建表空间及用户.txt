@@ -1,0 +1,210 @@
+--2.4.1.1平台数据库用户、表空间创建
+--创建临时表空间 
+create temporary tablespace FASPTEMP 
+tempfile '/home/oracle/temp/FASPTEMP.dbf' 
+size 50m 
+autoextend on 
+next 50m maxsize unlimited
+extent management local; 
+--创建数据表空间 
+create tablespace FASP
+logging 
+datafile '/home/oracle/data/FASP.dbf ' 
+size 50m 
+autoextend on 
+next 50m maxsize unlimited 
+extent management local; 
+--创建用户 
+create user FASP_87 identified by FASP_87
+default tablespace FASP
+temporary tablespace FASPTEMP
+profile DEFAULT
+account unlock;
+
+grant connect to FASP_87 with admin option;
+grant exp_full_database to FASP_87;
+grant imp_full_database to FASP_87;
+grant javasyspriv to FASP_87;
+grant java_admin to FASP_87;
+grant resource to FASP_87 with admin option;
+grant administer database trigger to FASP_87 with admin option;
+grant alter any index to FASP_87;
+grant alter any procedure to FASP_87;
+grant alter any table to FASP_87;
+grant alter session to FASP_87;
+grant alter tablespace to FASP_87;
+grant analyze any to FASP_87;
+grant audit any to FASP_87;
+grant comment any table to FASP_87;
+grant create any index to FASP_87;
+grant create any materialized view to FASP_87 with admin option;
+grant create any procedure to FASP_87;
+grant create any sequence to FASP_87;
+grant create any synonym to FASP_87 with admin option;
+grant create any table to FASP_87 with admin option;
+grant create any trigger to FASP_87;
+grant create any view to FASP_87 with admin option;
+grant create cluster to FASP_87;
+grant create database link to FASP_87;
+grant create job to FASP_87;
+grant create library to FASP_87;
+grant create materialized view to FASP_87;
+grant create procedure to FASP_87;
+grant create profile to FASP_87;
+grant create sequence to FASP_87;
+grant create session to FASP_87;
+grant create synonym to FASP_87;
+grant create table to FASP_87;
+grant create trigger to FASP_87;
+grant create type to FASP_87;
+grant create view to FASP_87;
+grant debug any procedure to FASP_87;
+grant debug connect session to FASP_87;
+grant delete any table to FASP_87 with admin option;
+grant drop any index to FASP_87;
+grant drop any materialized view to FASP_87;
+grant drop any synonym to FASP_87 with admin option;
+grant drop any table to FASP_87;
+grant drop any view to FASP_87;
+grant insert any table to FASP_87 with admin option;
+grant on commit refresh to FASP_87;
+grant select any dictionary to FASP_87;
+grant select any table to FASP_87 with admin option;
+grant unlimited tablespace to FASP_87 with admin option;
+grant update any table to FASP_87 with admin option;
+
+--2.4.1.2业务用户、表空间创建
+--创建临时数据表空间 
+create temporary tablespace EFMTEMP 
+tempfile '/home/oracle/temp/EFMTEMP.dbf' 
+size 50m 
+autoextend on 
+next 50m maxsize unlimited 
+extent management local; 
+--创建数据表空间 
+create tablespace EFMIS
+logging 
+datafile '/home/oracle/data/EFMIS.dbf ' 
+size 50m 
+autoextend on 
+next 50m maxsize unlimited 
+extent management local; 
+
+
+--创建业务用户 
+create user EFMIS_87 identified by EFMIS_87
+default tablespace EFMIS
+temporary tablespace EFMTEMP
+profile DEFAULT
+account unlock;
+
+grant connect to EFMIS_87 with admin option;
+grant exp_full_database to EFMIS_87;
+grant imp_full_database to EFMIS_87;
+grant javasyspriv to EFMIS_87;
+grant java_admin to EFMIS_87;
+grant resource to EFMIS_87 with admin option;
+grant administer database trigger to EFMIS_87 with admin option;
+grant alter any index to EFMIS_87;
+grant alter any procedure to EFMIS_87;
+grant alter any table to EFMIS_87;
+grant alter session to EFMIS_87;
+grant alter tablespace to EFMIS_87;
+grant analyze any to EFMIS_87;
+grant audit any to EFMIS_87;
+grant comment any table to EFMIS_87;
+grant create any index to EFMIS_87;
+grant create any materialized view to EFMIS_87 with admin option;
+grant create any procedure to EFMIS_87;
+grant create any sequence to EFMIS_87;
+grant create any synonym to EFMIS_87 with admin option;
+grant create any table to EFMIS_87 with admin option;
+grant create any trigger to EFMIS_87;
+grant create any view to EFMIS_87 with admin option;
+grant create cluster to EFMIS_87;
+grant create database link to EFMIS_87;
+grant create job to EFMIS_87;
+grant create library to EFMIS_87;
+grant create materialized view to EFMIS_87;
+grant create procedure to EFMIS_87;
+grant create profile to EFMIS_87;
+grant create sequence to EFMIS_87;
+grant create session to EFMIS_87;
+grant create synonym to EFMIS_87;
+grant create table to EFMIS_87;
+grant create trigger to EFMIS_87;
+grant create type to EFMIS_87;
+grant create view to EFMIS_87;
+grant debug any procedure to EFMIS_87;
+grant debug connect session to EFMIS_87;
+grant delete any table to EFMIS_87 with admin option;
+grant drop any index to EFMIS_87;
+grant drop any materialized view to EFMIS_87;
+grant drop any synonym to EFMIS_87 with admin option;
+grant drop any table to EFMIS_87;
+grant drop any view to EFMIS_87;
+grant insert any table to EFMIS_87 with admin option;
+grant on commit refresh to EFMIS_87;
+grant select any dictionary to EFMIS_87;
+grant select any table to EFMIS_87 with admin option;
+grant unlimited tablespace to EFMIS_87 with admin option;
+grant update any table to EFMIS_87 with admin option;
+
+--2.4.1.3日志用户创建
+--创建用户 
+create user LOG_87 identified by LOG_87
+default tablespace FASP
+temporary tablespace FASPTEMP
+profile DEFAULT
+account unlock;
+grant connect to LOG_87 with admin option;
+grant exp_full_database to LOG_87;
+grant imp_full_database to LOG_87;
+grant javasyspriv to LOG_87;
+grant java_admin to LOG_87;
+grant resource to LOG_87 with admin option;
+grant administer database trigger to LOG_87 with admin option;
+grant alter any index to LOG_87;
+grant alter any procedure to LOG_87;
+grant alter any table to LOG_87;
+grant alter session to LOG_87;
+grant alter tablespace to LOG_87;
+grant analyze any to LOG_87;
+grant audit any to LOG_87;
+grant comment any table to LOG_87;
+grant create any index to LOG_87;
+grant create any materialized view to LOG_87 with admin option;
+grant create any procedure to LOG_87;
+grant create any sequence to LOG_87;
+grant create any synonym to LOG_87 with admin option;
+grant create any table to LOG_87 with admin option;
+grant create any trigger to LOG_87;
+grant create any view to LOG_87 with admin option;
+grant create cluster to LOG_87;
+grant create database link to LOG_87;
+grant create job to LOG_87;
+grant create library to LOG_87;
+grant create materialized view to LOG_87;
+grant create procedure to LOG_87;
+grant create profile to LOG_87;
+grant create sequence to LOG_87;
+grant create session to LOG_87;
+grant create synonym to LOG_87;
+grant create table to LOG_87;
+grant create trigger to LOG_87;
+grant create type to LOG_87;
+grant create view to LOG_87;
+grant debug any procedure to LOG_87;
+grant debug connect session to LOG_87;
+grant delete any table to LOG_87 with admin option;
+grant drop any index to LOG_87;
+grant drop any materialized view to LOG_87;
+grant drop any synonym to LOG_87 with admin option;
+grant drop any table to LOG_87;
+grant drop any view to LOG_87;
+grant insert any table to LOG_87 with admin option;
+grant on commit refresh to LOG_87;
+grant select any dictionary to LOG_87;
+grant select any table to LOG_87 with admin option;
+grant unlimited tablespace to LOG_87 with admin option;
+  grant update any table to LOG_87 with admin option;
