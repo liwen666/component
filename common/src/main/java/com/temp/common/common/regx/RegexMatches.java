@@ -8,15 +8,18 @@ public class RegexMatches
     public static void main( String args[] ){
  
       // 按指定模式在字符串查找
-      String line = "This order was placed for 44QT3000! OK?33";
-      String pattern = "(\\D*)(\\d+)(.*)";
- 
+      String line = "This order was select placed for 44QT3000! OK?33";
+//      String pattern = "(\\D*)(\\d+)(.*)";
+      String pattern = "(\\D*)(select|or)(.*)";
+
       // 创建 Pattern 对象
       Pattern r = Pattern.compile(pattern);
  
       // 现在创建 matcher 对象
       Matcher m = r.matcher(line);
       if (m.find( )) {
+          System.out.println(m.groupCount());
+
          System.out.println("Found value: " + m.group(0) );
          System.out.println("Found value: " + m.group(1) );
          System.out.println("Found value: " + m.group(2) );
@@ -105,5 +108,42 @@ class RegexMatches4
         }
         m.appendTail(sb);
         System.out.println(sb.toString());
+    }
+}
+
+class SqlFilter{
+
+    public static void main( String args[] ){
+
+        // 按指定模式在字符串查找
+//        String sqlPattern="(selec)|(os)";
+        String sqlPattern="(?:')|(?:--)|(/\\*(?:.|[\\n\\r])*?\\*/)|(\\b(select|update|and|or|delete|insert|trancate|char|into|substr|ascii|declare|exec|count|master|into|drop|execute)\\b)";
+        String data = " select ";
+        // 创建 Pattern 对象
+        Pattern r = Pattern.compile(sqlPattern);
+
+        // 现在创建 matcher 对象
+        Matcher m = r.matcher(data);
+//        System.out.println(m.find()+"-----------");
+        if (m.find()) {
+            System.out.println("==========");
+//            System.out.println(m.group(0));
+//            System.out.println(m.group(1));
+//            System.out.println(m.group(2));
+//            System.out.println(m.group(3));
+            System.out.println(m.groupCount());
+        } else {
+            System.out.println("NO MATCH");
+        }
+    }
+
+}
+class  sssss{
+    public static void main(String[] args) {
+        Pattern compile = Pattern.compile("((\\sselect\\s|\\supdate\\s|and\\s|or\\s|\\sdelete\\s|\\sinsert\\s|\\strancate\\s|\\schar\\s|\\sinto\\s|\\ssubstr\\s|\\sascii\\s|\\sdeclare\\s|\\sexec\\s|\\scount\\s|\\smaster\\s|\\sinto\\s|\\sdrop\\s|\\sexecute\\s))|['#]");
+        Matcher matcher = compile.matcher(" selector");
+        boolean b = matcher.find();
+        System.out.println(b);
+        System.out.println();
     }
 }
