@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<jsversion> 
+  <file filename="com\temp\common\common\util\base64.js" lastmodify="2019-05-11 03:35:58" md5="b451ec6530d4076e0741239f73bb884e" size="3016" version="2"/>  
+  <file filename="com\temp\common\common\util\config.version.js" lastmodify="2019-05-11 03:31:42" md5="ea9d2932dcfc7a1bbce5555409bec393" size="108" version="1"/>  
+  <file filename="com\temp\common\common\util\js\base64.js" lastmodify="2019-05-11 10:38:47" md5="e1b453aaa054b6b5e6076d2e5a958e1b" size="3013" version="1"/>  
+  <file filename="com\temp\common\common\util\js\login.js" lastmodify="2019-05-11 02:41:03" md5="e576c9c245e5d0b2a9586a715f027cf3" size="42709" version="1"/> 
+</jsversion>
