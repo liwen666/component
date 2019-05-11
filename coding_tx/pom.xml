@@ -273,6 +273,7 @@
                     <include>**/**.jks</include>
                     <include>**/**.ftl</include>
                     <include>**/**.html</include>
+                    <include>**/**.js</include>
                 </includes>
             </resource>
         </resources>

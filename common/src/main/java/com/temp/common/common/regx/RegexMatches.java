@@ -140,8 +140,8 @@ class SqlFilter{
 }
 class  sssss{
     public static void main(String[] args) {
-        Pattern compile = Pattern.compile("(\\sselect\\s|\\supdate\\s|and\\s|or\\s|\\sdelete\\s|\\sinsert\\s|\\strancate\\s|\\schar\\s|\\sinto\\s|\\ssubstr\\s|\\sascii\\s|\\sdeclare\\s|\\sexec\\s|\\scount\\s|\\smaster\\s|\\sinto\\s|\\sdrop\\s|\\sexecute\\s)|['#]");
-        Matcher matcher = compile.matcher(" select or");
+        Pattern compile = Pattern.compile("(\\sselect\\s|\\supdate\\s|and\\s|or\\s|\\sdelete\\s|\\sinsert\\s|\\strancate\\s|\\schar\\s|\\sinto\\s|\\ssubstr\\s|\\sascii\\s|\\sdeclare\\s|\\sexec\\s|\\scount\\s|\\smaster\\s|\\sinto\\s|\\sdrop\\s|\\sexecute\\s)|['#|\\\\/]");
+        Matcher matcher = compile.matcher(" selector");
         boolean b = matcher.find();
         System.out.println(b);
         System.out.println();
