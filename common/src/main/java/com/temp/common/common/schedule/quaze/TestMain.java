@@ -1,9 +1,8 @@
 package com.temp.common.common.schedule.quaze;
 
 //import org.quartz.impl.triggers.CronTriggerImpl;
-import org.quartz.CronTrigger;
-import org.quartz.JobDetail;
-import org.quartz.Scheduler;
+import com.alibaba.fastjson.JSON;
+import org.quartz.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.BeanFactory;
@@ -13,6 +12,7 @@ import org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean;
 import org.springframework.scheduling.quartz.SchedulerFactoryBean;
 
 import java.text.ParseException;
+import java.util.List;
 
 public class TestMain {
     public  static Logger logger= LoggerFactory.getLogger(TestMain.class);
@@ -57,6 +57,10 @@ public class TestMain {
         Scheduler scheduler = sfb.getObject();
 
 
+        List<String> triggerGroupNames = scheduler.getTriggerGroupNames();
+        System.out.println(JSON.toJSONString(triggerGroupNames));
+        Trigger trigger11 = scheduler.getTrigger(new TriggerKey("trigger1"));
+        System.out.println(JSON.toJSONString(trigger11));
         Thread.sleep(5000);
         System.out.println("停止定时器！");
 
@@ -71,7 +75,6 @@ public class TestMain {
         System.out.println("恢复trigger1定时器！");
         scheduler.resumeTrigger(trigger1.getKey());
 //        scheduler.unscheduleJob()
-
 
     }
 }
