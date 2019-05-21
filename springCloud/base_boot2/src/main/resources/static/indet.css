@@ -1,0 +1,435 @@
+@charset "utf-8";
+#div .close,a {
+	text-decoration:none
+}
+#div,#div .close,.bg_pic .log {
+	position:absolute
+}
+#div {
+	z-index: 10;
+	width:320px;
+	border:1px solid #c1e0ff;
+	font-size:12px;
+	right:20px;
+	bottom:20px;
+	height:150px;
+	background-color:#FFF;
+	border-radius:5px
+}
+#div h2 {
+	margin:1px;
+	padding-left:10px;
+	height:28px;
+	line-height:28px;
+	font-size:16px;
+	color:#fff;
+	font-weight:100;
+	background:#87c3ff;
+	cursor:move;
+	font-family:"微软雅黑"
+}
+#div h2 img {
+	float:left;
+	margin:6px 5px auto auto
+}
+#div .content {
+	padding:5px 10px;
+	line-height:20px
+}
+#div .close {
+	display:block;
+	right:10px;
+	top:0;
+	line-height:22px;
+	color:#fff;
+	font-size:25px
+}
+#div .content ul li {
+	font:14px/35px "微软雅黑";
+	color:#6d6d6d;
+	list-style:disc inside url(../images/icon.png)
+}
+#div .content ul li a {
+	color:#6d6d6d
+}
+ul,li {
+	list-style: none;
+}
+html,body{
+	min-width: 1300px;
+}
+/*banner*/
+.banner {
+	height: 196px;
+	width: 100%;
+	background: #f0f0f1;
+	z-index: 4;
+	top: 65px;
+	position: absolute;
+	border-bottom: 1px solid #e9e9e9;
+}
+.banner img {
+	width: 1294px;
+	height: 196px;
+	display: block;
+	margin: 0 auto;
+}
+/*contian*/
+.contian {
+	width: 1240px;
+	margin: 0px auto;
+	background: #fff;
+	overflow: hidden;
+}
+.con_all_db {
+	margin-bottom: 15px;
+}
+.con_all_db {
+	border: 1px solid #e8e8e8;
+	height: 179px;
+}
+.con_all_title {
+	background: #fbfbfb;
+	border-bottom: 1px solid #e8e8e8;
+	height: 38px;
+}
+.con_all_title .db_icon, .con_all_title .db_all_text {
+	float: left;
+}
+.con_all_title li {
+	line-height: 38px;
+}
+.con_all_title .db_icon {
+	height: 38px;
+	width: 38px;
+	border-right: 1px solid #e8e8e8;
+	background: url("../images/all_db.png") #f8f8f8 no-repeat center center;
+}
+.con_all_title .db_icon02 {
+	height: 38px;
+	width: 38px;
+	border-right: 1px solid #e8e8e8;
+	background: #f8f8f8 url("../images/icon-03.png") no-repeat center center;
+	float: left;
+}
+.con_all_title .db_icon03 {
+	height: 38px;
+	width: 38px;
+	border-right: 1px solid #e8e8e8;
+	background: #f8f8f8 url("../images/icon-04.png") no-repeat center center;
+	float: left;
+}
+.con_all_title .db_icon04 {
+	height: 38px;
+	width: 38px;
+	border-right: 1px solid #e8e8e8;
+	background: #f8f8f8 url("../images/icon-05.png") no-repeat center center;
+	float: left;
+}
+.db_all_text {
+	font-size: 19px;
+	color: #202020;
+	padding-left: 9px;
+	font-family: "微软雅黑";
+}
+.db_all_text span {
+	color: #ff0000;
+	font-size: 18px;
+	padding: 0px 8px;
+}
+.con_right {
+	float: right;
+	color: #adadad;
+	font-size: 18px;
+	padding-right: 40px;
+	font-family: "微软雅黑";
+}
+/*con_all2*/
+.con_all2 {
+	overflow: hidden;
+}
+.con_notice, .con_helpword, .con_fun {
+	float: left;
+	height: 250px;
+}
+.button {
+	height: 32px;
+	width: 125px;
+	border: 1px solid #e8e8e8;
+	display: block;
+	font: 13px/31px "微软雅黑";
+	text-decoration: none;
+	text-align: left;
+	background-attachment: scroll;
+	background-image: url(../images/button-icon.png);
+	background-repeat: no-repeat;
+	background-position: 10px center;
+	color: #4d4d4d;
+	float: left;
+	margin-top: 15px;
+	margin-left: 10px;
+	padding-left: 28px;
+}
+/*----------------------------------------------------------------------------------------*/
+.footer {
+	font: 15px/40px "΢���ź�";
+	background-attachment: scroll;
+	background-image: url(../images/footer-bg.png);
+	background-repeat: repeat-x;
+	background-position: center center;
+	text-align: center;
+	height: 40px;
+	width: 100%;
+	color: #6b6b6b;
+	margin-top: 50px;
+	bottom: 0px;
+}
+.footer_900 {
+	font: 15px/40px "΢���ź�";
+	background-attachment: scroll;
+	background-image: url(../images/footer-bg.png);
+	background-repeat: repeat-x;
+	background-position: center center;
+	text-align: center;
+	height: 40px;
+	width: 100%;
+	color: #6b6b6b;
+	margin-top: 50px;
+	bottom: 0px;
+	position: fixed;
+}
+.icon-01 {
+	background-attachment: scroll;
+	background-image: url(../images/icon-01.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+	height: 23px;
+	width: 30px;
+	padding-top: 20px;
+	padding-left: 0px;
+	display: block;
+	margin-left: 20px;
+	padding-right: 30px;
+}
+.icon-02 {
+	background-attachment: scroll;
+	background-image: url(../images/icon-02.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+	height: 23px;
+	width: 30px;
+	padding-top: 20px;
+	padding-left: 0px;
+	display: block;
+	margin-left: 20px;
+	padding-right: 30px;
+}
+
+.icon-number {
+	font: 27px/45px "黑体";
+	color: #FFF;
+	height: 45px;
+	text-align: left;
+}
+.icon-title {
+	font: 16px "微软雅黑";
+	color: #FFF;
+	display: block;
+}
+.list{
+    height: 210px;
+    overflow: hidden;
+}
+.list ul {
+	padding-top: 10px;
+	padding-left: 15px;
+}
+.list ul li span {
+	font: 13px/33px "微软雅黑";
+	color: #808080;
+	float: right;
+	padding-right: 10px;
+}
+.list ul li a {
+	font: 13px/33px "微软雅黑";
+	color: #4d4d4d;
+	text-decoration: none;
+}
+.list ul li a:hover {
+	text-decoration: underline;
+}
+.icon-down {
+	background-attachment: scroll;
+	background-image: url(../images/icon-down.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+	height: 12px;
+	width: 12px;
+	border-style: none;
+	display: block;
+	margin-top: 8px;
+	cursor: pointer;
+}
+.more a {
+	font: 12px "宋体";
+	color: #999999;
+	text-decoration: none;
+	float: right;
+	margin-right: 10px;
+	margin-top: 13px;
+}
+/*-------------------------------------------------------------------------------------------*/
+/* 本例子css */
+.picScroll-left {
+	width: 1060px;
+	overflow: hidden;
+	position: relative;
+	border: 0px solid #ccc;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 25px;
+}
+.picScroll-left .hd {
+	overflow: hidden;
+	height: auto;
+	background: #ffffff;
+	padding: 0 0px;
+}
+.picScroll-left .hd .prev, .picScroll-left .hd .next {
+	display: block;
+	width: 20px;
+	height: 33px;
+	float: right;
+	margin-right: 0px;
+	margin-top: 30px;
+	overflow: hidden;
+	cursor: pointer;	
+	position: absolute;	
+}
+.picScroll-left .hd .prev{
+	background: url(../images/l-r_03.png) no-repeat right center;
+	right:0;
+}
+.picScroll-left .hd .next {
+	background: url(../images/l-r_01.png) no-repeat left center;
+	left:0;
+}
+.picScroll-left .hd .prevStop {
+	background-position: -60px 0;
+}
+.picScroll-left .hd .nextStop {
+	background-position: -60px -50px;
+}
+.picScroll-left .hd ul {
+	float: right;
+	overflow: hidden;
+	zoom: 1;
+	margin-top: 10px;
+	zoom: 1;
+}
+.picScroll-left .hd ul li {
+	float: left;
+	width: 9px;
+	height: 9px;
+	overflow: hidden;
+	margin-right: 5px;
+	text-indent: -999px;
+	cursor: pointer;
+	background: url(../images/icoCircle.gif) no-repeat 0 -9px;
+}
+.picScroll-left .hd ul li.on {
+	background-position: 0 0;
+}
+.picScroll-left .bd {
+	margin: 10px 70px 10px 72px;
+	height: 73px;
+    overflow: hidden;
+}
+.picScroll-left .bd ul {
+	overflow: hidden;
+	zoom: 1;
+}
+.picScroll-left .bd ul li {
+	margin: 0 24px;
+	float: left;
+	_display: inline;
+	overflow: hidden;
+	text-align: center;
+}
+.picScroll-left .bd ul li .pic {
+	text-align: center;
+	background-color: #5fabe6;
+	height: 73px;
+	width: 135px;
+	cursor: pointer;
+}
+.picScroll-left .bd ul li .pic:hover{
+	background:rgb(119, 217, 119);
+
+}
+.picScroll-left .bd ul li .pic img {
+	width: 120px;
+	height: 90px;
+	display: block;
+	padding: 2px;
+	border: 1px solid #ccc;
+}
+.picScroll-left .bd ul li .pic a:hover img {
+	border-color: #999;
+}
+.picScroll-left .bd ul li .title {
+	line-height: 24px;
+}
+.submenu_box {                                  /*-----------�޸�------------*/
+	position: absolute;
+	left: 0;
+	top: 22px;
+	z-index: 900;
+	display:none;
+}
+.db_yanc{
+	position: absolute;
+	top:37px;
+	left:99%;
+	}
+.submenu{
+	border-top-right-radius:0px;
+	border-bottom-right-radius:5px;
+	border-bottom-left-radius:5px;
+	border-top-left-radius:0px;
+    background-color: #469dea;
+	border: 1px solid #469dea;
+}
+.submenu ul li a{
+	margin: 2px auto;
+	height: auto;
+	font: 15px/35px "΢���ź�";
+	color: #fff;
+	text-decoration: none;
+	background-attachment: scroll;
+	background-repeat: no-repeat;
+	background-position: 20px 16px;
+	display: block;
+	white-space: nowrap;
+	border-bottom: 1px solid #dae8f2;
+}
+.submenu ul li a:hover{
+	background-color: #fff;
+	color: #469dea;
+}
+/*ͷ�������˵�*/
+#gohomepage{
+	position: absolute;
+    top: 50%;
+    right: 0;
+    display: block;
+    text-align: center;
+    width: 16px;
+    height: 56px;
+    background-color: #469dea;
+    color: #fff;
+    font-size: 12px;
+    line-height: 13px;
+    font-family: "微软雅黑";
+
+}
