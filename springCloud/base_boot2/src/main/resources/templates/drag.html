@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<link href="../static/indet.css">
+<script src="../static/jquery.min.js"></script>
+<script type="text/javascript">
+	
+
+            function drag(obj,e){
+                var e=e ? e : event;
+                var mouse_left=e.clientX-obj.offsetLeft;
+                var mouse_top=e.clientY-obj.offsetTop;
+                var docmousemove=document.onmousemove;
+                var docmouseup=document.onmouseup;
+                document.onselectstart=function(e){return false}
+                document.onmouseup=function(){
+                    document.onmousemove=docmousemove;
+                    document.onmouseup=docmouseup;
+                    document.onselectstart=function(e){return true}
+                }
+                document.onmousemove=function(ev){
+                    var ev=ev ? ev : event;
+                    if(ev.clientX-mouse_left>0&&document.documentElement.clientWidth-(ev.clientX-mouse_left)-obj.offsetWidth+document.documentElement.scrollLeft>0){
+                        obj.style.left=(ev.clientX-mouse_left)+"px";
+                    }
+                    if(ev.clientY-mouse_top>0&&document.documentElement.clientHeight-(ev.clientY-mouse_top)-obj.offsetHeight+document.documentElement.scrollTop>0){
+                        obj.style.top=(ev.clientY-mouse_top)+"px";
+                    }
+                }
+            }
+		
+</script>
+<body>
+<!--浮动窗口-->
+	<div id="div" style='display:none;'>
+		<h2 onmousedown="drag(this.parentNode,event)">
+			<img src="<%=basePath%>fportal/page/login/images/title.png" width="18" height="18"/>
+			公告栏
+			<a id='login_notic_more' href='javaScript:commonMore(0)' style="color: white;margin-left: 150px;">更多...</a>
+			<a href="javascript:" onclick="document.getElementById('div').style.display='none'" class="close">×</a>
+		</h2>
+		<div class="content">
+			<ul id="initNotic">
+			</ul>
+			<div style=" text-align:center"></div>
+		</div>
+	</div>
+	<!--浮动窗口-->
+	
+</body>
+</html>
