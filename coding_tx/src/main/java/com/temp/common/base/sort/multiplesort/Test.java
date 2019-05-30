@@ -28,7 +28,6 @@ public class Test {
         list.add(user3);
         list.add(user4);
         System.out.println(list);
-        sortByTwoField(list, User.class);
         Collections.sort(list, new Comparator() {
             @Override
             public int compare(Object o1, Object o2) {
@@ -68,31 +67,4 @@ public class Test {
 
     }
 
-    static <T> T sortByTwoField(List<T> collection, Class<T> clazz) {
-        System.out.println("======================================================");
-//        Field[] declaredFields = clazz.getDeclaredFields();
-//        try {
-//
-//            Collections.sort(collection, new Comparator() {
-//
-//                @Override
-//                public int compare(Object o1, Object o2) {
-//
-//                    if (((User) o1).isTop()) {
-//                        if (((User) o2).isTop()) {
-//                            return ((User) o1).getOrder().compareTo(((User) o2).getOrder());
-//                        } else {
-//                            return -1;
-//                        }
-//                    }
-//                    int i = ((User) o1).getOrder().compareTo(((User) o2).getOrder());
-//                    System.out.println(i);
-//                    return i;
-//                }
-//            });
-//
-//            System.out.println(collection);
-//            System.out.println("======================================================");
-            return null;
-    }
 }

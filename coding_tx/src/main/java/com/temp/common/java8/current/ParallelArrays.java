@@ -10,7 +10,7 @@ public class ParallelArrays {
 
         Arrays.parallelSetAll( arrayOfLong,
             index -> ThreadLocalRandom.current().nextLong( 1000000 ) );
-        Arrays.stream( arrayOfLong ).limit( 10 ).forEach(
+        Arrays.stream( arrayOfLong ).limit( 11 ).forEach(
             i -> System.out.print( i + " " ) );
         System.out.println();
 
@@ -20,13 +20,15 @@ public class ParallelArrays {
             i -> System.out.print( i + " " ) );
         System.out.println();
 
-        long[] arrayOfLong1 = new long [ 20000 ];
+        Long[] arrayOfLong1 = new Long [ 20000 ];
         Arrays.parallelSetAll( arrayOfLong1,
-            index -> ThreadLocalRandom.current().nextInt( 1000000 ) );
+            index -> new Long(ThreadLocalRandom.current().nextInt( 1000000 )) );
         Arrays.stream( arrayOfLong1 ).limit( 10 ).forEach(
                 i -> System.out.print( i + " " ) );
         System.out.println();
-        Arrays.parallelSort( arrayOfLong1 );
+        Arrays.parallelSort( arrayOfLong1,(Comparator<Long>) (Long o1, Long o2) -> {
+            return (int) (o2 - o1);
+        });
         Arrays.stream( arrayOfLong1 ).limit( 10 ).forEach(
                 i -> System.out.print( i + " " ) );
 

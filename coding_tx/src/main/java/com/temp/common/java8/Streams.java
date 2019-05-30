@@ -72,6 +72,7 @@ public class Streams  {
         System.out.println( map );
         System.out.println(map.get(Status.OPEN));
 
+        System.out.println("======================================================");
 
 
         // Calculate the weight of each tasks (as percent of total points)
@@ -84,7 +85,6 @@ public class Streams  {
                 .mapToLong( weigth -> ( long )( weigth * 100 ) ) // LongStream
                 .mapToObj( percentage -> percentage + "%" )      // Stream< String>
                 .collect( Collectors.toList() );                 // List< String >
-
         System.out.println( result );
 
 
