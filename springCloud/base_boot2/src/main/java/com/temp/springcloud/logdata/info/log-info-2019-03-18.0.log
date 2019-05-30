@@ -1,0 +1,1623 @@
+2019-03-18 15:27:30.462 [main] INFO  com.temp.springcloud.AppServer - Starting AppServer on MS-20181009BXWL with PID 12440 (E:\github_program\demo\springcloud_new\kafka\target\classes started by Administrator in E:\github_program\demo\springcloud_new)
+2019-03-18 15:27:30.468 [main] INFO  com.temp.springcloud.AppServer - No active profile set, falling back to default profiles: default
+2019-03-18 15:27:32.466 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-03-18 15:27:32.466 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-03-18 15:27:32.497 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 16ms. Found 0 repository interfaces.
+2019-03-18 15:27:32.792 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-03-18 15:27:32.806 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-03-18 15:27:32.864 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 4ms. Found 0 repository interfaces.
+2019-03-18 15:27:33.525 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.kafka.annotation.KafkaBootstrapConfiguration' of type [org.springframework.kafka.annotation.KafkaBootstrapConfiguration$$EnhancerBySpringCGLIB$$1614b129] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-18 15:27:33.581 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$42629fa6] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-18 15:27:34.449 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8000 (http)
+2019-03-18 15:27:34.464 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8000"]
+2019-03-18 15:27:34.468 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-03-18 15:27:34.469 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/9.0.12
+2019-03-18 15:27:34.476 [main] INFO  org.apache.catalina.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\jdk_install\jdk1.8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\app\Administrator\product\11.2.0\dbhome_1\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;F:\soft\torsvn\bin;C:\Program Files\Git\cmd;C:\Users\Administrator\AppData\Local\Programs\Python\Python36;C:\Users\Administrator\AppData\Local\Programs\Python\Python36\Scripts;F:\soft\nodejs\;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;D:\install\rational\common;D:\jdk_install\jdk1.8\bin;D:\baidustorage\maven\apache-maven-3.5.3\bin;C:\Users\Administrator\AppData\Roaming\npm;D:\scala-2.12.8\bin;D:\rational\Common;D:\rational;.]
+2019-03-18 15:27:34.710 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-03-18 15:27:34.711 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 4108 ms
+2019-03-18 15:27:34.822 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2019-03-18 15:27:34.840 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2019-03-18 15:29:16.062 [main] INFO  com.temp.springcloud.AppServer - Starting AppServer on MS-20181009BXWL with PID 15256 (E:\github_program\demo\springcloud_new\kafka\target\classes started by Administrator in E:\github_program\demo\springcloud_new)
+2019-03-18 15:29:16.065 [main] INFO  com.temp.springcloud.AppServer - No active profile set, falling back to default profiles: default
+2019-03-18 15:29:16.807 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-03-18 15:29:16.808 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-03-18 15:29:16.836 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 20ms. Found 0 repository interfaces.
+2019-03-18 15:29:16.847 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-03-18 15:29:16.848 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-03-18 15:29:16.861 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5ms. Found 0 repository interfaces.
+2019-03-18 15:29:17.166 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.kafka.annotation.KafkaBootstrapConfiguration' of type [org.springframework.kafka.annotation.KafkaBootstrapConfiguration$$EnhancerBySpringCGLIB$$ad0186ef] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-18 15:29:17.207 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$d94f756c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-18 15:29:17.593 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8000 (http)
+2019-03-18 15:29:17.604 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8000"]
+2019-03-18 15:29:17.608 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-03-18 15:29:17.608 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/9.0.12
+2019-03-18 15:29:17.613 [main] INFO  org.apache.catalina.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\jdk_install\jdk1.8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\app\Administrator\product\11.2.0\dbhome_1\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;F:\soft\torsvn\bin;C:\Program Files\Git\cmd;C:\Users\Administrator\AppData\Local\Programs\Python\Python36;C:\Users\Administrator\AppData\Local\Programs\Python\Python36\Scripts;F:\soft\nodejs\;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;D:\install\rational\common;D:\jdk_install\jdk1.8\bin;D:\baidustorage\maven\apache-maven-3.5.3\bin;C:\Users\Administrator\AppData\Roaming\npm;D:\scala-2.12.8\bin;D:\rational\Common;D:\rational;.]
+2019-03-18 15:29:17.749 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-03-18 15:29:17.750 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1641 ms
+2019-03-18 15:29:17.822 [main] INFO  o.s.boot.web.servlet.ServletRegistrationBean - Servlet dispatcherServlet mapped to [/]
+2019-03-18 15:29:17.823 [main] INFO  o.s.boot.web.servlet.ServletRegistrationBean - Servlet statViewServlet mapped to [/druid/*]
+2019-03-18 15:29:17.826 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-03-18 15:29:17.827 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2019-03-18 15:29:17.827 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'formContentFilter' to: [/*]
+2019-03-18 15:29:17.827 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2019-03-18 15:29:17.827 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'webStatFilter' to urls: [/*]
+2019-03-18 15:29:18.024 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2019-03-18 15:29:18.197 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2019-03-18 15:29:18.584 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-03-18 15:29:18.725 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.3.7.Final}
+2019-03-18 15:29:18.727 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2019-03-18 15:29:19.221 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-03-18 15:29:19.495 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-03-18 15:29:19.995 [main] INFO  o.hibernate.tool.schema.internal.SchemaCreatorImpl - HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@4997552e'
+2019-03-18 15:29:20.006 [main] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-03-18 15:29:20.469 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-03-18 15:29:20.725 [main] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2019-03-18 15:29:21.657 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8000"]
+2019-03-18 15:29:21.666 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-03-18 15:29:21.688 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8000 (http) with context path ''
+2019-03-18 15:29:21.690 [main] INFO  com.temp.springcloud.AppServer - Started AppServer in 6.491 seconds (JVM running for 7.523)
+2019-03-18 15:33:30.759 [main] INFO  com.temp.springcloud.AppServer - Starting AppServer on MS-20181009BXWL with PID 7820 (E:\github_program\demo\springcloud_new\kafka\target\classes started by Administrator in E:\github_program\demo\springcloud_new)
+2019-03-18 15:33:30.762 [main] INFO  com.temp.springcloud.AppServer - No active profile set, falling back to default profiles: default
+2019-03-18 15:33:31.411 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-03-18 15:33:31.412 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-03-18 15:33:31.436 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 17ms. Found 0 repository interfaces.
+2019-03-18 15:33:31.464 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-03-18 15:33:31.465 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-03-18 15:33:31.479 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5ms. Found 0 repository interfaces.
+2019-03-18 15:33:31.759 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.kafka.annotation.KafkaBootstrapConfiguration' of type [org.springframework.kafka.annotation.KafkaBootstrapConfiguration$$EnhancerBySpringCGLIB$$7de596c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-18 15:33:31.798 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$342c47e9] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-18 15:33:32.183 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8000 (http)
+2019-03-18 15:33:32.195 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8000"]
+2019-03-18 15:33:32.200 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-03-18 15:33:32.201 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/9.0.12
+2019-03-18 15:33:32.209 [main] INFO  org.apache.catalina.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\jdk_install\jdk1.8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\app\Administrator\product\11.2.0\dbhome_1\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;F:\soft\torsvn\bin;C:\Program Files\Git\cmd;C:\Users\Administrator\AppData\Local\Programs\Python\Python36;C:\Users\Administrator\AppData\Local\Programs\Python\Python36\Scripts;F:\soft\nodejs\;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;D:\install\rational\common;D:\jdk_install\jdk1.8\bin;D:\baidustorage\maven\apache-maven-3.5.3\bin;C:\Users\Administrator\AppData\Roaming\npm;D:\scala-2.12.8\bin;D:\rational\Common;D:\rational;.]
+2019-03-18 15:33:32.941 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-03-18 15:33:32.941 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2130 ms
+2019-03-18 15:33:32.993 [main] INFO  o.s.boot.web.servlet.ServletRegistrationBean - Servlet dispatcherServlet mapped to [/]
+2019-03-18 15:33:32.995 [main] INFO  o.s.boot.web.servlet.ServletRegistrationBean - Servlet statViewServlet mapped to [/druid/*]
+2019-03-18 15:33:32.999 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-03-18 15:33:33.000 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2019-03-18 15:33:33.000 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'formContentFilter' to: [/*]
+2019-03-18 15:33:33.000 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2019-03-18 15:33:33.000 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'webStatFilter' to urls: [/*]
+2019-03-18 15:33:33.038 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2019-03-18 15:33:33.149 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2019-03-18 15:33:33.311 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-03-18 15:33:33.369 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.3.7.Final}
+2019-03-18 15:33:33.371 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2019-03-18 15:33:33.495 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-03-18 15:33:33.643 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-03-18 15:33:33.876 [main] INFO  o.hibernate.tool.schema.internal.SchemaCreatorImpl - HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@7c5d1d25'
+2019-03-18 15:33:33.879 [main] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-03-18 15:33:34.119 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-03-18 15:33:34.257 [main] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2019-03-18 15:33:34.642 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8000"]
+2019-03-18 15:33:34.652 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-03-18 15:33:34.667 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8000 (http) with context path ''
+2019-03-18 15:33:34.670 [main] INFO  com.temp.springcloud.AppServer - Started AppServer in 4.602 seconds (JVM running for 5.929)
+2019-03-18 15:33:35.507 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - temp-------------递归
+2019-03-18 15:33:35.507 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - springcloud-------------递归
+2019-03-18 15:33:35.507 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - admin-------------递归
+2019-03-18 15:33:35.508 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - AdminController.class-------------递归
+2019-03-18 15:33:35.508 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - AppServer.class-------------递归
+2019-03-18 15:33:35.508 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - init-------------递归
+2019-03-18 15:33:35.508 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - DemoApplicationContextInitializer.class-------------递归
+2019-03-18 15:33:35.508 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - DemoSpringApplicationRunListener.class-------------递归
+2019-03-18 15:33:35.508 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - kafka-------------递归
+2019-03-18 15:33:35.509 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - KafkaConsumerDemo.class-------------递归
+2019-03-18 15:33:35.509 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - KafkaProducerDemo$1.class-------------递归
+2019-03-18 15:33:35.509 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - KafkaProducerDemo.class-------------递归
+2019-03-18 15:33:35.509 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - KafkaProperties.class-------------递归
+2019-03-18 15:33:35.509 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - sqlscript-------------递归
+2019-03-18 15:33:35.510 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - controller-------------递归
+2019-03-18 15:33:35.510 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - PackageScanUtil.class-------------递归
+2019-03-18 15:33:35.510 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - SqlFileExecutorController.class-------------递归
+2019-03-18 15:33:35.510 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - SqlFileExecutorControllerForJar.class-------------递归
+2019-03-18 15:33:35.510 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - H2Service$1.class-------------递归
+2019-03-18 15:33:35.510 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - H2Service$H2ServiceHolder.class-------------递归
+2019-03-18 15:33:35.510 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - H2Service.class-------------递归
+2019-03-18 15:33:35.510 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - sqlfiles-------------递归
+2019-03-18 15:33:35.511 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - 001_hqbpmn_20181211_v2.3.2.0_mfl_init.sql-------------递归
+2019-03-18 15:33:35.511 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - 002_hqbpmn_20181211_v2.3.2.0_lw_init.sql-------------递归
+2019-03-18 15:33:35.511 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - temp-------------循环
+2019-03-18 15:33:35.513 [main] INFO  c.t.s.s.controller.SqlFileExecutorControllerForJar - ===========执行脚本文件：001_hqbpmn_20181211_v2.3.2.0_mfl_init.sql =========== 
+2019-03-18 15:33:35.566 [main] INFO  c.t.s.s.controller.SqlFileExecutorControllerForJar - ===========执行脚本文件：002_hqbpmn_20181211_v2.3.2.0_lw_init.sql =========== 
+2019-03-18 15:34:46.457 [http-nio-8000-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-03-18 15:34:46.458 [http-nio-8000-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2019-03-18 15:34:46.475 [http-nio-8000-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 17 ms
+2019-03-18 15:34:46.651 [http-nio-8000-exec-1] INFO  com.temp.springcloud.admin.AdminController - 登录成功！
+2019-03-18 16:36:54.547 [main] INFO  com.temp.springcloud.AppServer - Starting AppServer on MS-20181009BXWL with PID 2144 (E:\github_program\demo\springcloud_new\kafka\target\classes started by Administrator in E:\github_program\demo\springcloud_new)
+2019-03-18 16:36:54.551 [main] INFO  com.temp.springcloud.AppServer - No active profile set, falling back to default profiles: default
+2019-03-18 16:36:55.515 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-03-18 16:36:55.516 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-03-18 16:36:55.543 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 19ms. Found 0 repository interfaces.
+2019-03-18 16:36:55.554 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-03-18 16:36:55.555 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-03-18 16:36:55.568 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5ms. Found 0 repository interfaces.
+2019-03-18 16:36:55.852 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.kafka.annotation.KafkaBootstrapConfiguration' of type [org.springframework.kafka.annotation.KafkaBootstrapConfiguration$$EnhancerBySpringCGLIB$$6ef327a3] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-18 16:36:55.939 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$9b411620] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-18 16:36:56.347 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8000 (http)
+2019-03-18 16:36:56.359 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8000"]
+2019-03-18 16:36:56.363 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-03-18 16:36:56.364 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/9.0.12
+2019-03-18 16:36:56.370 [main] INFO  org.apache.catalina.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\jdk_install\jdk1.8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\app\Administrator\product\11.2.0\dbhome_1\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;F:\soft\torsvn\bin;C:\Program Files\Git\cmd;C:\Users\Administrator\AppData\Local\Programs\Python\Python36;C:\Users\Administrator\AppData\Local\Programs\Python\Python36\Scripts;F:\soft\nodejs\;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;D:\install\rational\common;D:\jdk_install\jdk1.8\bin;D:\baidustorage\maven\apache-maven-3.5.3\bin;C:\Users\Administrator\AppData\Roaming\npm;D:\scala-2.12.8\bin;D:\rational\Common;D:\rational;.]
+2019-03-18 16:36:56.509 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-03-18 16:36:56.509 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1697 ms
+2019-03-18 16:36:56.558 [main] INFO  o.s.boot.web.servlet.ServletRegistrationBean - Servlet dispatcherServlet mapped to [/]
+2019-03-18 16:36:56.559 [main] INFO  o.s.boot.web.servlet.ServletRegistrationBean - Servlet statViewServlet mapped to [/druid/*]
+2019-03-18 16:36:56.563 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-03-18 16:36:56.564 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2019-03-18 16:36:56.564 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'formContentFilter' to: [/*]
+2019-03-18 16:36:56.564 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2019-03-18 16:36:56.564 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'webStatFilter' to urls: [/*]
+2019-03-18 16:36:56.597 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2019-03-18 16:36:56.706 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2019-03-18 16:36:56.838 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-03-18 16:36:56.894 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.3.7.Final}
+2019-03-18 16:36:56.896 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2019-03-18 16:36:57.902 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-03-18 16:36:58.041 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-03-18 16:36:58.227 [main] INFO  o.hibernate.tool.schema.internal.SchemaCreatorImpl - HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@43c0c13a'
+2019-03-18 16:36:58.231 [main] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-03-18 16:37:00.900 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-03-18 16:37:01.040 [main] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2019-03-18 16:37:01.475 [main] INFO  org.apache.kafka.clients.consumer.ConsumerConfig - ConsumerConfig values: 
+	auto.commit.interval.ms = 100
+	auto.offset.reset = latest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.id = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = 0
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.mechanism = GSSAPI
+	security.protocol = PLAINTEXT
+	send.buffer.bytes = 131072
+	session.timeout.ms = 15000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	ssl.endpoint.identification.algorithm = https
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLS
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2019-03-18 16:37:01.533 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka version : 2.0.0
+2019-03-18 16:37:01.533 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka commitId : 3402a8361b734732
+2019-03-18 16:37:01.537 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskScheduler - Initializing ExecutorService
+2019-03-18 16:37:01.565 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8000"]
+2019-03-18 16:37:01.566 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-03-18 16:37:01.585 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8000 (http) with context path ''
+2019-03-18 16:37:01.588 [main] INFO  com.temp.springcloud.AppServer - Started AppServer in 7.809 seconds (JVM running for 8.973)
+2019-03-18 16:37:01.597 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - temp-------------递归
+2019-03-18 16:37:01.597 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - springcloud-------------递归
+2019-03-18 16:37:01.597 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - admin-------------递归
+2019-03-18 16:37:01.598 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - AdminController.class-------------递归
+2019-03-18 16:37:01.598 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - KafkaController.class-------------递归
+2019-03-18 16:37:01.598 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - AppServer.class-------------递归
+2019-03-18 16:37:01.598 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - init-------------递归
+2019-03-18 16:37:01.599 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - DemoApplicationContextInitializer.class-------------递归
+2019-03-18 16:37:01.599 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - DemoSpringApplicationRunListener.class-------------递归
+2019-03-18 16:37:01.599 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - kafka-------------递归
+2019-03-18 16:37:01.599 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - conf-------------递归
+2019-03-18 16:37:01.600 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - KafkaConfig.class-------------递归
+2019-03-18 16:37:01.600 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - MyMessageListener.class-------------递归
+2019-03-18 16:37:01.600 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - KafkaConsumerDemo.class-------------递归
+2019-03-18 16:37:01.600 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - KafkaProducerDemo$1.class-------------递归
+2019-03-18 16:37:01.600 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - KafkaProducerDemo.class-------------递归
+2019-03-18 16:37:01.600 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - KafkaProperties.class-------------递归
+2019-03-18 16:37:01.600 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - sqlscript-------------递归
+2019-03-18 16:37:01.601 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - controller-------------递归
+2019-03-18 16:37:01.601 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - PackageScanUtil.class-------------递归
+2019-03-18 16:37:01.601 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - SqlFileExecutorController.class-------------递归
+2019-03-18 16:37:01.601 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - SqlFileExecutorControllerForJar.class-------------递归
+2019-03-18 16:37:01.602 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - H2Service$1.class-------------递归
+2019-03-18 16:37:01.602 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - H2Service$H2ServiceHolder.class-------------递归
+2019-03-18 16:37:01.602 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - H2Service.class-------------递归
+2019-03-18 16:37:01.602 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - sqlfiles-------------递归
+2019-03-18 16:37:01.602 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - 001_hqbpmn_20181211_v2.3.2.0_mfl_init.sql-------------递归
+2019-03-18 16:37:01.602 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - 002_hqbpmn_20181211_v2.3.2.0_lw_init.sql-------------递归
+2019-03-18 16:37:01.602 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - temp-------------循环
+2019-03-18 16:37:01.605 [main] INFO  c.t.s.s.controller.SqlFileExecutorControllerForJar - ===========执行脚本文件：001_hqbpmn_20181211_v2.3.2.0_mfl_init.sql =========== 
+2019-03-18 16:37:01.617 [main] INFO  c.t.s.s.controller.SqlFileExecutorControllerForJar - ===========执行脚本文件：002_hqbpmn_20181211_v2.3.2.0_lw_init.sql =========== 
+2019-03-18 16:37:38.941 [http-nio-8000-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-03-18 16:37:38.941 [http-nio-8000-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2019-03-18 16:37:38.949 [http-nio-8000-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 8 ms
+2019-03-18 16:37:45.729 [http-nio-8000-exec-2] INFO  com.temp.springcloud.admin.AdminController - 登录成功！
+2019-03-18 16:48:23.975 [http-nio-8000-exec-5] INFO  com.temp.springcloud.admin.KafkaController - start sned message to home
+2019-03-18 16:48:23.983 [http-nio-8000-exec-5] INFO  org.apache.kafka.clients.producer.ProducerConfig - ProducerConfig values: 
+	acks = 1
+	batch.size = 16384
+	bootstrap.servers = [192.168.42.220:9092]
+	buffer.memory = 33554432
+	client.id = 
+	compression.type = none
+	connections.max.idle.ms = 540000
+	enable.idempotence = false
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 1
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 0
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.mechanism = GSSAPI
+	security.protocol = PLAINTEXT
+	send.buffer.bytes = 131072
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	ssl.endpoint.identification.algorithm = https
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLS
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+
+2019-03-18 16:48:24.007 [http-nio-8000-exec-5] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka version : 2.0.0
+2019-03-18 16:48:24.008 [http-nio-8000-exec-5] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka commitId : 3402a8361b734732
+2019-03-18 16:48:34.049 [http-nio-8000-exec-9] INFO  com.temp.springcloud.admin.KafkaController - start sned message to home
+2019-03-18 16:48:55.111 [kafka-producer-network-thread | producer-1] INFO  org.apache.kafka.clients.Metadata - Cluster ID: fh550144SlG1VTlJ7l1qVw
+2019-03-18 16:52:40.473 [main] INFO  com.temp.springcloud.AppServer - Starting AppServer on MS-20181009BXWL with PID 13020 (E:\github_program\demo\springcloud_new\kafka\target\classes started by Administrator in E:\github_program\demo\springcloud_new)
+2019-03-18 16:52:40.478 [main] INFO  com.temp.springcloud.AppServer - No active profile set, falling back to default profiles: default
+2019-03-18 16:52:41.177 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-03-18 16:52:41.177 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-03-18 16:52:41.204 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 19ms. Found 0 repository interfaces.
+2019-03-18 16:52:41.216 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-03-18 16:52:41.218 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-03-18 16:52:41.232 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5ms. Found 0 repository interfaces.
+2019-03-18 16:52:41.533 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.kafka.annotation.KafkaBootstrapConfiguration' of type [org.springframework.kafka.annotation.KafkaBootstrapConfiguration$$EnhancerBySpringCGLIB$$cbaba46d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-18 16:52:41.622 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$f7f992ea] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-18 16:52:42.029 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8000 (http)
+2019-03-18 16:52:42.042 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8000"]
+2019-03-18 16:52:42.047 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-03-18 16:52:42.048 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/9.0.12
+2019-03-18 16:52:42.055 [main] INFO  org.apache.catalina.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\jdk_install\jdk1.8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\app\Administrator\product\11.2.0\dbhome_1\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;F:\soft\torsvn\bin;C:\Program Files\Git\cmd;C:\Users\Administrator\AppData\Local\Programs\Python\Python36;C:\Users\Administrator\AppData\Local\Programs\Python\Python36\Scripts;F:\soft\nodejs\;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;D:\install\rational\common;D:\jdk_install\jdk1.8\bin;D:\baidustorage\maven\apache-maven-3.5.3\bin;C:\Users\Administrator\AppData\Roaming\npm;D:\scala-2.12.8\bin;D:\rational\Common;D:\rational;.]
+2019-03-18 16:52:42.199 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-03-18 16:52:42.199 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1669 ms
+2019-03-18 16:52:42.249 [main] INFO  o.s.boot.web.servlet.ServletRegistrationBean - Servlet dispatcherServlet mapped to [/]
+2019-03-18 16:52:42.251 [main] INFO  o.s.boot.web.servlet.ServletRegistrationBean - Servlet statViewServlet mapped to [/druid/*]
+2019-03-18 16:52:42.256 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-03-18 16:52:42.256 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2019-03-18 16:52:42.256 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'formContentFilter' to: [/*]
+2019-03-18 16:52:42.256 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2019-03-18 16:52:42.257 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'webStatFilter' to urls: [/*]
+2019-03-18 16:52:42.293 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2019-03-18 16:52:42.410 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2019-03-18 16:52:42.549 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-03-18 16:52:42.608 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.3.7.Final}
+2019-03-18 16:52:42.610 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2019-03-18 16:52:42.737 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-03-18 16:52:42.871 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-03-18 16:52:43.065 [main] INFO  o.hibernate.tool.schema.internal.SchemaCreatorImpl - HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@687a0e40'
+2019-03-18 16:52:43.069 [main] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-03-18 16:52:43.382 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-03-18 16:52:43.530 [main] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2019-03-18 16:52:43.960 [main] INFO  org.apache.kafka.clients.consumer.ConsumerConfig - ConsumerConfig values: 
+	auto.commit.interval.ms = 100
+	auto.offset.reset = latest
+	bootstrap.servers = [192.168.42.220:9092]
+	check.crcs = true
+	client.id = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = 0
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.mechanism = GSSAPI
+	security.protocol = PLAINTEXT
+	send.buffer.bytes = 131072
+	session.timeout.ms = 15000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	ssl.endpoint.identification.algorithm = https
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLS
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2019-03-18 16:52:44.018 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka version : 2.0.0
+2019-03-18 16:52:44.018 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka commitId : 3402a8361b734732
+2019-03-18 16:52:44.022 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskScheduler - Initializing ExecutorService
+2019-03-18 16:52:44.035 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8000"]
+2019-03-18 16:52:44.037 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-03-18 16:52:44.054 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8000 (http) with context path ''
+2019-03-18 16:52:44.058 [main] INFO  com.temp.springcloud.AppServer - Started AppServer in 4.367 seconds (JVM running for 6.209)
+2019-03-18 16:52:44.067 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - temp-------------递归
+2019-03-18 16:52:44.067 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - springcloud-------------递归
+2019-03-18 16:52:44.067 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - admin-------------递归
+2019-03-18 16:52:44.068 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - AdminController.class-------------递归
+2019-03-18 16:52:44.068 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - KafkaController.class-------------递归
+2019-03-18 16:52:44.068 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - AppServer.class-------------递归
+2019-03-18 16:52:44.068 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - init-------------递归
+2019-03-18 16:52:44.068 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - DemoApplicationContextInitializer.class-------------递归
+2019-03-18 16:52:44.069 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - DemoSpringApplicationRunListener.class-------------递归
+2019-03-18 16:52:44.069 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - kafka-------------递归
+2019-03-18 16:52:44.069 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - conf-------------递归
+2019-03-18 16:52:44.069 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - KafkaConfig.class-------------递归
+2019-03-18 16:52:44.069 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - MyMessageListener.class-------------递归
+2019-03-18 16:52:44.069 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - KafkaConsumerDemo.class-------------递归
+2019-03-18 16:52:44.069 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - KafkaProducerDemo$1.class-------------递归
+2019-03-18 16:52:44.070 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - KafkaProducerDemo.class-------------递归
+2019-03-18 16:52:44.070 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - KafkaProperties.class-------------递归
+2019-03-18 16:52:44.070 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - sqlscript-------------递归
+2019-03-18 16:52:44.070 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - controller-------------递归
+2019-03-18 16:52:44.070 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - PackageScanUtil.class-------------递归
+2019-03-18 16:52:44.071 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - SqlFileExecutorController.class-------------递归
+2019-03-18 16:52:44.071 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - SqlFileExecutorControllerForJar.class-------------递归
+2019-03-18 16:52:44.071 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - H2Service$1.class-------------递归
+2019-03-18 16:52:44.071 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - H2Service$H2ServiceHolder.class-------------递归
+2019-03-18 16:52:44.071 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - H2Service.class-------------递归
+2019-03-18 16:52:44.072 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - sqlfiles-------------递归
+2019-03-18 16:52:44.072 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - 001_hqbpmn_20181211_v2.3.2.0_mfl_init.sql-------------递归
+2019-03-18 16:52:44.072 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - 002_hqbpmn_20181211_v2.3.2.0_lw_init.sql-------------递归
+2019-03-18 16:52:44.072 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - temp-------------循环
+2019-03-18 16:52:44.075 [main] INFO  c.t.s.s.controller.SqlFileExecutorControllerForJar - ===========执行脚本文件：001_hqbpmn_20181211_v2.3.2.0_mfl_init.sql =========== 
+2019-03-18 16:52:44.087 [main] INFO  c.t.s.s.controller.SqlFileExecutorControllerForJar - ===========执行脚本文件：002_hqbpmn_20181211_v2.3.2.0_lw_init.sql =========== 
+2019-03-18 16:52:44.248 [kafkaMessageListenerContainer-C-1] INFO  org.apache.kafka.clients.Metadata - Cluster ID: fh550144SlG1VTlJ7l1qVw
+2019-03-18 16:52:44.272 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-1, groupId=0] Discovered group coordinator 192.168.42.220:9092 (id: 2147483647 rack: null)
+2019-03-18 16:52:44.278 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-1, groupId=0] Revoking previously assigned partitions []
+2019-03-18 16:52:44.278 [kafkaMessageListenerContainer-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - partitions revoked: []
+2019-03-18 16:52:44.278 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-1, groupId=0] (Re-)joining group
+2019-03-18 16:52:44.329 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-1, groupId=0] Successfully joined group with generation 1
+2019-03-18 16:52:44.330 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-1, groupId=0] Setting newly assigned partitions []
+2019-03-18 16:52:44.330 [kafkaMessageListenerContainer-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - partitions assigned: []
+2019-03-18 16:52:54.876 [http-nio-8000-exec-2] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-03-18 16:52:54.876 [http-nio-8000-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2019-03-18 16:52:54.884 [http-nio-8000-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 8 ms
+2019-03-18 16:52:54.980 [http-nio-8000-exec-2] INFO  com.temp.springcloud.admin.KafkaController - start sned message to home
+2019-03-18 16:53:02.854 [http-nio-8000-exec-2] INFO  org.apache.kafka.clients.producer.ProducerConfig - ProducerConfig values: 
+	acks = 1
+	batch.size = 16384
+	bootstrap.servers = [192.168.42.220:9092]
+	buffer.memory = 33554432
+	client.id = 
+	compression.type = none
+	connections.max.idle.ms = 540000
+	enable.idempotence = false
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 1
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 0
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.mechanism = GSSAPI
+	security.protocol = PLAINTEXT
+	send.buffer.bytes = 131072
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	ssl.endpoint.identification.algorithm = https
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLS
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+
+2019-03-18 16:53:02.943 [http-nio-8000-exec-2] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka version : 2.0.0
+2019-03-18 16:53:02.945 [http-nio-8000-exec-2] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka commitId : 3402a8361b734732
+2019-03-18 16:53:02.957 [kafka-producer-network-thread | producer-1] INFO  org.apache.kafka.clients.Metadata - Cluster ID: fh550144SlG1VTlJ7l1qVw
+2019-03-18 16:53:06.032 [kafka-producer-network-thread | producer-1] INFO  com.temp.springcloud.admin.KafkaController - send message to home success
+2019-03-18 16:54:03.931 [http-nio-8000-exec-10] INFO  com.temp.springcloud.admin.KafkaController - start sned message to home
+2019-03-18 16:54:52.591 [kafka-coordinator-heartbeat-thread | 0] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-1, groupId=0] Group coordinator 192.168.42.220:9092 (id: 2147483647 rack: null) is unavailable or invalid, will attempt rediscovery
+2019-03-18 16:55:08.099 [http-nio-8000-exec-10] INFO  com.temp.springcloud.admin.KafkaController - send message to home success
+2019-03-18 16:55:28.056 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-1, groupId=0] Discovered group coordinator 192.168.42.220:9092 (id: 2147483647 rack: null)
+2019-03-18 16:55:31.057 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-1, groupId=0] Attempt to heartbeat failed for since member id consumer-1-390765b8-8e0c-4fea-8e7f-30d12eb1d01a is not valid.
+2019-03-18 16:55:31.058 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-1, groupId=0] Revoking previously assigned partitions []
+2019-03-18 16:55:31.058 [kafkaMessageListenerContainer-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - partitions revoked: []
+2019-03-18 16:55:31.058 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-1, groupId=0] (Re-)joining group
+2019-03-18 16:55:31.138 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-1, groupId=0] Successfully joined group with generation 3
+2019-03-18 16:55:31.138 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-1, groupId=0] Setting newly assigned partitions []
+2019-03-18 16:55:31.138 [kafkaMessageListenerContainer-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - partitions assigned: []
+2019-03-18 16:57:32.341 [http-nio-8000-exec-6] INFO  com.temp.springcloud.admin.KafkaController - start sned message to defaultTopic
+2019-03-18 16:57:34.968 [kafka-producer-network-thread | producer-1] INFO  com.temp.springcloud.admin.KafkaController - send message to defaultTopic success
+2019-03-18 16:57:44.264 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-1, groupId=0] Revoking previously assigned partitions []
+2019-03-18 16:57:44.265 [kafkaMessageListenerContainer-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - partitions revoked: []
+2019-03-18 16:57:44.265 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-1, groupId=0] (Re-)joining group
+2019-03-18 16:57:44.270 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-1, groupId=0] Successfully joined group with generation 4
+2019-03-18 16:57:44.272 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-1, groupId=0] Setting newly assigned partitions [defaultTopic-0]
+2019-03-18 16:57:44.272 [kafkaMessageListenerContainer-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - partitions assigned: [defaultTopic-0]
+2019-03-18 16:57:44.279 [kafkaMessageListenerContainer-C-1] INFO  o.apache.kafka.clients.consumer.internals.Fetcher - [Consumer clientId=consumer-1, groupId=0] Resetting offset for partition defaultTopic-0 to offset 1.
+2019-03-18 16:57:47.511 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-1, groupId=0] Attempt to heartbeat failed since group is rebalancing
+2019-03-18 16:57:47.513 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-1, groupId=0] Revoking previously assigned partitions [defaultTopic-0]
+2019-03-18 16:57:47.514 [kafkaMessageListenerContainer-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - partitions revoked: [defaultTopic-0]
+2019-03-18 16:57:47.514 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-1, groupId=0] (Re-)joining group
+2019-03-18 16:57:47.986 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-1, groupId=0] Successfully joined group with generation 5
+2019-03-18 16:57:47.986 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-1, groupId=0] Setting newly assigned partitions [defaultTopic-0]
+2019-03-18 16:57:47.986 [kafkaMessageListenerContainer-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - partitions assigned: [defaultTopic-0]
+2019-03-18 16:58:17.229 [http-nio-8000-exec-9] INFO  com.temp.springcloud.admin.KafkaController - start send message to default topic
+2019-03-18 16:58:47.116 [kafka-coordinator-heartbeat-thread | 0] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-1, groupId=0] Group coordinator 192.168.42.220:9092 (id: 2147483647 rack: null) is unavailable or invalid, will attempt rediscovery
+2019-03-18 16:58:47.892 [kafkaMessageListenerContainer-C-1] INFO  com.temp.springcloud.kafka.conf.MyMessageListener - -------------recieve message from defaultTopic topic-------------
+2019-03-18 16:58:47.892 [kafkaMessageListenerContainer-C-1] INFO  com.temp.springcloud.kafka.conf.MyMessageListener - partition:0
+2019-03-18 16:58:47.892 [kafkaMessageListenerContainer-C-1] INFO  com.temp.springcloud.kafka.conf.MyMessageListener - offset:1
+2019-03-18 16:58:47.892 [kafkaMessageListenerContainer-C-1] INFO  com.temp.springcloud.kafka.conf.MyMessageListener - get message from defaultTopic topic : 你好，世界
+2019-03-18 16:58:47.895 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-1, groupId=0] Discovered group coordinator 192.168.42.220:9092 (id: 2147483647 rack: null)
+2019-03-18 16:58:47.945 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-1, groupId=0] Revoking previously assigned partitions [defaultTopic-0]
+2019-03-18 16:58:47.945 [kafkaMessageListenerContainer-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - partitions revoked: [defaultTopic-0]
+2019-03-18 16:58:47.945 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-1, groupId=0] (Re-)joining group
+2019-03-18 16:58:47.951 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-1, groupId=0] Successfully joined group with generation 7
+2019-03-18 16:58:47.951 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-1, groupId=0] Setting newly assigned partitions [defaultTopic-0]
+2019-03-18 16:58:47.951 [kafkaMessageListenerContainer-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - partitions assigned: [defaultTopic-0]
+2019-03-18 16:58:51.159 [kafkaMessageListenerContainer-C-1] INFO  com.temp.springcloud.kafka.conf.MyMessageListener - -------------recieve message from defaultTopic topic-------------
+2019-03-18 16:58:51.159 [kafkaMessageListenerContainer-C-1] INFO  com.temp.springcloud.kafka.conf.MyMessageListener - partition:0
+2019-03-18 16:58:51.159 [kafkaMessageListenerContainer-C-1] INFO  com.temp.springcloud.kafka.conf.MyMessageListener - offset:1
+2019-03-18 16:58:51.159 [kafkaMessageListenerContainer-C-1] INFO  com.temp.springcloud.kafka.conf.MyMessageListener - get message from defaultTopic topic : 你好，世界
+2019-03-18 17:00:01.778 [main] INFO  com.temp.springcloud.AppServer - Starting AppServer on MS-20181009BXWL with PID 12016 (E:\github_program\demo\springcloud_new\kafka\target\classes started by Administrator in E:\github_program\demo\springcloud_new)
+2019-03-18 17:00:01.781 [main] INFO  com.temp.springcloud.AppServer - No active profile set, falling back to default profiles: default
+2019-03-18 17:00:02.577 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-03-18 17:00:02.578 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-03-18 17:00:02.604 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 18ms. Found 0 repository interfaces.
+2019-03-18 17:00:02.615 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-03-18 17:00:02.616 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-03-18 17:00:02.631 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 7ms. Found 0 repository interfaces.
+2019-03-18 17:00:02.917 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.kafka.annotation.KafkaBootstrapConfiguration' of type [org.springframework.kafka.annotation.KafkaBootstrapConfiguration$$EnhancerBySpringCGLIB$$aaf9a2b6] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-18 17:00:03.001 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$d7479133] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-18 17:00:03.416 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8000 (http)
+2019-03-18 17:00:03.429 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8000"]
+2019-03-18 17:00:03.434 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-03-18 17:00:03.435 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/9.0.12
+2019-03-18 17:00:03.441 [main] INFO  org.apache.catalina.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\jdk_install\jdk1.8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\app\Administrator\product\11.2.0\dbhome_1\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;F:\soft\torsvn\bin;C:\Program Files\Git\cmd;C:\Users\Administrator\AppData\Local\Programs\Python\Python36;C:\Users\Administrator\AppData\Local\Programs\Python\Python36\Scripts;F:\soft\nodejs\;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;D:\install\rational\common;D:\jdk_install\jdk1.8\bin;D:\baidustorage\maven\apache-maven-3.5.3\bin;C:\Users\Administrator\AppData\Roaming\npm;D:\scala-2.12.8\bin;D:\rational\Common;D:\rational;.]
+2019-03-18 17:00:03.577 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-03-18 17:00:03.577 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1754 ms
+2019-03-18 17:00:03.631 [main] INFO  o.s.boot.web.servlet.ServletRegistrationBean - Servlet dispatcherServlet mapped to [/]
+2019-03-18 17:00:03.633 [main] INFO  o.s.boot.web.servlet.ServletRegistrationBean - Servlet statViewServlet mapped to [/druid/*]
+2019-03-18 17:00:03.639 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-03-18 17:00:03.640 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2019-03-18 17:00:03.640 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'formContentFilter' to: [/*]
+2019-03-18 17:00:03.640 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2019-03-18 17:00:03.640 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'webStatFilter' to urls: [/*]
+2019-03-18 17:00:03.681 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2019-03-18 17:00:03.808 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2019-03-18 17:00:03.958 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-03-18 17:00:04.031 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.3.7.Final}
+2019-03-18 17:00:04.033 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2019-03-18 17:00:04.162 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-03-18 17:00:04.303 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-03-18 17:00:04.496 [main] INFO  o.hibernate.tool.schema.internal.SchemaCreatorImpl - HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@18c820d2'
+2019-03-18 17:00:04.500 [main] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-03-18 17:00:04.830 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-03-18 17:00:05.007 [main] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2019-03-18 17:00:05.419 [main] INFO  org.apache.kafka.clients.consumer.ConsumerConfig - ConsumerConfig values: 
+	auto.commit.interval.ms = 100
+	auto.offset.reset = latest
+	bootstrap.servers = [192.168.42.220:9092]
+	check.crcs = true
+	client.id = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = 0
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.mechanism = GSSAPI
+	security.protocol = PLAINTEXT
+	send.buffer.bytes = 131072
+	session.timeout.ms = 15000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	ssl.endpoint.identification.algorithm = https
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLS
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2019-03-18 17:00:05.478 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka version : 2.0.0
+2019-03-18 17:00:05.479 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka commitId : 3402a8361b734732
+2019-03-18 17:00:05.482 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskScheduler - Initializing ExecutorService
+2019-03-18 17:00:05.494 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8000"]
+2019-03-18 17:00:05.496 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-03-18 17:00:05.513 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8000 (http) with context path ''
+2019-03-18 17:00:05.516 [main] INFO  com.temp.springcloud.AppServer - Started AppServer in 4.645 seconds (JVM running for 6.116)
+2019-03-18 17:00:05.635 [kafkaMessageListenerContainer-C-1] INFO  org.apache.kafka.clients.Metadata - Cluster ID: fh550144SlG1VTlJ7l1qVw
+2019-03-18 17:00:05.646 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - temp-------------递归
+2019-03-18 17:00:05.654 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - springcloud-------------递归
+2019-03-18 17:00:05.654 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - admin-------------递归
+2019-03-18 17:00:05.654 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - AdminController.class-------------递归
+2019-03-18 17:00:05.654 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - KafkaController.class-------------递归
+2019-03-18 17:00:05.655 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - AppServer.class-------------递归
+2019-03-18 17:00:05.655 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - init-------------递归
+2019-03-18 17:00:05.655 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - DemoApplicationContextInitializer.class-------------递归
+2019-03-18 17:00:05.655 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - DemoSpringApplicationRunListener.class-------------递归
+2019-03-18 17:00:05.655 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - kafka-------------递归
+2019-03-18 17:00:05.656 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - conf-------------递归
+2019-03-18 17:00:05.656 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - KafkaConfig.class-------------递归
+2019-03-18 17:00:05.656 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - MyMessageListener.class-------------递归
+2019-03-18 17:00:05.656 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - KafkaConsumerDemo.class-------------递归
+2019-03-18 17:00:05.656 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - KafkaProducerDemo$1.class-------------递归
+2019-03-18 17:00:05.656 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - KafkaProducerDemo.class-------------递归
+2019-03-18 17:00:05.656 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - KafkaProperties.class-------------递归
+2019-03-18 17:00:05.656 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - sqlscript-------------递归
+2019-03-18 17:00:05.660 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - controller-------------递归
+2019-03-18 17:00:05.660 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - PackageScanUtil.class-------------递归
+2019-03-18 17:00:05.660 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - SqlFileExecutorController.class-------------递归
+2019-03-18 17:00:05.661 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - SqlFileExecutorControllerForJar.class-------------递归
+2019-03-18 17:00:05.661 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - H2Service$1.class-------------递归
+2019-03-18 17:00:05.661 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - H2Service$H2ServiceHolder.class-------------递归
+2019-03-18 17:00:05.661 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - H2Service.class-------------递归
+2019-03-18 17:00:05.661 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - sqlfiles-------------递归
+2019-03-18 17:00:05.661 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - 001_hqbpmn_20181211_v2.3.2.0_mfl_init.sql-------------递归
+2019-03-18 17:00:05.661 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - 002_hqbpmn_20181211_v2.3.2.0_lw_init.sql-------------递归
+2019-03-18 17:00:05.661 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - temp-------------循环
+2019-03-18 17:00:05.665 [main] INFO  c.t.s.s.controller.SqlFileExecutorControllerForJar - ===========执行脚本文件：001_hqbpmn_20181211_v2.3.2.0_mfl_init.sql =========== 
+2019-03-18 17:00:05.658 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-1, groupId=0] Discovered group coordinator 192.168.42.220:9092 (id: 2147483647 rack: null)
+2019-03-18 17:00:05.705 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-1, groupId=0] Revoking previously assigned partitions []
+2019-03-18 17:00:05.705 [kafkaMessageListenerContainer-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - partitions revoked: []
+2019-03-18 17:00:05.706 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-1, groupId=0] (Re-)joining group
+2019-03-18 17:00:05.718 [main] INFO  c.t.s.s.controller.SqlFileExecutorControllerForJar - ===========执行脚本文件：002_hqbpmn_20181211_v2.3.2.0_lw_init.sql =========== 
+2019-03-18 17:00:05.766 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-1, groupId=0] Successfully joined group with generation 9
+2019-03-18 17:00:05.768 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-1, groupId=0] Setting newly assigned partitions [home-0]
+2019-03-18 17:00:05.768 [kafkaMessageListenerContainer-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - partitions assigned: [home-0]
+2019-03-18 17:00:05.800 [kafkaMessageListenerContainer-C-1] INFO  o.apache.kafka.clients.consumer.internals.Fetcher - [Consumer clientId=consumer-1, groupId=0] Resetting offset for partition home-0 to offset 2.
+2019-03-18 17:00:14.085 [http-nio-8000-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-03-18 17:00:14.085 [http-nio-8000-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2019-03-18 17:00:14.094 [http-nio-8000-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 9 ms
+2019-03-18 17:00:14.191 [http-nio-8000-exec-1] INFO  com.temp.springcloud.admin.KafkaController - start sned message to home
+2019-03-18 17:00:20.605 [http-nio-8000-exec-1] INFO  org.apache.kafka.clients.producer.ProducerConfig - ProducerConfig values: 
+	acks = 1
+	batch.size = 16384
+	bootstrap.servers = [192.168.42.220:9092]
+	buffer.memory = 33554432
+	client.id = 
+	compression.type = none
+	connections.max.idle.ms = 540000
+	enable.idempotence = false
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 1
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 0
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.mechanism = GSSAPI
+	security.protocol = PLAINTEXT
+	send.buffer.bytes = 131072
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	ssl.endpoint.identification.algorithm = https
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLS
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+
+2019-03-18 17:00:20.702 [http-nio-8000-exec-1] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka version : 2.0.0
+2019-03-18 17:00:20.704 [http-nio-8000-exec-1] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka commitId : 3402a8361b734732
+2019-03-18 17:00:20.865 [kafka-producer-network-thread | producer-1] INFO  org.apache.kafka.clients.Metadata - Cluster ID: fh550144SlG1VTlJ7l1qVw
+2019-03-18 17:00:22.536 [kafka-producer-network-thread | producer-1] INFO  com.temp.springcloud.admin.KafkaController - send message to home success
+2019-03-18 17:00:29.146 [kafkaMessageListenerContainer-C-1] INFO  com.temp.springcloud.kafka.conf.MyMessageListener - -------------recieve message from home topic-------------
+2019-03-18 17:00:29.146 [kafkaMessageListenerContainer-C-1] INFO  com.temp.springcloud.kafka.conf.MyMessageListener - partition:0
+2019-03-18 17:00:29.146 [kafkaMessageListenerContainer-C-1] INFO  com.temp.springcloud.kafka.conf.MyMessageListener - offset:2
+2019-03-18 17:00:29.146 [kafkaMessageListenerContainer-C-1] INFO  com.temp.springcloud.kafka.conf.MyMessageListener - get message from home topic : hello world
+2019-03-18 17:00:32.155 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-1, groupId=0] Attempt to heartbeat failed since group is rebalancing
+2019-03-18 17:00:32.166 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-1, groupId=0] Revoking previously assigned partitions [home-0]
+2019-03-18 17:00:32.167 [kafkaMessageListenerContainer-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - partitions revoked: [home-0]
+2019-03-18 17:00:32.167 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-1, groupId=0] (Re-)joining group
+2019-03-18 17:00:32.190 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-1, groupId=0] Successfully joined group with generation 10
+2019-03-18 17:00:32.190 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-1, groupId=0] Setting newly assigned partitions [home-0]
+2019-03-18 17:00:32.191 [kafkaMessageListenerContainer-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - partitions assigned: [home-0]
+2019-03-18 17:01:14.586 [http-nio-8000-exec-3] INFO  com.temp.springcloud.admin.KafkaController - start sned message to home
+2019-03-18 17:01:17.235 [kafka-producer-network-thread | producer-1] INFO  com.temp.springcloud.admin.KafkaController - send message to home success
+2019-03-18 17:01:23.909 [kafkaMessageListenerContainer-C-1] INFO  com.temp.springcloud.kafka.conf.MyMessageListener - -------------recieve message from home topic-------------
+2019-03-18 17:01:33.652 [kafka-coordinator-heartbeat-thread | 0] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-1, groupId=0] Group coordinator 192.168.42.220:9092 (id: 2147483647 rack: null) is unavailable or invalid, will attempt rediscovery
+2019-03-18 17:01:33.654 [kafkaMessageListenerContainer-C-1] INFO  com.temp.springcloud.kafka.conf.MyMessageListener - partition:0
+2019-03-18 17:01:47.399 [kafkaMessageListenerContainer-C-1] INFO  com.temp.springcloud.kafka.conf.MyMessageListener - offset:3
+2019-03-18 17:01:49.384 [kafkaMessageListenerContainer-C-1] INFO  com.temp.springcloud.kafka.conf.MyMessageListener - get message from home topic : hello world
+2019-03-18 17:01:53.037 [kafka-coordinator-heartbeat-thread | 0] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-1, groupId=0] Discovered group coordinator 192.168.42.220:9092 (id: 2147483647 rack: null)
+2019-03-18 17:01:53.045 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-1, groupId=0] Revoking previously assigned partitions [home-0]
+2019-03-18 17:01:53.046 [kafkaMessageListenerContainer-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - partitions revoked: [home-0]
+2019-03-18 17:01:53.046 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-1, groupId=0] (Re-)joining group
+2019-03-18 17:01:53.083 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-1, groupId=0] Successfully joined group with generation 12
+2019-03-18 17:01:53.084 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-1, groupId=0] Setting newly assigned partitions [home-0]
+2019-03-18 17:01:53.084 [kafkaMessageListenerContainer-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - partitions assigned: [home-0]
+2019-03-18 17:02:01.886 [kafkaMessageListenerContainer-C-1] INFO  com.temp.springcloud.kafka.conf.MyMessageListener - -------------recieve message from home topic-------------
+2019-03-18 17:02:02.958 [kafkaMessageListenerContainer-C-1] INFO  com.temp.springcloud.kafka.conf.MyMessageListener - partition:0
+2019-03-18 17:02:03.987 [kafkaMessageListenerContainer-C-1] INFO  com.temp.springcloud.kafka.conf.MyMessageListener - offset:3
+2019-03-18 17:02:05.490 [kafkaMessageListenerContainer-C-1] INFO  com.temp.springcloud.kafka.conf.MyMessageListener - get message from home topic : hello world
+2019-03-18 17:02:12.792 [http-nio-8000-exec-4] INFO  com.temp.springcloud.admin.KafkaController - start sned message to home
+2019-03-18 17:02:16.531 [kafka-producer-network-thread | producer-1] INFO  com.temp.springcloud.admin.KafkaController - send message to home success
+2019-03-18 17:02:20.146 [kafkaMessageListenerContainer-C-1] INFO  com.temp.springcloud.kafka.conf.MyMessageListener - -------------recieve message from home topic-------------
+2019-03-18 17:02:20.146 [kafkaMessageListenerContainer-C-1] INFO  com.temp.springcloud.kafka.conf.MyMessageListener - partition:0
+2019-03-18 17:02:20.146 [kafkaMessageListenerContainer-C-1] INFO  com.temp.springcloud.kafka.conf.MyMessageListener - offset:4
+2019-03-18 17:02:20.146 [kafkaMessageListenerContainer-C-1] INFO  com.temp.springcloud.kafka.conf.MyMessageListener - get message from home topic : hello world
+2019-03-18 17:02:27.112 [http-nio-8000-exec-9] INFO  com.temp.springcloud.admin.KafkaController - start sned message to home
+2019-03-18 17:02:27.119 [kafka-producer-network-thread | producer-1] INFO  com.temp.springcloud.admin.KafkaController - send message to home success
+2019-03-18 17:02:27.121 [kafkaMessageListenerContainer-C-1] INFO  com.temp.springcloud.kafka.conf.MyMessageListener - -------------recieve message from home topic-------------
+2019-03-18 17:02:27.122 [kafkaMessageListenerContainer-C-1] INFO  com.temp.springcloud.kafka.conf.MyMessageListener - partition:0
+2019-03-18 17:02:27.122 [kafkaMessageListenerContainer-C-1] INFO  com.temp.springcloud.kafka.conf.MyMessageListener - offset:5
+2019-03-18 17:02:27.122 [kafkaMessageListenerContainer-C-1] INFO  com.temp.springcloud.kafka.conf.MyMessageListener - get message from home topic : hello world
+2019-03-18 17:12:25.151 [main] INFO  com.temp.springcloud.AppServer - Starting AppServer on MS-20181009BXWL with PID 17172 (E:\github_program\demo\springcloud_new\kafka\target\classes started by Administrator in E:\github_program\demo\springcloud_new)
+2019-03-18 17:12:25.154 [main] INFO  com.temp.springcloud.AppServer - No active profile set, falling back to default profiles: default
+2019-03-18 17:12:25.977 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-03-18 17:12:25.977 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-03-18 17:12:26.006 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 21ms. Found 0 repository interfaces.
+2019-03-18 17:12:26.018 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-03-18 17:12:26.019 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-03-18 17:12:26.032 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5ms. Found 0 repository interfaces.
+2019-03-18 17:12:26.326 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.kafka.annotation.KafkaBootstrapConfiguration' of type [org.springframework.kafka.annotation.KafkaBootstrapConfiguration$$EnhancerBySpringCGLIB$$5da7f0e9] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-18 17:12:26.398 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$89f5df66] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-18 17:12:26.760 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8000 (http)
+2019-03-18 17:12:26.771 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8000"]
+2019-03-18 17:12:26.775 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-03-18 17:12:26.775 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/9.0.12
+2019-03-18 17:12:26.781 [main] INFO  org.apache.catalina.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\jdk_install\jdk1.8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\app\Administrator\product\11.2.0\dbhome_1\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;F:\soft\torsvn\bin;C:\Program Files\Git\cmd;C:\Users\Administrator\AppData\Local\Programs\Python\Python36;C:\Users\Administrator\AppData\Local\Programs\Python\Python36\Scripts;F:\soft\nodejs\;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;D:\install\rational\common;D:\jdk_install\jdk1.8\bin;D:\baidustorage\maven\apache-maven-3.5.3\bin;C:\Users\Administrator\AppData\Roaming\npm;D:\scala-2.12.8\bin;D:\rational\Common;D:\rational;.]
+2019-03-18 17:12:26.905 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-03-18 17:12:26.905 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1704 ms
+2019-03-18 17:12:26.947 [main] INFO  o.s.boot.web.servlet.ServletRegistrationBean - Servlet dispatcherServlet mapped to [/]
+2019-03-18 17:12:26.948 [main] INFO  o.s.boot.web.servlet.ServletRegistrationBean - Servlet statViewServlet mapped to [/druid/*]
+2019-03-18 17:12:26.952 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-03-18 17:12:26.952 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2019-03-18 17:12:26.952 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'formContentFilter' to: [/*]
+2019-03-18 17:12:26.952 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2019-03-18 17:12:26.952 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'webStatFilter' to urls: [/*]
+2019-03-18 17:12:26.985 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2019-03-18 17:12:27.086 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2019-03-18 17:12:27.207 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-03-18 17:12:27.256 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.3.7.Final}
+2019-03-18 17:12:27.257 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2019-03-18 17:12:27.354 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-03-18 17:12:27.461 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-03-18 17:12:27.620 [main] INFO  o.hibernate.tool.schema.internal.SchemaCreatorImpl - HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@294f9d50'
+2019-03-18 17:12:27.623 [main] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-03-18 17:12:27.877 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-03-18 17:12:28.001 [main] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2019-03-18 17:12:28.401 [main] INFO  org.apache.kafka.clients.consumer.ConsumerConfig - ConsumerConfig values: 
+	auto.commit.interval.ms = 100
+	auto.offset.reset = latest
+	bootstrap.servers = [192.168.42.220:9092]
+	check.crcs = true
+	client.id = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = 0
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.mechanism = GSSAPI
+	security.protocol = PLAINTEXT
+	send.buffer.bytes = 131072
+	session.timeout.ms = 15000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	ssl.endpoint.identification.algorithm = https
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLS
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2019-03-18 17:12:28.459 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka version : 2.0.0
+2019-03-18 17:12:28.460 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka commitId : 3402a8361b734732
+2019-03-18 17:12:28.462 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskScheduler - Initializing ExecutorService
+2019-03-18 17:12:28.473 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8000"]
+2019-03-18 17:12:28.474 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-03-18 17:12:28.490 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8000 (http) with context path ''
+2019-03-18 17:12:28.494 [main] INFO  com.temp.springcloud.AppServer - Started AppServer in 4.268 seconds (JVM running for 5.13)
+2019-03-18 17:12:28.506 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - temp-------------递归
+2019-03-18 17:12:28.507 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - springcloud-------------递归
+2019-03-18 17:12:28.507 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - admin-------------递归
+2019-03-18 17:12:28.507 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - AdminController.class-------------递归
+2019-03-18 17:12:28.507 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - KafkaController.class-------------递归
+2019-03-18 17:12:28.508 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - AppServer.class-------------递归
+2019-03-18 17:12:28.508 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - init-------------递归
+2019-03-18 17:12:28.509 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - DemoApplicationContextInitializer.class-------------递归
+2019-03-18 17:12:28.509 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - DemoSpringApplicationRunListener.class-------------递归
+2019-03-18 17:12:28.509 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - kafka-------------递归
+2019-03-18 17:12:28.509 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - conf-------------递归
+2019-03-18 17:12:28.509 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - KafkaConfig.class-------------递归
+2019-03-18 17:12:28.510 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - MyMessageListener.class-------------递归
+2019-03-18 17:12:28.510 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - KafkaConsumerDemo.class-------------递归
+2019-03-18 17:12:28.510 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - KafkaProducerDemo$1.class-------------递归
+2019-03-18 17:12:28.510 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - KafkaProducerDemo.class-------------递归
+2019-03-18 17:12:28.510 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - KafkaProperties.class-------------递归
+2019-03-18 17:12:28.510 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - sqlscript-------------递归
+2019-03-18 17:12:28.510 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - controller-------------递归
+2019-03-18 17:12:28.511 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - PackageScanUtil.class-------------递归
+2019-03-18 17:12:28.511 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - SqlFileExecutorController.class-------------递归
+2019-03-18 17:12:28.511 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - SqlFileExecutorControllerForJar.class-------------递归
+2019-03-18 17:12:28.511 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - H2Service$1.class-------------递归
+2019-03-18 17:12:28.511 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - H2Service$H2ServiceHolder.class-------------递归
+2019-03-18 17:12:28.511 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - H2Service.class-------------递归
+2019-03-18 17:12:28.511 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - sqlfiles-------------递归
+2019-03-18 17:12:28.512 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - 001_hqbpmn_20181211_v2.3.2.0_mfl_init.sql-------------递归
+2019-03-18 17:12:28.512 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - 002_hqbpmn_20181211_v2.3.2.0_lw_init.sql-------------递归
+2019-03-18 17:12:28.512 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - temp-------------循环
+2019-03-18 17:12:28.515 [main] INFO  c.t.s.s.controller.SqlFileExecutorControllerForJar - ===========执行脚本文件：001_hqbpmn_20181211_v2.3.2.0_mfl_init.sql =========== 
+2019-03-18 17:12:28.537 [main] INFO  c.t.s.s.controller.SqlFileExecutorControllerForJar - ===========执行脚本文件：002_hqbpmn_20181211_v2.3.2.0_lw_init.sql =========== 
+2019-03-18 17:12:28.714 [kafkaMessageListenerContainer-C-1] INFO  org.apache.kafka.clients.Metadata - Cluster ID: fh550144SlG1VTlJ7l1qVw
+2019-03-18 17:12:28.715 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-1, groupId=0] Discovered group coordinator 192.168.42.220:9092 (id: 2147483647 rack: null)
+2019-03-18 17:12:28.731 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-1, groupId=0] Revoking previously assigned partitions []
+2019-03-18 17:12:28.732 [kafkaMessageListenerContainer-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - partitions revoked: []
+2019-03-18 17:12:28.732 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-1, groupId=0] (Re-)joining group
+2019-03-18 17:12:28.764 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-1, groupId=0] Successfully joined group with generation 14
+2019-03-18 17:12:28.766 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-1, groupId=0] Setting newly assigned partitions [defaultTopic-0]
+2019-03-18 17:12:28.766 [kafkaMessageListenerContainer-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - partitions assigned: [defaultTopic-0]
+2019-03-18 17:12:31.367 [http-nio-8000-exec-4] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-03-18 17:12:31.368 [http-nio-8000-exec-4] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2019-03-18 17:12:31.376 [http-nio-8000-exec-4] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 8 ms
+2019-03-18 17:12:31.463 [http-nio-8000-exec-4] INFO  com.temp.springcloud.admin.KafkaController - start sned message to topic
+2019-03-18 17:12:31.469 [http-nio-8000-exec-4] INFO  org.apache.kafka.clients.producer.ProducerConfig - ProducerConfig values: 
+	acks = 1
+	batch.size = 16384
+	bootstrap.servers = [192.168.42.220:9092]
+	buffer.memory = 33554432
+	client.id = 
+	compression.type = none
+	connections.max.idle.ms = 540000
+	enable.idempotence = false
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 1
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 0
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.mechanism = GSSAPI
+	security.protocol = PLAINTEXT
+	send.buffer.bytes = 131072
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	ssl.endpoint.identification.algorithm = https
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLS
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+
+2019-03-18 17:12:31.484 [http-nio-8000-exec-4] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka version : 2.0.0
+2019-03-18 17:12:31.485 [http-nio-8000-exec-4] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka commitId : 3402a8361b734732
+2019-03-18 17:12:32.154 [kafka-producer-network-thread | producer-1] INFO  org.apache.kafka.clients.Metadata - Cluster ID: fh550144SlG1VTlJ7l1qVw
+2019-03-18 17:12:32.752 [kafka-producer-network-thread | producer-1] INFO  com.temp.springcloud.admin.KafkaController - send message to topic success
+2019-03-18 17:12:34.684 [http-nio-8000-exec-8] INFO  com.temp.springcloud.admin.KafkaController - start sned message to topic
+2019-03-18 17:12:34.698 [kafka-producer-network-thread | producer-1] INFO  com.temp.springcloud.admin.KafkaController - send message to topic success
+2019-03-18 17:12:43.651 [http-nio-8000-exec-5] INFO  com.temp.springcloud.admin.KafkaController - start sned message to topic
+2019-03-18 17:12:43.658 [kafka-producer-network-thread | producer-1] INFO  com.temp.springcloud.admin.KafkaController - send message to topic success
+2019-03-18 17:13:13.158 [http-nio-8000-exec-7] INFO  com.temp.springcloud.admin.KafkaController - start sned message to atopic
+2019-03-18 17:13:13.754 [kafka-producer-network-thread | producer-1] INFO  com.temp.springcloud.admin.KafkaController - send message to atopic success
+2019-03-18 17:13:56.687 [main] INFO  com.temp.springcloud.AppServer - Starting AppServer on MS-20181009BXWL with PID 8516 (E:\github_program\demo\springcloud_new\kafka\target\classes started by Administrator in E:\github_program\demo\springcloud_new)
+2019-03-18 17:13:56.690 [main] INFO  com.temp.springcloud.AppServer - No active profile set, falling back to default profiles: default
+2019-03-18 17:13:59.262 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-03-18 17:13:59.262 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-03-18 17:13:59.291 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 20ms. Found 0 repository interfaces.
+2019-03-18 17:13:59.303 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-03-18 17:13:59.305 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-03-18 17:13:59.318 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5ms. Found 0 repository interfaces.
+2019-03-18 17:13:59.613 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.kafka.annotation.KafkaBootstrapConfiguration' of type [org.springframework.kafka.annotation.KafkaBootstrapConfiguration$$EnhancerBySpringCGLIB$$d3e26290] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-18 17:13:59.705 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$30510d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-18 17:14:00.138 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8000 (http)
+2019-03-18 17:14:00.151 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8000"]
+2019-03-18 17:14:00.157 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-03-18 17:14:00.157 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/9.0.12
+2019-03-18 17:14:00.166 [main] INFO  org.apache.catalina.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\jdk_install\jdk1.8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\app\Administrator\product\11.2.0\dbhome_1\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;F:\soft\torsvn\bin;C:\Program Files\Git\cmd;C:\Users\Administrator\AppData\Local\Programs\Python\Python36;C:\Users\Administrator\AppData\Local\Programs\Python\Python36\Scripts;F:\soft\nodejs\;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;D:\install\rational\common;D:\jdk_install\jdk1.8\bin;D:\baidustorage\maven\apache-maven-3.5.3\bin;C:\Users\Administrator\AppData\Roaming\npm;D:\scala-2.12.8\bin;D:\rational\Common;D:\rational;.]
+2019-03-18 17:14:00.335 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-03-18 17:14:00.336 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 3480 ms
+2019-03-18 17:14:00.387 [main] INFO  o.s.boot.web.servlet.ServletRegistrationBean - Servlet dispatcherServlet mapped to [/]
+2019-03-18 17:14:00.389 [main] INFO  o.s.boot.web.servlet.ServletRegistrationBean - Servlet statViewServlet mapped to [/druid/*]
+2019-03-18 17:14:00.393 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-03-18 17:14:00.394 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2019-03-18 17:14:00.394 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'formContentFilter' to: [/*]
+2019-03-18 17:14:00.394 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2019-03-18 17:14:00.394 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'webStatFilter' to urls: [/*]
+2019-03-18 17:14:00.432 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2019-03-18 17:14:00.555 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2019-03-18 17:14:00.697 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-03-18 17:14:00.753 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.3.7.Final}
+2019-03-18 17:14:00.755 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2019-03-18 17:14:00.883 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-03-18 17:14:01.023 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-03-18 17:14:01.220 [main] INFO  o.hibernate.tool.schema.internal.SchemaCreatorImpl - HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@4a9b92c6'
+2019-03-18 17:14:01.223 [main] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-03-18 17:14:05.860 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-03-18 17:14:06.011 [main] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2019-03-18 17:14:06.426 [main] INFO  org.apache.kafka.clients.consumer.ConsumerConfig - ConsumerConfig values: 
+	auto.commit.interval.ms = 100
+	auto.offset.reset = latest
+	bootstrap.servers = [192.168.42.220:9092]
+	check.crcs = true
+	client.id = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = 0
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.mechanism = GSSAPI
+	security.protocol = PLAINTEXT
+	send.buffer.bytes = 131072
+	session.timeout.ms = 15000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	ssl.endpoint.identification.algorithm = https
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLS
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2019-03-18 17:14:06.482 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka version : 2.0.0
+2019-03-18 17:14:06.482 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka commitId : 3402a8361b734732
+2019-03-18 17:14:06.485 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskScheduler - Initializing ExecutorService
+2019-03-18 17:14:06.497 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8000"]
+2019-03-18 17:14:06.498 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-03-18 17:14:06.515 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8000 (http) with context path ''
+2019-03-18 17:14:06.519 [main] INFO  com.temp.springcloud.AppServer - Started AppServer in 10.754 seconds (JVM running for 12.967)
+2019-03-18 17:14:06.527 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - temp-------------递归
+2019-03-18 17:14:06.527 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - springcloud-------------递归
+2019-03-18 17:14:06.528 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - admin-------------递归
+2019-03-18 17:14:06.528 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - AdminController.class-------------递归
+2019-03-18 17:14:06.528 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - KafkaController.class-------------递归
+2019-03-18 17:14:06.528 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - AppServer.class-------------递归
+2019-03-18 17:14:06.528 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - init-------------递归
+2019-03-18 17:14:06.529 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - DemoApplicationContextInitializer.class-------------递归
+2019-03-18 17:14:06.529 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - DemoSpringApplicationRunListener.class-------------递归
+2019-03-18 17:14:06.529 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - kafka-------------递归
+2019-03-18 17:14:06.529 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - conf-------------递归
+2019-03-18 17:14:06.530 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - KafkaConfig.class-------------递归
+2019-03-18 17:14:06.530 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - MyMessageListener.class-------------递归
+2019-03-18 17:14:06.530 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - KafkaConsumerDemo.class-------------递归
+2019-03-18 17:14:06.530 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - KafkaProducerDemo$1.class-------------递归
+2019-03-18 17:14:06.530 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - KafkaProducerDemo.class-------------递归
+2019-03-18 17:14:06.530 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - KafkaProperties.class-------------递归
+2019-03-18 17:14:06.530 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - sqlscript-------------递归
+2019-03-18 17:14:06.530 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - controller-------------递归
+2019-03-18 17:14:06.531 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - PackageScanUtil.class-------------递归
+2019-03-18 17:14:06.531 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - SqlFileExecutorController.class-------------递归
+2019-03-18 17:14:06.531 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - SqlFileExecutorControllerForJar.class-------------递归
+2019-03-18 17:14:06.531 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - H2Service$1.class-------------递归
+2019-03-18 17:14:06.531 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - H2Service$H2ServiceHolder.class-------------递归
+2019-03-18 17:14:06.531 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - H2Service.class-------------递归
+2019-03-18 17:14:06.532 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - sqlfiles-------------递归
+2019-03-18 17:14:06.532 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - 001_hqbpmn_20181211_v2.3.2.0_mfl_init.sql-------------递归
+2019-03-18 17:14:06.532 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - 002_hqbpmn_20181211_v2.3.2.0_lw_init.sql-------------递归
+2019-03-18 17:14:06.532 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - temp-------------循环
+2019-03-18 17:14:06.535 [main] INFO  c.t.s.s.controller.SqlFileExecutorControllerForJar - ===========执行脚本文件：001_hqbpmn_20181211_v2.3.2.0_mfl_init.sql =========== 
+2019-03-18 17:14:06.546 [main] INFO  c.t.s.s.controller.SqlFileExecutorControllerForJar - ===========执行脚本文件：002_hqbpmn_20181211_v2.3.2.0_lw_init.sql =========== 
+2019-03-18 17:14:06.701 [kafkaMessageListenerContainer-C-1] INFO  org.apache.kafka.clients.Metadata - Cluster ID: fh550144SlG1VTlJ7l1qVw
+2019-03-18 17:14:06.702 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-1, groupId=0] Discovered group coordinator 192.168.42.220:9092 (id: 2147483647 rack: null)
+2019-03-18 17:14:06.706 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-1, groupId=0] Revoking previously assigned partitions []
+2019-03-18 17:14:06.706 [kafkaMessageListenerContainer-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - partitions revoked: []
+2019-03-18 17:14:06.706 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-1, groupId=0] (Re-)joining group
+2019-03-18 17:14:06.721 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-1, groupId=0] Successfully joined group with generation 16
+2019-03-18 17:14:06.722 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-1, groupId=0] Setting newly assigned partitions [atopic-0, topic-0, defaultTopic-0]
+2019-03-18 17:14:06.722 [kafkaMessageListenerContainer-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - partitions assigned: [atopic-0, topic-0, defaultTopic-0]
+2019-03-18 17:14:06.741 [kafkaMessageListenerContainer-C-1] INFO  o.apache.kafka.clients.consumer.internals.Fetcher - [Consumer clientId=consumer-1, groupId=0] Resetting offset for partition atopic-0 to offset 1.
+2019-03-18 17:14:06.741 [kafkaMessageListenerContainer-C-1] INFO  o.apache.kafka.clients.consumer.internals.Fetcher - [Consumer clientId=consumer-1, groupId=0] Resetting offset for partition topic-0 to offset 3.
+2019-03-18 17:14:23.303 [http-nio-8000-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-03-18 17:14:23.303 [http-nio-8000-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2019-03-18 17:14:23.314 [http-nio-8000-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 11 ms
+2019-03-18 17:14:23.413 [http-nio-8000-exec-1] INFO  com.temp.springcloud.admin.KafkaController - start sned message to atopic
+2019-03-18 17:14:23.417 [http-nio-8000-exec-1] INFO  org.apache.kafka.clients.producer.ProducerConfig - ProducerConfig values: 
+	acks = 1
+	batch.size = 16384
+	bootstrap.servers = [192.168.42.220:9092]
+	buffer.memory = 33554432
+	client.id = 
+	compression.type = none
+	connections.max.idle.ms = 540000
+	enable.idempotence = false
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 1
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 0
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.mechanism = GSSAPI
+	security.protocol = PLAINTEXT
+	send.buffer.bytes = 131072
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	ssl.endpoint.identification.algorithm = https
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLS
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+
+2019-03-18 17:14:23.602 [http-nio-8000-exec-1] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka version : 2.0.0
+2019-03-18 17:14:23.602 [http-nio-8000-exec-1] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka commitId : 3402a8361b734732
+2019-03-18 17:14:23.616 [kafka-producer-network-thread | producer-1] INFO  org.apache.kafka.clients.Metadata - Cluster ID: fh550144SlG1VTlJ7l1qVw
+2019-03-18 17:14:23.640 [kafka-producer-network-thread | producer-1] INFO  com.temp.springcloud.admin.KafkaController - send message to atopic success
+2019-03-18 17:14:23.643 [kafkaMessageListenerContainer-C-1] INFO  com.temp.springcloud.kafka.conf.MyMessageListener - -------------recieve message from atopic topic-------------
+2019-03-18 17:14:24.274 [kafkaMessageListenerContainer-C-1] INFO  com.temp.springcloud.kafka.conf.MyMessageListener - partition:0
+2019-03-18 17:14:24.274 [kafkaMessageListenerContainer-C-1] INFO  com.temp.springcloud.kafka.conf.MyMessageListener - offset:1
+2019-03-18 17:14:24.274 [kafkaMessageListenerContainer-C-1] INFO  com.temp.springcloud.kafka.conf.MyMessageListener - get message from atopic topic : hello world
+2019-03-18 17:14:40.932 [http-nio-8000-exec-2] INFO  com.temp.springcloud.admin.KafkaController - start sned message to atopic
+2019-03-18 17:14:40.937 [kafka-producer-network-thread | producer-1] INFO  com.temp.springcloud.admin.KafkaController - send message to atopic success
+2019-03-18 17:14:40.940 [kafkaMessageListenerContainer-C-1] INFO  com.temp.springcloud.kafka.conf.MyMessageListener - -------------recieve message from atopic topic-------------
+2019-03-18 17:14:40.944 [kafkaMessageListenerContainer-C-1] INFO  com.temp.springcloud.kafka.conf.MyMessageListener - partition:0
+2019-03-18 17:14:40.945 [kafkaMessageListenerContainer-C-1] INFO  com.temp.springcloud.kafka.conf.MyMessageListener - offset:2
+2019-03-18 17:14:40.945 [kafkaMessageListenerContainer-C-1] INFO  com.temp.springcloud.kafka.conf.MyMessageListener - get message from atopic topic : hello world
+2019-03-18 17:15:03.936 [http-nio-8000-exec-6] INFO  com.temp.springcloud.admin.KafkaController - start sned message to atopic
+2019-03-18 17:15:03.940 [kafkaMessageListenerContainer-C-1] INFO  com.temp.springcloud.kafka.conf.MyMessageListener - -------------recieve message from atopic topic-------------
+2019-03-18 17:15:03.940 [kafka-producer-network-thread | producer-1] INFO  com.temp.springcloud.admin.KafkaController - send message to atopic success
+2019-03-18 17:15:03.940 [kafkaMessageListenerContainer-C-1] INFO  com.temp.springcloud.kafka.conf.MyMessageListener - partition:0
+2019-03-18 17:15:03.940 [kafkaMessageListenerContainer-C-1] INFO  com.temp.springcloud.kafka.conf.MyMessageListener - offset:3
+2019-03-18 17:15:03.940 [kafkaMessageListenerContainer-C-1] INFO  com.temp.springcloud.kafka.conf.MyMessageListener - get message from atopic topic : hello world
+2019-03-18 17:15:58.765 [main] INFO  com.temp.springcloud.AppServer - Starting AppServer on MS-20181009BXWL with PID 6364 (E:\github_program\demo\springcloud_new\kafka\target\classes started by Administrator in E:\github_program\demo\springcloud_new)
+2019-03-18 17:15:58.768 [main] INFO  com.temp.springcloud.AppServer - No active profile set, falling back to default profiles: default
+2019-03-18 17:15:59.554 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-03-18 17:15:59.555 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-03-18 17:15:59.582 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 20ms. Found 0 repository interfaces.
+2019-03-18 17:15:59.596 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-03-18 17:15:59.597 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-03-18 17:15:59.612 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 6ms. Found 0 repository interfaces.
+2019-03-18 17:15:59.913 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.kafka.annotation.KafkaBootstrapConfiguration' of type [org.springframework.kafka.annotation.KafkaBootstrapConfiguration$$EnhancerBySpringCGLIB$$7feee41] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-18 17:16:00.011 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$344cdcbe] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-18 17:16:01.861 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8000 (http)
+2019-03-18 17:16:01.886 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8000"]
+2019-03-18 17:16:01.893 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-03-18 17:16:01.893 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/9.0.12
+2019-03-18 17:16:01.901 [main] INFO  org.apache.catalina.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\jdk_install\jdk1.8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\app\Administrator\product\11.2.0\dbhome_1\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;F:\soft\torsvn\bin;C:\Program Files\Git\cmd;C:\Users\Administrator\AppData\Local\Programs\Python\Python36;C:\Users\Administrator\AppData\Local\Programs\Python\Python36\Scripts;F:\soft\nodejs\;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;D:\install\rational\common;D:\jdk_install\jdk1.8\bin;D:\baidustorage\maven\apache-maven-3.5.3\bin;C:\Users\Administrator\AppData\Roaming\npm;D:\scala-2.12.8\bin;D:\rational\Common;D:\rational;.]
+2019-03-18 17:16:02.148 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-03-18 17:16:02.149 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 3338 ms
+2019-03-18 17:16:02.198 [main] INFO  o.s.boot.web.servlet.ServletRegistrationBean - Servlet dispatcherServlet mapped to [/]
+2019-03-18 17:16:02.200 [main] INFO  o.s.boot.web.servlet.ServletRegistrationBean - Servlet statViewServlet mapped to [/druid/*]
+2019-03-18 17:16:02.204 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-03-18 17:16:02.204 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2019-03-18 17:16:02.204 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'formContentFilter' to: [/*]
+2019-03-18 17:16:02.205 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2019-03-18 17:16:02.205 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'webStatFilter' to urls: [/*]
+2019-03-18 17:16:02.252 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2019-03-18 17:16:02.435 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2019-03-18 17:16:02.574 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-03-18 17:16:02.725 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.3.7.Final}
+2019-03-18 17:16:02.727 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2019-03-18 17:16:02.937 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-03-18 17:16:03.193 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-03-18 17:16:03.442 [main] INFO  o.hibernate.tool.schema.internal.SchemaCreatorImpl - HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@184751f3'
+2019-03-18 17:16:03.445 [main] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-03-18 17:16:03.941 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-03-18 17:16:04.116 [main] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2019-03-18 17:16:06.035 [main] INFO  org.apache.kafka.clients.consumer.ConsumerConfig - ConsumerConfig values: 
+	auto.commit.interval.ms = 100
+	auto.offset.reset = latest
+	bootstrap.servers = [192.168.42.220:9092]
+	check.crcs = true
+	client.id = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = 0
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.mechanism = GSSAPI
+	security.protocol = PLAINTEXT
+	send.buffer.bytes = 131072
+	session.timeout.ms = 15000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	ssl.endpoint.identification.algorithm = https
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLS
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2019-03-18 17:16:06.102 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka version : 2.0.0
+2019-03-18 17:16:06.103 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka commitId : 3402a8361b734732
+2019-03-18 17:16:06.107 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskScheduler - Initializing ExecutorService
+2019-03-18 17:16:06.126 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8000"]
+2019-03-18 17:16:06.128 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-03-18 17:16:06.155 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8000 (http) with context path ''
+2019-03-18 17:16:06.158 [main] INFO  com.temp.springcloud.AppServer - Started AppServer in 8.702 seconds (JVM running for 11.393)
+2019-03-18 17:16:06.182 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - temp-------------递归
+2019-03-18 17:16:06.182 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - springcloud-------------递归
+2019-03-18 17:16:06.183 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - admin-------------递归
+2019-03-18 17:16:06.183 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - AdminController.class-------------递归
+2019-03-18 17:16:06.183 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - KafkaController.class-------------递归
+2019-03-18 17:16:06.183 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - AppServer.class-------------递归
+2019-03-18 17:16:06.183 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - init-------------递归
+2019-03-18 17:16:06.188 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - DemoApplicationContextInitializer.class-------------递归
+2019-03-18 17:16:06.189 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - DemoSpringApplicationRunListener.class-------------递归
+2019-03-18 17:16:06.189 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - kafka-------------递归
+2019-03-18 17:16:06.192 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - conf-------------递归
+2019-03-18 17:16:06.195 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - KafkaConfig.class-------------递归
+2019-03-18 17:16:06.195 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - MyMessageListener.class-------------递归
+2019-03-18 17:16:06.195 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - KafkaConsumerDemo.class-------------递归
+2019-03-18 17:16:06.195 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - KafkaProducerDemo$1.class-------------递归
+2019-03-18 17:16:06.196 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - KafkaProducerDemo.class-------------递归
+2019-03-18 17:16:06.196 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - KafkaProperties.class-------------递归
+2019-03-18 17:16:06.196 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - sqlscript-------------递归
+2019-03-18 17:16:06.205 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - controller-------------递归
+2019-03-18 17:16:06.206 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - PackageScanUtil.class-------------递归
+2019-03-18 17:16:06.207 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - SqlFileExecutorController.class-------------递归
+2019-03-18 17:16:06.207 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - SqlFileExecutorControllerForJar.class-------------递归
+2019-03-18 17:16:06.207 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - H2Service$1.class-------------递归
+2019-03-18 17:16:06.207 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - H2Service$H2ServiceHolder.class-------------递归
+2019-03-18 17:16:06.207 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - H2Service.class-------------递归
+2019-03-18 17:16:06.207 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - sqlfiles-------------递归
+2019-03-18 17:16:06.208 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - 001_hqbpmn_20181211_v2.3.2.0_mfl_init.sql-------------递归
+2019-03-18 17:16:06.208 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - 002_hqbpmn_20181211_v2.3.2.0_lw_init.sql-------------递归
+2019-03-18 17:16:06.208 [main] INFO  c.t.s.sqlscript.controller.PackageScanUtil - temp-------------循环
+2019-03-18 17:16:06.211 [main] INFO  c.t.s.s.controller.SqlFileExecutorControllerForJar - ===========执行脚本文件：001_hqbpmn_20181211_v2.3.2.0_mfl_init.sql =========== 
+2019-03-18 17:16:06.222 [main] INFO  c.t.s.s.controller.SqlFileExecutorControllerForJar - ===========执行脚本文件：002_hqbpmn_20181211_v2.3.2.0_lw_init.sql =========== 
+2019-03-18 17:16:06.315 [kafkaMessageListenerContainer-C-1] INFO  org.apache.kafka.clients.Metadata - Cluster ID: fh550144SlG1VTlJ7l1qVw
+2019-03-18 17:16:06.317 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-1, groupId=0] Discovered group coordinator 192.168.42.220:9092 (id: 2147483647 rack: null)
+2019-03-18 17:16:06.320 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-1, groupId=0] Revoking previously assigned partitions []
+2019-03-18 17:16:06.320 [kafkaMessageListenerContainer-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - partitions revoked: []
+2019-03-18 17:16:06.320 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-1, groupId=0] (Re-)joining group
+2019-03-18 17:16:06.335 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-1, groupId=0] Successfully joined group with generation 18
+2019-03-18 17:16:06.337 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-1, groupId=0] Setting newly assigned partitions [atopic-0, topic-0, defaultTopic-0]
+2019-03-18 17:16:06.337 [kafkaMessageListenerContainer-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - partitions assigned: [atopic-0, topic-0, defaultTopic-0]
+2019-03-18 17:16:22.535 [http-nio-8000-exec-6] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-03-18 17:16:22.536 [http-nio-8000-exec-6] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2019-03-18 17:16:22.543 [http-nio-8000-exec-6] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 7 ms
+2019-03-18 17:16:28.217 [http-nio-8000-exec-6] INFO  com.temp.springcloud.admin.KafkaController - start sned message to atopic
+2019-03-18 17:16:28.224 [http-nio-8000-exec-6] INFO  org.apache.kafka.clients.producer.ProducerConfig - ProducerConfig values: 
+	acks = 1
+	batch.size = 16384
+	bootstrap.servers = [192.168.42.220:9092]
+	buffer.memory = 33554432
+	client.id = 
+	compression.type = none
+	connections.max.idle.ms = 540000
+	enable.idempotence = false
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 1
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 0
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.mechanism = GSSAPI
+	security.protocol = PLAINTEXT
+	send.buffer.bytes = 131072
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	ssl.endpoint.identification.algorithm = https
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLS
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+
+2019-03-18 17:16:28.241 [http-nio-8000-exec-6] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka version : 2.0.0
+2019-03-18 17:16:28.241 [http-nio-8000-exec-6] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka commitId : 3402a8361b734732
+2019-03-18 17:16:28.247 [kafka-producer-network-thread | producer-1] INFO  org.apache.kafka.clients.Metadata - Cluster ID: fh550144SlG1VTlJ7l1qVw
+2019-03-18 17:16:28.412 [kafka-producer-network-thread | producer-1] INFO  com.temp.springcloud.admin.KafkaController - send message to atopic success
+2019-03-18 17:16:28.414 [kafkaMessageListenerContainer-C-1] INFO  com.temp.springcloud.kafka.conf.MyMessageListener - -------------recieve message from atopic topic-------------
+2019-03-18 17:16:28.415 [kafkaMessageListenerContainer-C-1] INFO  com.temp.springcloud.kafka.conf.MyMessageListener - partition:0
+2019-03-18 17:16:28.415 [kafkaMessageListenerContainer-C-1] INFO  com.temp.springcloud.kafka.conf.MyMessageListener - offset:4
+2019-03-18 17:16:28.415 [kafkaMessageListenerContainer-C-1] INFO  com.temp.springcloud.kafka.conf.MyMessageListener - get message from atopic topic : hello world
+2019-03-18 17:17:28.519 [http-nio-8000-exec-9] INFO  com.temp.springcloud.admin.KafkaController - start sned message to atopic
+2019-03-18 17:17:28.522 [kafka-producer-network-thread | producer-1] INFO  com.temp.springcloud.admin.KafkaController - send message to atopic success
+2019-03-18 17:17:28.523 [kafkaMessageListenerContainer-C-1] INFO  com.temp.springcloud.kafka.conf.MyMessageListener - -------------recieve message from atopic topic-------------
+2019-03-18 17:17:28.523 [kafkaMessageListenerContainer-C-1] INFO  com.temp.springcloud.kafka.conf.MyMessageListener - partition:0
+2019-03-18 17:17:28.523 [kafkaMessageListenerContainer-C-1] INFO  com.temp.springcloud.kafka.conf.MyMessageListener - offset:5
+2019-03-18 17:17:28.523 [kafkaMessageListenerContainer-C-1] INFO  com.temp.springcloud.kafka.conf.MyMessageListener - get message from atopic topic : klfjdlkajklfjdljklfds
+2019-03-18 17:17:31.222 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-1, groupId=0] Attempt to heartbeat failed since group is rebalancing
+2019-03-18 17:17:31.224 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-1, groupId=0] Revoking previously assigned partitions [atopic-0, topic-0, defaultTopic-0]
+2019-03-18 17:17:31.224 [kafkaMessageListenerContainer-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - partitions revoked: [atopic-0, topic-0, defaultTopic-0]
+2019-03-18 17:17:31.224 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-1, groupId=0] (Re-)joining group
+2019-03-18 17:17:31.229 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-1, groupId=0] Successfully joined group with generation 19
+2019-03-18 17:17:31.230 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-1, groupId=0] Setting newly assigned partitions [atopic-0, topic-0, defaultTopic-0]
+2019-03-18 17:17:31.230 [kafkaMessageListenerContainer-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - partitions assigned: [atopic-0, topic-0, defaultTopic-0]
+2019-03-18 17:18:01.498 [http-nio-8000-exec-7] INFO  com.temp.springcloud.admin.KafkaController - start sned message to atopic
+2019-03-18 17:18:01.502 [kafka-producer-network-thread | producer-1] INFO  com.temp.springcloud.admin.KafkaController - send message to atopic success
+2019-03-18 17:18:03.409 [kafkaMessageListenerContainer-C-1] INFO  com.temp.springcloud.kafka.conf.MyMessageListener - -------------recieve message from atopic topic-------------
+2019-03-18 17:18:05.648 [kafkaMessageListenerContainer-C-1] INFO  com.temp.springcloud.kafka.conf.MyMessageListener - partition:0
+2019-03-18 17:18:07.023 [kafkaMessageListenerContainer-C-1] INFO  com.temp.springcloud.kafka.conf.MyMessageListener - offset:6
+2019-03-18 17:18:08.056 [kafkaMessageListenerContainer-C-1] INFO  com.temp.springcloud.kafka.conf.MyMessageListener - get message from atopic topic : klfjdlkajklfjdljklfds
+2019-03-18 17:19:06.762 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-1, groupId=0] Attempt to heartbeat failed since group is rebalancing
+2019-03-18 17:19:06.763 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-1, groupId=0] Revoking previously assigned partitions [atopic-0, topic-0, defaultTopic-0]
+2019-03-18 17:19:06.763 [kafkaMessageListenerContainer-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - partitions revoked: [atopic-0, topic-0, defaultTopic-0]
+2019-03-18 17:19:06.763 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-1, groupId=0] (Re-)joining group
+2019-03-18 17:19:06.770 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-1, groupId=0] Successfully joined group with generation 20
+2019-03-18 17:19:06.770 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-1, groupId=0] Setting newly assigned partitions [atopic-0, topic-0, defaultTopic-0]
+2019-03-18 17:19:06.771 [kafkaMessageListenerContainer-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - partitions assigned: [atopic-0, topic-0, defaultTopic-0]
+2019-03-18 18:25:17.982 [kafka-coordinator-heartbeat-thread | 0] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-1, groupId=0] Group coordinator 192.168.42.220:9092 (id: 2147483647 rack: null) is unavailable or invalid, will attempt rediscovery
+2019-03-18 18:25:43.136 [kafkaMessageListenerContainer-C-1] INFO  org.apache.kafka.clients.FetchSessionHandler - [Consumer clientId=consumer-1, groupId=0] Error sending fetch request (sessionId=1044837821, epoch=8135) to node 0: org.apache.kafka.common.errors.DisconnectException.
+2019-03-18 18:25:57.104 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-1, groupId=0] Discovered group coordinator 192.168.42.220:9092 (id: 2147483647 rack: null)
+2019-03-18 18:25:57.277 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-1, groupId=0] Revoking previously assigned partitions [atopic-0, topic-0, defaultTopic-0]
+2019-03-18 18:25:57.277 [kafkaMessageListenerContainer-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - partitions revoked: [atopic-0, topic-0, defaultTopic-0]
+2019-03-18 18:25:57.277 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-1, groupId=0] (Re-)joining group
+2019-03-18 18:25:57.946 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-1, groupId=0] (Re-)joining group
+2019-03-18 18:26:18.549 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-1, groupId=0] Successfully joined group with generation 23
+2019-03-18 18:26:18.549 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-1, groupId=0] Setting newly assigned partitions [atopic-0, topic-0, defaultTopic-0]
+2019-03-18 18:26:18.549 [kafkaMessageListenerContainer-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - partitions assigned: [atopic-0, topic-0, defaultTopic-0]
+2019-03-18 18:26:33.650 [kafka-coordinator-heartbeat-thread | 0] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-1, groupId=0] Group coordinator 192.168.42.220:9092 (id: 2147483647 rack: null) is unavailable or invalid, will attempt rediscovery
+2019-03-18 18:26:43.586 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-1, groupId=0] Discovered group coordinator 192.168.42.220:9092 (id: 2147483647 rack: null)
+2019-03-18 18:27:31.723 [kafka-coordinator-heartbeat-thread | 0] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-1, groupId=0] Group coordinator 192.168.42.220:9092 (id: 2147483647 rack: null) is unavailable or invalid, will attempt rediscovery
+2019-03-18 18:28:03.485 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-1, groupId=0] Discovered group coordinator 192.168.42.220:9092 (id: 2147483647 rack: null)
+2019-03-18 18:28:07.273 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-1, groupId=0] Revoking previously assigned partitions [atopic-0, topic-0, defaultTopic-0]
+2019-03-18 18:28:07.273 [kafkaMessageListenerContainer-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - partitions revoked: [atopic-0, topic-0, defaultTopic-0]
+2019-03-18 18:28:07.273 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-1, groupId=0] (Re-)joining group
+2019-03-18 18:28:07.322 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-1, groupId=0] Attempt to heartbeat failed for since member id  is not valid.
+2019-03-18 18:28:07.427 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-1, groupId=0] (Re-)joining group
+2019-03-18 18:28:22.396 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-1, groupId=0] Successfully joined group with generation 26
+2019-03-18 18:28:22.396 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-1, groupId=0] Setting newly assigned partitions [atopic-0, topic-0, defaultTopic-0]
+2019-03-18 18:28:22.397 [kafkaMessageListenerContainer-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - partitions assigned: [atopic-0, topic-0, defaultTopic-0]
+2019-03-18 18:30:58.503 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-1, groupId=0] Attempt to heartbeat failed since group is rebalancing
+2019-03-18 18:30:58.504 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-1, groupId=0] Revoking previously assigned partitions [atopic-0, topic-0, defaultTopic-0]
+2019-03-18 18:30:58.504 [kafkaMessageListenerContainer-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - partitions revoked: [atopic-0, topic-0, defaultTopic-0]
+2019-03-18 18:30:58.504 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-1, groupId=0] (Re-)joining group
+2019-03-18 18:30:58.510 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-1, groupId=0] Successfully joined group with generation 27
+2019-03-18 18:30:58.511 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-1, groupId=0] Setting newly assigned partitions [atopic-0, topic-0, defaultTopic-0]
+2019-03-18 18:30:58.511 [kafkaMessageListenerContainer-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - partitions assigned: [atopic-0, topic-0, defaultTopic-0]
+2019-03-18 18:33:07.513 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-1, groupId=0] Attempt to heartbeat failed since group is rebalancing
+2019-03-18 18:33:07.514 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-1, groupId=0] Revoking previously assigned partitions [atopic-0, topic-0, defaultTopic-0]
+2019-03-18 18:33:07.514 [kafkaMessageListenerContainer-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - partitions revoked: [atopic-0, topic-0, defaultTopic-0]
+2019-03-18 18:33:07.515 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-1, groupId=0] (Re-)joining group
+2019-03-18 18:33:07.519 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-1, groupId=0] Successfully joined group with generation 28
+2019-03-18 18:33:07.519 [kafkaMessageListenerContainer-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-1, groupId=0] Setting newly assigned partitions [atopic-0, topic-0, defaultTopic-0]
+2019-03-18 18:33:07.519 [kafkaMessageListenerContainer-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - partitions assigned: [atopic-0, topic-0, defaultTopic-0]

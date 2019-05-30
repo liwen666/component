@@ -3,29 +3,47 @@ var verifyCodeFlag;
 
 var showCaFlag;//0-密码; 1-UKey ;2-都行
 var loginLayer;//是否启用登录页弹窗  0-不启用 ; 1-启用
+var isShowYear;//获取门户系统参数表是否显示年度选择框
+var pwSize;//获取门户系统参数表密码长度
+var pwErrorNum;//获取门户系统参数表密码输错次数  大于即锁定
+var lockTime;//获取门户系统参数表账户锁定时间  账户锁定时间，单位：分钟
+var isPwForceInit;//是否强制更新初始化密码  0 否 1 是
+var pwForceInitdate;//强制更新密码过期时间
+var isPassouttime;//是否启用密码过期时间设置  
+var pwOutdate;//密码过期时间
+var isPwNumber;//是否使用纯数字密码  0-不用; 1-用
 var yearList;
-var valiDateCode; //验证码
 var jsorjava;
+var toLoginNum = 0;//正在登录时，不能重复点击登陆按钮，0：没有登录，1：正在登陆
 $(function() {
 	$.ajax({
-		url : _BASE_PATH + "/fpfportal/login/generate/random",
+		url : _BASE_PATH + "/fportal/login/generate/random.do",
 		type : 'post',
 		dataType : 'json',
 		success : function(succ) {
 			if(succ.success == 'success'){
-				//验证码
-				//valiDateCode = succ.valiDateCode;
-				
 				DSign_Content = succ.random;
 				verifyCodeFlag = succ.verifyCodeFlag;
 				showCaFlag=succ.showCaFlag;
 				loginLayer = succ.loginLayer;
+				isShowYear = succ.isShowYear;
+				pwSize = succ.pwSize;
+				pwErrorNum = succ.pwErrorNum;
+				lockTime = succ.lockTime;
+				isPwForceInit = succ.isPwForceInit;
+				pwForceInitdate = succ.pwForceInitdate;
+				isPassouttime = succ.isPassouttime;
+				pwOutdate = succ.pwOutdate;
+				isPwNumber = succ.isPwNumber;
+				yearList = succ.yearList;
 				jsorjava = succ.jsorjava;
-				//yearList = succ.yearList;
 				if(showCaFlag=="0"){
 					$("#cali").hide();
 					$("#loginli").css({"width":"360px","text-align":"left","text-indent":"35px"});
 					//$("#cahide").hide();
+				}else if(showCaFlag=="1"){
+					$("#loginli").hide(); 
+					$("#cali").css({"width":"360px","text-align":"left","text-indent":"35px"}).click();
 				}else{
 					$("#cali").show();
 					//$("#cahide").show();
@@ -45,30 +63,58 @@ $(function() {
 						//初始化验证码插件
 						$.idcode.setCode();
 					}else{
-						html.push("<input type='text' id='TxtIdCode'  class='number-Input fl' maxlength=4 style='margin-top: 15px;margin-bottom: 0px;'  name='kaptcha' value='' /> <img src='/kaptcha.jpg' id='kaptchaImage' /> ");  
+						html.push("<input type='text' id='TxtIdCode'  class='number-Input fl' maxlength=4 style='margin-top: 15px;margin-bottom: 0px;'  name='kaptcha' value='' /> <img src='/kaptcha.jpg' style='padding-top: 20px;display: inline-block;height:30px;' id='kaptchaImage' /> ");  
 						html.push("<div class='number-button'><a href='javaScript:reSetCode();'>看不清？</a></div>");
 						$("#verifyCode").append(html.join(''));
-							// $('#kaptchaImage').click(function () { $(this).attr('src', '/kaptcha.jpg?' + Math.floor(Math.random()*100) ); })
-						$('#kaptchaImage').click(function () { $(this).attr('src', '/fpfportal/captchaRandomCode/captchaimage?' + Math.floor(Math.random()*100) ); })
+//							$('#kaptchaImage').click(function () { $(this).attr('src', '/kaptcha.jpg?' + Math.floor(Math.random()*100) ); })
+						$('#kaptchaImage').click(function () { $(this).attr('src', '/fportal/captchaRandomCode/captchaimage?' + Math.floor(Math.random()*100) ); })
 					}
+					/*var html = [];
+					html.push("<input type='text' class='number-Input fl' maxlength=4  id='TxtIdCode'style='margin-top: 15px;margin-bottom: 0px;'/>");
+					html.push("<span id='idcode' class='number fl' style='margin-top: 17px;' ></span>");
+					html.push("<div class='number-button' style=' padding-top: 25px;'><a href='javaScript:reSetCode();'>看不清？</a></div>");
+					$("#verifyCode").append(html.join(''));
+					//初始化验证码插件
+					$.idcode.setCode();*/
 				}
 				if(loginLayer == '1'){
 					layerInfo();
 				}
-				/*var yearHtml=[];
-				if(yearList != null && yearList.length > 0){
-					yearHtml.push("<div class='years'>年度切换：<select id='checkyear'>");
-					for (var i = 0; i < yearList.length; i++) {
-						if(yearList[i].ISDEFAULT == '1'){
-							flag = true;
-							yearHtml.push("<option selected = 'selected' value='"+yearList[i].YEAR+"'>"+yearList[i].YEAR+"</option>");
-						}else{
-							yearHtml.push("<option value='"+yearList[i].YEAR+"'>"+yearList[i].YEAR+"</option>");
+				//0 不显示 1显示
+				if(isShowYear == '0'){
+					$("#tpbr").hide();
+					$("#cabr").hide();
+				}else{
+					var yearHtml=[];
+					if(yearList != null && yearList.length > 0){
+						yearHtml.push("<div class='years'>年度切换：<select id='checkyear'>");
+						for (var i = 0; i < yearList.length; i++) {
+							if(yearList[i].ISDEFAULT == '1'){
+								flag = true;
+								yearHtml.push("<option selected = 'selected' value='"+yearList[i].YEAR+"'>"+yearList[i].YEAR+"</option>");
+							}else{
+								yearHtml.push("<option value='"+yearList[i].YEAR+"'>"+yearList[i].YEAR+"</option>");
+							}
 						}
+						yearHtml.push("</select></div>");
+						$("#tpbr").after(yearHtml.join(""));
 					}
-					yearHtml.push("</select></div>");
-					$("#tpbr").after(yearHtml.join(""));
-				}*/
+					var yearHtml2=[];
+					if(yearList != null && yearList.length > 0){
+						yearHtml2.push("<div class='years'>年度切换：<select id='checkyear2'>");
+						for (var i = 0; i < yearList.length; i++) {
+							if(yearList[i].ISDEFAULT == '1'){
+								flag = true;
+								yearHtml2.push("<option selected = 'selected' value='"+yearList[i].YEAR+"'>"+yearList[i].YEAR+"</option>");
+							}else{
+								yearHtml2.push("<option value='"+yearList[i].YEAR+"'>"+yearList[i].YEAR+"</option>");
+							}
+						}
+						yearHtml2.push("</select></div>");
+						$("#cabr").after(yearHtml2.join(""));
+					}
+				}
+				
 			}else{
 				alert("加载系统参数异常！");
 			}
@@ -77,14 +123,14 @@ $(function() {
 
 		}
 	});
+	
 	//兼容低版本IE placeholder
 	initInput();
 	// 加载CA控件
 	createCaObjectToHead();	
 	var username=$.cookie('username');
 	if(username!=null&&username!=""&&username!=undefined&&username!='undefined'){
-        // $("#username").val(Base64.decode(username));
-        $("#username").val(username);
+		$("#username").val(Base64.decode(username));
 	}
 	//控制输入框字体颜色
 	ctrlInputColor();
@@ -93,8 +139,8 @@ $(function() {
 	initLoginPageNotic();
 	
 	//给页面添加默认样式 @author wangqun 2017-7-20 09:37:27
-//	var url = _BASE_PATH+"/fpfportal/sysTemplate/queryAllTypeConfig.do?t="+Math.random();
-	/* $.getJSON(url,function(data){
+	var url = _BASE_PATH+"/fportal/sysTemplate/queryAllTypeConfig.do?t="+Math.random();
+	 $.getJSON(url,function(data){
 		 var type = data.type;
          var useip = parseInt(data.useIp);
          var setsPool = data.setsPool;
@@ -114,54 +160,24 @@ $(function() {
 				}
 				$(".tab").css({"margin-right":"80px"});
 			}
-	 });*/
-	var url = _BASE_PATH+"/fpfportal/sysTemplate/queryAllTypeConfig.do";
-	$.ajax({
-		url:url,
-		type:'post',
-		dataType:'json',
-		data:{},
-		/*beforeSend: function(e,xhr,o){
-			var l = xhr.url.indexOf("tokenid");
-			var urlToken = xhr.url.substring(l+8,l+48);
-			if(urlToken!=tokenid){
-				e.abort();
-			}
-		    },*/
-		success:function(data){
-			 var type = data.type;
-	         var useip = parseInt(data.useIp);
-	         var setsPool = data.setsPool;
-	         var set;
-	         for(var i=0;i<setsPool.length;i++){
-	         	if( setsPool[i].code == type){
-	         		set = setsPool[i];
-	         	}
-	          }
-	         var chose=useip?set.ipPool[mIp]?set.ipPool[mIp]:0:0;
-			 $("#login_bckimg").css("background-image","url("+_BASE_PATH+set.set[chose].loginPicUrl+")");
-			 $("#login_color").css("background-color",set.set[chose].loginBgcolor);
-			 $("#addLoginTitle").html(set.set[chose].loginTitle);
-			 if($(window).width()<1280){//宽度度小于1280内容区居中显示
-					var backgroundImageurl=$("#login_bckimg").css("backgroundImage");
-					if(backgroundImageurl.indexOf("bg02")>-1){
-						$("#login_bckimg").css({"backgroundPosition":"-122px center"});
-					}
-					$(".tab").css({"margin-right":"80px"});
-				}
-		},
-		error:function(err){
-			
-		}
-	});
-	
-	
+	 });
+	 
 	if($(window).height()>760){//高度超过760 版心垂直居中
 		$(".box01").css({"top":"50%","margin-top":"-380px"});
 	}
 	
+	//编制入口 @author wangqun 2017年9月13日15:46:28
+	var url = _BASE_PATH+"/fportal/page/login/js/loginUrl.json?t="+Math.random();
+	 $.getJSON(url,function(data){
+		 if(data.isShow){
+        	 $(".tab_box").css({height:'310px',position:'relative'});
+        	 $(".budgetentry").show().css({position:'absolute',bottom:0});
+        	 $("#budgetentry").attr('href',data.url).html(data.content);
+         }
+      
+	 });
 	/*$.ajax({
-		url:_BASE_PATH+"/fpfportal/common/getSysTemplateInf",
+		url:_BASE_PATH+"/fportal/common/getSysTemplateInf",
 		async: false,//同步
 		type:'post',
 		dataType:'json',
@@ -169,7 +185,7 @@ $(function() {
 			if(succ.success=='succ'){
 				var template_inf=succ.sysinf;
 				if(template_inf!=null){
-					var base_img_path=_BASE_PATH+"/fpfportal/static/systemplateimg/"+template_inf.PROVINCE+"/";
+					var base_img_path=_BASE_PATH+"/fportal/static/systemplateimg/"+template_inf.PROVINCE+"/";
 						
 					//登录页log
 					if(template_inf.LANDINGLOG!=null&&template_inf.LANDINGLOG!=""){
@@ -208,7 +224,7 @@ function layerInfo(){
 	var title = '';
 	var message = '';
 	$.ajax({
-		url:_BASE_PATH+"/fpfportal/login/getPopupInfo",
+		url:_BASE_PATH+"/fportal/login/getPopupInfo",
 		type:'post',
 		dataType:'json',
 		async:false,
@@ -237,7 +253,7 @@ window.onload=function(){
 	
 	//获取模板配置信息
 	/*$.ajax({
-		url:_BASE_PATH+"/fpfportal/common/getSysTemplateInf",
+		url:_BASE_PATH+"/fportal/common/getSysTemplateInf",
 		async: false,//同步
 		type:'post',
 		dataType:'json',
@@ -245,7 +261,7 @@ window.onload=function(){
 			if(succ.success=='succ'){
 				var template_inf=succ.sysinf;
 				if(template_inf!=null){
-					var base_img_path=_BASE_PATH+"/fpfportal/static/systemplateimg/"+template_inf.PROVINCE+"/";
+					var base_img_path=_BASE_PATH+"/fportal/static/systemplateimg/"+template_inf.PROVINCE+"/";
 					alert("基本路径："+base_img_path);
 					alert("登录页log"+template_inf.LANDINGLOG+"---登录页标题："+template_inf.LANDINGTITLE
 							+"---登录页背景图："+template_inf.LANDINGIMG+"---登录页版权信息："+template_inf.LANDINGINF+"---登录页背景色"+template_inf.LANDINGCOLOR);	
@@ -253,7 +269,7 @@ window.onload=function(){
 					alert(base_img_path+template_inf.LANDINGLOG);
 					$("#login_log").attr("src",base_img_path+template_inf.LANDINGLOG);
 				}else{
-					$("#login_log").attr("src",_BASE_PATH+"/fpfportal/static/systemplateimg/default/logo.png");
+					$("#login_log").attr("src",_BASE_PATH+"/fportal/static/systemplateimg/default/logo.png");
 				}
 				
 				
@@ -427,7 +443,6 @@ function changePassword(token){
 			html.push("		</table>");
 			html.push(" </div>");
 			html.push("</div>");
-			html.push(" <br/>");
 			html.push("<div class='common_btn_div' align='center'>");
 			html.push("		<a class='btn_style common_btn_div_left' href='javaScript:saveChangePassword(\""+token+"\");'>确定</a>");
 			html.push("		<a class='btn_style common_btn_div_right' href='javaScript:cancelUpdUserMsg();'>取消</a>");
@@ -470,17 +485,55 @@ function saveChangePassword(token){
 			layer.alert("请输入确认密码！");
 			return;
 		}
-		var checkpwd=/^(?![^a-zA-Z]+$)(?!\D+$).{2,10}$/;
+		/*var checkpwd=/^(?![^a-zA-Z]+$)(?!\D+$).{2,10}$/;
+		if(oldpwd!='1'){
+			layer.alert("原始密码不正确,请重新输入");
+			return;
+		}
+		
 		if(newpwd!=surepwd){
 			layer.alert("两次输入的密码不一致！");
 			return;
 		}else if(!checkpwd.test(newpwd)){
 			layer.alert("密码格式错误！（必须包含字母和数字，长度为2~10之间）");
 			return;
+		}*/
+		//获取密码设置长度
+		var pwArr = pwSize.split("-");
+		var minPw = pwArr[0];
+		var maxPw = pwArr[1];
+		var checkpwd=/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{2,32}$/;
+		var numpwd = /^[0-9]*$/;
+		if(newpwd!=surepwd){
+			layer.alert("两次输入的密码不一致！");
+			return;
+		}
+		if(oldpwd==newpwd){
+			layer.alert("不能与原密码一致！");
+			return;
+		}
+		if(isPwNumber == '1'){
+			var np = (newpwd).replace(/\s/g, "");
+			if(np.length<minPw || np.length>maxPw){
+				layer.alert("请输入" + minPw + "到" + maxPw + "位的纯数字密码");
+				return;
+			}else if(!numpwd.test(newpwd)){
+				layer.alert("密码格式错误！（请输入纯数字密码）");
+				return;
+			}
+		}else {
+			var np = (newpwd).replace(/\s/g, "");
+			if(np.length<minPw || np.length>maxPw){
+				layer.alert("请输入" + minPw + "到" + maxPw + "位的数字和字母组合的密码");
+				return;
+			}else if(!checkpwd.test(newpwd)){
+				layer.alert("密码格式错误！（必须包含字母和数字）");
+				return;
+			}
 		}
 		//确认保存
 		$.ajax({
-			url:_BASE_PATH+"/fpfportal/login/savaChangePwd",
+			url:_BASE_PATH+"/fportal/login/savaChangePwd",
 			type:'post',
 			dataType:'json',
 			data:{token:token,oldpwd:oldpwd,newpwd:newpwd},
@@ -504,16 +557,18 @@ function saveChangePassword(token){
 
 
 function toLogin(){
-    // var username =Base64.encode($("#username").val());
-    // var password =Base64.encode($("#password").val());
-    var username=$("#username").val();
-    var  password=$("#password").val();
-	//var checkyear = $("#checkyear").val();
+	if(toLoginNum==1){
+		alert("正在登录中，请不要重复点击登录按钮！");
+		return;
+	}
+	var username =Base64.encode($("#username").val());
+	var password =Base64.encode($("#password").val());
+	var checkyear = $("#checkyear").val();
 	if(username.replace(/^ +| +$/g,'').length ==0 || username==null||username == ""||username=="请输入用户名"){
 		alert("用户名不能为空！");
 		return;
 	}
-	if(password.replace(/(^s*)|(s*$)/g, "").length ==0 || password==null||password == ""||password=="请输入密码"){
+	if(password.replace(/(^s*)|(s*$)/g, "").length ==0 || password==null||password == ""||password=="请输入用户名"){
 		alert("密码不能为空！");
 		return;
 	}
@@ -533,86 +588,146 @@ function toLogin(){
 				return;
 			}
 		}
-		
+		//验证验证码
+		/*var IsBy = $.idcode.validateCode();
+		if(!IsBy){
+			alert("验证码错误");
+			$("#TxtIdCode").val("");
+			return;
+		}*/
 	}
-	
+	var param={
+		username:username,
+		password:password,
+		checkyear:checkyear,
+		pwErrorNum:pwErrorNum,
+		lockTime:lockTime,
+		jsorjava:jsorjava,
+		TxtIdCode:TxtIdCode,
+		verifyCodeFlag:verifyCodeFlag
+	}
+	toLoginNum = 1;
 	$.ajax({
-		url:_BASE_PATH+"/fpfportal/login/toLogin",
+		url:_BASE_PATH+"/fportal/login/toLogin",
 		type:'post',
 		dataType:'json',
-		//data:{username:username,password:password,checkyear:checkyear},
-//		data:{username:username,password:password,TxtIdCode:TxtIdCode,verifyCodeFlag:verifyCodeFlag},
-		data:{username:username,password:password,TxtIdCode:TxtIdCode,verifyCodeFlag:verifyCodeFlag,jsorjava:jsorjava},
+	/*	data:{username:username,password:password,checkyear:checkyear},*/
+		data:param,
+		//data:{username:username,password:password},
 		success:function(succ){
-			if(succ.success == "error"){
-				reSetCode();
-				if(succ.verifyCodeTxt == "verifyCodeTxt"){
-					alert("验证码错误");
-				}else{
-					alert("登录有误，请重新登录");
-				}
-			}else{
-				var token = succ.token ;
-				if(isNaN(token) && token.length == 40){
-					//登录页修改初始密码
-					/*if(password=='1'){
-						alert("请修改初始密码");
-						changePassword(token);
-					}else{*/
-						$.cookie('username', username,{expires:5*365});
-						forward(succ);
-//					}
-				}else{
-						reSetCode();
-						switch(token){		
-						case "11010000":
-							/*alert("无此用户!");*/
-							alert("用户名或密码错误!");
-							break;
-						case "11010001":
-							alert("用户已失效!");
-							break;
-						case "11010002":
-							alert("用户被暂停使用!");
-							break;
-						case "11010003":
-							alert("用户名或密码错误!");
-							break;
-						case "11010004":
-							alert("系统错误，请重新登录!");
-							break;
-						case "11010005":
-							alert("验证码错误!");
-							break;
-						case "11010006":
-							alert("用户类型不匹配!");
-							break;
-						case "11010007":
-							modifypwd(info);
-							break;
-						case "11010008":
-							alert("不能重复登陆用户!");
-							break;
-						case "11010009":
-							alert("用户已锁定,请稍后再试!");
-							break;
-						case "11010019":
-							modifypwd(info);
-							break;
-						case "11010020":
-							alert("未设置默认财年，不允许登录!");
-							break;
-						case "00000001":
-							alert("CA用户，不能用普通登录!");
-							break;
-						default:
-							alert("用户已锁定，请"+ token +"分钟后再试!");
+			toLoginNum=0;
+			if(verifyCodeFlag=='1'){
+				if(jsorjava=='0'){
+					//验证验证码
+					var IsBy = $.idcode.validateCode();
+					if(!IsBy){
+						alert("验证码错误");
+						$("#TxtIdCode").val("");
+						return;
 					}
 				}
+				reSetCode();
 			}
+			if(succ.success == "error"){
+				alert("登录有误，请重新登录");
+			}else{
+				var token = succ.token ;
+				var initialpassword = succ.initialpassword;//初始的加密密码
+				var jmpassword = succ.password;//输入的密码加密
+				var days = succ.days;//与当前时间的差值
+				if(isNaN(token) && token.length == 40){
+					if(isPwForceInit!='1'&&isPassouttime!='true'){
+						//登陆成功
+						$.cookie('username', username,{expires:5*365});
+						forward(succ);
+					}else{
+						//强制更新初始密码
+						if(isPwForceInit=='1'){
+							if(password==initialpassword||jmpassword==initialpassword){
+								if(days>=pwForceInitdate){
+									alert("请修改初始密码");
+									changePassword(token);
+								}else{
+									//密码过期,修改密码
+									if(isPassouttime=='true'){
+										if(days>=pwOutdate){
+											alert("密码已到期,请修改密码");
+											changePassword(token);
+										}else{
+											//登陆成功
+											$.cookie('username', username,{expires:5*365});
+											forward(succ);
+										}
+									}	
+								}
+							}else{
+								//登陆成功
+								$.cookie('username', username,{expires:5*365});
+								forward(succ);
+							}
+							//密码过期,修改密码
+						}else{
+							if(isPassouttime=='true'){
+								if(days>=pwOutdate){
+									alert("密码已到期,请修改密码");
+									changePassword(token);
+								}else{
+									//登陆成功
+									$.cookie('username', username,{expires:5*365});
+									forward(succ);
+								}
+							}	
+						}
+					}
+				}else{
+					switch(token){		
+					case "11010000":///////////////
+						alert("无此用户!");
+						break;
+					case "11010001":
+						alert("用户已失效!");
+						break;
+					case "11010002":
+						alert("用户被暂停使用!");
+						break;
+					case "11010003"://////////
+						alert("用户名或密码错误!");
+						break;
+					case "11010004":
+						alert("系统错误，请重新登录!");
+						break;
+					case "11010005":
+						alert("验证码错误!");
+						break;
+					case "11010006":
+						alert("用户类型不匹配!");
+						break;
+					case "11010007":
+						modifypwd(info);
+						break;
+					case "11010008":
+						alert("不能重复登陆用户!");
+						break;
+					case "11010009":
+						alert("用户已锁定,请稍后再试!");
+						break;
+					case "11010019":
+						modifypwd(info);
+						break;
+					case "11010020":
+						alert("未设置默认财年，不允许登录!");
+						break;
+					case "00000001":
+						alert("CA用户，不能用普通登录!");
+						break;
+					default:
+						alert("用户已锁定，请"+ token +"分钟后再试!");
+				}
+			}
+		}
 		},
 		error:function(err){
-			reSetCode();
+			toLoginNum=0;
 			alert("登录有误，请重新登录！");
 		}
 	});
@@ -636,12 +751,14 @@ function createCaObjectToHead(){
 function caLogin(){
 	var info = {};
 	var DSign_Subject = "";
+	var checkyear = $("#checkyear2").val();
 	if(DSign_Content==""){
 		alert("原文不能为空，请输入原文!");
 	}else{
 		//控制证书为一个时，不弹出证书选择框
 		JITDSignOcx.SetCertChooseType(1);
 		JITDSignOcx.SetCert("SC","","","","CN=Private Certificate Authority Of MOF, O=MOF, C=CN","");
+//		JITDSignOcx.SetCert("SC","","","","",""); //测试CA登录
 		if(JITDSignOcx.GetErrorCode()!=0){
 			alert("错误码："+JITDSignOcx.GetErrorCode()+"　错误信息："+JITDSignOcx.GetErrorMessage(JITDSignOcx.GetErrorCode()));
 			return;
@@ -655,15 +772,22 @@ function caLogin(){
 		}
 	}
 	info.DSign_Content = DSign_Content;
+	info.checkyear = checkyear;
 	$.ajax({
-		url:_BASE_PATH + "/fpfportal/login/calogin",
+		url:_BASE_PATH + "/fportal/login/calogin",
 		type:'post',
 		dataType:'json',
 		data:info,
 		success:function(resp){
-			if(succ.success == 'success'){
+			if(resp.success == 'success'){
 				if (resp) {
 					var token = resp.token;
+					var listUserDtos = resp.listUserDtos;
+					if(null != listUserDtos && undefined != listUserDtos && ""!=listUserDtos && "undefined"!=listUserDtos && "null"!=listUserDtos && listUserDtos.length>1){
+							caloinback(resp,listUserDtos,token);
+							return;
+					}
+					
 					if (isNaN(token) && token.length == 40) {
 						forward(resp);
 					} else {
@@ -706,13 +830,140 @@ function caLogin(){
 		}
 	});
 }
+
+
+
+//ca登录页弹框信息add by rzq 2017-11-23
+function caloinback(resp,listUserDtos,tokenid){
+	var checkyear = resp.checkyear;
+	var title = '用户信息';
+	var html = [];
+	html.push("<div id='checkUser' style='padding: 20px'>");
+	html.push("<div class='input_style' style='vertical-align: middle;'>");
+	html.push("<span style='padding-top: 3px;font-size:15px;'>请选择您要登录的用户：</span>");
+	html.push("<span style='display:inline-block;vertical-align: top;font-size:14px;'>");
+	html.push("<select style='font-size:14px;' id='checkUserName' name='checkUserName'>");
+	for(var i=0;i<listUserDtos.length;i++){
+		html.push("<option value='"+listUserDtos[i].guid+"'>"+listUserDtos[i].code+"</option>");
+	}
+	html.push("</select></span>");
+	html.push("</div>");
+	html.push("<div class='input_style' style='vertical-align: middle;'>");
+	var param = JSON.stringify(resp); 
+	html.push("<button class='btn_style' onclick='cacheckLogin("+param+","+checkyear+");'");
+	html.push("style='margin-top: 53px; margin-left: 120px;font-size:14px;'>确认登录</button>");
+	html.push("</div>");
+	html.push("</div>");
+	//console.log(html.join(""));
+	layer.open({
+		title:[title,'font-size:17px; text-align: left;line-height:40px;padding-left:15px;font-weight:300;font-family:黑体'],
+		type: 1,
+		skin: 'layui-layer-lan', //加上边框
+		area: ['360px', '200px'], //宽高
+		content:  html.join("")
+	});
+}
+
+//确认登录    add by rzq 2017-11-23
+function cacheckLogin(resp,checkyear){
+	var guid =  $("#checkUserName").val();
+	var token = "";
+	var info = {
+			checkUser:guid,
+			checkyear:checkyear
+	}
+	$.ajax({
+		/*url:_BASE_PATH+"/fportal/login/getToken",*/
+		url:_BASE_PATH+"/fportal/login/toLogin",
+		type:'post',
+		dataType:'json',
+		  async: false ,
+	/*	data:{guid:guid,checkyear:checkyear},*/
+		  data:info,
+		success:function(succ){
+			token = succ.token;
+			//resp = eval('(' + resp + ')');
+			if(succ.result=="error"){
+				alert("登录有误，请重新登录");
+			}else{
+				if(isNaN(token) && token.length == 40){
+					// resp = eval('(' + resp + ')');
+					//判断用户是否被授权登录，如果被授权登录，需选择后确认登录  
+					if(resp.loinback == 'loinback'){
+						loinback(resp.userList,resp.recipguid,resp.recipient,resp.token,checkyear);
+					}else{
+						if(resp.isconfig){
+							//业务类型对象
+							var registerInfo=resp.registerInfo;
+							var appname=registerInfo.APPNAME;
+							var guid=registerInfo.GUID;
+							var appsource=registerInfo.APPSOURCE;
+							var showway=registerInfo.SHOWWAY;
+							var appid=resp.appids;
+							var allviewnum=resp.allViewNum;
+							var uinf=resp.uname;
+							var admdivname=resp.deptname;
+							var waittodoNums='0';
+							window.location.href=encodeURI(encodeURI(_BASE_PATH+"fportal/page/waittodo/waittodo.jsp?registerName="+appname+"&registerAppid="+appid+"&registerId="+guid+"&allviewnum="+allviewnum+"&appSource="+appsource+"&abc="+uinf+"&tokenid="+token+"&admdivname="+admdivname+"&waittodoNums="+waittodoNums+"&showway="+showway+"&year="+resp.checkyear));
+							//window.location.href=encodeURI(encodeURI(_BASE_PATH+"fportal/page/waittodo/waittodo.jsp?registerName="+appname+"&registerAppid="+appid+"&registerId="+guid+"&allviewnum="+allviewnum+"&appSource="+appsource+"&abc="+uinf+"&tokenid="+resp.token+"&admdivname="+admdivname+"&waittodoNums="+waittodoNums+"&showway="+showway));
+						}else{
+							var checkhome = resp.checkhome;
+							if(checkhome == '0'){
+								//window.location.href=_BASE_PATH+"/fportal/page/nmhomepage/nmhomepage.jsp?tokenid="+resp.token;
+								window.location.href=_BASE_PATH+"/fportal/page/nmhomepage/nmhomepage.jsp?tokenid="+token+"&year="+succ.checkyear;
+							}else{
+								//window.location.href=_BASE_PATH+"/fportal/page/homepage/homepage.jsp?tokenid="+resp.token;
+								window.location.href=_BASE_PATH+"/fportal/page/homepage/homepage.jsp?tokenid="+token+"&year="+succ.checkyear;
+							}
+						}
+					}
+				}else{
+					switch (token) {
+					case "11010201":
+						alert("CA网关认证失败!");
+						break;
+					case "11010202":
+						alert("无此用户或用户失效!");
+						break;
+					case "11010203":
+						alert("CA网关未正确返回身份信息!");
+						break;
+					case "11010204":
+						alert("用户已锁定,请稍后再试!");
+						break;
+					case "11010205":
+						alert("系统错误,请稍后再试!");
+						break;
+					case "11010005":
+						alert("验证码错误!");
+						break;
+					case "11010206":
+						alert("未设置默认财年,不允许登录!");
+						break;
+					case "00000000":
+						alert("普通用户,不允许登录!");
+						break;
+					default:
+						alert(resp);
+					}
+				}
+			}
+		},
+		error:function(err){
+			
+		}
+	});
+}
+
+
+
 /**
  * 初始化首页通知公告
  */
 function initLoginPageNotic(){
 
 	$.ajax({
-		url:_BASE_PATH+"/fpfportal/login/initLoginPageNotic",
+		url:_BASE_PATH+"/fportal/login/initLoginPageNotic.do",
 		type:'post',
 		dataType:'json',
 		data:{},
@@ -783,12 +1034,17 @@ function ctrlInputColor(){
  */
 
 function toReSet(){
-	for(i=0;i<document.all.tags("input").length;i++){  
+	/*for(i=0;i<document.all.tags("input").length;i++){  
 	   if(document.all.tags("input")[i].type=="text"||document.all.tags("input")[i].type=="password"){  
 	      document.all.tags("input")[i].value="";  
 	   }  
-   }  
-	
+   } */ 
+	$("input[type='text']").each(function(){
+		$(this).val("");
+	})
+	$("input[type='password']").each(function(){
+		$(this).val("");
+	})
 }
 /**
  * 下载文件
@@ -812,14 +1068,14 @@ function downloadfile(filename){
 	}
 	iframe.style.width=0;
 	iframe.style.height=0;
-	iframediv.firstChild.action="/fpfportal/common/downloadfileLocal";
+	iframediv.firstChild.action="/fportal/common/downloadfileLocal";
 	iframediv.firstChild.firstChild.value=encodeURIComponent(filename);
 	iframediv.firstChild.submit();*/
-	var href = _BASE_PATH+"/fpfportal/common/downloadfileLocal?filename="+filename;
+	
+	var href = _BASE_PATH+"/fportal/common/downloadfileLocal.do?filename="+filename;
 	var as=document.createElement("a");
 	$(as).attr("href",href);
 	as.click();
-
 }
 
 
@@ -828,20 +1084,19 @@ function downloadfile(filename){
  */
 function reSetCode(){
 	//初始化验证码插件
+	//$.idcode.setCode();
 	if(jsorjava=='0'){
 		$.idcode.setCode();
 	}else{
-		$('#kaptchaImage').attr('src', '/fpfportal/captchaRandomCode/captchaimage?' + Math.floor(Math.random()*100) );  
+		$('#kaptchaImage').attr('src', '/fportal/captchaRandomCode/captchaimage.do?' + Math.floor(Math.random()*100) );
 	}
-
-//    $('#kaptchaImage').attr('src', '/kaptcha.jpg?' + Math.floor(Math.random()*100) );
 }
 /**
  * 通知公告跳转
  * @param guid
  */
 function toNoticDetails(guid,menuname){
-	var url=encodeURI(encodeURI(_BASE_PATH+"/fpfportal/page/notic/shownoticdata.jsp?noticguid="+guid+"&depname=1&menuname="+menuname+"&admdivname=1"));
+	var url=encodeURI(encodeURI(_BASE_PATH+"/fportal/page/notic/shownoticdata.jsp?noticguid="+guid+"&depname=1&menuname="+menuname+"&admdivname=1"));
 	window.open(url);
 }
 
@@ -852,46 +1107,23 @@ function forward(resp){
 		loinback(resp.userList,resp.recipguid,resp.recipient,resp.token);
 	}else{
 		if(resp.isconfig){
-			var isUrl = resp.isurl;
-			if(isUrl=='1'){//跳转路径
-				var configUrl = resp.configData;
-				if(configUrl==null||configUrl==""||configUrl==undefined||$.trim(configUrl)==""||configUrl=="undefined"||configUrl=="null"){
-					alert("登录失败，请检测配置的跳转路径！");
+			if(resp.appsource=="1"){//外部系统
+				var reMap = resp.appmap;
+				var classPath = reMap.CLASSPATH;
+				if(classPath==null||classPath==undefined||classPath==""||classPath=="null"||classPath=="undefined"){
+					layer.alert("当前外部系统没有配置跳转链接！请在接口配置中添加!");
 					return;
 				}
-				var vcode = null;
-			 	var appid = null;
-			 	if(configUrl.indexOf("/hqoa/singleLogin/toSingleLoginCheckJsp.do")>=0){
-			 		
-			 		var getVCode = COMMONJS.addToken(_BASE_PATH+"/fpfportal/ssovcode/getVCode");
-					$.ajax({
-						url:getVCode,
-						type:'POST',
-						data:{tokenid:tokenid},
-						async: false,  
-						success:function(succ){
-							var result = succ.success;
-							if(result=='success'){
-								appid = succ.appid;
-								vcode = succ.vcode;
-							}
-						},
-						error:function(err){
-							
-						}
-					});
-			 	}
-			 	 var hrefUrl;
-				if(configUrl.indexOf("?")>=0){
-					hrefUrl = configUrl+"&tokenid="+resp.token;
+				if(classPath.indexOf("?")>0){
+					classPath = classPath+"&tokenid="+resp.token;
 				}else{
-					hrefUrl = configUrl+"?tokenid="+resp.token;
+					classPath = classPath+"?tokenid="+resp.token;
 				}
-			 	if(vcode!=null&&vcode!=""&&vcode!=undefined&&vcode!="undefined"&&appid!=null&&appid!=""&&appid!=undefined&&appid!="undefined"){
-			 		hrefUrl = hrefUrl+"&vcode="+vcode;
-					
-				 }
-				window.location.href=hrefUrl;
+				var vcode = reMap.vcode;
+				if(vcode!=null&&vcode!=undefined&&vcode!=""&&vcode!="null"&&vcode!="undefined"){
+						classPath = classPath+"&vcode="+vcode;
+				}
+				window.location.href=encodeURI(classPath);
 			}else{
 				//业务类型对象
 				var registerInfo=resp.registerInfo;
@@ -904,25 +1136,24 @@ function forward(resp){
 				var uinf=resp.uname;
 				var admdivname=resp.deptname;
 				var waittodoNums='0';
-				//window.location.href=encodeURI(encodeURI(_BASE_PATH+"fpfportal/page/waittodo/waittodo.jsp?registerName="+appname+"&registerAppid="+appid+"&registerId="+guid+"&allviewnum="+allviewnum+"&appSource="+appsource+"&abc="+uinf+"&tokenid="+resp.token+"&admdivname="+admdivname+"&waittodoNums="+waittodoNums+"&showway="+showway+"&year="+resp.checkyear));
-				window.location.href=encodeURI(encodeURI(_BASE_PATH+"fpfportal/page/waittodo/waittodo.jsp?registerName="+appname+"&registerAppid="+appid+"&registerId="+guid+"&allviewnum="+allviewnum+"&appSource="+appsource+"&abc="+uinf+"&tokenid="+resp.token+"&admdivname="+admdivname+"&waittodoNums="+waittodoNums+"&showway="+showway));
+				window.location.href=encodeURI(encodeURI(_BASE_PATH+"fportal/page/waittodo/waittodo.jsp?registerName="+appname+"&registerAppid="+appid+"&registerId="+guid+"&allviewnum="+allviewnum+"&appSource="+appsource+"&abc="+uinf+"&tokenid="+resp.token+"&admdivname="+admdivname+"&waittodoNums="+waittodoNums+"&showway="+showway+"&year="+resp.checkyear));
+				//window.location.href=encodeURI(encodeURI(_BASE_PATH+"fportal/page/waittodo/waittodo.jsp?registerName="+appname+"&registerAppid="+appid+"&registerId="+guid+"&allviewnum="+allviewnum+"&appSource="+appsource+"&abc="+uinf+"&tokenid="+resp.token+"&admdivname="+admdivname+"&waittodoNums="+waittodoNums+"&showway="+showway));
 			}
-			
 		}else{
-			//window.location.href=_BASE_PATH+"/fpfportal/page/homepage/homepage.jsp?tokenid="+resp.token+"&year="+resp.checkyear;
 			var checkhome = resp.checkhome;
 			if(checkhome == '0'){
-				window.location.href=_BASE_PATH+"/fpfportal/page/nmhomepage/nmhomepage.jsp?tokenid="+resp.token;
+				//window.location.href=_BASE_PATH+"/fportal/page/nmhomepage/nmhomepage.jsp?tokenid="+resp.token;
+				window.location.href=_BASE_PATH+"/fportal/page/nmhomepage/nmhomepage.jsp?tokenid="+resp.token+"&year="+resp.checkyear
 			}else{
-				window.location.href=_BASE_PATH+"/fpfportal/page/homepage/homepage.jsp?tokenid="+resp.token;
+				//window.location.href=_BASE_PATH+"/fportal/page/homepage/homepage.jsp?tokenid="+resp.token;
+				window.location.href=_BASE_PATH+"/fportal/page/homepage/homepage.jsp?tokenid="+resp.token+"&year="+resp.checkyear
 			}
-			//window.location.href=_BASE_PATH+"/fpfportal/page/nmhomepage/nmhomepage.jsp?tokenid="+resp.token+"&year="+resp.checkyear;
 		}
 	}
 }
 
 //登录页弹框信息
-function loinback(userList,recipguid,recipient,tokenid){
+function loinback(userList,recipguid,recipient,tokenid,checkyear){
 	var title = '用户信息';
 	var html = [];
 	html.push("<div id='checkUser' style='padding: 20px'>");
@@ -954,28 +1185,35 @@ function loinback(userList,recipguid,recipient,tokenid){
 //确认登录    add by zhouqin 2017-08-10
 function checkLogin(tokenid){
 	var checkUser =  $("#checkUserName").val();
-	//var checkyear = $("#checkyear").val();
+	var checkyear = $("#checkyear").val();
+	if(checkyear==undefined||checkyear=="undefined"||checkyear==null||checkyear==""){
+		checkyear = "";
+	}
+	
+	var param={
+			paramNum:"2",
+			tokenid:tokenid,
+			checkUser:checkUser,
+			checkyear:checkyear
+		}
 	$.ajax({
-		url:_BASE_PATH+"/fpfportal/login/checkLogin",
+		/*url:_BASE_PATH+"/fportal/login/checkLogin",*/
+		url:_BASE_PATH+"/fportal/login/toLogin.do",
 		type:'post',
 		dataType:'json',
-		//data:{tokenid:tokenid,checkUser:checkUser,checkyear:checkyear},
-		data:{tokenid:tokenid,checkUser:checkUser},
+		/*data:{tokenid:tokenid,checkUser:checkUser,checkyear:checkyear},*/
+		data:param,
 		success:function(succ){
-			debugger;
 			if(succ.success == "error"){
-				reSetCode();
 				alert("登录有误，请重新登录");
 			}else{
 				var token = succ.token ;
 				if(isNaN(token) && token.length == 40){
 					forward(succ);
 				}else{
-					reSetCode();
 					switch(token){		
 					case "11010000":
-						/*alert("无此用户!");*/
-						alert("用户名或密码错误!");
+						alert("无此用户!");
 						break;
 					case "11010001":
 						alert("用户已失效!");
@@ -1017,7 +1255,6 @@ function checkLogin(tokenid){
 		}
 		},
 		error:function(err){
-			reSetCode();
 			alert("登录有误，请重新登录！");
 		}
 	});
@@ -1033,7 +1270,7 @@ function commonMore(flag){
 	//var admdivname=$("#icon_admdivname").html();
 	var url;
 	if(flag=='0'){//常用功能
-		url=encodeURI(encodeURI(_BASE_PATH+"/fpfportal/page/morepage/morenotice.jsp?flag="+flag));
+		url=encodeURI(encodeURI(_BASE_PATH+"/fportal/page/morepage/morenotice.jsp?flag="+flag));
 	}
 	window.open(url);
 }

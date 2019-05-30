@@ -1,14 +1,12 @@
 package com.temp.common.base.sort.multiplesort;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.lang.reflect.Field;
+import java.util.*;
 
 
-public class Test{
+public class Test {
     @SuppressWarnings("unchecked")
-	public static void main(String[] args) {
+    public static void main(String[] args) {
         User user1 = new User();
         user1.setName("a");
         user1.setOrder(3);
@@ -24,40 +22,40 @@ public class Test{
         user4.setName("d");
         user4.setOrder(100);
         user4.setTop(true);
-        List <User>list = new ArrayList <User>();
+        List<User> list = new ArrayList<User>();
         list.add(user2);
         list.add(user1);
         list.add(user3);
         list.add(user4);
         System.out.println(list);
-
-        Collections.sort(list,new Comparator(){
-			@Override
-			public int compare(Object o1, Object o2) {
-                System.out.println("o1---order:"+((User) o1).getOrder());
-                System.out.println("o2---order:"+((User) o2).getOrder());
-                if(((User) o1).isTop()){
-                    if(((User) o2).isTop()){
+        sortByTwoField(list, User.class);
+        Collections.sort(list, new Comparator() {
+            @Override
+            public int compare(Object o1, Object o2) {
+                System.out.println("o1---order:" + ((User) o1).getOrder());
+                System.out.println("o2---order:" + ((User) o2).getOrder());
+                if (((User) o1).isTop()) {
+                    if (((User) o2).isTop()) {
                         return ((User) o1).getOrder().compareTo(((User) o2).getOrder());
-                    }else{
+                    } else {
                         return -1;
                     }
                 }
                 int i = ((User) o1).getOrder().compareTo(((User) o2).getOrder());
                 System.out.println(i);
                 return i;
-			}
+            }
         });
         System.out.println(list);
-        Collections.sort(list,new Comparator(){
+        Collections.sort(list, new Comparator() {
             @Override
             public int compare(Object o1, Object o2) {
-                System.out.println("o1---order:"+((User) o1).getOrder());
-                System.out.println("o2---order:"+((User) o2).getOrder());
-                if(((User) o2).isTop()){
-                    if(((User) o1).isTop()){
+                System.out.println("o1---order:" + ((User) o1).getOrder());
+                System.out.println("o2---order:" + ((User) o2).getOrder());
+                if (((User) o2).isTop()) {
+                    if (((User) o1).isTop()) {
                         return ((User) o2).getOrder().compareTo(((User) o1).getOrder());
-                    }else{
+                    } else {
                         return -1;
                     }
                 }
@@ -67,5 +65,34 @@ public class Test{
             }
         });
         System.out.println(list);
+
+    }
+
+    static <T> T sortByTwoField(List<T> collection, Class<T> clazz) {
+        System.out.println("======================================================");
+//        Field[] declaredFields = clazz.getDeclaredFields();
+//        try {
+//
+//            Collections.sort(collection, new Comparator() {
+//
+//                @Override
+//                public int compare(Object o1, Object o2) {
+//
+//                    if (((User) o1).isTop()) {
+//                        if (((User) o2).isTop()) {
+//                            return ((User) o1).getOrder().compareTo(((User) o2).getOrder());
+//                        } else {
+//                            return -1;
+//                        }
+//                    }
+//                    int i = ((User) o1).getOrder().compareTo(((User) o2).getOrder());
+//                    System.out.println(i);
+//                    return i;
+//                }
+//            });
+//
+//            System.out.println(collection);
+//            System.out.println("======================================================");
+            return null;
     }
 }

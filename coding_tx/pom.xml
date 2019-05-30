@@ -14,6 +14,11 @@
     <packaging>jar</packaging>
     <dependencies>
         <dependency>
+            <groupId>com.yahoo.platform.yui</groupId>
+            <artifactId>yuicompressor</artifactId>
+            <version>2.4.8</version>
+        </dependency>
+        <dependency>
             <groupId>net.sf.json-lib</groupId>
             <artifactId>json-lib</artifactId>
             <version>2.4</version>
@@ -193,15 +198,15 @@
             <version>1.17.1</version>
         </dependency>
         <!--<dependency>-->
-            <!--<groupId>be.yildiz-games</groupId>-->
-            <!--<artifactId>module-window-swt-win64</artifactId>-->
-            <!--<version>LATEST</version>-->
-            <!--<exclusions>-->
-                <!--<exclusion>-->
-                    <!--<groupId>com.splunk.logging</groupId>-->
-                    <!--<artifactId>splunk-library-javalogging</artifactId>-->
-                <!--</exclusion>-->
-            <!--</exclusions>-->
+        <!--<groupId>be.yildiz-games</groupId>-->
+        <!--<artifactId>module-window-swt-win64</artifactId>-->
+        <!--<version>LATEST</version>-->
+        <!--<exclusions>-->
+        <!--<exclusion>-->
+        <!--<groupId>com.splunk.logging</groupId>-->
+        <!--<artifactId>splunk-library-javalogging</artifactId>-->
+        <!--</exclusion>-->
+        <!--</exclusions>-->
         <!--</dependency>-->
         <dependency>
             <groupId>org.hyperic</groupId>
@@ -260,6 +265,22 @@
             <groupId>org.apache.hadoop</groupId>
             <artifactId>hadoop-common</artifactId>
             <version>3.2.0</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-log4j12</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.belerweb</groupId>
+            <artifactId>pinyin4j</artifactId>
+            <version>2.5.0</version>
+        </dependency>
+        <dependency>
+            <groupId>dom4j</groupId>
+            <artifactId>dom4j</artifactId>
+            <version>1.6.1</version>
         </dependency>
 
 

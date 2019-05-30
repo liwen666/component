@@ -1,0 +1,3 @@
+2019-01-25 14:00:52.000 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration$JpaWebMvcConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-01-25 14:01:26.956 [http-nio-8000-exec-2] WARN  org.springframework.web.servlet.PageNotFound - No mapping for GET /
+2019-01-25 14:01:27.746 [http-nio-8000-exec-6] WARN  org.springframework.web.servlet.PageNotFound - No mapping for GET /favicon.ico
