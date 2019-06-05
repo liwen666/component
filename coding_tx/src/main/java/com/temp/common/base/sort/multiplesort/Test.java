@@ -1,7 +1,10 @@
 package com.temp.common.base.sort.multiplesort;
 
+import com.temp.common.base.util.SortUtils;
+
 import java.lang.reflect.Field;
 import java.util.*;
+import java.util.stream.Collectors;
 
 
 public class Test {
@@ -28,6 +31,10 @@ public class Test {
         list.add(user3);
         list.add(user4);
         System.out.println(list);
+        System.out.println("======================================================");
+        List<User> collect = list.stream().filter(user -> user.isTop() == true).collect(Collectors.toList());
+        System.out.println(collect);
+        System.out.println("======================================================");
         Collections.sort(list, new Comparator() {
             @Override
             public int compare(Object o1, Object o2) {
