@@ -14,6 +14,9 @@ import javax.servlet.http.HttpServletResponse;
  </bean>
  </mvc:interceptor>
  </mvc:interceptors>
+
+ 拦截器 preHandle返回 false之后就不会继续 跳转到controller  可以实现自定义页面跳转功能
+ 舍弃 dispatcherServlet 的功能  防止多次forward  错误
  */
 public class InterceptorOne implements HandlerInterceptor {
 	@Override
