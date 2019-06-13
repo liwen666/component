@@ -4,7 +4,9 @@ import org.springframework.util.Base64Utils;
 
 import javax.xml.datatype.XMLGregorianCalendar;
 import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 public class DataConversion {
@@ -97,5 +99,19 @@ public class DataConversion {
 			}
 		}
 		return t;
+	}
+	public static <T> List<T> listMapToListObj(List list, Class<T> tClass)  {
+		List<T> list1 = new ArrayList<>();
+		try {
+			for (Object b :list){
+				T object = DataConversion.mapToObject((Map<String, Object>) b, tClass.newInstance());
+				list1.add(object);
+			}
+		} catch (InstantiationException e) {
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		}
+		return list1;
 	}
 }
