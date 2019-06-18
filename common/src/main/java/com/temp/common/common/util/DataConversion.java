@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.Map;
 
 public class DataConversion {
-//	public static H2DataToOracle
 	public static Object XmlObjectToObject(Object xmlObj , Object obj){
 	     Field[] fxml = xmlObj.getClass().getDeclaredFields();
 	     Field[] fobj = obj.getClass().getDeclaredFields();
@@ -40,11 +39,6 @@ public class DataConversion {
 	     }
 		return obj;
 	}
-//	public static void main(String[] args) {
-//		System.out.println(BpmnTemplateDef.class.getFields().length);
-//		System.out.println(BpmnTemplateDef.class.getDeclaredFields().length);
-//		System.out.println(BpmnTemplateDef.class.getDeclaredFields()[0].getName());
-//	}
 	public static Object ObjectToXmlObject(Object obj , Object xmlObj) {
 		 Field[] fxml = xmlObj.getClass().getDeclaredFields();
 	     Field[] fobj = obj.getClass().getDeclaredFields();
@@ -100,6 +94,7 @@ public class DataConversion {
 		}
 		return t;
 	}
+
 	public static <T> List<T> listMapToListObj(List list, Class<T> tClass)  {
 		List<T> list1 = new ArrayList<>();
 		try {
@@ -114,4 +109,5 @@ public class DataConversion {
 		}
 		return list1;
 	}
+
 }
