@@ -1,0 +1,20 @@
+create table fportal_t_message
+(
+   id_                VARCHAR2(64),
+   rev_               NUMBER(1)            default 1,
+   app_id_            VARCHAR2(64),
+   name_              VARCHAR2(255),
+   type_              NUMBER(1),
+   content_           CLOB,
+   create_user_id_    VARCHAR2(64),
+   is_view_           NUMBER(1)            default 0,
+   view_user_id_      VARCHAR2(64),
+   create_time_       TIMESTAMP(6)         default SYSDATE,
+   candidate_user_ids_ CLOB,
+   candidate_group_ids_ CLOB
+);
+comment on table fportal_t_message is
+'门户消息表：登录后在门户页面采用弹出或者其他方式展现信息，消息展现需有权限控制，不是所有人都能看到。 消息点击查看后不再提醒，如果未点击，只提醒一段时间，具体时间段可以按天设置。消息的来源是业务系统。';
+
+comment on column fportal_t_message.is_view_ is
+'未看0、已看1';
