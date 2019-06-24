@@ -1,5 +1,5 @@
-#window  的bat启动文件
-
+#window  的bat启动文件   java -Dloader.path=ext -jar -Djava.ext.dirs=lib  portal-1.0.0.jar
+                                        //指定加载的context      指定jar的依赖地址   
 （for /f "delims=" %%A in ('dir /b *.jar') do set "filename=%%A"
 title %filename%
 java -Dloader.path=ext -jar -Djava.ext.dirs=lib %filename% --debug=false --portal.devMode=false）
