@@ -48,6 +48,7 @@ public class MztSample {
                         (String) entry.getValue())); 
             }
         }
+
         httpost.setEntity(new UrlEncodedFormEntity(nvps, Consts.UTF_8));
         try {
             String result =  httpclient.execute(httpost,responseHandler).toString();
@@ -70,15 +71,15 @@ public class MztSample {
         String url = "http://mztapp.fujian.gov.cn:8191/"
                 + "dataset/AppSerController/invokeservice.do";
         Map<String,Object> paramsMap = new HashMap<String,Object>();
-        /*paramsMap.put("INVOKESERVICE_CODE","062");
-        paramsMap.put("INVOKECALLER_CODE","授权码");
-        paramsMap.put("USER_IDCARD",AESOperator.aesEncrypt("35222719870103333"));
-        paramsMap.put("USER_NAME",AESOperator.aesEncrypt("张三"));
-        paramsMap.put("USER_MOBILE",AESOperator.aesEncrypt("13452031733"));*/
+//        paramsMap.put("INVOKESERVICE_CODE","062");
+//        paramsMap.put("INVOKECALLER_CODE","18e67035bb0e90ea2fbb0e3164d046a8a43fd054");
+//        paramsMap.put("USER_IDCARD",AESOperator.aesEncrypt("35222719870103333"));
+//        paramsMap.put("USER_NAME",AESOperator.aesEncrypt("张三"));
+//        paramsMap.put("USER_MOBILE",AESOperator.aesEncrypt("13452031733"));
         
         paramsMap.put("INVOKESERVICE_CODE","103");
         paramsMap.put("INVOKECALLER_CODE","18e67035bb0e90ea2fbb0e3164d046a8a43fd054");
-        paramsMap.put("TRUST_TICKET","34343433dddd");
+        paramsMap.put("TRUST_TICKET","2c9bb2726b6f1f89016b7447d72a0930");
         String POSTPARAM_JSON = JSON.toJSONString(paramsMap);
         Map<String,Object> clientParam = new HashMap<String,Object>();
         clientParam.put("POSTPARAM_JSON", POSTPARAM_JSON);

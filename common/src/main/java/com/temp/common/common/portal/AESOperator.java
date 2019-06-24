@@ -23,8 +23,8 @@ public class AESOperator {
     /** 
      * 密钥 
      */  
-    private static final String KEY = "sNqcHTjzHy^Pv!lw";
-      
+//    private static final String KEY = "sNqcHTjzHy^Pv!lw";
+    private static final String KEY = "sNqcHTjzHy^Pv!jb";
     /** 
      * 算法 
      */  
@@ -40,7 +40,12 @@ public class AESOperator {
         System.out.println("加密后：" + encrypt);  
   
         String decrypt = aesDecrypt(encrypt, KEY);  
-        System.out.println("解密后：" + decrypt);  
+        System.out.println("解密后：" + decrypt);
+
+        System.out.println("======================================================");
+        System.out.println(aesDecrypt("n9C0Klp7yBnoU55kYWiuSA==",KEY));
+
+
     } 
     
     /** 
