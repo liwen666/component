@@ -55,7 +55,8 @@ public class GzipUtil {
         List<String> gzFileList = new ArrayList();
         File baseFolder = new File(basePath);
         getDirectory(baseFolder);   
-        //记录文件版本号 
+        //记录文件版本号 1
+
         String xmlVersionPath = userdir+"/common\\src\\main\\java\\com\\temp\\common\\common\\util/jsversion.xml";
         Document doc = openXmlFile(xmlVersionPath); 
         Element rootElm = doc.getRootElement();

@@ -18,29 +18,4 @@ public class TokenUtils {
         }
         return null;
     }
-    public static List<Map<String, Object>> sortByTwoField(List<Map<String, Object>> allNoticList) throws Exception{
-        Collections.sort(allNoticList, new Comparator<Map<String,Object>>(){
-            @Override
-            public int compare(Map<String, Object> map1, Map<String, Object> map2) {
-                if(StringUtils.isNotEmpty(map1.get("ORDERID")==null?null:map1.get("ORDERID")+"")){
-                    if(StringUtils.isNotBlank(map2.get("ORDERID")==null?null:map2.get("ORDERID")+"")){
-                        if(StringUtils.isNotBlank((String)map2.get("SENDDATE")) && StringUtils.isNotBlank((String)map1.get("SENDDATE"))){
-                            return map2.get("SENDDATE").toString().compareTo(map1.get("SENDDATE").toString());
-                        }else{
-                            return 0;
-                        }
-                    }else{
-                        return -1;
-                    }
-                }
-                //按SENDDATE字段降序
-                if(StringUtils.isNotBlank((String)map2.get("SENDDATE")) && StringUtils.isNotBlank((String)map1.get("SENDDATE"))){
-                    return map2.get("SENDDATE").toString().compareTo(map1.get("SENDDATE").toString());
-                }else{
-                    return 0;
-                }
-            }
-        });
-        return allNoticList;
-    }
 }

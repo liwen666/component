@@ -1,0 +1,437 @@
+-- Create table
+create table P#FASP_T_PUBELSEUSER
+(
+  admdiv           VARCHAR2(32) not null,
+  guid             VARCHAR2(32),
+  name             VARCHAR2(255) not null,
+  isleaf           NUMBER(1),
+  desguid          VARCHAR2(32),
+  levelno          NUMBER(1),
+  srcscale         NUMBER(18,4),
+  remark           VARCHAR2(500),
+  starttime        VARCHAR2(17),
+  createtime       VARCHAR2(17),
+  pinyin           VARCHAR2(200),
+  alias            VARCHAR2(100),
+  enable           CHAR(1),
+  version          NUMBER(9),
+  canceltime       VARCHAR2(17),
+  superguid        VARCHAR2(32),
+  endtime          VARCHAR2(17),
+  srcguid          VARCHAR2(32),
+  code             VARCHAR2(200) not null,
+  dbversion        TIMESTAMP(6),
+  status           CHAR(1) default '1',
+  year             CHAR(4),
+  province         VARCHAR2(9),
+  zip              CHAR(6),
+  tel              VARCHAR2(30),
+  fax              VARCHAR2(24),
+  organizationtype CHAR(2)
+)
+partition by list (PROVINCE)
+(
+  partition P45 values ('45')
+    tablespace FASP
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 64K
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition P61 values ('61')
+    tablespace FASP
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 64K
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition P87 values ('87')
+    tablespace FASP
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 64K
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition P13 values ('13')
+    tablespace FASP
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 64K
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition P50 values ('50')
+    tablespace FASP
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 64K
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition P11 values ('11')
+    tablespace FASP
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 64K
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition P12 values ('12')
+    tablespace FASP
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 64K
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition P21 values ('21')
+    tablespace FASP
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 64K
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition P22 values ('22')
+    tablespace FASP
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 64K
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition P31 values ('31')
+    tablespace FASP
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 64K
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition P33 values ('33')
+    tablespace FASP
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 64K
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition P44 values ('44')
+    tablespace FASP
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 64K
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition P63 values ('63')
+    tablespace FASP
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 64K
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition P32 values ('32')
+    tablespace FASP
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 64K
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition P36 values ('36')
+    tablespace FASP
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 64K
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition P42 values ('42')
+    tablespace FASP
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 64K
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition P43 values ('43')
+    tablespace FASP
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 64K
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition P51 values ('51')
+    tablespace FASP
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 64K
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition P54 values ('54')
+    tablespace FASP
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 64K
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition P14 values ('14')
+    tablespace FASP
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 64K
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition P15 values ('15')
+    tablespace FASP
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 64K
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition P37 values ('37')
+    tablespace FASP
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 64K
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition P46 values ('46')
+    tablespace FASP
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 64K
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition P52 values ('52')
+    tablespace FASP
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 64K
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition P41 values ('41')
+    tablespace FASP
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 64K
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition P53 values ('53')
+    tablespace FASP
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 64K
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition P64 values ('64')
+    tablespace FASP
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 64K
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition P65 values ('65')
+    tablespace FASP
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 64K
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition P23 values ('23')
+    tablespace FASP
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 64K
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition P34 values ('34')
+    tablespace FASP
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 64K
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition P35 values ('35')
+    tablespace FASP
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 64K
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition P62 values ('62')
+    tablespace FASP
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 64K
+      next 1M
+      minextents 1
+      maxextents unlimited
+    )
+);
+
+插入
+insert into p#fasp_t_pubelseuser (ADMDIV, GUID, NAME, ISLEAF, DESGUID, LEVELNO, SRCSCALE, REMARK, STARTTIME, CREATETIME, PINYIN, ALIAS, ENABLE, VERSION, CANCELTIME, SUPERGUID, ENDTIME, SRCGUID, CODE, DBVERSION, STATUS, YEAR, PROVINCE, ZIP, TEL, FAX, ORGANIZATIONTYPE)
+values ('B5BBAB08B9994532B6DE3E296DCD579D', '1478EEB202152509D88313C381F944D0', '个人', 1, '', 1, null, '', '20181115', '20181115041158011', 'gr', '', '', 3, '', '0', '', '', '003', '', '1', '2018', '45', '', '', '', '13');
+
+insert into p#fasp_t_pubelseuser (ADMDIV, GUID, NAME, ISLEAF, DESGUID, LEVELNO, SRCSCALE, REMARK, STARTTIME, CREATETIME, PINYIN, ALIAS, ENABLE, VERSION, CANCELTIME, SUPERGUID, ENDTIME, SRCGUID, CODE, DBVERSION, STATUS, YEAR, PROVINCE, ZIP, TEL, FAX, ORGANIZATIONTYPE)
+values ('B5BBAB08B9994532B6DE3E296DCD579D', '764CDA4B974D6FED8AAB15E1CECE5F7F', '专家', 1, '', 1, null, '', '20181115', '20181115041158011', 'zj', '', '', 4, '', '0', '', '', '004', '', '1', '2018', '45', '', '', '', '14');
+
+insert into p#fasp_t_pubelseuser (ADMDIV, GUID, NAME, ISLEAF, DESGUID, LEVELNO, SRCSCALE, REMARK, STARTTIME, CREATETIME, PINYIN, ALIAS, ENABLE, VERSION, CANCELTIME, SUPERGUID, ENDTIME, SRCGUID, CODE, DBVERSION, STATUS, YEAR, PROVINCE, ZIP, TEL, FAX, ORGANIZATIONTYPE)
+values ('B5BBAB08B9994532B6DE3E296DCD579D', '9B8AFA5E29A1F2E3242398D730BBEF41', '企业', 1, '', 1, null, '', '20181115', '20181115041158011', 'qy', '', '', 1, '', '0', '', '', '001', '', '1', '2018', '45', '', '', '', '11');
+
+insert into p#fasp_t_pubelseuser (ADMDIV, GUID, NAME, ISLEAF, DESGUID, LEVELNO, SRCSCALE, REMARK, STARTTIME, CREATETIME, PINYIN, ALIAS, ENABLE, VERSION, CANCELTIME, SUPERGUID, ENDTIME, SRCGUID, CODE, DBVERSION, STATUS, YEAR, PROVINCE, ZIP, TEL, FAX, ORGANIZATIONTYPE)
+values ('B5BBAB08B9994532B6DE3E296DCD579D', 'B60F5CA98FDF0C669CC082AF5F860937', '中介', 1, '', 1, null, '', '20181115', '20181115041158011', 'zj', '', '', 2, '', '0', '', '', '002', '', '1', '2018', '45', '', '', '', '12');
+
+insert into p#fasp_t_pubelseuser (ADMDIV, GUID, NAME, ISLEAF, DESGUID, LEVELNO, SRCSCALE, REMARK, STARTTIME, CREATETIME, PINYIN, ALIAS, ENABLE, VERSION, CANCELTIME, SUPERGUID, ENDTIME, SRCGUID, CODE, DBVERSION, STATUS, YEAR, PROVINCE, ZIP, TEL, FAX, ORGANIZATIONTYPE)
+values ('B5BBAB08B9994532B6DE3E296DCD579D', 'B60F5CA98FDF0C669CC082AF5F860931', '开发商', 1, '', 1, null, '', '20181115', '20181115041158500', 'kfs', '', '', 5, '', '0', '', '', '091', '', '1', '2018', '45', '', '', '', '91');
+
+查询
+select * from p#fasp_t_pubelseuser partition(p35) T
