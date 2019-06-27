@@ -44,7 +44,7 @@ public class CompleteFutureDemo {
             }
             return s.length();
         });
-
+        System.out.println("主线程继续运行");
         System.out.println("阻塞方式获取执行结果:" + completableFutureThree.get());
 
         cachePool.shutdown();
