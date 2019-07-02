@@ -76,14 +76,20 @@ public class MD5FileUtil {
 	}
 
 	public static void main(String[] args) throws IOException {
-		long begin = System.currentTimeMillis();
+//		long begin = System.currentTimeMillis();
+//
+//		File big = new File("D:\\temp\\jre-7u11-linux-i586.tar.gz");
+//		String md5 = getFileMD5String(big);
+//
+//		long end = System.currentTimeMillis();
+//		System.out.println("md5:" + md5);
+//		System.out.println("time:" + ((end - begin) / 1000) + "s");
 
-		File big = new File("D:\\temp\\jre-7u11-linux-i586.tar.gz");
-		String md5 = getFileMD5String(big);
 
-		long end = System.currentTimeMillis();
-		System.out.println("md5:" + md5);
-		System.out.println("time:" + ((end - begin) / 1000) + "s");
+		String md5str = "userName";
+		System.out.println(getMD5String(md5str));
+		System.out.println();
+
 
 	}
 
