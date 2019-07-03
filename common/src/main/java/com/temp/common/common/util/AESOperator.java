@@ -24,8 +24,9 @@ public class AESOperator {
     /** 
      * 密钥 
      */  
-    private static final String KEY = "sNqcHTjzHy^Pv!lw";
-      
+//    private static final String KEY = "sNqcHTjzHy^Pv!lw";
+    private static final String KEY = "秘钥sNqcHTjzHy";
+
     /** 
      * 算法 
      */  
@@ -41,7 +42,18 @@ public class AESOperator {
         System.out.println("加密后：" + encrypt);  
   
         String decrypt = aesDecrypt(encrypt, KEY);  
-        System.out.println("解密后：" + decrypt);  
+        System.out.println("解密后：" + decrypt);
+        String content1 = "nihao";
+        System.out.println("加密前：" + content1);
+
+        System.out.println("加密密钥和解密密钥：" + KEY);
+
+        String encrypt1 = aesEncrypt(content1, KEY);
+        System.out.println("加密后：" + encrypt1);
+
+        String decrypt1 = aesDecrypt(encrypt1, KEY);
+        System.out.println("解密后：" + decrypt1);
+
     } 
     
     /** 

@@ -15,9 +15,41 @@ var isPwNumber;//是否使用纯数字密码  0-不用; 1-用
 var yearList;
 var jsorjava;
 var toLoginNum = 0;//正在登录时，不能重复点击登陆按钮，0：没有登录，1：正在登陆
+var key;
+// key=CryptoJS.enc.Utf8.parse("portalKeyEncrypt");
+/**
+ * @param word
+ * @returns {*}
+ */
+$.ajax({
+    url: _BASE_PATH + "/fportal/login/getKey",
+    type: 'post',
+    dataType: 'json',
+    async: false,
+    success: function (succ) {
+    	key=CryptoJS.enc.Utf8.parse(succ.key);
+    },
+    error: function (err) {
+    }
+});
+function encrypt(word){
+    var srcs = CryptoJS.enc.Utf8.parse(word);
+    var encrypted = CryptoJS.AES.encrypt(srcs, key, {mode:CryptoJS.mode.ECB,padding: CryptoJS.pad.Pkcs7});
+    return encrypted.toString();
+}
+
+/**
+ * 解密
+ * @param word
+ * @returns {*}
+ */
+function decrypt(word){
+    var decrypt = CryptoJS.AES.decrypt(word, key, {mode:CryptoJS.mode.ECB,padding: CryptoJS.pad.Pkcs7});
+    return CryptoJS.enc.Utf8.stringify(decrypt).toString();
+}
 $(function() {
 	$.ajax({
-		url : _BASE_PATH + "/fportal/login/generate/random.do",
+		url : _BASE_PATH + "/fportal/login/generate/random",
 		type : 'post',
 		dataType : 'json',
 		success : function(succ) {
@@ -130,7 +162,7 @@ $(function() {
 	createCaObjectToHead();	
 	var username=$.cookie('username');
 	if(username!=null&&username!=""&&username!=undefined&&username!='undefined'){
-		$("#username").val(Base64.decode(username));
+		$("#username").val(decrypt(username));
 	}
 	//控制输入框字体颜色
 	ctrlInputColor();
@@ -561,8 +593,8 @@ function toLogin(){
 		alert("正在登录中，请不要重复点击登录按钮！");
 		return;
 	}
-	var username =Base64.encode($("#username").val());
-	var password =Base64.encode($("#password").val());
+	var username =encrypt($("#username").val());
+	var password =encrypt($("#password").val());
 	var checkyear = $("#checkyear").val();
 	if(username.replace(/^ +| +$/g,'').length ==0 || username==null||username == ""||username=="请输入用户名"){
 		alert("用户名不能为空！");
@@ -963,7 +995,7 @@ function cacheckLogin(resp,checkyear){
 function initLoginPageNotic(){
 
 	$.ajax({
-		url:_BASE_PATH+"/fportal/login/initLoginPageNotic.do",
+		url:_BASE_PATH+"/fportal/login/initLoginPageNotic",
 		type:'post',
 		dataType:'json',
 		data:{},
@@ -1072,7 +1104,7 @@ function downloadfile(filename){
 	iframediv.firstChild.firstChild.value=encodeURIComponent(filename);
 	iframediv.firstChild.submit();*/
 	
-	var href = _BASE_PATH+"/fportal/common/downloadfileLocal.do?filename="+filename;
+	var href = _BASE_PATH+"/fportal/common/downloadfileLocal?filename="+filename;
 	var as=document.createElement("a");
 	$(as).attr("href",href);
 	as.click();
@@ -1088,7 +1120,7 @@ function reSetCode(){
 	if(jsorjava=='0'){
 		$.idcode.setCode();
 	}else{
-		$('#kaptchaImage').attr('src', '/fportal/captchaRandomCode/captchaimage.do?' + Math.floor(Math.random()*100) );
+		$('#kaptchaImage').attr('src', '/fportal/captchaRandomCode/captchaimage?' + Math.floor(Math.random()*100) );  
 	}
 }
 /**
@@ -1198,7 +1230,7 @@ function checkLogin(tokenid){
 		}
 	$.ajax({
 		/*url:_BASE_PATH+"/fportal/login/checkLogin",*/
-		url:_BASE_PATH+"/fportal/login/toLogin.do",
+		url:_BASE_PATH+"/fportal/login/toLogin",
 		type:'post',
 		dataType:'json',
 		/*data:{tokenid:tokenid,checkUser:checkUser,checkyear:checkyear},*/
