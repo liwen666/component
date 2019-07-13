@@ -14,6 +14,11 @@ import redis.clients.util.JedisClusterCRC16;
 import java.lang.reflect.Field;
 import java.util.*;
 
+/**
+ * author lw
+ * date 2019/7/13 18:58
+ *
+ */
 public class RedisUtils {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(RedisUtils.class);

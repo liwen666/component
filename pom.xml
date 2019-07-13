@@ -229,8 +229,8 @@
         <!--数据库驱动-->
         <dependency>
             <groupId>com.oracle</groupId>
-            <artifactId>ojdbcLocal14</artifactId>
-            <version>10.2.0</version>
+            <artifactId>ojdbc6</artifactId>
+            <version>12.1.0.1-atlassian-hosted</version>
         </dependency>
 
         <dependency>

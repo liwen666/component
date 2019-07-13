@@ -43,7 +43,8 @@ public class WifiUtil {
        //连接wifi  netsh wlan connect name=SSIDNAME
 //        添加配置文件
        // netsh wlan add profile filename=WLAN-TEMP.xml
-        List<String> result = execute("netsh wlan connect name=\"Honor Note10\"", null);
+//        List<String> result = execute("netsh wlan connect name=\"Honor Note10\"", null);
+        List<String> result = execute("netsh wlan export profile key=clear", null);
 //        String javaEncode = EncodingDetect.getJavaEncode(result.get(0).getBytes());
 //        System.out.println(javaEncode);
         System.out.println(JSON.toJSONString(result));
