@@ -1,6 +1,7 @@
 package com.temp.component.redis.service;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,55 @@ public class ScheduleRedisRepositoryTest {
     private AtomicReference<String> userId = new AtomicReference<>();
 
     @Test
+    public void getOnlineUser() {
+        Set<String> userIds = new HashSet<>();
+        Jedis jedis = null;
+        long l = System.currentTimeMillis();
+
+        try {
+            jedis=redisUtil.getResource();
+            Set<String> keys = jedis.keys("mp:ur:*");
+            Map<String ,Map<String,String>> alLUserMap = new HashMap<>(3000);
+            Map<String, Response<Map<String, String>>> responseHashMap= new HashMap<>();
+            Pipeline pipelined  = jedis.pipelined();
+            for(String key:keys){
+                responseHashMap.put(key, pipelined.hgetAll(key));
+            }
+            pipelined.sync();
+            System.out.println(JSON.toJSONString(responseHashMap));
+            /* 由Response对象获取对应的值 */
+            Map<String,String> result = null;
+            System.out.println(responseHashMap.keySet().size()+"=================================>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+            for (String key : responseHashMap.keySet()) {
+                result = responseHashMap.get(key).get();
+                if (result != null) {
+                    alLUserMap.put(key, result);
+                }
+            }
+            pipelined.sync();
+            pipelined.close();
+            System.out.println(JSON.toJSONString(alLUserMap)+"=================================>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+            System.out.println("查询所有数据耗时："+String.valueOf(System.currentTimeMillis()-l));
+            for(Map.Entry<String, Map<String, String>> me:alLUserMap.entrySet()){
+                Map<String, String> value = me.getValue();
+               for(Map.Entry<String,String> v:value.entrySet()){
+                   JSONObject obj = JSONObject.parseObject(v.getValue());
+                   if ((boolean)obj.get("online"))
+                       userIds.add(me.getKey().split(":")[2]);
+               }
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            redisUtil.returnBrokenResource(jedis);
+        }finally {
+            redisUtil.returnResource(jedis);
+        }
+        System.out.println(userIds);
+        System.out.println(String.valueOf(System.currentTimeMillis()-l)+"耗时");
+    }
+
+
+    @Test
     public void getOnlineUsers() {
         Set<String> userIds = new HashSet<>();
         Jedis jedis = null;
@@ -40,55 +90,17 @@ public class ScheduleRedisRepositoryTest {
             System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"+ JSON.toJSONString(stringStringMap)+"-----------------------------");
             System.out.println(keys.size());
             System.out.println(JSON.toJSONString("keys----->"+keys));
-            ///////////////////////////////////////////
 
-            Map<String ,Map<String,String>> allData = new HashMap<>(2000);
-            Map<String, Response<Map<String, String>>> m11= new HashMap<>();
-            Pipeline pipelined  = jedis.pipelined();
-            for(String key:keys){
-                    m11.put(key, pipelined.hgetAll(key));
-            }
-            pipelined.sync();
-            System.out.println(JSON.toJSONString(m11));
-            /* 由Response对象获取对应的值 */
-
-            Map<String,String> result = null;
-            System.out.println(m11.keySet().size()+"=================================>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-            for (String key : m11.keySet()) {
-                result = m11.get(key).get();
-                System.out.println(JSON.toJSONString(result)+"=====================>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-                if (result != null) {
-                    allData.put(key, result);
+            for(String key:jedis.keys("mp:ur:*")){
+                Map<String, String> stringStringMap1 = jedis.hgetAll(key);
+                for(Map.Entry <String,String>me:stringStringMap1.entrySet()){
+                    String deviceId = me.getValue();
+                    JSONObject obj = null;
+                           obj= JSONObject.parseObject(deviceId);
+                    if (obj.getBoolean("online"))
+                        userIds.add(key.split(":")[2]);
                 }
             }
-            System.out.println(JSON.toJSONString(allData));
-//            for(String key:keys){
-//                Response<Map<String, String>> mapResponse = pipelined.hgetAll(key);
-//                System.out.println(JSON.toJSONString(mapResponse)+"====================================");
-//                Map<String, String> stringStringMap1 = mapResponse.get();
-//                System.out.println(JSON.toJSONString(stringStringMap1)+"====================================");
-//                allData.put(key,stringStringMap1);
-//                break;
-//            }
-
-            System.out.println(JSON.toJSONString(allData));
-            pipelined.sync();
-            System.out.println("查询所有数据耗时："+String.valueOf(System.currentTimeMillis()-l));
-//            System.out.println(JSON.toJSONString(objects));
-            pipelined.close();
-
-
-
-//            for(String key:jedis.keys("mp:ur:*")){
-//                Map<String, String> stringStringMap1 = jedis.hgetAll(key);
-//                for(Map.Entry <String,String>me:stringStringMap1.entrySet()){
-//                    String deviceId = me.getValue();
-//                    JSONObject obj = null;
-//                           obj= JSONObject.parseObject(deviceId);
-//                    if (obj.getBoolean("online"))
-//                        userIds.add(key.split(":")[2]);
-//                }
-//            }
 
 
 //            for (String key : jedis.keys("mp:ur:*")) {
@@ -98,36 +110,6 @@ public class ScheduleRedisRepositoryTest {
 //                        for (String device : devices) {
 //                            JSONObject obj = JSONObject.parseObject(device);
 //                            if (obj.getBoolean("online"))
-//                                userIds.add(key.split(":")[2]);
-//                        }
-//                    }
-//                }
-//            }
-            /////////////////////////////////////////
-//            int iiii = 0;
-//            int jjj=0;
-//            int ppp=0;
-//            for (String key : keys) {
-//                if (iiii==0){
-//                Set<String> hkeys = jedis.hkeys(key);
-//                    iiii=1;
-//                    System.out.println("hkeys----->"+JSON.toJSONString(hkeys));
-//                }
-//                for (String ke : jedis.hkeys(key)) {
-//
-//                    List<String> devices = jedis.hmget(key, ke);
-//                    if (jjj==0){
-//                        jjj=1;
-//                        System.out.println("devices----->"+JSON.toJSONString(devices));
-//                    }
-//                    if (devices != null && devices.size() > 0) {
-//                        for (String device : devices) {
-//                            JSONObject obj = JSONObject.parseObject(device);
-//                            if (obj.getBoolean("online"))
-//                                if (ppp==0){
-//                                    ppp=1;
-//                                    System.out.println("用户ID-->  "+JSON.toJSONString(key));
-//                                }
 //                                userIds.add(key.split(":")[2]);
 //                        }
 //                    }
@@ -176,18 +158,18 @@ public class ScheduleRedisRepositoryTest {
             System.out.println(taskExecute.getIntegerAtomicReference());
             System.out.println(userIds1);
 //            taskExecute.getUserIdSet();
-//            for (String key : jedis.keys("mp:ur:*")) {
-//                for (String ke : jedis.hkeys(key)) {
-//                    List<String> devices = jedis.hmget(key, ke);
-//                    if (devices != null && devices.size() > 0) {
-//                        for (String device : devices) {
-//                            JSONObject obj = JSONObject.parseObject(device);
-//                            if (obj.getBoolean("online"))
-//                                ScheduleRedisRepositoryTest.addUserId(userIds,key.split(":")[2]);
-//                        }
-//                    }
-//                }
-//            }
+            for (String key : jedis.keys("mp:ur:*")) {
+                for (String ke : jedis.hkeys(key)) {
+                    List<String> devices = jedis.hmget(key, ke);
+                    if (devices != null && devices.size() > 0) {
+                        for (String device : devices) {
+                            JSONObject obj = JSONObject.parseObject(device);
+                            if (obj.getBoolean("online"))
+                                ScheduleRedisRepositoryTest.addUserId(userIds,key.split(":")[2]);
+                        }
+                    }
+                }
+            }
         }catch (Exception e){
             e.printStackTrace();
             redisUtil.returnBrokenResource(jedis);
