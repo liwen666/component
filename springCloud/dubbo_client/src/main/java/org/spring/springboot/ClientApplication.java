@@ -20,5 +20,6 @@ public class ClientApplication {
         ConfigurableApplicationContext run = SpringApplication.run(ClientApplication.class, args);
         CityDubboConsumerService cityService = run.getBean(CityDubboConsumerService.class);
         cityService.printCity();
+        run.close();
     }
 }

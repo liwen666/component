@@ -9,7 +9,7 @@ import java.io.IOException;
 public class ZooKeeperTest {
  
     public static void main(String[] args) throws Exception{
-        ZooKeeper zk = new ZooKeeper("172.23.81.110:2181", 3000, new Watcher() {
+        ZooKeeper zk = new ZooKeeper("192.168.1.124:2181", 3000, new Watcher() {
 //        ZooKeeper zk = new ZooKeeper("192.168.42.220:2181", 3000, new Watcher() {
             public void process(WatchedEvent event) {
                 // TODO Auto-generated method stub

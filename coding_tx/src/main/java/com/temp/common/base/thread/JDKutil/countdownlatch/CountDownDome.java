@@ -21,7 +21,9 @@ public class CountDownDome implements Runnable {
 	public void run() {
 		try{
 			Thread.sleep(new Random().nextInt(10)*1000);
-			System.out.println("check complete!");
+			System.out.println("check complete!-->"+Thread.currentThread().getName());
+			String substring = Thread.currentThread().getName();
+			System.out.println(substring.substring(substring.lastIndexOf("-")+1,substring.length()));
 			end.countDown();
 			/**
 			 * 一个线程可以达成多个条件
