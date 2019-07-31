@@ -13,7 +13,6 @@ import java.io.OutputStream;
 import java.net.Socket;
 import java.util.Arrays;
 
-import com.alibaba.fastjson.JSONObject;
 
 /**
  * Tracker client

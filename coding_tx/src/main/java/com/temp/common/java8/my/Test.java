@@ -26,20 +26,42 @@ public class Test {
 //        final Map<Streams.Status, List<Streams.Task>> map = tasks
 //                .stream()
 //                .collect( Collectors.groupingBy( Streams.Task::getStatus ) );
+        /////////////////////////////////////////////////////////////////////
+//        Map<Long, List<GroupPushPolicy>> collect = groupPushPolicies.stream().collect(Collectors.groupingBy(GroupPushPolicy::getMerchantGroupId));
+//        System.out.println(JSON.toJSONString(collect));
+//        System.out.println("--------------------------------------------");
+//        Map<Long, Map<Long, List<GroupPushPolicy>>> collect1 = groupPushPolicies.stream().collect(Collectors.groupingBy(GroupPushPolicy::getMerchantGroupId, Collectors.groupingBy(GroupPushPolicy::getOrderGroupId)));
+//        System.out.println(JSON.toJSONString(collect1));
+//        List<List<GroupPushPolicy>>  result= new ArrayList<>();
+//        Collection<Map<Long, List<GroupPushPolicy>>> values = collect1.values();
+//        values.stream().forEach(e->{
+//            Collection<List<GroupPushPolicy>> values1 = e.values();
+//            values1.stream().forEach(e1->{
+//                result.add(e1);
+//            });
+//        });
+//        System.out.println(JSON.toJSONString(result));
+//
+
+        /////////////////////////////////////////////////////////
         Map<Long, List<GroupPushPolicy>> collect = groupPushPolicies.stream().collect(Collectors.groupingBy(GroupPushPolicy::getMerchantGroupId));
-        System.out.println(JSON.toJSONString(collect));
-        System.out.println("--------------------------------------------");
         Map<Long, Map<Long, List<GroupPushPolicy>>> collect1 = groupPushPolicies.stream().collect(Collectors.groupingBy(GroupPushPolicy::getMerchantGroupId, Collectors.groupingBy(GroupPushPolicy::getOrderGroupId)));
-        System.out.println(JSON.toJSONString(collect1));
-        List<List<GroupPushPolicy>>  result= new ArrayList<>();
+        List<List<PushGroupPolicyVO>>  result= new ArrayList<>();
         Collection<Map<Long, List<GroupPushPolicy>>> values = collect1.values();
         values.stream().forEach(e->{
             Collection<List<GroupPushPolicy>> values1 = e.values();
             values1.stream().forEach(e1->{
-                result.add(e1);
+                List <PushGroupPolicyVO> list = new ArrayList<>();
+                e1.forEach(e2->{
+                    list.add(PushGroupPolicyVO.builder().createTime(e2.getCreateTime()).modifyTime(e2.getModifyTime())
+                            .delay(e2.getDelay()).id(e2.getId()).merchantGroupId(e2.getMerchantGroupId()).orderGroupId(e2.getOrderGroupId()).pushNumber(e2.getPushNumber())
+                            .sort(e2.getSort()).build());
+                });
+                result.add(list);
             });
         });
-        System.out.println(JSON.toJSONString(result));
 
+        System.out.println(JSON.toJSONString(result));
+//        DataConversion
     }
 }

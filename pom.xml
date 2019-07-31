@@ -17,6 +17,7 @@
         <module>coding_tx</module>
         <module>dubbo_zk</module>
         <module>wifi_pojie</module>
+        <module>filesystem</module>
     </modules>
     <name>component Maven Webapp</name>
     <url>http://www.example.com</url>

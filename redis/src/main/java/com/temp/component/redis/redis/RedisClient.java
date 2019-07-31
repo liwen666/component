@@ -27,8 +27,8 @@ public class RedisClient {
     public RedisClient() 
     { 
         initialPool(); 
-        initialShardedPool(); 
-        shardedJedis = shardedJedisPool.getResource(); 
+        initialShardedPool();
+        shardedJedis = shardedJedisPool.getResource();
         jedis = jedisPool.getResource(); 
         
         
@@ -46,37 +46,36 @@ public class RedisClient {
         config.setMaxWaitMillis(1000l);
         config.setTestOnBorrow(false); 
         
-        jedisPool = new JedisPool(config,"192.168.42.136",16379,10000,"testdcpayredis@2019");
+        jedisPool = new JedisPool(config,"192.168.42.138",6379);
     }
     
     /** 
      * 初始化切片池 
      */ 
-    private void initialShardedPool() 
-    { 
-        // 池基本配置 
-        JedisPoolConfig config = new JedisPoolConfig(); 
+    private void initialShardedPool()
+    {
+        // 池基本配置
+        JedisPoolConfig config = new JedisPoolConfig();
         config.setMaxTotal(20);
-        config.setMaxIdle(5); 
+        config.setMaxIdle(5);
         config.setMaxWaitMillis(1000l);
-        config.setTestOnBorrow(false); 
-        // slave链接 
-        List<JedisShardInfo> shards = new ArrayList<JedisShardInfo>(); 
-//        shards.add(new JedisShardInfo("192.168.1.124", 16379, "master"));
-        shards.add(new JedisShardInfo("127.0.0.1", 16379, "master"));
+        config.setTestOnBorrow(false);
+        // slave链接
+        List<JedisShardInfo> shards = new ArrayList<JedisShardInfo>();
+        shards.add(new JedisShardInfo("192.168.42.138", 6379, "master"));
 
-        // 构造池 
-        shardedJedisPool = new ShardedJedisPool(config, shards); 
-    } 
+        // 构造池
+        shardedJedisPool = new ShardedJedisPool(config, shards);
+    }
         @Test
     public void show() {     
-//        KeyOperate();
+        KeyOperate();
 //        StringOperate();
 //        ListOperate();
 //        SetOperate();
 //        SortedSetOperate();
 //        HashOperate();
-            String select = jedis.select(10);
+//            String select = jedis.select(10);
             jedisPool.returnResource(jedis);
         shardedJedisPool.returnResource(shardedJedis);
     }

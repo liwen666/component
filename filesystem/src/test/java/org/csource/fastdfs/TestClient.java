@@ -9,7 +9,6 @@
 package org.csource.fastdfs;
 
 import org.csource.common.NameValuePair;
-import org.csource.fastdfs.*;
 
 import java.io.File;
 import java.net.InetSocketAddress;
@@ -32,19 +31,22 @@ public class TestClient {
    *             <ul><li>args[1]: local filename to upload</li></ul>
    */
   public static void main(String args[]) {
-    if (args.length < 2) {
-      System.out.println("Error: Must have 2 parameters, one is config filename, "
-        + "the other is the local filename to upload");
-      return;
-    }
-
+//    if (args.length < 2) {
+//      System.out.println("Error: Must have 2 parameters, one is config filename, "
+//        + "the other is the local filename to upload");
+//      return;
+//    }
+    args = new String[2];
+    args[0]="fastdfs-client.properties";
+    args[1]="E:\\workspace\\hurong_fastdfs\\src\\test\\resources\\fdfs_client.conf";
     System.out.println("java.version=" + System.getProperty("java.version"));
 
     String conf_filename = args[0];
     String local_filename = args[1];
 
     try {
-      ClientGlobal.init(conf_filename);
+      ClientGlobal.initByProperties(conf_filename);
+//      ClientGlobal.init(conf_filename);
       System.out.println("network_timeout=" + ClientGlobal.g_network_timeout + "ms");
       System.out.println("charset=" + ClientGlobal.g_charset);
 
@@ -85,7 +87,8 @@ public class TestClient {
       file_buff = "this is a test".getBytes(ClientGlobal.g_charset);
       System.out.println("file length: " + file_buff.length);
 
-      group_name = null;
+//      group_name = null;
+      group_name = "group1";
       StorageServer[] storageServers = tracker.getStoreStorages(trackerServer, group_name);
       if (storageServers == null) {
         System.err.println("get store storage servers fail, error code: " + tracker.getErrorCode());
@@ -186,6 +189,9 @@ public class TestClient {
         }
       }
 
+
+
+      //本地文件上传
       results = client.upload_file(local_filename, null, meta_list);
       if (results != null) {
         String file_id;
@@ -214,14 +220,14 @@ public class TestClient {
         System.err.println(client.get_file_info(group_name, remote_filename));
         System.err.println("file url: " + file_url);
 
-        errno = client.download_file(group_name, remote_filename, 0, 0, "c:\\" + remote_filename.replaceAll("/", "_"));
+        errno = client.download_file(group_name, remote_filename, 0, 0, "e:\\" + remote_filename.replaceAll("/", "_"));
         if (errno == 0) {
           System.err.println("Download file success");
         } else {
           System.err.println("Download file fail, error no: " + errno);
         }
 
-        errno = client.download_file(group_name, remote_filename, 0, 0, new DownloadFileWriter("c:\\" + remote_filename.replaceAll("/", "-")));
+        errno = client.download_file(group_name, remote_filename, 0, 0, new DownloadFileWriter("e:\\" + remote_filename.replaceAll("/", "-")));
         if (errno == 0) {
           System.err.println("Download file success");
         } else {
