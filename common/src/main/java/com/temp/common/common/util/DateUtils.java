@@ -331,6 +331,12 @@ public class DateUtils {
 		return getDate(year + "-" + month + "-" + day);
 	}
 
+	public static String getNewDate() {
+		Date date = new Date();
+		DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String time = format.format(date);
+		return time;
+	}
 	public static Date getDate(String date) {
 		DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 		Date dd = null;
@@ -1556,6 +1562,16 @@ public class DateUtils {
 		}
 		startDate = DateUtils.addDays(startDate, -1);
 		return DateUtils.getMaxDateOfDay(startDate);
+	}
+	/**
+	 * 功能：获取昨天最小时间。 输入: 2010-01-31 00:00:00 返回：2010-01-30 23:59:59
+	 */
+	public static Date getLastMinDay(Date startDate) {
+		if (startDate == null) {
+			return null;
+		}
+		startDate = DateUtils.addDays(startDate, -1);
+		return DateUtils.getMinDateOfDay(startDate);
 	}
 
 	/**
