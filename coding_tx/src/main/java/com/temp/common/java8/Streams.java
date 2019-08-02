@@ -1,5 +1,6 @@
 package com.temp.common.java8;
 
+import com.alibaba.fastjson.JSON;
 import com.google.common.collect.Lists;
 import com.temp.common.mybatis.tx.domain.User;
 import lombok.extern.slf4j.Slf4j;
@@ -119,5 +120,8 @@ public class Streams  {
         List<Integer> userIds = userList.stream().map(u -> u.getUid()).collect(Collectors.toList());
 
         log.info(userIds.toString());
+        Map<Integer, String> collect = userList.stream().collect(Collectors.toMap(User::getUid, User::getName));
+        System.out.println(JSON.toJSONString(collect));
+
     }
 }
