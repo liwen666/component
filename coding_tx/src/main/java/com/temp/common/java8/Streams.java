@@ -1,5 +1,10 @@
 package com.temp.common.java8;
 
+import com.google.common.collect.Lists;
+import com.temp.common.mybatis.tx.domain.User;
+import lombok.extern.slf4j.Slf4j;
+import org.junit.Test;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -11,7 +16,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-
+@Slf4j
 public class Streams  {
     private enum Status {
         OPEN, CLOSED
@@ -94,5 +99,25 @@ public class Streams  {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @Test
+    public void main() {
+
+        List<User> userList = Lists.newArrayList();
+        for (int i = 0; i < 5; i++) {
+            User user = new User();
+            user.setUid(i);
+            user.setName("user_" + i);
+            user.setCreateBy("1341341349" + i);
+
+            userList.add(user);
+        }
+
+        log.info(userList.toString());
+
+        List<Integer> userIds = userList.stream().map(u -> u.getUid()).collect(Collectors.toList());
+
+        log.info(userIds.toString());
     }
 }
