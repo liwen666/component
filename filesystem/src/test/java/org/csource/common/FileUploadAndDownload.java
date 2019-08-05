@@ -154,7 +154,7 @@ public class FileUploadAndDownload {
             System.out.println("network_timeout=" + ClientGlobal.g_network_timeout + "ms");
             System.out.println("charset=" + ClientGlobal.g_charset);
             long startTime = System.currentTimeMillis();
-            String group_name ="group2";
+            String group_name ="group3";
             ServerInfo[] servers;
             TrackerClient tracker = new TrackerClient();
             TrackerServer trackerServer = tracker.getConnection();
