@@ -89,10 +89,19 @@ public class FileUploadAndDownload {
             TrackerServer trackerServer = tracker.getConnection();
             StorageServer storageServer = null;
             StorageClient client = new StorageClient(trackerServer, storageServer);
-            byte[] group1s = client.download_file("group1", "M00/00/01/wKgqh11Bx-OATcMGAAAAHF9q3DM942.txt");
+            String group_name = "group1";
+            String remote_filename="M00/00/01/wKgqh11CJHKAcYcIAAAAHF9q3DM846.txt";
+            byte[] group1s = client.download_file(group_name, remote_filename);
             if (group1s != null) {
                 System.out.println("file length:" + group1s.length);
                 System.out.println((new String(group1s)));
+            }
+            int errno;
+            errno = client.download_file(group_name, remote_filename, 0, 0, "e:\\" + remote_filename.replaceAll("/", "_"));
+            if (errno == 0) {
+                System.err.println("Download file success");
+            } else {
+                System.err.println("Download file fail, error no: " + errno);
             }
         } catch (IOException e) {
             e.printStackTrace();
