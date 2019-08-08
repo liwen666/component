@@ -1,14 +1,11 @@
 package com.temp.common.java8.my;
 
 import com.alibaba.fastjson.JSON;
-import com.temp.common.java8.Streams;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 /**

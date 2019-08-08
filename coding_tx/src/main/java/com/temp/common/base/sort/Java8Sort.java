@@ -2,7 +2,6 @@ package com.temp.common.base.sort;
 
 import com.alibaba.fastjson.JSON;
 import com.temp.common.base.sort.multiplesort.User;
-import com.temp.common.java8.Streams;
 
 import java.util.ArrayList;
 import java.util.Comparator;
