@@ -3,6 +3,8 @@ package com.temp.common.mybatis.engine;
 import com.alibaba.druid.pool.DruidDataSource;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.mchange.v2.c3p0.ComboPooledDataSource;
+import com.temp.common.mybatis.dcpay.dao.MerchantAgentMapper;
+import com.temp.common.mybatis.dcpay.domain.MerchantAgent;
 import com.temp.common.mybatis.tx.dao.ImUserMapper;
 import com.temp.common.mybatis.tx.domain.ImUser;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -51,11 +53,42 @@ public class MybatisMain {
 
     }
 
+    static class getAgent{
+        public static void main(String[] args) {
+            AnnotationConfigApplicationContext appContext = new AnnotationConfigApplicationContext();
+            appContext.register(MybatisMain.class);
+            appContext.refresh();
+            MySpringServiceChildren bean = appContext.getBean(MySpringServiceChildren.class);
+            MybatisMain bean1 = appContext.getBean(MybatisMain.class);
+            System.out.println(bean);
+            System.out.println(bean1);
+            MerchantAgentMapper baseMapper = appContext.getBean(MerchantAgentMapper.class);
+            System.out.println(baseMapper);
+
+            MerchantAgent user = baseMapper.selectMy();
+            System.out.println(user);
+
+//
+            QueryWrapper<MerchantAgent> queryWrapper = new QueryWrapper<>();
+            queryWrapper.eq("id", "428edf4fcf0242a49198d32845b0b1ec");
+            System.out.println(queryWrapper.getSqlSegment());
+            queryWrapper.getParamNameValuePairs().forEach((k,v)-> System.out.println("key = " + k + " ; value = " + v));
+//            List<MerchantAgent> messageList = baseMapper.selectList(queryWrapper);
+            List<MerchantAgent> merchantAgents = baseMapper.selectList(null);
+            for (MerchantAgent u : merchantAgents) {
+                System.out.println(u.getMerchantId()+u.getParentId());
+            }
+
+        }
+
+    }
+
     @Bean
     public DataSource getDataSource() {
         DruidDataSource druidDataSource = new DruidDataSource();
         druidDataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        druidDataSource.setUrl("jdbc:mysql://192.168.42.136:3306/vim?useUnicode=true&useSSL=false&characterEncoding=utf8");
+        druidDataSource.setUrl("jdbc:mysql://192.168.42.136:3306/dcpay_merchant?useUnicode=true&useSSL=false&characterEncoding=utf8");
+//        druidDataSource.setUrl("jdbc:mysql://192.168.42.136:3306/vim?useUnicode=true&useSSL=false&characterEncoding=utf8");
         druidDataSource.setUsername("root");
         druidDataSource.setPassword("root");
 //        基本属性 url、user、password

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.temp.common.mybatis.dcpay.dao.MerchantAgentMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.temp.common.mybatis.dcpay.domain.MerchantAgent">
+        <id column="id" property="id" />
+        <result column="merchant_id" property="merchantId" />
+        <result column="parent_id" property="parentId" />
+        <result column="status" property="status" />
+        <result column="version" property="version" />
+        <result column="create_time" property="createTime" />
+        <result column="modify_time" property="modifyTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, merchant_id, parent_id, status, version, create_time, modify_time
+    </sql>
+    <select id="selectMy" resultMap="BaseResultMap">
+        select * from merchant_agent where id='1'
+    </select>
+</mapper>
