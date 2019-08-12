@@ -36,4 +36,13 @@ public class StreamSort {
       System.out.println(JSON.toJSONString(collect2.stream().map(OrderRecord::getId).collect(Collectors.toList())));
 
   }
+
+  @Test
+  public  void listToMap() throws IOException {
+    List<OrderRecord> orderRecords = TestDateUtil.orderRecordList();
+    System.out.println(orderRecords.size());
+    //正序排列
+//    orderRecords.stream().map(OrderRecord::getMerchantId,OrderRecord::getRealPaymentAmount).
+
+  }
 }

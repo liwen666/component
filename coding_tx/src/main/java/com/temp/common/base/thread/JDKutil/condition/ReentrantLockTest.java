@@ -25,7 +25,7 @@ public class ReentrantLockTest implements Runnable{
 			 * 还有一个特有的方法 
 			 * 不可中断的等待  awaitUninterrupted
 			 */
-			condition.await(200, TimeUnit.SECONDS);
+			condition.await(2000, TimeUnit.SECONDS);
 			System.out.println("线程退出");
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
