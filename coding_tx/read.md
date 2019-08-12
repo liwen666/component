@@ -8,3 +8,6 @@
  
  #tomcat后台启动
   setclasspath.bat  将  里面的java.exe  改成 javaw.exe  即可
+  
+  
+  java有一种map  currentMap  这种map无法通过参数进行修改值   map传入到方法体进行的一系列操作都会回归

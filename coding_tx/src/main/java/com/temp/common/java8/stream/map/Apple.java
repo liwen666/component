@@ -5,6 +5,7 @@ import lombok.Data;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -57,5 +58,17 @@ class Test {
         Map<Integer, BigDecimal> collect2 = appleList.stream().collect(Collectors.toMap(Apple::getId,Apple::getMoney));
         System.out.println("=========================================================================================");
         System.out.println(JSON.toJSONString(collect2));
+    }
+}
+
+class testParam {
+    public static void main(String[] args) {
+        Map m = new HashMap();
+        setm(m);
+        System.out.println(JSON.toJSONString(m));
+    }
+
+    private static void setm(Map m) {
+        m.put("aaa","bbb");
     }
 }

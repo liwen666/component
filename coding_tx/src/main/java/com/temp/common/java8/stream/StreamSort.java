@@ -6,9 +6,9 @@ import com.temp.common.java8.util.TestDateUtil;
 import org.junit.Test;
 
 import java.io.IOException;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.math.BigDecimal;
+import java.util.*;
+import java.util.concurrent.ConcurrentMap;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -40,9 +40,23 @@ public class StreamSort {
   @Test
   public  void listToMap() throws IOException {
     List<OrderRecord> orderRecords = TestDateUtil.orderRecordList();
+//    Iterator<OrderRecord> iterator = orderRecords.iterator();
+//    while (iterator.hasNext()){
+//      OrderRecord next = iterator.next();
+//      if(next.getMerchantId()==null||next.getRealPaymentAmount()==null){
+//        iterator.remove();
+//      }
+//    }
     System.out.println(orderRecords.size());
     //正序排列
-//    orderRecords.stream().map(OrderRecord::getMerchantId,OrderRecord::getRealPaymentAmount).
+    Map<Long, ConcurrentMap<Long, BigDecimal>> collect = orderRecords.stream().filter(e->e.getMerchantId()!=null&&e.getRealPaymentAmount()!=null).collect(Collectors.groupingBy(OrderRecord::getMerchantId, Collectors.toConcurrentMap(OrderRecord::getId, a -> a.getRealPaymentAmount(), (k1, k2) -> k2)));
 
+    System.out.println("=========================================================================================");
+    System.out.println(JSON.toJSONString(collect));
+
+    System.out.println("=========================================================================================");
+    collect.keySet().forEach(e->{
+      System.out.println(collect.get(e));
+    });
   }
 }
