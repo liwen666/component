@@ -19,4 +19,8 @@ rabbitmqctl list_users
  
  ② 开启管理界面：./rabbitmq-plugins enable rabbitmq_management
  
- ③ 重启RabbitMQ
+ ③ 
+ 
+ 
+ *******************************************************
+ rabbitMQ默认5672 端口
