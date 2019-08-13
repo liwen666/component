@@ -54,8 +54,14 @@ public class Commission {
             Channel channel = connection.createChannel();
  
             //声明一个Direct类型的交换机
-            channel.exchangeDeclare(EXCHANGE_NAME, BuiltinExchangeType.DIRECT);
+
+            /**
+             * 此处如果是系统创建交换机，自己不需要创建，只需要往交换机发送数据即可
+             */
+            System.out.println("=========================================================================================");
+//            channel.exchangeDeclare(EXCHANGE_NAME, BuiltinExchangeType.DIRECT);
             //申明两个个队列
+            System.out.println("=========================================================================================");
             /**
              * 第一个参数是queue：要创建的队列名
              * 第二个参数是durable：是否持久化。如果为true，可以在RabbitMQ崩溃后恢复消息

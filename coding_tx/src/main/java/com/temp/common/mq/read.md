@@ -1,3 +1,5 @@
+springboot集成rabbit  自需要rabbit的启动类
+
 rabbitmqctl add_user root root
 rabbitmqctl set_user_tags root administrator
 rabbitmqctl set_permissions -p / root ".*" ".*" ".*"
