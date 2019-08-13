@@ -43,7 +43,7 @@ public class Producer {
             //设置帐号密码,默认为guest/guest，所以下面两行可以省略
             factory.setUsername("root");
             factory.setPassword("root");
-//            factory.setVirtualHost("/wujin");
+            factory.setVirtualHost("/qq");
  
             //创建一个连接
             Connection connection = factory.newConnection();
