@@ -61,14 +61,3 @@ class Test {
     }
 }
 
-class testParam {
-    public static void main(String[] args) {
-        Map m = new HashMap();
-        setm(m);
-        System.out.println(JSON.toJSONString(m));
-    }
-
-    private static void setm(Map m) {
-        m.put("aaa","bbb");
-    }
-}

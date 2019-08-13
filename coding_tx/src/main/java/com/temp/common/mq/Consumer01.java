@@ -35,6 +35,9 @@ public class Consumer01 {
  
             ConnectionFactory factory = new ConnectionFactory();
             factory.setHost("192.168.42.230");
+            factory.setVirtualHost("/qq");
+            factory.setUsername("root");
+            factory.setPassword("root");
             Connection connection = factory.newConnection();
             Channel channel = connection.createChannel();
  

@@ -26,6 +26,7 @@ public class ConcurrencyHashMapTest9 {
 			for (int i = 0; i < 10000; i++)
 				pMsgs.put(i, i);
 			System.out.println(pMsgs.get(5));
+			System.out.println("=========================================================================================");
 			Thread[] tGroup = new Thread[thread_Num];
 			for (int i = 0; i < thread_Num; i++) {
 				tGroup[i] = new Thread(new Worker(pMsgs));
@@ -36,6 +37,7 @@ public class ConcurrencyHashMapTest9 {
 			}
  
 			System.out.println(pMsgs.get(5));
+			System.out.println("=========================================================================================");
 			System.out.println(pMsgs.get(9999));
 
 			// case 2

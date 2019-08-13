@@ -17,6 +17,7 @@ public class ChmTest2 {
 				}
 			}
 		});
+
 		newFixedThreadPool.submit(new Runnable() {
 			public void run() {
 				for(int i = 0;i <100;i++){

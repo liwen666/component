@@ -1,0 +1,10 @@
+myslq
+
+alter table table_name add index index_name (column_list) ;
+alter table table_name add unique (column_list) ;
+alter table table_name add primary key (column_list) ;
+
+普通索引
+create index index_merchant_id on order_record (merchant_id) ;
+CREATE INDEX index_order_status ON order_record (order_status) ;
+CREATE INDEX index_create_time ON order_record (create_time) ;
