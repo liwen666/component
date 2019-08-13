@@ -88,7 +88,7 @@ public class Commission {
             String message01 = "内衣秀明天在XXX开展";
             String message02 = "中国联通股票大跌";
             String message03 = "黄山美食推荐：蝴蝶面";
-            String message04 = "开发测试";
+            String message04 = "完成订单";
 
             //向交换机发送3个消息，分别是关于美女、股票、美食
             channel.basicPublish(EXCHANGE_NAME, ROUTING_KEY_BEAUTY, null, message01.getBytes("UTF-8"));

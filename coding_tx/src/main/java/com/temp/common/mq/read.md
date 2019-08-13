@@ -2,6 +2,8 @@ rabbitmqctl add_user root root
 rabbitmqctl set_user_tags root administrator
 rabbitmqctl set_permissions -p / root ".*" ".*" ".*"
 //查看用户命令
+
+////使用客户端删除交换机
 rabbitmqctl list_users
 
 ① 到指定目录：cd/etc/init.d
