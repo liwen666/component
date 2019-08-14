@@ -5,7 +5,7 @@ import com.alibaba.dubbo.common.utils.Holder;
 import com.alibaba.dubbo.config.ConsumerConfig;
 import com.alibaba.dubbo.rpc.cluster.LoadBalance;
 import com.alibaba.fastjson.JSON;
-import org.springframework.boot.context.properties.ConfigurationProperties;
+//import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
 import java.lang.reflect.Field;
@@ -17,7 +17,7 @@ import java.util.Map;
  * discribe 配置dubbo
  */
 @Configuration
-@ConfigurationProperties(prefix = "dcpay.dubbo")
+//@ConfigurationProperties(prefix = "dcpay.dubbo")
 public class DcpayDubboMethodConfig extends ConsumerConfig {
     @Override
     public void setLoadbalance(String loadbalance) {
