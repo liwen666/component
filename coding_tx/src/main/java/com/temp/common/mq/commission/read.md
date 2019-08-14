@@ -1,0 +1,1 @@
+注意 springboot  集成dubbo 的时候使用的  refrance  和service  都是dubbo包下面的   才能使用dubbo
