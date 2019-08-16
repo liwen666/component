@@ -41,6 +41,11 @@ public class OrderFinishMsgDto implements Serializable {
 	 * 订单交易额
 	 */
 	private BigDecimal transactionAmount;
+	
+	/**
+	 * 实际支付金额
+	 */
+	private BigDecimal realPaymentAmount;
 
 	/**
 	 * 订单收益
@@ -61,6 +66,11 @@ public class OrderFinishMsgDto implements Serializable {
 	 * 订单状态
 	 */
 	private Integer orderStatus;
+	
+	/**
+	 * 订单完成时间
+	 */
+	private Date orderFinishTime;
 
 	/**
 	 * 时间

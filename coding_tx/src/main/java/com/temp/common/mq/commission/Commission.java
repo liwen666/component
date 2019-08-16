@@ -1,11 +1,20 @@
 package com.temp.common.mq.commission;
- 
-import com.rabbitmq.client.BuiltinExchangeType;
+
+import com.alibaba.fastjson.JSON;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
+import com.temp.common.base.thread.pooldesign.jdk.ThreadPoolDemo;
+import com.temp.common.common.util.DateUtils;
+import org.quartz.spi.ThreadExecutor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.io.IOException;
+import java.math.BigDecimal;
+import java.util.Date;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * @time 14:22
@@ -19,6 +28,7 @@ public class Commission {
      * 订单最终记录队列路由键
      */
     public static final String toOrderFinish_KEY = NamesConstant.toOrderFinish_KEY;
+
     public static void main(String[] args) {
         try {
             //连接管理器：我们的应用程序与RabbitMQ建立连接的管理器。
@@ -31,12 +41,12 @@ public class Commission {
             factory.setUsername("root");
             factory.setPassword("root");
             factory.setVirtualHost("/qq");
- 
+
             //创建一个连接
             Connection connection = factory.newConnection();
             //创建一个信道
             Channel channel = connection.createChannel();
- 
+
             //声明一个Direct类型的交换机
 
             /**
@@ -67,14 +77,49 @@ public class Commission {
             //第三个队列  开发
             channel.queueBind(QUEUE_NAME_03, EXCHANGE_NAME, toOrderFinish_KEY);
 
- 
+
             //模拟发送消息
             String message04 = "完成订单";
 
             //向交换机发送3个消息，分别是关于美女、股票、美食
-            channel.basicPublish(EXCHANGE_NAME, toOrderFinish_KEY, null, message04.getBytes("UTF-8"));
+//            channel.basicPublish(EXCHANGE_NAME, toOrderFinish_KEY, null, message04.getBytes("UTF-8"));
+
+            ExecutorService es = Executors.newFixedThreadPool(5);//创建固定大小的线程
+            for(int i=0;i<100;i++){
+                //线程池可以 处理Callablel类型的任务  获取返回值
+                /**
+                 * 线程是5个5个的执行任务
+                 * 这里下面两个处理任务的效果是一样的
+                 */
+//                es.submit(task);//这个会返回一个future对象
+                es.execute(new Thread(){
+                    @Override
+                    public void run() {
+
+                        for (int i = 0; i < 10; i++) {
+                            OrderFinishMsgDto build = OrderFinishMsgDto.builder().createTime(new Date()).customerId((long) i).income(new BigDecimal(i))
+                                    .orderNo(i+"").orderStatus(100).orderType(1).transactionAmount(new BigDecimal(100)).realPaymentAmount(new BigDecimal(100))
+                                    .orderFinishTime(new Date()).payWay("wexin").recordId((long) i)
+                                    .merchantId((long) i).build();
+//                OrderFinishMsgDto build = OrderFinishMsgDto.builder().merchantId((long) i).build();
+                            MessageBasic build1 = MessageBasic.builder().body(JSON.toJSONString(build)).build();
+
+                            try {
+                                channel.basicPublish(EXCHANGE_NAME, toOrderFinish_KEY, null, JSON.toJSONBytes(build1));
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+                });
+
+            }
+
+
+            Thread.sleep(5000);
+            es.shutdown();
             LOGGER.info("消息发送成功");
- 
+
             channel.close();
             connection.close();
         } catch (Exception e) {
