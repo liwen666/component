@@ -85,7 +85,7 @@ public class Commission {
 //            channel.basicPublish(EXCHANGE_NAME, toOrderFinish_KEY, null, message04.getBytes("UTF-8"));
 
             ExecutorService es = Executors.newFixedThreadPool(5);//创建固定大小的线程
-            for(int i=0;i<100;i++){
+            for(int i=0;i<1000;i++){
                 //线程池可以 处理Callablel类型的任务  获取返回值
                 /**
                  * 线程是5个5个的执行任务
@@ -125,5 +125,13 @@ public class Commission {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+}
+class cs{
+    public static void main(String[] args) {
+        long start = 1565930305721l;
+        long end = 1565930340091l;
+        System.out.println(end-start);
     }
 }

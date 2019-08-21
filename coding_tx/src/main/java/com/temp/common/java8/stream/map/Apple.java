@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 @Data
@@ -52,7 +53,8 @@ class Test {
  */
         Map<Integer, Apple> appleMap = appleList.stream().collect(Collectors.toMap(Apple::getId, a -> a, (k1, k2) -> k1));
         System.out.println(JSON.toJSONString(appleMap));
-        Map<Integer, BigDecimal> collect = appleList.stream().collect(Collectors.toMap(Apple::getId, a -> a.getMoney(), (k1, k2) -> k1));
+//        Map<Integer, BigDecimal> collect = appleList.stream().collect(Collectors.toMap(Apple::getId, a -> a.getMoney(), (k1, k2) -> k1));
+        Map<Integer, Apple> collect = appleList.stream().collect(Collectors.toMap(Apple::getId, Function.identity(), (k1, k2) -> k1));
         System.out.println("=========================================================================================");
         System.out.println(JSON.toJSONString(collect));
         Map<Integer, BigDecimal> collect2 = appleList.stream().collect(Collectors.toMap(Apple::getId,Apple::getMoney));
