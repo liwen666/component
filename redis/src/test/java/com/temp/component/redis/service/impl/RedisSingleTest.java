@@ -172,5 +172,10 @@ public class RedisSingleTest {
         resource.hmset("ABC",new HashMap<String,String>(){{put("test","test2");}});
         Long hsetnx = resource.hsetnx("ABC", "test", "test3");
         System.out.println(hsetnx);
+        Long hdel = resource.hdel("ABC", "test");
+        System.out.println(hdel);
+        Long hde2 = resource.hdel("ABC", "test");
+        System.out.println(hde2);
+
     }
 }
