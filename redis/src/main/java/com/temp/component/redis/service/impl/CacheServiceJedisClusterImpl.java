@@ -16,7 +16,7 @@ import redis.clients.jedis.Pipeline;
 import java.io.IOException;
 import java.util.*;
 
-@Service
+//@Service
 public class CacheServiceJedisClusterImpl implements CacheService {
 
     private static Logger LOGGER = LoggerFactory.getLogger(CacheServiceJedisClusterImpl.class);

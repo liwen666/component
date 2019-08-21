@@ -32,7 +32,7 @@ public class CacheServiceJedisImplTest {
     private JedisPool jedisPool;
     @Autowired
     private CacheServiceJedisImpl cacheServiceJedisImpl;
-    @Autowired
+//    @Autowired
     private CacheServiceJedisClusterImpl cacheServiceJedisClusterImpl;
     @Qualifier("busiDataSource")
     @Autowired
