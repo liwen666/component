@@ -178,4 +178,11 @@ public class RedisSingleTest {
         System.out.println(hde2);
 
     }
+
+    @Test
+    public void redisExpire() {
+        Jedis resource = jedisPool.getResource();
+        String setex = resource.setex("aa", 11, "abcde");
+
+    }
 }
