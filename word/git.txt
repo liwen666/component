@@ -1,0 +1,30 @@
+删除本地分支  git branch -d feature_lw2019813
+
+ 
+删除远程分支 git push origin --delete feature_lw2019813
+
+
+git branch -l :查看本地分支
+
+
+git branch -r :查看远程分支
+
+git branch -a :查看全部分支（远程的和本地的）
+
+
+
+
+
+ 当你在提交代码后想要撤回其中一个文件，那么可以使用以下流程予以实现
+
+1.git log查看提交记录，确定自己的提交内容和要撤回的内容；
+
+2.git reset --soft HEAD^  ,则意味着将HEAD从顶端的commit往下移动到上一个commit
+
+3.git status   查看当前的修改状态，可以发现上次提交已经被撤回。
+
+4.git reset HEAD xxx/xxx/xx.c    将你不想提交的文件进行撤回。
+
+5.再次git status  确认不想提交文件已经不在stage上。
+
+6 再次进行commit即可。
