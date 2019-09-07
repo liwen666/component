@@ -1,0 +1,8 @@
+
+db.url=jdbc:h2:tcp://192.168.1.124:8043/mem:schedule
+db.username=root
+db.password=testdcpaymysql@2019
+db.maxActive=100
+db.initialSize=10
+db.minIdle=5
+db.under_score_to_camel_case=true

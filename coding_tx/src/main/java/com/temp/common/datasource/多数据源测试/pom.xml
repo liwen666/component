@@ -1,0 +1,227 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>vip.dcpay</groupId>
+        <artifactId>dcpay_base</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+        <relativePath>../dcpay_base/pom.xml</relativePath>
+    </parent>
+
+    <artifactId>dcpay_schedule_cache</artifactId>
+    <packaging>war</packaging>
+    <name>钻石支付.调度缓存控制</name>
+
+    <properties>
+        <failOnMissingWebXml>false</failOnMissingWebXml>
+        <netty.version>4.1.25.Final</netty.version>
+        <os.detected.classifier>linux-x86_64</os.detected.classifier>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>vip.dcpay</groupId>
+            <artifactId>dcpay_constant</artifactId>
+            <version>${dcpay.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>vip.dcpay</groupId>
+            <artifactId>dcpay_util</artifactId>
+            <version>${dcpay.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>vip.dcpay</groupId>
+            <artifactId>dcpay_merchant_interface</artifactId>
+            <version>${dcpay.version}</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>vip.dcpay</groupId>
+            <artifactId>dcpay_dao</artifactId>
+            <version>0.0.3-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.retry</groupId>
+            <artifactId>spring-retry</artifactId>
+            <version>1.2.4.RELEASE</version>
+        </dependency>
+
+        <!-- dubbo jar-->
+        <dependency>
+            <groupId>com.alibaba.boot</groupId>
+            <artifactId>dubbo-spring-boot-starter</artifactId>
+            <version>0.2.0</version>
+        </dependency>
+        <!-- redis jar -->
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>2.8.2</version>
+        </dependency>
+        <dependency>
+            <groupId>vip.dcpay</groupId>
+            <artifactId>dcpay_alert_sdk</artifactId>
+            <version>${dcpay.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>vip.dcpay</groupId>
+            <artifactId>dcpay_log_sdk</artifactId>
+            <version>${dcpay.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>vip.dcpay</groupId>
+            <artifactId>dcpay_redis_sentinel</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>1.1.14</version>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>1.4.197</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>vip.dcpay</groupId>
+            <artifactId>dcpay_fund_interface</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>vip.dcpay</groupId>
+            <artifactId>dcpay_constant</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>okhttp</artifactId>
+            <version>4.1.0</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+
+    <profiles>
+        <!-- 默认 -->
+        <profile>
+            <id>dev</id>
+            <properties>
+                <profile.active>dev</profile.active>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+
+        <!-- 质检 -->
+        <profile>
+            <id>QA</id>
+            <properties>
+                <profile.active>QA</profile.active>
+            </properties>
+        </profile>
+
+        <!-- 生产 -->
+        <profile>
+            <id>pro</id>
+            <properties>
+                <profile.active>pro</profile.active>
+            </properties>
+        </profile>
+
+    </profiles>
+
+
+    <build>
+        <!-- 最终打包的名称 -->
+        <finalName>dcpay_schedule_cache</finalName>
+        <resources>
+
+            <!-- 共享资源,排除非共享部分 开始 -->
+            <resource>
+                <directory>src/main/resources_dev</directory>
+                <excludes>
+                </excludes>
+                <filtering>false</filtering>
+            </resource>
+            <!-- 共享资源,排除非共享部分 结束 -->
+
+            <!-- 配置资源,存放配置文件 开始 -->
+            <resource>
+                <directory>src/main/resources_${profile.active}</directory>
+                <includes>
+                    <include>**/*</include>
+                </includes>
+                <filtering>false</filtering>
+            </resource>
+            <!-- 配置资源,存放配置文件 结束 -->
+
+        </resources>
+        <plugins>
+            <!-- Srping Boot 打包工具 -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <jvmArguments>-Dfile.encoding=UTF-8</jvmArguments>
+                </configuration>
+            </plugin>
+            <!-- 指定JDK编译版本 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
+                    <!--maven打包的时候告诉maven不需要web.xml,否刚会报找不到web.xml错误 -->
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.0-beta-1</version>
+            </plugin>
+        </plugins>
+
+    </build>
+
+</project>
