@@ -73,7 +73,7 @@ public class TestZfb {
 
 	public static void main(String[] args) {
 	    //解析com/temp/common/zxing/zhifubao/1a8c1905d1e54124d70aec8410b3519.jpg
-        String s = System.getProperty("user.dir") + "\\coding_tx\\src\\main\\java/com/temp/common/zxing/zhifubao/1568193918(1).png";
+        String s = System.getProperty("user.dir") + "\\coding_tx\\src\\main\\java/com/temp/common/zxing/zhifubao/624520195882488466.png";
         String decode = TestZfb.decode(s);
 		System.out.println(decode);
 	}
@@ -87,7 +87,7 @@ class EncodWeixin{
 //                "&resultFormat = QR_CODE\n" +
 //                "&resultText = wxp://f2f0K-YQ_ttarURFjH4Z1NfFyxqcpPBycGZ2\n" +
 //                "&wxp://f2f0K-YQ_ttarURFjH4Z1NfFyxqcpPBycGZ2" ;
-		        String encod ="https://qr.alipay.com/_d?_b=peerpay&enableWK=YES&biz_no=2019091104200366661043836697_7f29225377191419090d5aac4640d892&app_name=tb&sc=qr_code&v=20190918&sign=b52dae&__webview_options__=pd%3dNO";
+		        String encod ="https://qr.alipay.com/_d?_b=peerpay&enableWK=YES&biz_no=2019091504200366661044035592_00a5942cb657e2c8ed5c6b8d3d0dab00&app_name=tb&sc=qr_code&v=20190922&sign=fbbc8b&__webview_options__=pd%3dNO";
 		TestZfb.encode(encod,"E:\\workspace\\component\\coding_tx\\src\\main\\java\\com\\temp\\common\\zxing\\zhifubao\\encode.jpg");
 
 

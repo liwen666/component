@@ -32,4 +32,12 @@ public class TestAll {
         tar = "   ";
         System.out.println(StringUtils.isEmpty(tar));
     }
+
+
+    @Test
+    public void str() {
+        System.out.println("".equals(("".split(",")[0])));
+
+        System.out.println(System.currentTimeMillis());
+    }
 }
