@@ -33,3 +33,14 @@ BEGIN
                RETURN ptemp;
     END$$
 DELIMITER ;
+
+
+CREATE TABLE `newpay_payment_picture_history` (
+  `id` bigint(32) NOT NULL COMMENT '主键',
+  `pic_content` blob NOT NULL COMMENT '图片内容',
+  `create_time` datetime NOT NULL COMMENT '创建时间',
+  `modify_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
+  `pic_md5` varchar(64) NOT NULL COMMENT '图片MD5加密结果',
+  `remark` varchar(200) DEFAULT NULL COMMENT '备注信息',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
