@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>需要秘钥（key）及秘钥偏移量（iv）的aes加解密</title>
+</head>
+<body>
+<script src="aes.js"></script>　　//引入的js文件在该链接中：https://github.com/hellobajie/AES-of-JavaScript
+<script>
+
+    var key = CryptoJS.enc.Utf8.parse("sNqcHTzHy^Pv!o1q");
+    /**
+     * 加密（需要先加载lib/aes/aes.min.js文件）
+     * @param word
+     * @returns {*}
+     */
+    function encrypt(word){
+        var srcs = CryptoJS.enc.Utf8.parse(word);
+        var encrypted = CryptoJS.AES.encrypt(srcs, key, {mode:CryptoJS.mode.ECB,padding: CryptoJS.pad.Pkcs7});
+        return encrypted.toString();
+    }
+
+    /**
+     * 解密
+     * @param word
+     * @returns {*}
+     */
+    function decrypt(word){
+        var decrypt = CryptoJS.AES.decrypt(word, key, {mode:CryptoJS.mode.ECB,padding: CryptoJS.pad.Pkcs7});
+        return CryptoJS.enc.Utf8.stringify(decrypt).toString();
+    }
+
+    var mm = encrypt('pigeon')
+    console.log(mm);
+    var jm = decrypt(mm);
+    console.log(jm)
+    console.log(decrypt("was3gWrJi56MmK9DMPTOxA=="))
+</script>
+</body>
+</html>

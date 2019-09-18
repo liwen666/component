@@ -24,26 +24,26 @@ public class AESOperator {
      * 密钥 
      */  
 //    private static final String KEY = "sNqcHTjzHy^Pv!lw";
-    private static final String KEY = "sNqcHTjzHy^Pv!jb";
-    /** 
+//    private static final String KEY = "sNqcHTjzHy^Pv!jb";
+    private static final String KEY = "sNqcHTzHy^Pv!o1q";
+    /**
      * 算法 
      */  
     private static final String ALGORITHMSTR = "AES/ECB/PKCS5Padding";  
   
     public static void main(String[] args) throws Exception {  
-        String content = "pigeon";  
-        System.out.println("加密前：" + content);  
-  
-        System.out.println("加密密钥和解密密钥：" + KEY);  
-  
-        String encrypt = aesEncrypt(content, KEY);  
-        System.out.println("加密后：" + encrypt);  
-  
-        String decrypt = aesDecrypt(encrypt, KEY);  
+        String content = "pigeon";
+        System.out.println("加密前：" + content);
+
+        System.out.println("加密密钥和解密密钥：" + KEY);
+
+        String encrypt = aesEncrypt(content, KEY);
+        System.out.println("加密后：" + encrypt);
+
+        String decrypt = aesDecrypt(encrypt, KEY);
         System.out.println("解密后：" + decrypt);
 
         System.out.println("======================================================");
-        System.out.println(aesDecrypt("n9C0Klp7yBnoU55kYWiuSA==",KEY));
 
 
     } 
