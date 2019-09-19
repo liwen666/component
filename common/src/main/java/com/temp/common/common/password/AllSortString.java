@@ -2,17 +2,18 @@ package com.temp.common.common.password;
 
 import com.alibaba.fastjson.JSON;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.*;
 
-public class AllSort {
+public class AllSortString {
     public static void main(String[] args) throws IOException {
-//        char buf[] = {'a', 'b', 'c', 'd', 'e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w'
+//        String buf[] = {'a', 'b', 'c', 'd', 'e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w'
 //        ,'x','y','z','1','2','3','4','5','6','7','8','9','0'};
-        char buf[] = {'1','2','3','4','5','6','7','8','9'};
-//        static public String[] testString = {"lhcpay!@#666", "SUCCESS", "001","629717920230789024","30.00","2019-09-19 14:15:36","2788926377","小子懿"};
+      String[] buf = {"lhcpay!@#666", "SUCCESS", "001","629717920230789024","30.00","2019-09-19 14:15:36","2788926377","小子懿"};
 //        abdcae9346d1d0e12b9eda3e67ecc62e
-        List<char[]> array = new ArrayList<char[]>();
+        List<String[]> array = new ArrayList<String[]>();
         conversionArray(0, buf, array);
         /**
          * 切割数组
@@ -25,7 +26,7 @@ public class AllSort {
         for(int i = 1;i<buf.length+1;i++){
             allNumPass.put(i,new ArrayList());
         }
-        for(char[] cr :array){
+        for(String[] cr :array){
             allNumPass.get(cr.length).add(cr);
         }
         /**
@@ -45,9 +46,9 @@ public class AllSort {
             if(!f.exists()){
                 f.createNewFile();
             }
-            num1+=((List<char[]>)me.getValue()).size();
+            num1+=((List<String[]>)me.getValue()).size();
             List<String> numPass = new ArrayList<String>();
-            for(char[] b:(List<char[]>)me.getValue()){
+            for(String[] b:(List<String[]>)me.getValue()){
                 /**
                  * 最对16位以下的密码进行排列
                  */
@@ -76,13 +77,13 @@ public class AllSort {
     }
 
 
-    private static void conversionArray(int start, char[] buf, List<char[]> array) {
+    private static void conversionArray(int start, String[] buf, List<String[]> array) {
         if (!(start < buf.length)) {
             return;
         }
         int n = buf.length - start;
         for (int j = 0; j < n; j++) {
-            char[] arr = new char[j + 1];
+            String[] arr = new String[j + 1];
             ;
             for (int x = 0; x < j + 1; x++) {
                 arr[x] = buf[x + start];
@@ -90,7 +91,7 @@ public class AllSort {
             array.add(arr);
             if (j > 0 && j < 2) {
                 for (int y = 0; y < buf.length - j - start; y++) {
-                    char[] arrnew = Arrays.copyOf(arr, arr.length);
+                    String[] arrnew = Arrays.copyOf(arr, arr.length);
                     if (y + j + 1 < buf.length - start) {
                         arrnew[j] = buf[y + j + 1 + start];
                         array.add(arrnew);
@@ -107,7 +108,7 @@ public class AllSort {
                      * 3===> 3  =2+1
                      * 2====>1  =1
                      */
-                    char[] arrnew = Arrays.copyOf(arr, arr.length);
+                    String[] arrnew = Arrays.copyOf(arr, arr.length);
                     if (y + j + 1 < buf.length - start) {
                         arrnew[j] = buf[y + j + 1 + start];
                         array.add(arrnew);
@@ -116,7 +117,7 @@ public class AllSort {
                 int incr = (buf.length - j - start) * (buf.length - j - start - 1) / 2;
 //                System.out.println(buf.length - j - start + "==============" + incr);
                 /**
-                 * char buf[] = {'a', 'b', 'c', 'd', 'f', 'g'};
+                 * String buf[] = {'a', 'b', 'c', 'd', 'f', 'g'};
                  *
                  * ["a","b","c","d"],["a","b","c","f"],["a","b","c","g"]
                  *  /**    2,1
@@ -140,7 +141,7 @@ public class AllSort {
                 for (int crr = buf.length - j - start - 1; crr > 0; crr--) {
                     int flag=0;
                     for (int n1 = 0; n1 < crr; n1++) {
-                        char[] incrArr = Arrays.copyOf(arr, arr.length);
+                        String[] incrArr = Arrays.copyOf(arr, arr.length);
                         for (int i1 = 1; i1 < arr.length; i1++) {
                             if(i1==arr.length-1){
                                 incrArr[i1] = buf[2+i1-1+flag+offset];
@@ -171,7 +172,7 @@ public class AllSort {
 //                     * incrArr[1]=buf[6-3]
 //                     * incrArr[2]=buf[6-3+1]
 //                     */
-//                    char[] incrArr = Arrays.copyOf(arr, arr.length);
+//                    String[] incrArr = Arrays.copyOf(arr, arr.length);
 //                    for(int i1 = 1;i1<arr.length;i1++){
 //                        incrArr[i1]=buf[incr+arr.length-1+i1-1];
 //
@@ -185,7 +186,7 @@ public class AllSort {
     }
 
 
-    public static void perm(char[] buf, int start, int end,List<String> numPass) throws IOException {
+    public static void perm(String[] buf, int start, int end,List<String> numPass) throws IOException {
         if (start == end) {//当只要求对数组中一个字母进行全排列时，只要就按该数组输出即可
             StringBuffer sb = new StringBuffer();
             for (int i = 0; i <= end; i++) {
@@ -195,7 +196,7 @@ public class AllSort {
 
         } else {//多个字母全排列
             for (int i = start; i <= end; i++) {
-                char temp = buf[start];//交换数组第一个元素与后续的元素
+                String temp = buf[start];//交换数组第一个元素与后续的元素
                 buf[start] = buf[i];
                 buf[i] = temp;
 
