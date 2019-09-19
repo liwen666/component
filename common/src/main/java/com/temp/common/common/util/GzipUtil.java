@@ -21,6 +21,7 @@ import javax.xml.parsers.ParserConfigurationException;
 
 
 import com.alibaba.fastjson.JSONObject;
+import com.temp.common.common.util.md5.MD5FileUtil;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.DocumentHelper;

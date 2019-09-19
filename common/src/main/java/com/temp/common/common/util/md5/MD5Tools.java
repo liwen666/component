@@ -1,4 +1,4 @@
-package com.temp.common.common.util;
+package com.temp.common.common.util.md5;
 
 import java.security.MessageDigest;
  
@@ -51,14 +51,15 @@ public class MD5Tools {
  
     // 测试主函数
     public static void main(String args[]) {
-        String s = new String("123456unojujhj@yy");
+        String s = new String("kjlkjflkda");
         System.out.println("原始：" + s);
-        System.out.println("MD5后：" + string2MD5(s));
-        System.out.println("加密的：" + convertMD5(s));
-        System.out.println("解密的：" + convertMD5(convertMD5(s)));
+        String s1 = string2MD5(s);
+        System.out.println("MD5后：" + s1);
+        String s2 = convertMD5(s1);
+        System.out.println("第一次解密"+s2);
+        System.out.println("解密的：" + convertMD5(s2));
 
 
-        System.out.println("s = " + s);
- 
+
     }
 }
