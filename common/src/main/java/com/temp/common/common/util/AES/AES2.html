@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>加解密时仅需要秘钥</title>
+</head>
+<body>
+<script src="aes_2.js"></script>　　//引入的js文件在该链接中：https://github.com/hellobajie/AES-of-JavaScript
+<script type="text/javascript">
+    var pwd="秘钥sNqcHTjzHy";
+
+    function Encrypt(word){
+        return CryptoJS.AES.encrypt(word,pwd).toString();
+    }
+
+    function Decrypt(word){
+        return CryptoJS.AES.decrypt(word,pwd).toString(CryptoJS.enc.Utf8);
+    }
+
+
+    var mm = Encrypt('nihao');
+    console.log(mm)
+    var jm = Decrypt(mm);
+    console.log(jm)
+    console.log(Decrypt("U2FsdGVkX19oqu4QvGF166LUrRDEXv5pYhCv0/EE9w4="))
+
+</script>
+</body>
+</html>

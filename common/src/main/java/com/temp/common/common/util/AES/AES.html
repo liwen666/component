@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>需要秘钥（key）及秘钥偏移量（iv）的aes加解密</title>
+</head>
+<body>
+<script src="aes_1.js"></script>　　//引入的js文件在该链接中：https://github.com/hellobajie/AES-of-JavaScript
+<script>
+
+    var key = CryptoJS.enc.Utf8.parse("十六位十六进制数作为秘钥");
+    var iv  = CryptoJS.enc.Utf8.parse('十六位十六进制数作为秘钥偏移量');
+    function Encrypt(word){
+        srcs = CryptoJS.enc.Utf8.parse(word);
+        var encrypted = CryptoJS.AES.encrypt(srcs, key, { iv: iv,mode:CryptoJS.mode.CBC,padding: CryptoJS.pad.Pkcs7});
+        return encrypted.ciphertext.toString().toUpperCase();
+    }
+
+    function Decrypt(word){
+        var encryptedHexStr = CryptoJS.enc.Hex.parse(word);
+        var srcs = CryptoJS.enc.Base64.stringify(encryptedHexStr);
+        var decrypt = CryptoJS.AES.decrypt(srcs, key, { iv: iv,mode:CryptoJS.mode.CBC,padding: CryptoJS.pad.Pkcs7});
+        var decryptedStr = decrypt.toString(CryptoJS.enc.Utf8);
+        return decryptedStr.toString();
+    }
+
+    var mm = Encrypt('nihao')
+    console.log(mm);
+    var jm = Decrypt(mm);
+    console.log(jm)
+</script>
+</body>
+</html>
