@@ -42,7 +42,7 @@ public class Md5Tb {
     }
 
     public static void main(String[] args) {
-        String kjlkjflkda = md5("kjlkjflkda");
+        String kjlkjflkda = md5("123suername");
         System.out.println(kjlkjflkda);
         String s = MD5Tools.convertMD5(MD5Tools.convertMD5(kjlkjflkda));
         System.out.println(s);

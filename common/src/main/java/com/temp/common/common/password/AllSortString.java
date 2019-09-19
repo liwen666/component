@@ -11,7 +11,7 @@ public class AllSortString {
     public static void main(String[] args) throws IOException {
 //        String buf[] = {'a', 'b', 'c', 'd', 'e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w'
 //        ,'x','y','z','1','2','3','4','5','6','7','8','9','0'};
-      String[] buf = {"lhcpay!@#666", "SUCCESS", "001","629717920230789024","30.00","2019-09-19 14:15:36","2788926377","小子懿"};
+      String[] buf = {"lhcpay!@#666", "SUCCESS", "001","629717920230789024","30.00","2019-09-19 14:15:36","2788926377","小子懿","lhcpay!@#666"};
 //        abdcae9346d1d0e12b9eda3e67ecc62e
         List<String[]> array = new ArrayList<String[]>();
         conversionArray(0, buf, array);
