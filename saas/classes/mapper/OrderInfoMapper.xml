@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="vip.dcpay.dao.PlatformOrderInfoDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="vip.dcpay.model.platform.PlatformOrderInfo">
+        <id column="id" property="id"/>
+        <result column="system_order_id" property="systemOrderId"/>
+        <result column="platform_id" property="platformId"/>
+        <result column="platform_order_id" property="platformOrderId"/>
+        <result column="order_type" property="orderType"/>
+        <result column="amount" property="amount"/>
+        <result column="actual_amount" property="actualAmount"/>
+        <result column="platform_fee" property="platformFee"/>
+        <result column="pay_way" property="payWay"/>
+        <result column="pay_status" property="payStatus"/>
+        <result column="order_status" property="orderStatus"/>
+        <result column="pay_info" property="payInfo"/>
+        <result column="user_id" property="userId"/>
+        <result column="notice_url" property="noticeUrl"/>
+        <result column="create_time" property="createTime"/>
+        <result column="modify_time" property="modifyTime"/>
+    </resultMap>
+
+    <select id="getNotPayCount" parameterType="long" resultType="int">
+        select count(*) from platform_order_info o
+         where o.order_type=1 and order_status in (0,20) and o.platform_id=#{outerId}
+    </select>
+
+    <select id="getNotConfirmCount" parameterType="long" resultType="int">
+       select count(*) from platform_order_info o
+    where o.order_type=1 and order_status =30  and o.platform_id=#{outerId}
+    </select>
+
+    <select id="getTotalRecharge" resultType="java.math.BigDecimal">
+        select IFNULL(sum(amount),0) as money from platform_order_info where
+
+        platform_id=#{outerId} and order_status=100 and order_type=1
+        <choose>
+            <when test="startTime !=null and startTime!='' and endTime !='' and endTime !=''">
+                and tx_date between #{startTime} and #{endTime}
+            </when>
+            <otherwise>
+                and tx_date=CURDATE()
+            </otherwise>
+        </choose>
+        <if test="payWay!=null and payWay!=''">
+            and pay_way=#{payWay}
+        </if>
+    </select>
+
+    <select id="getTotalWithdraw" parameterType="long" resultType="java.math.BigDecimal">
+      select IFNULL(sum(amount),0) sumMoney from platform_order_info where
+       platform_id=#{outerId} and order_status=100 and order_type=2 and tx_date=CURDATE()
+    </select>
+
+
+    <select id="getTotalWithDrawCount" parameterType="long" resultType="int">
+          select count(1) as totalCount from platform_order_info where
+       platform_id=#{outerId} and order_status=100 and order_type=2 and tx_date=CURDATE()
+    </select>
+
+    <select id="getTotalRechargeCount" parameterType="long" resultType="int">
+        select count(1) as totalRechargeCount from platform_order_info where
+        platform_id=#{outerId} and order_type=1 and tx_date=CURDATE()
+        <if test="orderStatus!=null">
+            and order_status=#{orderStatus}
+        </if>
+        <if test="payWay!=null and payWay!=''">
+            and pay_way=#{payWay}
+        </if>
+        <choose>
+            <when test="startTime !=null and startTime!='' and endTime !='' and endTime !=''">
+                and tx_date between #{startTime} and #{endTime}
+            </when>
+            <otherwise>
+                and tx_date=CURDATE()
+            </otherwise>
+        </choose>
+
+    </select>
+
+    <select id="getTotalRechargeFee" parameterType="long" resultType="java.math.BigDecimal">
+        select IFNULL(sum(platform_fee),0) as money from platform_order_info where
+          platform_id=#{outerId} and order_status=100 and order_type=1 and tx_date=CURDATE()
+    </select>
+
+    <select id="getList"
+            resultType="vip.dcpay.saas.application.dto.PlatformOrderInfoDto">
+        select p.id as id ,p.platform_id as platformId,p.order_id as orderId,outer_order_id as outerOrderId
+        ,system_order_id as systemOrderId,order_type as orderType,amount as amount,actual_amount as actualAmount
+        , pay_currency as pay_currency,platform_fee as platformFee,p.pay_way as payWay,pay_status as payStatus,
+        order_status as orderStatus,pay_info as pay_info, payer.user_id as userId,p.create_time as
+        createTime,p.modify_time as
+        modifyTime,p.complaint_status as complaintStatus
+        ,r.uid as receiveMerchantId from platform_order_info p LEFT JOIN platform_order_receiver r on
+        p.order_id=r.order_id
+        left join platform_order_payer payer on payer.order_id =p.order_id
+        <where>
+            <if test="orderSearchDto.platformId!=null and orderSearchDto.platformId!=''">
+                p.platform_id=#{orderSearchDto.platformId}
+            </if>
+            <if test="orderSearchDto.orderType!=null">
+                and p.order_type=#{orderSearchDto.orderType}
+            </if>
+            <if test="orderSearchDto.startTime!=null and orderSearchDto.startTime!='' and orderSearchDto.endTime!=null and orderSearchDto.endtime!=''">
+                and p.create_time between #{orderSearchDto.startTime} and #{orderSearchDto.endTime}
+            </if>
+            <if test="orderSearchDto.payStatus!=null and orderSearchDto.payStatus!='' ">
+                and p.pay_status=#{orderSearchDto.payStatus}
+            </if>
+            <if test="orderSearchDto.orderStatus!=null and orderSearchDto.orderStatus!=''">
+                and p.order_status=#{orderSearchDto.orderStatus}
+            </if>
+            <if test="orderSearchDto.receiveId !=null and orderSearchDto.receiveId !=''">
+                and r.uid=#{orderSearchDto.receiveId}
+            </if>
+            <if test="orderSearchDto.payerId !=null  and orderSearchDto.payerId !=''">
+                and payer.user_id=#{orderSearchDto.payerId}
+            </if>
+            <if test="orderSearchDto.searchType !=null">
+                and p.order_status not in (100, 110, 130,140)
+            </if>
+            <if test="orderSearchDto.systemOrderId !=null and orderSearchDto.systemOrderId!='' ">
+                and ( p.order_id =#{orderSearchDto.systemOrderId} or p.system_order_id =#{orderSearchDto.systemOrderId}
+                or p.outer_order_id=#{orderSearchDto.systemOrderId})
+            </if>
+            order by p.create_time desc
+        </where>
+
+
+    </select>
+
+</mapper>
