@@ -1,16 +1,20 @@
 package com.temp.common.base.sqlscript.controller;
 
+import com.temp.common.base.util.PackageScanUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
+import javax.xml.transform.Source;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.sql.Connection;
@@ -32,6 +36,10 @@ public class SqlFileExecutorControllerForJar {
     private DataSource source;
     private static final Logger LOGGER = LoggerFactory.getLogger(SqlFileExecutorControllerForJar.class);
 
+    public static void main(String[] args) throws Exception {
+        new SqlFileExecutorControllerForJar().initSqlScriptSource(null, null);
+    }
+
     /**
      * 初始化脚本
      *
@@ -41,39 +49,27 @@ public class SqlFileExecutorControllerForJar {
     @RequestMapping(value = "/initSqlScriptJarSource")
     public void initSqlScriptSource(HttpServletRequest request,
                                     HttpServletResponse response) throws Exception {
-        InputStream resourceAsStream = this.getClass().getResourceAsStream("");
-
-        URL resource = this.getClass().getResource("");
-        String dataPath = resource.getPath().substring(0, resource.getPath().lastIndexOf("/", resource.getPath().length() - 2)) + "/";
-        System.out.println(dataPath);
-        List<String> sqlFilePath = new ArrayList<String>();
+        List<Resource> sqlSource = new ArrayList<Resource>();
         String msg = "升级成功！";
-        boolean flag = true;
-        System.out.println("根据不同业务系统可以定制不同的初始化以及升级脚本   " );
-        System.out.println( "区分业务系统推荐以下几个方案： ");
-        System.out.println( "1：业务系统设置系统标识全局变量 ");
-        System.out.println( "2：通过编码设置静态常两，根据业务系统手动修改 ");
-        System.out.println( "3：web.xml配置工作流监听器 ");
-        System.out.println( "4：通过web一级目录来匹配 ");
         try {
-            getFiles(dataPath, sqlFilePath);
-//            getFiles(resourceAsStream,sqlFilePath);
-            sortFiles(sqlFilePath);
-            System.out.println(sqlFilePath);
-            for (String s : sqlFilePath) {
-                String sqlSource = null;
-                String appidFromeFilePath = getAppidFromeFilePath(s);
-                if(appidFromeFilePath.equals("hqbpmn")){
+
+            String basePackage = SqlFileExecutorControllerForJar.class.getPackage().getName();
+            String sqlPackage = basePackage.substring(0, basePackage.lastIndexOf("."));
+            getResource(sqlPackage, sqlSource);
+            sortResource(sqlSource);
+            for (Resource f : sqlSource) {
+                String sql = null;
+                String appidFromeFilePath = getAppidFromeFilePath(f.getFilename());
+                if (appidFromeFilePath.equals("hqbpmn")) {
                     if (LOGGER.isInfoEnabled()) {
-                        LOGGER.info("===========执行脚本文件：{} =========== ", s);
+                        LOGGER.info("===========执行脚本文件：{} =========== ", f.getFilename());
                     }
                     try {
-                        sqlSource = loadSqlSource(s);
-                        executeSource(sqlSource);
+                        sql = loadSqlSource(f);
+                        executeSource(sql);
                     } catch (Exception e) {
-                        LOGGER.error("==========执行脚本文件出错：{} =========== ", s.substring(s.lastIndexOf("\\") + 1));
-                        msg = "脚本文件：" + s.substring(s.lastIndexOf("\\") + 1) + "    执行失败！" + "错误详细信息：" + e.getMessage();
-                        flag = false;
+                        LOGGER.error("==========执行脚本文件出错：{} =========== ", f.getFilename());
+                        msg = "脚本文件：" + f.getFilename() + "    执行失败！" + "错误详细信息：" + e.getMessage();
                     }
                 }
 
@@ -81,26 +77,25 @@ public class SqlFileExecutorControllerForJar {
 
         } catch (Exception e) {
             LOGGER.error("==========解析脚本文件路径出错!请检查脚本文件名格式是否正确==========");
-            flag = false;
             msg = "解析脚本文件路径出错!请检查脚本文件名格式是否正确!";
             e.printStackTrace();
         }
     }
 
-    public void sortFiles(List<String> sqlFilePath) throws Exception {
+    public void sortResource(List<Resource> sqlSource) throws Exception {
         List<String> files = new ArrayList<String>();
         int setValueCount = 0;
         // 从数组第二个元素开始排序，因为第一个元素本身肯定是已经排好序的
-        for (int j = 1; j < sqlFilePath.size(); j++) {// 复杂度 n
+        for (int j = 1; j < sqlSource.size(); j++) {// 复杂度 n
             // 保存当前值
-            String key = sqlFilePath.get(j);
-            int index = binarySearchAsc(sqlFilePath, sqlFilePath.get(j), 0, j - 1);// 复杂度：O(logn)
+            String key = sqlSource.get(j).getFilename();
+            int index = binarySearchAsc(sqlSource, sqlSource.get(j).getFilename(), 0, j - 1);// 复杂度：O(logn)
             // 将目标插入位置，同时右移目标位置右边的元素
             for (int i = j; i > index; i--) {
-                sqlFilePath.set(i, sqlFilePath.get(i - 1));
+                sqlSource.set(i, sqlSource.get(i - 1));
                 setValueCount++;
             }
-            sqlFilePath.set(index, key);
+            sqlSource.set(index, sqlSource.get(j));
             setValueCount++;
         }
 //        System.out.println("\n 设值次数(setValueCount)=====> " + setValueCount);
@@ -116,19 +111,19 @@ public class SqlFileExecutorControllerForJar {
      * @param to          当前查找的返回终点
      * @return 返回目标在数组中，按顺序应在的位置
      */
-    private int binarySearchAsc(List<String> sqlFilePath, String target, int from, int to) {
+    private int binarySearchAsc(List<Resource> sqlFilePath, String target, int from, int to) {
         int range = to - from;
         // 如果范围大于0，即存在两个以上的元素，则继续拆分
         if (range > 0) {
             // 选定中间位
             int mid = (to + from) / 2;
-            if (formatFilePathToNum(sqlFilePath.get(mid)) > formatFilePathToNum(target)) {
+            if (formatFilePathToNum(sqlFilePath.get(mid).getFilename()) > formatFilePathToNum(target)) {
                 return binarySearchAsc(sqlFilePath, target, from, mid - 1);
             } else {
                 return binarySearchAsc(sqlFilePath, target, mid + 1, to);
             }
         } else {
-            if (formatFilePathToNum(sqlFilePath.get(from)) > formatFilePathToNum(target)) {
+            if (formatFilePathToNum(sqlFilePath.get(from).getFilename()) > formatFilePathToNum(target)) {
                 return from;
             } else {
                 return from + 1;
@@ -139,9 +134,11 @@ public class SqlFileExecutorControllerForJar {
     private int formatFilePathToNum(String str) {
         return Integer.parseInt(str.substring(str.lastIndexOf("\\") + 1).split("_")[0]);
     }
+
     private String getAppidFromeFilePath(String str) {
         return str.substring(str.lastIndexOf("\\") + 1).split("_")[1];
     }
+
     private void executeSource(String sqlSource) throws Exception {
         Connection conn = null;
         Statement stmt = null;
@@ -172,11 +169,11 @@ public class SqlFileExecutorControllerForJar {
         }
     }
 
-    private String loadSqlSource(String sqlFile) throws Exception {
+    private String loadSqlSource(Resource sqlResource) throws Exception {
         InputStream sqlFileIn = null;
 
         try {
-            sqlFileIn = new FileInputStream(sqlFile);
+            sqlFileIn = sqlResource.getInputStream();
             StringBuffer sqlSb = new StringBuffer();
             byte[] buff = new byte[1024];
             int byteRead = 0;
@@ -193,41 +190,14 @@ public class SqlFileExecutorControllerForJar {
         }
     }
 
-    private void getFiles(String path, List<String> sqlFilePath) {
-        File file = new File(path);
-        // 如果这个路径是文件夹
-        if (file.isDirectory()) {
-            // 获取路径下的所有文件
-            File[] files = file.listFiles();
-            for (int i = 0; i < files.length; i++) {
-                // 如果还是文件夹 递归获取里面的文件 文件夹
-                if (files[i].isDirectory()) {
-                    if (LOGGER.isDebugEnabled()) {
-                        LOGGER.debug("---------目录:{}-----------", files[i].getPath());
-                    }
-                    getFiles(files[i].getPath(), sqlFilePath);
-                } else {
-                    if (LOGGER.isDebugEnabled()) {
-                        LOGGER.debug("---------文件:{}-----------", files[i].getPath());
-                    }
-                    if (files[i].getPath().endsWith(".sql")) {
-                        sqlFilePath.add(files[i].getPath());
-                    }
-                }
+    private void getResource(String path, List<Resource> sqlResource) throws IOException {
+        Resource[] resource = PackageScanUtil.findResource(path);
 
-            }
-        } else {
-            if (LOGGER.isDebugEnabled()) {
-                LOGGER.debug("---------sql文件:{}-----------", file.getPath());
-            }
-            if (file.getPath().endsWith(".sql")) {
-                sqlFilePath.add(file.getPath());
+        for (int i = 0; i < resource.length; i++) {
+            // 如果还是文件夹 递归获取里面的文件 文件夹
+            if (resource[i].getFilename().endsWith(".sql")) {
+                sqlResource.add(resource[i]);
             }
         }
-    }
-    private void getFiles(InputStream path, List<String> sqlFilePath) {
-
-//        File file = new File(path);
-
     }
 }
