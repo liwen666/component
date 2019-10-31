@@ -1,0 +1,6 @@
+修改原有字段名称及类型：
+ALTER TABLE bulletin CHANGE uid username VARCHAR(50) NOT NULL DEFAULT ”;
+
+添加新字段：
+
+alter table bulletin add citycode varchar(6) not null default 0; # 城市代码

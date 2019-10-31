@@ -8,7 +8,8 @@ public class RegexMatches
     public static void main( String args[] ){
  
       // 按指定模式在字符串查找
-      String line = "This order was select placed for 44QT3000! OK?33";
+//      String line = "This order was select placed for 44QT3000! OK?33";
+      String line = "This order was select placed fr 44QT3000! OK?33";
 //      String pattern = "(\\D*)(\\d+)(.*)";
       String pattern = "(\\D*)(select|or)(.*)";
 
@@ -127,10 +128,10 @@ class SqlFilter{
 //        System.out.println(m.find()+"-----------");
         if (m.find()) {
             System.out.println("==========");
-//            System.out.println(m.group(0));
-//            System.out.println(m.group(1));
-//            System.out.println(m.group(2));
-//            System.out.println(m.group(3));
+            System.out.println(m.group(0));
+            System.out.println(m.group(1));
+            System.out.println(m.group(2));
+            System.out.println(m.group(3));
             System.out.println(m.groupCount());
         } else {
             System.out.println("NO MATCH");
@@ -141,9 +142,10 @@ class SqlFilter{
 class  sssss{
     public static void main(String[] args) {
         Pattern compile = Pattern.compile("(\\sselect\\s|\\supdate\\s|and\\s|or\\s|\\sdelete\\s|\\sinsert\\s|\\strancate\\s|\\schar\\s|\\sinto\\s|\\ssubstr\\s|\\sascii\\s|\\sdeclare\\s|\\sexec\\s|\\scount\\s|\\smaster\\s|\\sinto\\s|\\sdrop\\s|\\sexecute\\s)|['#|\\\\/]");
-        Matcher matcher = compile.matcher(" selector");
+        Matcher matcher = compile.matcher(" select ");
         boolean b = matcher.find();
+        System.out.println(matcher.matches());
+        System.out.println(matcher.groupCount());
         System.out.println(b);
-        System.out.println();
     }
 }
