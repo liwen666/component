@@ -88,19 +88,23 @@ public class JRXCodeGenerator {
 
         // 数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://192.168.42.136:3306/batch_schedule_master?useUnicode=true&useSSL=false&characterEncoding=utf8");
+//        dsc.setUrl("jdbc:mysql://192.168.42.136:3306/data_flow_test?useUnicode=true&useSSL=false&characterEncoding=utf8");
+        dsc.setUrl("jdbc:mysql://172.16.101.19:3306/nacos?useUnicode=true&useSSL=false&characterEncoding=utf8");
         // dsc.setSchemaName("public");
         dsc.setDriverName("com.mysql.jdbc.Driver");
         dsc.setUsername("root");
-        dsc.setPassword("root");
+        dsc.setPassword("123.com");
+//        dsc.setUsername("root");
+//        dsc.setPassword("root");
         mpg.setDataSource(dsc);
 
         // 包配置
         PackageConfig pc = new PackageConfig();
-        pc.setModuleName(scanner("模块名"));
-        pc.setParent("com.temp.common.mybatis");
+//        pc.setModuleName(scanner("模块名"));
+        pc.setModuleName("infrastructure");
+        pc.setParent("jrx.batch.dataflow");
         //修改包结构
-        pc.setEntity("domain");
+        pc.setEntity("model");
         pc.setService("service");
         pc.setServiceImpl("service.impl");
         pc.setMapper("dao");

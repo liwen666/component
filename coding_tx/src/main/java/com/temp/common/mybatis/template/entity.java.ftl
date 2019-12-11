@@ -9,10 +9,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 </#if>
 <#if entityLombokModel>
-import lombok.Data;
-import lombok.extern.slf4j.Slf4j;
-import lombok.EqualsAndHashCode;
-import lombok.experimental.Accessors;
+ import lombok.*;
+ import lombok.experimental.Accessors;
+ import lombok.extern.slf4j.Slf4j;
 </#if>
 
 /**
@@ -26,11 +25,15 @@ import lombok.experimental.Accessors;
 <#if entityLombokModel>
 @Data
 @Slf4j
+ @Builder
+ @NoArgsConstructor
+ @AllArgsConstructor
  <#if superEntityClass??>
  @EqualsAndHashCode(callSuper = true)
  <#else>
  @EqualsAndHashCode(callSuper = false)
  </#if>
+
 @Accessors(chain = true)
 </#if>
 <#if table.convert>
