@@ -46,7 +46,8 @@ public class RedisClient {
         config.setMaxWaitMillis(1000l);
         config.setTestOnBorrow(false); 
         
-        jedisPool = new JedisPool(config,"192.168.42.138",6379);
+//        jedisPool = new JedisPool(config,"192.168.42.140",6379);
+        jedisPool = new JedisPool(config,"192.168.42.140",6379,1000,"liwen");
     }
     
     /** 
@@ -62,7 +63,8 @@ public class RedisClient {
         config.setTestOnBorrow(false);
         // slave链接
         List<JedisShardInfo> shards = new ArrayList<JedisShardInfo>();
-        shards.add(new JedisShardInfo("192.168.42.138", 6379, "master"));
+//        shards.add(new JedisShardInfo("192.168.42.140", 6379, "master"));
+        shards.add(new JedisShardInfo("192.168.42.140", 6379, "master"));
 
         // 构造池
         shardedJedisPool = new ShardedJedisPool(config, shards);
