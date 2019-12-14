@@ -68,6 +68,8 @@ public class JdbcTemplateTest {
         System.out.println(JSON.toJSONString(stringObjectMap));
     }
 
+
+
     @Test
     public void update() throws IllegalAccessException {
         String sql = "";
