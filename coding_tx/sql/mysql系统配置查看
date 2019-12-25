@@ -3,9 +3,12 @@
 show variables like '%connect%';
 
 设置单个用户最大连接数
-set global max_user_connections=200;
+set global max_user_connections=2000;
 
 查看连接情况
 SHOW PROCESSLIST
 
 show status
+
+
+set GLOBAL max_connections=10000

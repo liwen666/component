@@ -4,13 +4,16 @@ import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.fastjson.JSON;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.SingleColumnRowMapper;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -26,7 +29,8 @@ public class JdbcTemplateTest {
 
         //设置连接参数
         dataSourceSSO.setDriverClassName("com.pivotal.jdbc.GreenplumDriver");
-        dataSourceSSO.setUrl("jdbc:pivotal:greenplum://172.16.101.19:5432;DatabaseName=zzz_data_tpl");
+//        dataSourceSSO.setUrl("jdbc:pivotal:greenplum://172.16.101.19:5432;DatabaseName=zzz_data_tpl");
+        dataSourceSSO.setUrl("jdbc:pivotal:greenplum://172.16.101.19:5432;DatabaseName=postgres");
         dataSourceSSO.setUsername("gpadmin");
         dataSourceSSO.setPassword("gpadmin");
         //配置初始化大小、最小、最大
@@ -61,6 +65,8 @@ public class JdbcTemplateTest {
 
     }
 
+    
+    
 
     @Test
     public void jdbctempleteTest() {
@@ -91,5 +97,21 @@ public class JdbcTemplateTest {
         String sql = "select count(*) from myclass";
         int count = jdbcTemplate.queryForObject(sql, Integer.class);//此处返回数据的总数（一个数值）
         System.out.println(count);
+    }
+
+
+    /**
+     * pg 数据 释放锁
+     */
+    @Test
+    public void cacleLok() {
+//        Map<String, Object> stringObjectMap = jdbcTemplate.queryForMap("select oid from pg_class where relname='ods_app_customer_basic_info'");
+//        List query = jdbcTemplate.query("select oid from pg_class where relname='ods_app_customer_basic_info'", new BeanPropertyRowMapper(String.class));
+        List<Integer> query = jdbcTemplate.query("select oid from pg_class where relname='ods_app_customer_basic_info'", new SingleColumnRowMapper(Integer.class));
+        Integer objid= query.get(0);
+        List<Integer> pids = jdbcTemplate.query("select pid from pg_locks where relation='35633'", new SingleColumnRowMapper(Integer.class));
+
+//        select pid from pg_locks where relation='35633'
+//        select pg_cancel_backend()
     }
 }
