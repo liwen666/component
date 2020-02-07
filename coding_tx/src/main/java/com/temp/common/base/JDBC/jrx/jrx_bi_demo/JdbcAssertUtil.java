@@ -22,6 +22,7 @@ import java.util.*;
  * @since 2019/5/26 23:40
  */
 public class JdbcAssertUtil {
+    public static DataTypeEnum dataTypeEnum = DataTypeEnum.MYSQL;
 
     /**
      * 获取表结构建表语句
@@ -32,12 +33,19 @@ public class JdbcAssertUtil {
          */
         RowCountCallbackHandler rowCountCallbackHandler = new RowCountCallbackHandler();
         jdbcTemplate.query(sql, rowCountCallbackHandler);
-        StringBuffer createTb = new StringBuffer("create table if not EXISTS " + tableName + "(");
+        StringBuffer createTb;
+        if (dataTypeEnum == DataTypeEnum.MYSQL) {
+
+            createTb = new StringBuffer("create table if not EXISTS " + tableName + "(");
+        } else {
+            createTb = new StringBuffer("create table  " + tableName + "(");
+
+        }
         String[] columnNames = rowCountCallbackHandler.getColumnNames();
         int[] columnTypes = rowCountCallbackHandler.getColumnTypes();
 
         for (int i = 0; i < columnNames.length; i++) {
-            System.out.println(columnNames[i] + "  ->  " + columnTypes[i]);
+//            System.out.println(columnNames[i] + "  ->  " + columnTypes[i]);
             createTb.append(columnNames[i] + " " + covince(columnTypes[i], DataTypeEnum.GREENPLUM) + " , ");
         }
         String substring = createTb.substring(0, createTb.length() - 2);
@@ -127,13 +135,14 @@ public class JdbcAssertUtil {
     }
 
 
-    public static void batchCarFlowInsert(List<Map<String, Object>> list, JdbcTemplate sourceTemp, JdbcTemplate targetTemp, String tableName, String[] columnNames) {
+    public static void batchCarFlowInsert(List<Map<String, Object>> list, JdbcTemplate targetTemp, String tableName, String[] columnNames) {
         /**
          * 远程数据库表
          */
         String sql = getInsertSql(columnNames, tableName);
         System.out.println(sql);
         List<Object[]> args = transformFlowCarReportDayBoToObjects(list, columnNames);
+        targetTemp.update("TRUNCATE  " + tableName);
 //        Object test=null;
 //        try {
 //            for (Object[] obj : args) {

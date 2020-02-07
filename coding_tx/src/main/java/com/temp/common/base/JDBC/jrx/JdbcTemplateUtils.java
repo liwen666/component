@@ -32,6 +32,8 @@ public class JdbcTemplateUtils {
         dataSourceSSO.setMaxWait(20000);
         //配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
         dataSourceSSO.setTimeBetweenEvictionRunsMillis(20000);
+        dataSourceSSO.setRemoveAbandoned(true);
+        dataSourceSSO.setRemoveAbandonedTimeout(2000);
         //防止过期
         dataSourceSSO.setValidationQuery("SELECT 'x'");
         dataSourceSSO.setTestWhileIdle(true);
@@ -55,6 +57,9 @@ public class JdbcTemplateUtils {
         dataSourceSSO.setMinIdle(1);
         dataSourceSSO.setMaxActive(20);
         //连接泄漏监测
+        /**
+         * 控制连接超时强制关闭连接时间
+         */
         dataSourceSSO.setRemoveAbandoned(true);
         dataSourceSSO.setRemoveAbandonedTimeout(30);
         //配置获取连接等待超时的时间

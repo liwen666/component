@@ -63,7 +63,7 @@ public class BiDataDemo {
         RowCountCallbackHandler rowCountCallbackHandler = new RowCountCallbackHandler();
         jrxDemoDb.query(sql, rowCountCallbackHandler);
         List<Map<String, Object>> maps = jrxDemoDb.queryForList(sql);
-        JdbcAssertUtil.batchCarFlowInsert(maps,jrxDemoDb,localDb,"md_cm_app_case_formatted",rowCountCallbackHandler.getColumnNames());
+        JdbcAssertUtil.batchCarFlowInsert(maps,localDb,"md_cm_app_case_formatted",rowCountCallbackHandler.getColumnNames());
 
 
     }
