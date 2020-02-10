@@ -3,8 +3,10 @@ package com.temp.common.base.excel.base;
 import java.util.List;
 import java.util.Map;
 
+import com.temp.common.base.excel.table.CellStyleUtils;
 import org.apache.poi.ss.examples.CellStyleDetails;
 import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.ss.util.CellRangeAddress;
 import org.apache.poi.xssf.streaming.SXSSFWorkbook;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -83,6 +85,86 @@ public class ExcelUtil {
                 Cell cell = row1.createCell(j);
                 cell.setCellValue(list.get(i).get(keys[j]) == null?" ": list.get(i).get(keys[j]).toString());
                 cell.setCellStyle(cs2);
+            }
+        }
+        return wb;
+    }
+
+
+    /**
+     * 创建excel文档，
+     * @param list 数据
+     * @param wb*/
+    public static Workbook createNewSheet(List<Map<String, Object>> list, SXSSFWorkbook wb) {
+        // 创建第一个sheet（页），并命名
+        Sheet sheet = wb.createSheet(list.get(0).get("sheetName").toString());
+        sheet.setColumnWidth(0,100*35);
+        sheet.setColumnWidth(1,100*25);
+        sheet.setColumnWidth(2,100*100);
+        sheet.setColumnWidth(3,100*100);
+        sheet.setColumnWidth(4,100*40);
+        sheet.setColumnWidth(5,100*60);
+        // 创建第一行
+        Row title = sheet.createRow(0);
+        Map<String, Object> stringObjectMap1 = list.get(1);
+        String[]titleVal= (String[]) stringObjectMap1.get(stringObjectMap1.keySet().iterator().next());
+        for(int i=0;i<titleVal.length;i++){
+            Cell cell = title.createCell(i);
+            cell.setCellValue(titleVal[i]);
+            cell.setCellStyle(CellStyleUtils.getTitileStyle(wb));
+        }
+
+
+
+        // 合并日期占两行(4个参数，分别为起始行，结束行，起始列，结束列)
+        // 行和列都是从0开始计数，且起始结束都会合并
+        // 这里是合并excel中日期的两行为一行
+        CellRangeAddress region = new CellRangeAddress(0, 0, 0, 5);
+        CellRangeAddress region1 = new CellRangeAddress(2, 3, 5, 5);
+        CellRangeAddress region8 = new CellRangeAddress(4, 4, 2, 4);
+        CellRangeAddress region12 = new CellRangeAddress(4, 4, 0, 1);
+        CellRangeAddress region13 = new CellRangeAddress(5, 5, 0, 1);
+        CellRangeAddress region14 = new CellRangeAddress(6, 6, 0, 1);
+        CellRangeAddress region15 = new CellRangeAddress(7, 7, 0, 1);
+        CellRangeAddress region9 = new CellRangeAddress(5, 5, 2, 4);
+        CellRangeAddress region10 = new CellRangeAddress(6, 6, 2, 4);
+        CellRangeAddress region11 = new CellRangeAddress(7, 7, 2, 4);
+        CellRangeAddress region2 = new CellRangeAddress(4, 6, 5, 5);
+        CellRangeAddress region3 = new CellRangeAddress(8, 8, 0, 5);
+        CellRangeAddress region4 = new CellRangeAddress(9, 9, 1, 2);
+        CellRangeAddress region5 = new CellRangeAddress(10, 10, 0, 5);
+        CellRangeAddress region6 = new CellRangeAddress(11, 11, 0, 5);
+        CellRangeAddress region7 = new CellRangeAddress(12, 12, 0, 5);
+        sheet.addMergedRegion(region);
+        sheet.addMergedRegion(region1);
+        sheet.addMergedRegion(region2);
+        sheet.addMergedRegion(region3);
+        sheet.addMergedRegion(region4);
+        sheet.addMergedRegion(region5);
+        sheet.addMergedRegion(region6);
+        sheet.addMergedRegion(region7);
+        sheet.addMergedRegion(region8);
+        sheet.addMergedRegion(region9);
+        sheet.addMergedRegion(region10);
+        sheet.addMergedRegion(region11);
+        sheet.addMergedRegion(region12);
+        sheet.addMergedRegion(region13);
+        sheet.addMergedRegion(region14);
+        sheet.addMergedRegion(region15);
+
+        //设置每行每列的值
+        for (int i = 2; i < list.size(); i++) {
+            // Row 行,Cell 方格 , Row 和 Cell 都是从0开始计数的
+            // 创建一行，在页sheet上
+            Row row1 = sheet.createRow(i-1);
+            row1.setHeight((short) 600);
+            // 在row行上创建一个方
+            Map<String, Object> stringObjectMap = list.get(i);
+            String[] value = (String[]) stringObjectMap.get(stringObjectMap.keySet().iterator().next());
+            for(int j=0;j<value.length;j++){
+                Cell cell = row1.createCell(j);
+                cell.setCellValue(value[j]);
+                cell.setCellStyle(CellStyleUtils.getNomalCellStyle(wb));
             }
         }
         return wb;
