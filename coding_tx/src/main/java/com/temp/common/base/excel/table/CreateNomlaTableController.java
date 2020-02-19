@@ -11,14 +11,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static com.alibaba.druid.util.JdbcSqlStatUtils.getData;
-
 /**
  * 后台用户-controller
  *
  * @author libo
  */
-public class TableController {
+public class CreateNomlaTableController {
     /**
      * 导出系统用户数据
      *
@@ -26,20 +24,17 @@ public class TableController {
      */
     public void exportTable() throws IOException, IllegalAccessException {
         SXSSFWorkbook wb = new SXSSFWorkbook(100);//在内存中只保留100行记录,超过100就将之前的存储到磁盘里
-        List<SysUser> userList = new ArrayList<SysUser>();
 //        TableModel build = TableModel.builder().build();
-        String fileName = "教育系统新冠肺炎疫情防控期教职工及学生入校信息采集表样（四个）20200207";
+//        String fileName = "教育系统新冠肺炎疫情防控期教职工及学生入校信息采集表样（四个）20200207";
+        String fileName = "学生信息汇总简表";
         byte[] content = null;
         try {
-            List<TableModel> models = new ArrayList<>();
+            List<NomalTableModel> models = new ArrayList<>();
             getDatas(models);
             //填充projects数据
             ByteArrayOutputStream os = null;
-            for (TableModel tableModel:models) {
-                List<Map<String, Object>> list = createModel(tableModel);
                 os = new ByteArrayOutputStream();
-                ExcelUtil.createNewSheet(list, wb);
-            }
+                ExcelUtil.createNomalTable(models, wb);
 
             wb.write(os);
             content = os.toByteArray();
@@ -80,45 +75,28 @@ public class TableController {
         }
     }
 
-    private void getDatas(List<TableModel> models) {
-        TableModel tableModel = new TableModel();
-        models.add(tableModel);
+    private void getDatas(List<NomalTableModel> models) {
+        NomalTableModel title = new NomalTableModel();
+        models.add(title);
         Map<String, String[]> dataValue = getDataValue();
+        int id = 1;
         for(String str:dataValue.keySet()){
+            NomalTableModel nomalTableModel = new NomalTableModel();
             String[] vals = dataValue.get(str);
-            TableModel model= new TableModel();
-            String[] line4 = model.getLine4();
-            line4[0]=vals[0];
-            line4[1]=vals[1];
-            line4[2]=vals[2];
-            line4[3]=vals[3];
-            line4[4]=vals[4];
-            String[] line10 = model.getLine10();
-            line10[1]=vals[0];
-            try {
-                line10[3]=line10[3]+"  "+vals[7];
-            } catch (Exception e) {
-            }
-
-            String[] line6 = model.getLine6();
-            try {
-                line6[2]=vals[5];
-            } catch (Exception e) {
-            }
-
-            String[] line7 = model.getLine7();
-            try {
-                line7[2]=vals[6];
-            } catch (Exception e) {
-            }
-
-            String[] line8 = model.getLine8();
-            try {
-                line8[2]=vals[8];
-            } catch (Exception e) {
-            }
-
-            models.add(model);
+            nomalTableModel.setId(id+"");
+            nomalTableModel.setName(vals[0]);
+//            nomalTableModel.setGender(vals[1]);
+            nomalTableModel.setIdcard(vals[2]);
+//            nomalTableModel.setAddress(vals[3]);
+            nomalTableModel.setMobile(vals[4]);
+            nomalTableModel.setLeave("四年级");
+            nomalTableModel.setStuclass("一班");
+            nomalTableModel.setStatus("正常");
+            nomalTableModel.setCheck(" ");
+            nomalTableModel.setAdvince(" ");
+            nomalTableModel.setSchoole(null);
+            models.add(nomalTableModel);
+            id++;
         }
 
     }
@@ -143,27 +121,9 @@ public class TableController {
         return data;
     }
 
-    private List<Map<String, Object>> createModel(TableModel build) throws IllegalAccessException {
-        List<Map<String, Object>> listmap = new ArrayList<Map<String, Object>>();
-        Map<String, Object> map = new HashMap<String, Object>();
-        map.put("sheetName", build.getLine4()[0]);
-        listmap.add(map);
-        Field[] declaredFields = build.getClass().getDeclaredFields();
-        for (Field lineValue : declaredFields) {
-            if ("log".equals(lineValue.getName())) {
-                continue;
-            }
-            lineValue.setAccessible(true);
-            String[] row = (String[]) lineValue.get(build);
-            Map<String, Object> mapValue = new HashMap<String, Object>();
-            mapValue.put(lineValue.getName(), row);
-            listmap.add(mapValue);
-        }
-        return listmap;
-    }
 
     public static void main(String[] args) throws IOException {
-        TableController tableController = new TableController();
+        CreateNomlaTableController tableController = new CreateNomlaTableController();
         try {
             tableController.exportTable();
         } catch (IllegalAccessException e) {

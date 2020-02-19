@@ -14,7 +14,7 @@ public class ImportExecl {
      */
     public static void main(String[] args) {
 //        String filePath = "D:\\idea2018workspace\\component_new\\coding_tx\\src\\main\\java\\com\\temp\\common\\base\\excel\\table\\教育系统新冠肺炎疫情防控期教职工及学生入校信息采集表样.xlsx";
-        String filePath = "D:\\idea2018workspace\\component_new\\coding_tx\\src\\main\\java\\com\\temp\\common\\base\\excel\\table\\教育系统新冠肺炎疫情防控期教职工及学生入校信息采集表样（四个）20200207(2).xlsx";
+        String filePath = "D:\\idea2018workspace\\component_new\\coding_tx\\src\\main\\java\\com\\temp\\common\\base\\excel\\table\\教育系统新冠肺炎疫情防控期教职工及学生入校信息采集表样（四个）20200207.xlsx";
         getDataFromExcel(filePath);
     }
 
@@ -53,7 +53,8 @@ public class ImportExecl {
         int numberOfSheets = wookbook.getNumberOfSheets();
         System.out.println(numberOfSheets);
         //得到一个工作表
-        for(int sheetnum=0;sheetnum<1;sheetnum++){
+//        for(int sheetnum=0;sheetnum<1;sheetnum++){
+        for(int sheetnum=0;sheetnum<numberOfSheets;sheetnum++){
             Sheet sheet = wookbook.getSheetAt(sheetnum);
             System.out.println("sheet====="+sheet.getSheetName());
 
@@ -78,7 +79,6 @@ public class ImportExecl {
             int totalRowNum = sheet.getLastRowNum();
             //要获得属性
             Object name = "";
-            int latitude = 0;
 
             //获得所有数据
             for (int i = 1; i <= totalRowNum; i++) {

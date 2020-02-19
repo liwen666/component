@@ -47,4 +47,20 @@ public class TestAll {
         int i = Integer.parseInt("999999999");
         System.out.println(i);
     }
+
+    @Test
+    public void switchCas() {
+        int a=7;
+        switch (a){
+            case 1:
+            case 4:
+                System.out.println("aaaaa");
+                break;
+            case 3:
+                System.out.println("bbbbb");
+                break;
+                default:
+                    System.out.println("ccccc");
+        }
+    }
 }

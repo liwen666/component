@@ -101,4 +101,12 @@ public class Test {
             }
         }
     }
+
+    @org.junit.Test
+    public void arrayTest() {
+        String []aaa = new String[0];
+        aaa[0]="ddd";
+        System.out.println(aaa[0]);
+
+    }
 }

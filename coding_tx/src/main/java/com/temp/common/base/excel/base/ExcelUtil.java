@@ -1,9 +1,13 @@
 package com.temp.common.base.excel.base;
 
+import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import com.alibaba.fastjson.JSON;
 import com.temp.common.base.excel.table.CellStyleUtils;
+import com.temp.common.base.excel.table.NomalTableModel;
 import org.apache.poi.ss.examples.CellStyleDetails;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.ss.util.CellRangeAddress;
@@ -13,23 +17,25 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 /**
  * 生成Excel文件的工具类
+ *
  * @author libo
  */
 public class ExcelUtil {
-    
+
     /**
      * 创建excel文档，
-     * @param list 数据
-     * @param keys list中map的key数组集合
+     *
+     * @param list        数据
+     * @param keys        list中map的key数组集合
      * @param columnNames excel的列名
-     * */
-    public static Workbook createWorkBook(List<Map<String, Object>> list,String []keys,String columnNames[]) {
+     */
+    public static Workbook createWorkBook(List<Map<String, Object>> list, String[] keys, String columnNames[]) {
         // 创建excel工作簿
         SXSSFWorkbook wb = new SXSSFWorkbook(100);//在内存中只保留100行记录,超过100就将之前的存储到磁盘里
         // 创建第一个sheet（页），并命名
-        Sheet sheet = wb.createSheet(list.get(0).get("sheetName").toString()); 
+        Sheet sheet = wb.createSheet(list.get(0).get("sheetName").toString());
         // 手动设置列宽。第一个参数表示要为第几列设；，第二个参数表示列的宽度，n为列高的像素数。
-        for(int i=0;i<keys.length;i++){
+        for (int i = 0; i < keys.length; i++) {
             sheet.setColumnWidth(i, (int) (35.7 * 150));
         }
 
@@ -45,13 +51,13 @@ public class ExcelUtil {
         Font f2 = wb.createFont();
 
         // 创建第一种字体样式（用于列名）
-        f.setFontHeightInPoints((short)20);
+        f.setFontHeightInPoints((short) 20);
         f.setColor(IndexedColors.BLACK.getIndex());
         f.setBold(true);
 //        f.setBoldweight(Font.BOLDWEIGHT_BOLD);
 
         // 创建第二种字体样式（用于值）
-        f2.setFontHeightInPoints((short)10);
+        f2.setFontHeightInPoints((short) 10);
         f2.setColor(IndexedColors.BLACK.getIndex());
 
         // 设置第一种单元格的样式（用于列名）
@@ -70,7 +76,7 @@ public class ExcelUtil {
         cs2.setBorderBottom(BorderStyle.THIN);
         cs2.setAlignment(HorizontalAlignment.CENTER);
         //设置列名
-        for(int i=0;i<columnNames.length;i++){
+        for (int i = 0; i < columnNames.length; i++) {
             Cell cell = row.createCell(i);
             cell.setCellValue(columnNames[i]);
             cell.setCellStyle(cs);
@@ -81,9 +87,9 @@ public class ExcelUtil {
             // 创建一行，在页sheet上
             Row row1 = sheet.createRow(i);
             // 在row行上创建一个方格
-            for(int j=0;j<keys.length;j++){
+            for (int j = 0; j < keys.length; j++) {
                 Cell cell = row1.createCell(j);
-                cell.setCellValue(list.get(i).get(keys[j]) == null?" ": list.get(i).get(keys[j]).toString());
+                cell.setCellValue(list.get(i).get(keys[j]) == null ? " " : list.get(i).get(keys[j]).toString());
                 cell.setCellStyle(cs2);
             }
         }
@@ -93,27 +99,28 @@ public class ExcelUtil {
 
     /**
      * 创建excel文档，
+     *
      * @param list 数据
-     * @param wb*/
+     * @param wb
+     */
     public static Workbook createNewSheet(List<Map<String, Object>> list, SXSSFWorkbook wb) {
         // 创建第一个sheet（页），并命名
         Sheet sheet = wb.createSheet(list.get(0).get("sheetName").toString());
-        sheet.setColumnWidth(0,100*35);
-        sheet.setColumnWidth(1,100*25);
-        sheet.setColumnWidth(2,100*100);
-        sheet.setColumnWidth(3,100*100);
-        sheet.setColumnWidth(4,100*40);
-        sheet.setColumnWidth(5,100*60);
+        sheet.setColumnWidth(0, 100 * 35);
+        sheet.setColumnWidth(1, 100 * 25);
+        sheet.setColumnWidth(2, 100 * 100);
+        sheet.setColumnWidth(3, 100 * 100);
+        sheet.setColumnWidth(4, 100 * 40);
+        sheet.setColumnWidth(5, 100 * 60);
         // 创建第一行
         Row title = sheet.createRow(0);
         Map<String, Object> stringObjectMap1 = list.get(1);
-        String[]titleVal= (String[]) stringObjectMap1.get(stringObjectMap1.keySet().iterator().next());
-        for(int i=0;i<titleVal.length;i++){
+        String[] titleVal = (String[]) stringObjectMap1.get(stringObjectMap1.keySet().iterator().next());
+        for (int i = 0; i < titleVal.length; i++) {
             Cell cell = title.createCell(i);
             cell.setCellValue(titleVal[i]);
             cell.setCellStyle(CellStyleUtils.getTitileStyle(wb));
         }
-
 
 
         // 合并日期占两行(4个参数，分别为起始行，结束行，起始列，结束列)
@@ -156,12 +163,12 @@ public class ExcelUtil {
         for (int i = 2; i < list.size(); i++) {
             // Row 行,Cell 方格 , Row 和 Cell 都是从0开始计数的
             // 创建一行，在页sheet上
-            Row row1 = sheet.createRow(i-1);
+            Row row1 = sheet.createRow(i - 1);
             row1.setHeight((short) 600);
             // 在row行上创建一个方
             Map<String, Object> stringObjectMap = list.get(i);
             String[] value = (String[]) stringObjectMap.get(stringObjectMap.keySet().iterator().next());
-            for(int j=0;j<value.length;j++){
+            for (int j = 0; j < value.length; j++) {
                 Cell cell = row1.createCell(j);
                 cell.setCellValue(value[j]);
                 cell.setCellStyle(CellStyleUtils.getNomalCellStyle(wb));
@@ -170,4 +177,83 @@ public class ExcelUtil {
         return wb;
     }
 
+    /**
+     * 创建excel文档，
+     *
+     * @param list 数据
+     * @param wb
+     */
+    public static Workbook createNomalTable(List<NomalTableModel> list, SXSSFWorkbook wb) {
+        // 创建第一个sheet（页），并命名
+        Sheet sheet = wb.createSheet("学生信息汇总简表");
+        sheet.setColumnWidth(0, 100 * 35);
+        sheet.setColumnWidth(1, 100 * 25);
+        sheet.setColumnWidth(2, 100 * 100);
+        sheet.setColumnWidth(3, 100 * 100);
+        sheet.setColumnWidth(4, 100 * 40);
+        sheet.setColumnWidth(5, 100 * 60);
+        // 创建第一行
+
+        Row title = sheet.createRow(0);
+        for (int i = 0; i < 1; i++) {
+            Cell cell = title.createCell(i);
+            cell.setCellValue("教育系统新冠肺炎疫情防控期学生信息汇总简表");
+            cell.setCellStyle(CellStyleUtils.getTitileStyle(wb));
+        }
+        Row row1 = sheet.createRow(1);
+        for (int i = 0; i < 1; i++) {
+            Cell cell = row1.createCell(i);
+            cell.setCellValue("学校：");
+            cell.setCellStyle(CellStyleUtils.getTitileStyle(wb));
+        }
+
+
+        // 合并日期占两行(4个参数，分别为起始行，结束行，起始列，结束列)
+        // 行和列都是从0开始计数，且起始结束都会合并
+        // 这里是合并excel中日期的两行为一行
+        CellRangeAddress region = new CellRangeAddress(1, 1, 0, 7);
+        CellRangeAddress region1 = new CellRangeAddress(0, 0, 0, 7);
+        sheet.addMergedRegion(region);
+        sheet.addMergedRegion(region1);
+
+        //设置每行每列的值
+        for (int i = 0; i < list.size(); i++) {
+            // Row 行,Cell 方格 , Row 和 Cell 都是从0开始计数的
+            // 创建一行，在页sheet上
+            Row row2 = sheet.createRow(i + 2);
+            row2.setHeight((short) 600);
+            // 在row行上创建一个方
+            NomalTableModel nomalTableModel = list.get(i);
+            String[] data = toArray(nomalTableModel);
+            for (int j = 0; j < 8; j++) {
+                Cell cell = row2.createCell(j);
+                cell.setCellValue(data[j]);
+                cell.setCellStyle(CellStyleUtils.getNomalCellStyle(wb));
+            }
+        }
+        return wb;
+
+    }
+
+    private static String[] toArray(NomalTableModel nomalTableModel) {
+        Field[] declaredFields = nomalTableModel.getClass().getDeclaredFields();
+        List<String> data = new ArrayList<>();
+        for (Field f : declaredFields) {
+            if (f.getName().equals("log")) {
+                continue;
+            }
+            f.setAccessible(true);
+            String o = null;
+            try {
+                o = (String) f.get(nomalTableModel);
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
+            if (null != o) {
+                data.add(o);
+            }
+
+        }
+        return data.toArray(new String[0]);
+    }
 }

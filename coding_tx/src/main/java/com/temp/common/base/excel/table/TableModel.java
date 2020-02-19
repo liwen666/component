@@ -34,7 +34,7 @@ public class TableModel {
     private String[] line7 = {"居家其他亲属","", "正常","",""};
     private String[] line8 = {"居家其他亲属近期身体状况","", "正常","","", "2020年    月    日"};
     private String[] line9 = {"（此表全校学生一人一份）"};
-    private String[] line10 = {"填表人：", "冯灿", "本人（家长）签字：", "审核人："};
+    private String[] line10 = {"填表人：", "冯灿", "","本人（家长）签字：", "审核人："};
     private String[] line11 = {"说明：1、“近十四天活动轨迹”填2月1日后生活的地点和走过的地方；"};
     private String[] line12 = {"      2、“身体状况”填有无确诊病例、疑似病例、发热或正常等情况；"};
     private String[] line13 = {"      3、“学校意见与建议”填可以入班、在家隔离、到医院就诊等。"};

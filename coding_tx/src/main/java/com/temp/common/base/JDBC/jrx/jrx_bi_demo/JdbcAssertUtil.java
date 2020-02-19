@@ -171,7 +171,7 @@ public class JdbcAssertUtil {
 
     }
 
-    private static String getInsertSql(String[] columnNames, String tableName) {
+    public static String getInsertSql(String[] columnNames, String tableName) {
         StringBuffer insert = new StringBuffer(" INSERT INTO " + tableName + "(");
         StringBuffer value = new StringBuffer(" VALUES (");
 
