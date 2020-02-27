@@ -29,4 +29,9 @@ mvn install:install-file -DgroupId=com.oracle -DartifactId=ojdbc6 -Dversion=11.2
 mvn install:install-file -DgroupId=com.pivotal -DartifactId=greenplum-jdbc -Dversion=5.18.0 -Dpackaging=jar -Dfile=greenplum-5.18.0.jar
 
 
+mvn install:install-file -DgroupId=com.jrx.anytxn -DartifactId=anytxn-....... -Dversion=1.0........ -Dpackaging=jar -Dfile=你的文件的全路径
+
+mvn install:install-file -DgroupId=com.jrx.anytxn -DartifactId=anytxn-i18n-spring-boot-starter -Dversion=1.0.0-SNAPSHOT -Dpackaging=jar -Dfile=anytxn-i18n-spring-boot-starter.jar
+
+
 
