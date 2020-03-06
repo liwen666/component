@@ -3,12 +3,14 @@ package com.temp.common.base.JDBC.jrx.jrx_bi_demo;
 import com.temp.common.base.JDBC.jrx.JdbcTemplateUtils;
 import com.temp.common.base.JDBC.jrx.jrx_bi_demo.est_interface.CityEnum;
 import com.temp.common.base.JDBC.jrx.jrx_bi_demo.est_interface.ModelTest;
+import com.temp.common.base.JDBC.jrx.jrx_bi_demo.est_interface.TaskExecution;
 import com.temp.common.common.util.IdGenerator;
 import org.junit.Test;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowCountCallbackHandler;
 
 import java.lang.reflect.Field;
+import java.time.LocalDateTime;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -167,5 +169,32 @@ String[] city={"海淀区","门头沟区","朝阳区","丰台去","昌平区","�
     }
 
 
+    @Test
+    public void testMaxWell() {
+        JdbcTemplate localDb = JdbcTemplateUtils.getLocalMysql();
+        TaskExecution build = TaskExecution.builder().build();
+        build.setEndTime(LocalDateTime.now());
+        build.setErrorMessage("com");
+        build.setTaskExecutionId(11111l);
+        build.setStartTime(LocalDateTime.now());
+        Field[] fields = TaskExecution.class.getDeclaredFields();
+        String[] cols = Arrays.asList(fields).stream().filter(e -> !e.getName().equals("log")&&!e.getName().equals("serialVersionUID")).map(e -> e.getName()).collect(Collectors.toList()).toArray(new String[0]);
+        Object[] vals = Arrays.asList(fields).stream().filter(e -> !e.getName().equals("log")&&!e.getName().equals("serialVersionUID")).map(e -> {
+            try {
 
+                e.setAccessible(true);
+                System.out.println("******************************************************");
+                System.out.println(e.getName());
+                Object o = e.get(build);
+                System.out.println(o);
+                return e.get(build);
+            } catch (IllegalAccessException e1) {
+                e1.printStackTrace();
+                return null;
+            }
+        }).collect(Collectors.toList()).toArray(new Object[0]);
+
+        String insertSql = JdbcAssertUtil.getInsertSql(cols, "task_execution");
+        localDb.update(insertSql, vals);
+    }
 }

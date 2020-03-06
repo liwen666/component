@@ -2,6 +2,7 @@ package com.temp.common.base.JDBC.jrx.jrx_bi_demo;
 
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.annotation.DbType;
+import com.google.common.base.CaseFormat;
 import com.temp.common.base.JDBC.jrx.JdbcTemplateUtils;
 import com.temp.common.base.JDBC.jrx.UserTest;
 import org.junit.Test;
@@ -176,7 +177,8 @@ public class JdbcAssertUtil {
         StringBuffer value = new StringBuffer(" VALUES (");
 
         for (String column : columnNames) {
-            insert.append(column + " , ");
+            String to = CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, column);
+            insert.append(to + " , ");
             value.append("?,");
         }
         value.delete(value.length() - 1, value.length());

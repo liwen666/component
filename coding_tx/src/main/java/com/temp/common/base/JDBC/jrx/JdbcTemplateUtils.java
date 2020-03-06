@@ -101,6 +101,34 @@ public class JdbcTemplateUtils {
         return  new JdbcTemplate(dataSourceSSO);
     }
 
+
+    // 1、Postgresql
+    public static JdbcTemplate getLocalMysql()  {
+        DruidDataSource dataSourceSSO = new DruidDataSource();
+
+        //设置连接参数
+        dataSourceSSO.setDriverClassName("com.mysql.jdbc.Driver");
+        dataSourceSSO.setUrl("jdbc:mysql://192.168.42.136:3306/data_flow_test?serverTimezone=Hongkong&useUnicode=true&useSSL=false&characterEncoding=utf8");
+        dataSourceSSO.setUsername("root");
+        dataSourceSSO.setPassword("root");
+        //配置初始化大小、最小、最大
+        dataSourceSSO.setInitialSize(1);
+        dataSourceSSO.setMinIdle(1);
+        dataSourceSSO.setMaxActive(20);
+        //连接泄漏监测
+        dataSourceSSO.setRemoveAbandoned(true);
+        dataSourceSSO.setRemoveAbandonedTimeout(30);
+        //配置获取连接等待超时的时间
+        dataSourceSSO.setMaxWait(20000);
+        //配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+        dataSourceSSO.setTimeBetweenEvictionRunsMillis(20000);
+        //防止过期
+        dataSourceSSO.setValidationQuery("SELECT 'x'");
+        dataSourceSSO.setTestWhileIdle(true);
+        dataSourceSSO.setTestOnBorrow(true);
+        return  new JdbcTemplate(dataSourceSSO);
+    }
+
     public static void main(String[] args) {
         JdbcTemplate jrxDbGpData = getJrxDemoDb();
         List<Integer> query = jrxDbGpData.query("select count(1) from md_cm_app_case_formatted ", new SingleColumnRowMapper<>(Integer.class));
