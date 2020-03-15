@@ -1,4 +1,5 @@
 import com.alibaba.fastjson.JSON;
+import com.google.common.base.CaseFormat;
 import com.temp.common.common.entry.MerchantFullDto;
 import com.temp.common.common.entry.MerchantPaymentChoiceDto;
 import com.temp.common.common.util.SqlUtil;
@@ -108,5 +109,17 @@ public class Test {
         aaa[0]="ddd";
         System.out.println(aaa[0]);
 
+    }
+
+
+    @org.junit.Test
+    public void testCaseFormat() {
+        System.out.println(CaseFormat.LOWER_HYPHEN.to(CaseFormat.LOWER_CAMEL, "test-data"));
+        System.out.println(CaseFormat.LOWER_UNDERSCORE.to(CaseFormat.LOWER_CAMEL, "test_data"));
+        System.out.println(CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.UPPER_CAMEL, "test_data"));
+
+        System.out.println(CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, "testdata"));
+        System.out.println(CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, "TestData"));
+        System.out.println(CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_HYPHEN, "testData"));
     }
 }

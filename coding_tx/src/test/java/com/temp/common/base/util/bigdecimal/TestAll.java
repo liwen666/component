@@ -63,4 +63,12 @@ public class TestAll {
                     System.out.println("ccccc");
         }
     }
+
+    @Test
+    public void testStr() {
+        boolean contains = "%{".contains("%{");
+        System.out.println(contains);
+
+
+    }
 }
