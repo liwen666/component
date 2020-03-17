@@ -35,7 +35,6 @@ public class ModelTest {
     private String id_card;
     private String tel_phone;
     private String parent_area_code;
-    private String idx_key;
 
 
     public static void main(String[] args) {

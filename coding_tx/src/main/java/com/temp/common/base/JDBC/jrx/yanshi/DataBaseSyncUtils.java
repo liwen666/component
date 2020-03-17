@@ -1,6 +1,7 @@
-package com.temp.common.base.JDBC.jrx.jrx_bi_demo;
+package com.temp.common.base.JDBC.jrx.yanshi;
 
 import com.temp.common.base.JDBC.jrx.JdbcTemplateUtils;
+import com.temp.common.base.JDBC.jrx.jrx_bi_demo.JdbcAssertUtil;
 import com.temp.common.base.JDBC.jrx.jrx_bi_demo.est_interface.CityEnum;
 import com.temp.common.base.JDBC.jrx.jrx_bi_demo.est_interface.ModelTest;
 import com.temp.common.base.JDBC.jrx.jrx_bi_demo.est_interface.TaskExecution;
@@ -51,37 +52,6 @@ public class DataBaseSyncUtils {
 //        insertData(target, targetTableName, rowCountCallbackHandler.getColumnNames(), dataList);
     }
 
-    public static void main(String[] args) {
-        JdbcTemplate source = JdbcTemplateUtils.getJrxDemoDb();
-        JdbcTemplate target = JdbcTemplateUtils.getLocalDb();
-        String sourceSql = "SELECT *,\n" +
-                "       CASE WHEN approve_rst = 'AR' THEN 1 ELSE 0 END AS is_approved,\n" +
-                "       CASE WHEN approve_rst = 'RJ' THEN 1 ELSE 0 END AS is_rejected,\n" +
-                "       credit_amount AS credit_amount_group\n" +
-                "FROM md_cm_app_case_formatted limit 1 ";
-        String targetTableName = "md_cm_app_case_formatted";
-        /**
-         * 创建表
-         */
-        createTable(source, target, sourceSql, targetTableName);
-        /**
-         * 复制数据
-         */
-        RowCountCallbackHandler rowCountCallbackHandler = new RowCountCallbackHandler();
-        source.query(sourceSql, rowCountCallbackHandler);
-
-        String dataSql = "SELECT *,\n" +
-                "       CASE WHEN approve_rst = 'AR' THEN 1 ELSE 0 END AS is_approved,\n" +
-                "       CASE WHEN approve_rst = 'RJ' THEN 1 ELSE 0 END AS is_rejected,\n" +
-                "       credit_amount AS credit_amount_group\n" +
-                "FROM md_cm_app_case_formatted limit 10000";
-        List<Map<String, Object>> dataList = source.queryForList(dataSql);
-
-        insertData(target, targetTableName, rowCountCallbackHandler.getColumnNames(), dataList);
-
-
-    }
-
     public static void createTable(JdbcTemplate soucce, JdbcTemplate target, String sourceSql, String targetTableName) {
         String createTb = JdbcAssertUtil.getCreateTableSql(soucce, sourceSql, targetTableName);
         target.update(createTb);
@@ -118,9 +88,7 @@ public class DataBaseSyncUtils {
     public void cityDataTest() {
 
         CityEnum[] values = CityEnum.values();
-
-//        JdbcTemplate localDb = JdbcTemplateUtils.getLocalDb();
-        JdbcTemplate localDb = JdbcTemplateUtils.getJrxDb();
+        JdbcTemplate localDb = JdbcTemplateUtils.getYanshiMsql();
         int max=100,min=4;
 
         for (int i=0;i<values.length;i++) {
@@ -149,7 +117,7 @@ public class DataBaseSyncUtils {
                     }
                 }).collect(Collectors.toList()).toArray(new Object[0]);
 
-                String insertSql = JdbcAssertUtil.getInsertSql(cols, "dash_map_test");
+                String insertSql = JdbcAssertUtil.getInsertSql(cols, "yanshi_data");
                 localDb.update(insertSql, vals);
             }
 

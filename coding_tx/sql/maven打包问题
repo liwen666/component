@@ -1,0 +1,3 @@
+maven配置这加个
+ -Dmaven.javadoc.skip=true   在  bulid  running   的vm 参数中配置
+-Dfile.encoding=GBK这个是指定控制台编码没不然乱码
