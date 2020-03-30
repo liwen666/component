@@ -44,3 +44,10 @@ CREATE TABLE `newpay_payment_picture_history` (
   `remark` varchar(200) DEFAULT NULL COMMENT '备注信息',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8
+
+
+
+GRANT ALL on maxwell.* to 'maxwell'@'%' identified by 'maxwell';
+ GRANT SELECT, REPLICATION CLIENT, REPLICATION SLAVE on *.* to 'maxwell'@'%';
+ FLUSH PRIVILEGES;
+

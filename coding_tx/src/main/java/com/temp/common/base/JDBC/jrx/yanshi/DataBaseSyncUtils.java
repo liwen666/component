@@ -117,7 +117,7 @@ public class DataBaseSyncUtils {
                     }
                 }).collect(Collectors.toList()).toArray(new Object[0]);
 
-                String insertSql = JdbcAssertUtil.getInsertSql(cols, "yanshi_data");
+                String insertSql = JdbcAssertUtil.getInsertSql(cols, "test_table_data");
                 localDb.update(insertSql, vals);
             }
 
