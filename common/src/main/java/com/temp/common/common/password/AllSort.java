@@ -41,7 +41,7 @@ public class AllSort {
         int num1 = 0;
         long conut = 0;
         for(Map.Entry me:allNumPass.entrySet()){
-            File f = new File("E:\\workspace\\component\\common\\src\\main\\java\\com\\temp\\common\\common\\password\\"+me.getKey()+".json");
+            File f = new File("D:\\idea2018workspace\\component_new\\common\\src\\main\\java\\com\\temp\\common\\common\\password\\"+me.getKey()+".json");
             if(!f.exists()){
                 f.createNewFile();
             }

@@ -100,7 +100,7 @@ public class CodeGenerator {
         // 包配置
         PackageConfig pc = new PackageConfig();
         pc.setModuleName(scanner("模块名"));
-        pc.setParent("com.temp.common.mybatis");
+        pc.setParent("jrx.com.mybatis");
         //修改包结构
         pc.setEntity("domain");
         pc.setService("service");

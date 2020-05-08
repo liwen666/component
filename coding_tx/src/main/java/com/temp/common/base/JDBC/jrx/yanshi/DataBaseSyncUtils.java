@@ -85,43 +85,53 @@ public class DataBaseSyncUtils {
     }
 
     @Test
-    public void cityDataTest() {
+    public void cityDataTest() throws InterruptedException {
 
-        CityEnum[] values = CityEnum.values();
-        JdbcTemplate localDb = JdbcTemplateUtils.getYanshiMsql();
-        int max=100,min=4;
+        for (int j = 0; j < 30; j++) {
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    CityEnum[] values = CityEnum.values();
+                    JdbcTemplate localDb = JdbcTemplateUtils.getYanshiMsql();
+                    int max = 100, min = 4;
 
-        for (int i=0;i<values.length;i++) {
-            int ran = (int) (Math.random()*(max-min)+min);
-            String code = values[i].getCode();
-            String code1=code+"市";
+                    for (int i = 0; i < values.length; i++) {
+                        int ran = (int) (Math.random() * (max - min) + min);
+                        String code = values[i].getCode();
+                        String code1 = code + "市";
 //            String code2=code+"县";
-            Random random = new Random(1);
-            for(int j=0;j<ran;j++){
-                int ran1 = random.nextInt(3)+1;
-                ModelTest build = ModelTest.builder().address(values[i].getName()+"县"+ran1).city(values[i].getName() + "--市"+ran1).province(values[i].getName()).
-                        create_time(new Date())
-                        .area_code(code1+1)
-                        .parent_area_code(code)
-                        .id_card("1").user_name(values[i].getName()+"用户--"+ran1).build();
+                        Random random = new Random(1);
+                        for (int j = 0; j < ran; j++) {
+                            int ran1 = random.nextInt(3) + 1;
+                            ModelTest build = ModelTest.builder().address(values[i].getName() + "县" + ran1).city(values[i].getName() + "--市" + ran1).province(values[i].getName()).
+                                    create_time(new Date())
+                                    .area_code(code1 + 1)
+                                    .parent_area_code(code)
+                                    .id_card("1").user_name(values[i].getName() + "用户--" + ran1).build();
 
-                Field[] fields = ModelTest.class.getDeclaredFields();
-                String[] cols = Arrays.asList(fields).stream().filter(e -> !e.getName().equals("log")).map(e -> e.getName()).collect(Collectors.toList()).toArray(new String[0]);
-                Object[] vals = Arrays.asList(fields).stream().filter(e -> !e.getName().equals("log")).map(e -> {
-                    try {
-                        e.setAccessible(true);
-                        return e.get(build);
-                    } catch (IllegalAccessException e1) {
-                        e1.printStackTrace();
-                        return null;
+                            Field[] fields = ModelTest.class.getDeclaredFields();
+                            String[] cols = Arrays.asList(fields).stream().filter(e -> !e.getName().equals("log")).map(e -> e.getName()).collect(Collectors.toList()).toArray(new String[0]);
+                            Object[] vals = Arrays.asList(fields).stream().filter(e -> !e.getName().equals("log")).map(e -> {
+                                try {
+                                    e.setAccessible(true);
+                                    return e.get(build);
+                                } catch (IllegalAccessException e1) {
+                                    e1.printStackTrace();
+                                    return null;
+                                }
+                            }).collect(Collectors.toList()).toArray(new Object[0]);
+
+                            String insertSql = JdbcAssertUtil.getInsertSql(cols, "test_table_data");
+                            String insertSql2 = JdbcAssertUtil.getInsertSql(cols, "yanshi_data");
+                            localDb.update(insertSql, vals);
+                            localDb.update(insertSql2, vals);
+                        }
+
                     }
-                }).collect(Collectors.toList()).toArray(new Object[0]);
-
-                String insertSql = JdbcAssertUtil.getInsertSql(cols, "test_table_data");
-                localDb.update(insertSql, vals);
-            }
-
+                }
+            }).start();
         }
+        Thread.sleep(100000);
     }
 
     @Test
@@ -131,38 +141,38 @@ public class DataBaseSyncUtils {
 
 //        JdbcTemplate localDb = JdbcTemplateUtils.getLocalDb();
         JdbcTemplate localDb = JdbcTemplateUtils.getLocalMysqlGp();
-        int max=100,min=4;
+        int max = 100, min = 4;
 
-            int ran = (int) (Math.random()*(max-min)+min);
-            String code = CityEnum.BEIJING.getCode();
-            String code1=code+"市";
+        int ran = (int) (Math.random() * (max - min) + min);
+        String code = CityEnum.BEIJING.getCode();
+        String code1 = code + "市";
 //            String code2=code+"县";
-            Random random = new Random(1);
-String[] city={"海淀区","门头沟区","朝阳区","丰台去","昌平区","怀柔区","延庆区","平谷区"};
+        Random random = new Random(1);
+        String[] city = {"海淀区", "门头沟区", "朝阳区", "丰台去", "昌平区", "怀柔区", "延庆区", "平谷区"};
 
-            for(int j=0;j<ran;j++){
-                int ran1 = random.nextInt(8);
-                ModelTest build = ModelTest.builder().address(CityEnum.BEIJING.getName()+city[ran1]+"-县").city(city[ran1]).province(CityEnum.BEIJING.getName()).
-                        create_time(new Date())
-                        .area_code(code1+1)
-                        .parent_area_code(code)
-                        .id_card("1").user_name(CityEnum.BEIJING.getName()+"用户--"+city[ran1]).build();
+        for (int j = 0; j < ran; j++) {
+            int ran1 = random.nextInt(8);
+            ModelTest build = ModelTest.builder().address(CityEnum.BEIJING.getName() + city[ran1] + "-县").city(city[ran1]).province(CityEnum.BEIJING.getName()).
+                    create_time(new Date())
+                    .area_code(code1 + 1)
+                    .parent_area_code(code)
+                    .id_card("1").user_name(CityEnum.BEIJING.getName() + "用户--" + city[ran1]).build();
 
-                Field[] fields = ModelTest.class.getDeclaredFields();
-                String[] cols = Arrays.asList(fields).stream().filter(e -> !e.getName().equals("log")).map(e -> e.getName()).collect(Collectors.toList()).toArray(new String[0]);
-                Object[] vals = Arrays.asList(fields).stream().filter(e -> !e.getName().equals("log")).map(e -> {
-                    try {
-                        e.setAccessible(true);
-                        return e.get(build);
-                    } catch (IllegalAccessException e1) {
-                        e1.printStackTrace();
-                        return null;
-                    }
-                }).collect(Collectors.toList()).toArray(new Object[0]);
+            Field[] fields = ModelTest.class.getDeclaredFields();
+            String[] cols = Arrays.asList(fields).stream().filter(e -> !e.getName().equals("log")).map(e -> e.getName()).collect(Collectors.toList()).toArray(new String[0]);
+            Object[] vals = Arrays.asList(fields).stream().filter(e -> !e.getName().equals("log")).map(e -> {
+                try {
+                    e.setAccessible(true);
+                    return e.get(build);
+                } catch (IllegalAccessException e1) {
+                    e1.printStackTrace();
+                    return null;
+                }
+            }).collect(Collectors.toList()).toArray(new Object[0]);
 
-                String insertSql = JdbcAssertUtil.getInsertSql(cols, "dash_map_test");
-                localDb.update(insertSql, vals);
-            }
+            String insertSql = JdbcAssertUtil.getInsertSql(cols, "dash_map_test");
+            localDb.update(insertSql, vals);
+        }
     }
 
 
@@ -175,8 +185,8 @@ String[] city={"海淀区","门头沟区","朝阳区","丰台去","昌平区","�
         build.setTaskExecutionId(11111l);
         build.setStartTime(LocalDateTime.now());
         Field[] fields = TaskExecution.class.getDeclaredFields();
-        String[] cols = Arrays.asList(fields).stream().filter(e -> !e.getName().equals("log")&&!e.getName().equals("serialVersionUID")).map(e -> e.getName()).collect(Collectors.toList()).toArray(new String[0]);
-        Object[] vals = Arrays.asList(fields).stream().filter(e -> !e.getName().equals("log")&&!e.getName().equals("serialVersionUID")).map(e -> {
+        String[] cols = Arrays.asList(fields).stream().filter(e -> !e.getName().equals("log") && !e.getName().equals("serialVersionUID")).map(e -> e.getName()).collect(Collectors.toList()).toArray(new String[0]);
+        Object[] vals = Arrays.asList(fields).stream().filter(e -> !e.getName().equals("log") && !e.getName().equals("serialVersionUID")).map(e -> {
             try {
 
                 e.setAccessible(true);
