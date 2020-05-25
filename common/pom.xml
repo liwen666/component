@@ -87,6 +87,11 @@
             <version>27.1-jre</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>ant</groupId>
+            <artifactId>ant</artifactId>
+            <version>1.6.5</version>
+        </dependency>
     </dependencies>
 
     <build>
