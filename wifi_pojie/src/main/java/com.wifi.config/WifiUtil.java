@@ -48,10 +48,10 @@ public class WifiUtil {
 //        String javaEncode = EncodingDetect.getJavaEncode(result.get(0).getBytes());
 //        System.out.println(javaEncode);
         System.out.println(JSON.toJSONString(result));
-        List<String> ping = execute("ping www.baidu.com", null);
+//        List<String> ping = execute("ping www.baidu.com", null);
 //        String javaEncode = EncodingDetect.getJavaEncode(result.get(0).getBytes());
 //        System.out.println(javaEncode);
-        System.out.println(JSON.toJSONString(ping));
+//        System.out.println(JSON.toJSONString(ping));
 //        System.out.println(execute("ping baidu.com",null));
     }
 }

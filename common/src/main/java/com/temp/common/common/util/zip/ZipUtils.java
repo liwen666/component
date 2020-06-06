@@ -1,7 +1,9 @@
-package com.temp.common.common.util;
+package com.temp.common.common.util.zip;
 
-import java.io.*;
-import java.nio.charset.StandardCharsets;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.zip.ZipEntry;
@@ -21,6 +23,7 @@ public class ZipUtils {
 
         Map<String, String> data = new HashMap<String, String>() {{
             put("dddd", "aaaaaaa");
+            put("eee/bbb", "hhhh");
         }};
         ZipOutputStream zipOut = null;
         try {
