@@ -47,7 +47,7 @@ DELIMITER $$
 USE `test_data_sync`$$
 
 DROP PROCEDURE IF EXISTS `proc_auto_insertdata`$$
-
+DELIMITER $$
 CREATE DEFINER=`root`@`%` PROCEDURE `proc_auto_insertdata`()
 BEGIN
     DECLARE num INTEGER ;
@@ -73,3 +73,38 @@ BEGIN
 END$$
 
 DELIMITER ;
+
+
+
+
+
+DELIMITER $$
+DROP PROCEDURE IF EXISTS `est_data_init`$$
+CREATE  PROCEDURE `est_data_init`(IN tencent_id INTEGER)
+BEGIN
+    DECLARE num INTEGER ;
+   
+    SELECT COUNT(1) INTO num  FROM meta_dictionary_field;
+    IF num=0 THEN
+    INSERT  INTO `meta_dictionary_field`(`dict_id`,`dict_name`,`dict_type`,`dict_value`,`field_id`) VALUES 
+
+(6,'通过',NULL,'0000',5),
+
+(7,'拒绝',NULL,'0100',5),
+
+(8,'告警',NULL,'0200',5);
+END IF;
+    SELECT COUNT(1) INTO num  FROM meta_model_object  ;
+    IF num=0 THEN
+    
+INSERT  INTO `meta_model_object`(`model_object_id`,`content_code`,`create_time`,`field_ids`,`resource_id`,`resource_type`,`update_person`,`update_time`,`version`,`version_code`,`version_state`,`parent_object_id`,`used`) VALUES 
+
+(2,'0','2020-06-12 20:49:20',NULL,1,'SYSTEM_OBJECT',NULL,NULL,1,'sys_default','ONLINE',NULL,'\0');
+
+END IF;
+
+
+END$$
+
+DELIMITER ;
+
