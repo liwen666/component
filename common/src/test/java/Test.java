@@ -2,12 +2,10 @@ import com.alibaba.fastjson.JSON;
 import com.google.common.base.CaseFormat;
 import com.temp.common.common.entry.MerchantFullDto;
 import com.temp.common.common.entry.MerchantPaymentChoiceDto;
+import com.temp.common.common.util.DateUtils;
 import com.temp.common.common.util.SqlUtil;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
@@ -121,5 +119,13 @@ public class Test {
         System.out.println(CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, "testdata"));
         System.out.println(CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, "TestData"));
         System.out.println(CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_HYPHEN, "testData"));
+    }
+
+
+    @org.junit.Test
+    public void datefinal() {
+        Date parse = DateUtils.parse("9999-12-10");
+        System.out.println(parse.getTime());
+
     }
 }

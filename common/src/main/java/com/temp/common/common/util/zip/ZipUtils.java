@@ -1,12 +1,12 @@
 package com.temp.common.common.util.zip;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
+import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
 
 /**
@@ -46,5 +46,65 @@ public class ZipUtils {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    /**
+     * 解析zip压缩包
+     * @param fileInputStream
+     * @return
+     */
+    public Map<String, String> importData(InputStream fileInputStream) {
+        Map<String, String> data = new ConcurrentHashMap<>();
+        ZipInputStream zipInputStream = null;
+        ByteArrayOutputStream byteArrayOutputStream = null;
+        try {
+            zipInputStream = new ZipInputStream(fileInputStream);
+            ZipEntry entry = zipInputStream.getNextEntry();
+
+            byteArrayOutputStream = new ByteArrayOutputStream();
+            while (entry != null) {
+                String name = entry.getName();
+                byte[] cache = new byte[1024];
+                int read = zipInputStream.read(cache);
+                while (read != -1) {
+                    byteArrayOutputStream.write(cache, 0, read);
+                    read = zipInputStream.read(cache);
+                }
+                data.put(name, new String(byteArrayOutputStream.toByteArray(), Charset.forName("UTF8")));
+                if (name.startsWith("OBJECT"))
+                {
+                    System.out.println(data.get(name));
+                }
+                zipInputStream.closeEntry();
+                byteArrayOutputStream.reset();
+                entry = zipInputStream.getNextEntry();
+
+            }
+        } catch (IOException ex) {
+//            logger.error("解析上传文件出错！");
+        } finally {
+            if (null != zipInputStream) {
+                try {
+                    zipInputStream.close();
+
+                } catch (IOException e) {
+                }
+            }
+            if (null != byteArrayOutputStream) {
+                try {
+                    zipInputStream.close();
+
+                } catch (IOException e) {
+                }
+            }
+            if (null != fileInputStream) {
+                try {
+                    fileInputStream.close();
+                } catch (IOException e) {
+                }
+            }
+
+        }
+        return data;
     }
 }
