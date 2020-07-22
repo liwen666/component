@@ -70,9 +70,14 @@ public class ExampleClient extends WebSocketClient {
 		// if the error is fatal then onClose will be called additionally
 	}
 
-	public static void main( String[] args ) throws URISyntaxException {
-		ExampleClient c = new ExampleClient( new URI( "ws://localhost:8887" )); // more about drafts here: http://github.com/TooTallNate/Java-WebSocket/wiki/Drafts
-		c.connect();
+	public static void main( String[] args ) throws URISyntaxException, InterruptedException {
+		WebSocketClient websocket = new ExampleClient( new URI( "ws://localhost:8887" ));
+		if( !websocket.connectBlocking() ) {
+			System.err.println( "Could not connect to the server." );
+			return;
+		}
+		websocket.send("jjjjjdddddj");
+
 	}
 
 }

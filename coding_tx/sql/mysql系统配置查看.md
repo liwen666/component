@@ -5,7 +5,7 @@ show variables like '%connect%';
 SHOW VARIABLES LIKE '%log_bin%';
 
 设置单个用户最大连接数
-set global max_user_connections=2000;
+set global max_user_connections=6000;
 
 查看连接情况
 SHOW PROCESSLIST
@@ -13,7 +13,7 @@ SHOW PROCESSLIST
 show status
 
 
-set GLOBAL max_connections=10000
+set GLOBAL max_connections=15000
 
 
 #mysql  系统时间问题

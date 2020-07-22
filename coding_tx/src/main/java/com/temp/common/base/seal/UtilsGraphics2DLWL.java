@@ -28,7 +28,7 @@ public class UtilsGraphics2DLWL {
     public static void main(String[] args) throws Exception{
         BufferedImage image = startGraphics2D();
         try {
-            String filePath = "D:\\idea2018workspace\\component_new\\coding_tx\\src\\main\\java\\com\\temp\\common\\base\\seal\\"+"印章"+".png";
+            String filePath = "D:\\workspace\\test_workspace\\coding_tx\\src\\main\\java\\com\\temp\\common\\base\\seal\\"+"印章"+".png";
 
             ImageIO.write(image, "png", new File(filePath)); //将其保存在D:\\下，得有这个目录
         } catch (Exception ex) {
