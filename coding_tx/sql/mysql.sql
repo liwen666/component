@@ -51,3 +51,27 @@ GRANT ALL on maxwell.* to 'maxwell'@'%' identified by 'maxwell';
  GRANT SELECT, REPLICATION CLIENT, REPLICATION SLAVE on *.* to 'maxwell'@'%';
  FLUSH PRIVILEGES;
 
+
+
+
+CREATE TABLE `mc_team` (
+  `id` bigint(20) NOT NULL,
+  `create_by` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `create_time` datetime DEFAULT NULL,
+  `modified_by` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `modified_time` datetime DEFAULT NULL,
+  `name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `project_id` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  KEY `FK4gi4cny1fo7vwajm3fsnbdbrc` (`project_id`) USING BTREE,
+  CONSTRAINT `FK4gi4cny1fo7vwajm3fsnbdbrc` FOREIGN KEY (`project_id`) REFERENCES `mc_project` (`id`),
+  CONSTRAINT `mc_team_ibfk_1` FOREIGN KEY (`project_id`) REFERENCES `mc_project` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
+
+-- 删除外键
+
+ alter table mc_team drop foreign key  mc_team_ibfk_1;
+
+
+ 增加主键:alter table your_table_name add primary key (your_primary_key_name);//最后边的那个()一点要有;
+增加外键:alter table your_table_name add foreign key your_foreign_key_id(your_foerign_key_name) references zhu_jian_table_name(your_foreign_key_name);
