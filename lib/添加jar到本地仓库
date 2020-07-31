@@ -33,5 +33,7 @@ mvn install:install-file -DgroupId=com.jrx.anytxn -DartifactId=anytxn-....... -D
 
 mvn install:install-file -DgroupId=com.jrx.anytxn -DartifactId=anytxn-i18n-spring-boot-starter -Dversion=1.0.0-SNAPSHOT -Dpackaging=jar -Dfile=anytxn-i18n-spring-boot-starter.jar
 
+mvn install:install-file -DgroupId=jrx.auth.frontend -DartifactId=restrict-frontend -Dversion=local-SNAPSHOT -Dpackaging=jar -Dfile=restrict-frontend-fc_1.0.0-SNAPSHOT.jar
+
 
 

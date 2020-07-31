@@ -92,6 +92,11 @@
             <artifactId>ant</artifactId>
             <version>1.6.5</version>
         </dependency>
+        <dependency>
+            <groupId>net.objecthunter</groupId>
+            <artifactId>exp4j</artifactId>
+            <version>1.4.9-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
     <build>

@@ -7,3 +7,35 @@ alter table bulletin add citycode varchar(6) not null default 0; # 城市代码
 
 
 ALTER TABLE testmaxwell CHANGE key_pry key_pry INT (50)  NULL DEFAULT NULL PRIMARY KEY AUTO_INCREMENT;;
+
+
+-- 判断列是否存在  不存在则添加
+DROP PROCEDURE IF EXISTS pro_AddColumn;
+CREATE PROCEDURE pro_AddColumn() BEGIN
+IF NOT EXISTS(SELECT 1 FROM information_schema.columns WHERE table_name='component' AND COLUMN_NAME='PRINT_CHECK_STATUS') THEN
+ALTER TABLE component ADD PRINT_CHECK_STATUS int(10) default 0;
+END IF;
+IF NOT EXISTS(SELECT 1 FROM information_schema.columns WHERE table_name='component' AND COLUMN_NAME='PRINT_CHECK_TIME') THEN
+ALTER TABLE component ADD PRINT_CHECK_TIME datetime NULL;
+END IF;
+IF NOT EXISTS(SELECT 1 FROM information_schema.columns WHERE table_schema=podcloud AND table_name='component' AND COLUMN_NAME='PRINT_CHECK_BACK_REASON') THEN
+ALTER TABLE component ADD PRINT_CHECK_BACK_REASON varchar(500) default null;
+END IF;
+END;
+CALL pro_AddColumn;
+DROP PROCEDURE pro_AddColumn;
+
+-- 判断索引是否存在  不存在则添加
+
+DROP PROCEDURE IF EXISTS pro_AddIndex;
+ DELIMITER;
+ CREATE PROCEDURE pro_AddIndex() BEGIN IF NOT EXISTS (SELECT * FROM information_schema.statistics WHERE table_schema=CurrentDatabase AND table_name = 'rtc_phototype' AND index_name = 'index_name') THEN
+     ALTER TABLE `rtc_Phototype` ADD INDEX index_name ( `imgtype` );
+  END IF;
+ END; DELIMITER;   CALL pro_AddIndex(); Drop procedure pro_AddIndex;
+
+
+ -- 判断数据是否存在 不存在则添加
+
+ insert into permission(id,name,navigation_id,parentid) select '130','印前审查',null,'1' from DUAL WHERE NOT EXISTS(SELECT * FROM permission WHERE id='130');
+ insert into navigation(id,name,parent,path,seq_num,sub_sys,url) select '39','参数配置',11,'/3/11',1,3,null from DUAL WHERE NOT EXISTS(SELECT * FROM navigation WHERE id='39');

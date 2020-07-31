@@ -108,3 +108,52 @@ END$$
 
 DELIMITER ;
 
+
+
+
+
+BEGIN
+    DECLARE v_request_count INT;    #申请次数
+    DECLARE v_plan_count         INT;    #安排次数
+    DECLARE v_learn_count     INT;    #学习次数
+    DECLARE v_learned_count INT;    #已经学习次数
+    DECLARE v_pass_count         INT;    #通过次数
+
+    DECLARE v_cid                     INT;
+    DECLARE v_course_id         INT;
+    
+    DECLARE stop INT DEFAULT 0; /* 终止标记 */ 
+    DECLARE cur CURSOR FOR (SELECT cid, course_id FROM lms_company_course);
+
+    DECLARE CONTINUE HANDLER FOR SQLSTATE '02000' SET stop = 1;
+
+    OPEN cur;
+    FETCH cur INTO v_cid, v_course_id;
+    WHILE stop <> 1 DO
+            
+            #申请次数
+            SELECT @v_request_count:=COUNT(*) FROM lms_course_request WHERE cid=v_cid AND course_id=v_course_id;
+            
+            #安排次数
+            SELECT COUNT(*) INTO @v_plan_count FROM lms_student_course_relation WHERE cid=v_cid AND course_id=v_course_id AND type=2;
+
+            #学习次数
+            SELECT COUNT(*) INTO v_learn_count FROM lms_student_course_relation WHERE cid=v_cid AND course_id=v_course_id;
+        
+            #已经学习次数
+            SET v_learned_count=(SELECT COUNT(*) FROM lms_student_course_relation WHERE cid=v_cid AND course_id=v_course_id AND progress=100);
+
+            #企业课后测试通过率、通过次数            
+            SELECT @qualified_rate:=qualified_rate FROM lms_company_setting WHERE cid = v_cid;
+            SET v_pass_count:=(SELECT COUNT(*) FROM lms_student_course_relation WHERE cid=v_cid AND course_id=v_course_id AND review_test_score>=@qualified_rate);
+            
+            #更新数据
+            UPDATE lms_company_course SET request_count=@v_request_count, plan_count=@v_plan_count, learn_count=v_learn_count,
+            learned_count=v_learned_count, pass_count=v_pass_count
+            WHERE cid=v_cid AND course_id=v_course_id;
+
+    FETCH cur INTO v_cid, v_course_id;
+    END WHILE;
+    CLOSE cur;
+END
+
