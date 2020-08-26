@@ -8,4 +8,7 @@ public class Other {
         val x = Test.class;
         System.out.println(x);
     }
+
+
+
 }

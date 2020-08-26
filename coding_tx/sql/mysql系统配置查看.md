@@ -151,3 +151,28 @@ create database db10;
 # 2.将已有的数据库文件导入到db10数据库中
 mysqdump -u root -d db10 < db1.sql -p
 
+
+
+#mysql锁表
+// 查看进程
+SHOW PROCESSLIST;
+// 查看是否锁表
+SHOW OPEN TABLES WHERE In_use > 0;
+// 查看正在锁的事务
+SELECT * FROM INFORMATION_SCHEMA.INNODB_LOCKS; 
+// 查看等待锁的事务
+    SELECT * FROM INFORMATION_SCHEMA.INNODB_LOCK_WAITS; 
+
+
+第一种
+
+show processlist;
+找到锁进程，kill id ;
+第二种
+mysql>UNLOCK TABLES;
+锁表
+锁定数据表，避免在备份过程中，表被更新
+mysql>LOCK TABLES tbl_name READ;
+为表增加一个写锁定：
+mysql>LOCK TABLES tbl_name WRITE;
+

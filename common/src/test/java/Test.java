@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
  */
 public class Test {
     final Semaphore semaphore = new Semaphore(10);
-//    ExecutorService executorService = Executors.newFixedThreadPool(10);
+    //    ExecutorService executorService = Executors.newFixedThreadPool(10);
     ExecutorService executorService = Executors.newCachedThreadPool();
 
     public static void main(String[] args) {
@@ -74,8 +74,8 @@ public class Test {
 //            add();
         }
         executorService.shutdown();
-        while(true){
-            if(executorService.isTerminated()){
+        while (true) {
+            if (executorService.isTerminated()) {
                 System.out.println("所有的子线程都结束了！");
                 break;
             }
@@ -103,8 +103,8 @@ public class Test {
 
     @org.junit.Test
     public void arrayTest() {
-        String []aaa = new String[0];
-        aaa[0]="ddd";
+        String[] aaa = new String[0];
+        aaa[0] = "ddd";
         System.out.println(aaa[0]);
 
     }
@@ -126,6 +126,18 @@ public class Test {
     public void datefinal() {
         Date parse = DateUtils.parse("9999-12-10");
         System.out.println(parse.getTime());
+
+    }
+
+
+    @org.junit.Test
+    public void testList() {
+        List<String> list = new ArrayList<>();
+        list.add("aaa");
+        list.add("bbb");
+        Set s = new HashSet();
+        s.add("aaa");
+        System.out.println(list.containsAll(s));
 
     }
 }
