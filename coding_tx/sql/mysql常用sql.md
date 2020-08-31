@@ -173,3 +173,34 @@ select a.*,b.* from  meta_object_field a   join
 
 update  meta_object_field a,(select  strategy_id,resource_Id from res_strategy  where strategy_id in( select resource_object_version_id from meta_object_field where resource_object_id=1)) b set a.resource_object_id=b.resource_id  where   
   a.resource_object_version_id= b.strategy_id
+
+
+#查询分组数大于1的数据id
+select object_field_id  from meta_object_field where object_field_id in (select object_field_id from meta_object_field GROUP BY field_code,resource_object_id HAVING count(1)>1)
+
+
+select *  from meta_object_field a , (select  field_code,resource_object_id from meta_object_field GROUP BY field_code,resource_object_id HAVING count(1)>1) b where a.field_code=b.field_code and a.resource_object_id=b.resource_object_id
+
+#查找json串删除数据
+
+##删除所有未被引用的数据
+delete from meta_object_field where field_code like '%NODE%' and object_field_id not in (
+select DISTINCT object_field_id from ( select  object_field_id  from meta_object_field a , (select  field_code,resource_object_id from meta_object_field GROUP BY field_code,resource_object_id HAVING count(1)>1) b where a.field_code=b.field_code and a.resource_object_id=b.resource_object_id and a.field_code like '%NODE%') c ,res_strategy_node d where locate(c.object_field_id,d.node_content)>0)
+##指定策略删除重复数据
+delete from meta_object_field where field_code like '%NODE%' and object_field_id not in (
+select DISTINCT object_field_id from ( select  object_field_id  from meta_object_field a , (select  field_code,resource_object_id from meta_object_field GROUP BY field_code,resource_object_id HAVING count(1)>1) b where a.field_code=b.field_code and a.resource_object_id=b.resource_object_id and a.field_code like '%NODE%') c ,res_strategy_node d where locate(c.object_field_id,d.node_content)>0 and d.strategy_id=105635)
+
+
+
+#列转行
+SELECT  
+studyCode 学号,
+SUM(CASE WHEN subjectS = '国学' THEN  score ELSE 0 END) 国学,
+SUM(CASE WHEN subjectS = '数学' THEN  score ELSE 0 END) 数学,
+SUM(CASE WHEN subjectS = '英语' THEN  score ELSE 0 END) 英语
+   FROM grade
+GROUP BY studyCode;
+
+
+#分组并对某一列的值做拼接
+select a.object_field_id resource_object_id, GROUP_CONCAT(a.object_field_id SEPARATOR ',') 对象 from meta_object_field a  group by a.resource_object_id

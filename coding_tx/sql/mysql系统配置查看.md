@@ -176,3 +176,15 @@ mysql>LOCK TABLES tbl_name READ;
 为表增加一个写锁定：
 mysql>LOCK TABLES tbl_name WRITE;
 
+#查看sql_model
+show variables like '%sql_mode%'
+show variables like 'group_concat_max_len';
+##修改sql_model使其支持以前的语法  兼容以前的sql
+ set session sql_mode='';
+ SET SESSION group_concat_max_len = 4294967295;
+ SET GLOBAL group_concat_max_len = 4294967295;
+select a.object_field_id resource_object_id, GROUP_CONCAT(a.object_field_id SEPARATOR ',') field_id from meta_object_field a  group by a.resource_object_id
+
+
+
+
