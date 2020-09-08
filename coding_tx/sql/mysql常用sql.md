@@ -204,3 +204,21 @@ GROUP BY studyCode;
 
 #分组并对某一列的值做拼接
 select a.object_field_id resource_object_id, GROUP_CONCAT(a.object_field_id SEPARATOR ',') 对象 from meta_object_field a  group by a.resource_object_id
+
+
+
+SELECT DISTINCT
+	c.object_field_id,
+	d.resource_id 
+FROM
+	(
+	SELECT DISTINCT
+		object_field_id,
+		 b.strategy_id
+	-- b.node_content	
+	FROM
+		( SELECT object_field_id FROM meta_object_field WHERE resource_object_id = 1 AND field_type != 'SYS_FIELD' AND field_code LIKE 'NODE%' ) a
+		JOIN res_strategy_node b ON locate( CONCAT(a.object_field_id,'",'), b.node_content ) != 0 
+	) c
+	JOIN res_strategy d ON d.strategy_id = c.strategy_id  ORDER BY object_field_id desc
+	

@@ -1,0 +1,36 @@
+1.  先备份数据库
+
+
+执行  sh est_admin.sh dump 
+
+
+2 如果 执行需要的脚本文件   也可以用于数据库的恢复
+
+
+sh mysql.sh import table_config.sql
+
+
+3备份jar
+
+
+ssh root@192.168.60.136 "cd /root  ; mv anyest-engine-admin-fc_1.2.0-SNAPSHOT.jar anyest-engine-admin-fc_1.2.0-SNAPSHOT.jar_v1"
+ssh root@192.168.60.136 "cd /root  ; mv anyest-data-migration-fc_1.2.0-SNAPSHOT.jar anyest-data-migration-fc_1.2.0-SNAPSHOT.jar_v1"
+
+
+4覆盖jar包
+
+anyest-data-migration-fc_1.2.0-SNAPSHOT.jar
+anyest-engine-admin-fc_1.2.0-SNAPSHOT.jar
+
+
+scp anyest-engine-admin-fc_1.2.0-SNAPSHOT.jar  192.168.60.136:/home/anyest-engine-admin-fc_1.2.0-SNAPSHOT.jar
+scp anyest-engine-admin-fc_1.2.0-SNAPSHOT.jar  192.168.60.136:/home/anyest-data-migration-fc_1.2.0-SNAPSHOT.jar
+
+
+
+5 启管理平台
+
+
+6 执行事件策略的导入
+
+
