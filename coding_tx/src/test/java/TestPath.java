@@ -1,3 +1,6 @@
+import org.junit.Test;
+import org.springframework.util.AntPathMatcher;
+
 import java.net.URL;
 
 /**
@@ -20,5 +23,15 @@ public class TestPath {
         }else{
             System.out.println("系统路径"+""+dataPath);
         }
+    }
+
+    @Test
+    public void antmatch() {
+        AntPathMatcher antPathMatcher = new AntPathMatcher();
+//        boolean aaa = antPathMatcher.match("a", "aaa");
+//        System.out.println(aaa);
+
+        System.out.println(antPathMatcher.match("/**/list/**","/jkjl/jjj/lis"));
+
     }
 }
