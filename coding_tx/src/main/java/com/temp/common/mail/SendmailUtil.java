@@ -22,7 +22,7 @@ public class SendmailUtil {
 //  properties.put("mail.smtp.ssl.enable", "true");//设置是否使用ssl安全连接  ---一般都使用        
 //  properties.put("mail.debug", "true");//设置是否显示debug信息  true 会在控制台显示相关信息    
         	
-        	InputStream  in = new FileInputStream("D:\\idea2018workspace\\component_new\\coding_tx\\src\\main\\java\\com\\temp\\common\\mail\\email.properties");
+        	InputStream  in = new FileInputStream("D:\\workspace\\test_workspace\\coding_tx\\src\\main\\java\\com\\temp\\common\\mail\\email.properties");
         	properties.load(in);
         	
 //得到回话对象        
@@ -41,8 +41,8 @@ message.setText("内容为： JRXJava发送来的邮件。");
  //得到邮差对象        
 Transport transport = session.getTransport();        
 //连接自己的邮箱账户        
-transport.connect("1438131288@qq.com", "ifbyqrpqshkvhdea");//密码为刚才得到的授权码
-//transport.connect("smtp.qq.com",465, "1438131288@qq.com",  "ifbyqrpqshkvhdea");
+transport.connect("1438131288@qq.com", "orocyfwemhjvgdea");//密码为刚才得到的授权码
+//transport.connect("smtp.qq.com",465, "1438131288@qq.com",  "orocyfwemhjvgdea");
 //发送邮件        
 transport.sendMessage(message, message.getAllRecipients());    
 }
