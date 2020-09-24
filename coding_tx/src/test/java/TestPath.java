@@ -34,4 +34,14 @@ public class TestPath {
         System.out.println(antPathMatcher.match("/**/list/**","/jkjl/jjj/lis"));
 
     }
+
+    @Test
+    public void name() {
+        String category="meta_category@OBJECT_EVENT@默认@meta_category@系统";
+        String[] split = category.split("meta_category@");
+        System.out.println(split[0]);
+        System.out.println(split[1]);
+        System.out.println(split[2]);
+        System.out.println(category.replaceAll("meta_category@","").replaceAll("@","/"));
+    }
 }
