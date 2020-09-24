@@ -39,11 +39,11 @@ public class EventEditHistoryHighLightUtil {
         for (int i = 0; i < sourceChars.length; i++) {
             if (tempChars[i] != ' ') {
                 if (i == 0) {
-                    sb.append("<span style='color:red'>").append(sourceChars[i]);
+                    sb.append("<span style='white-space:pre-wrap;color:red'>").append(sourceChars[i]);
                 } else if (flag) {
                     sb.append(sourceChars[i]);
                 } else {
-                    sb.append("<span style='color:red'>").append(sourceChars[i]);
+                    sb.append("<span style='white-space:pre-wrap;color:red'>").append(sourceChars[i]);
                 }
                 flag = true;
                 if (i == sourceChars.length - 1) {
@@ -114,11 +114,12 @@ public class EventEditHistoryHighLightUtil {
  
     @Test
     public void getHighLightDifferentOld() {
-        String a = "测试测试测试仅关注界面和功能，数据准确性在暂不测试";
+        String a = "测试测试测试仅   关注界面和功能，数据准确性在暂不测试";
         String b = "提交留言数据仅关注界面和功能，数据准确性在暂不测试";
         String[] anb = getHighLightDifferent(a, b);
-        anb[1] = anb[1].replaceAll("red", "green");
-        System.out.println(Arrays.toString(anb));
+        anb[1] = anb[1].replaceAll("color:red", "color:green");
+        System.out.println(anb[0]);
+        System.out.println(anb[1]);
     }
  
     //--------------new -------------------------

@@ -1210,11 +1210,11 @@ public class DiffMatchPatch {
                     .replace(">", "&gt;").replace("\n", "&para;<BR>");
             switch (aDiff.operation) {
                 case INSERT:
-                    html.append("<INS STYLE=\"background:#E6FFE6;\" TITLE=\"i=").append(i)
+                    html.append("<INS STYLE=\"white-space:pre-wrap;background:#E6FFE6;\" TITLE=\"i=").append(i)
                             .append("\">").append(text).append("</INS>");
                     break;
                 case DELETE:
-                    html.append("<DEL STYLE=\"background:#FFE6E6;\" TITLE=\"i=").append(i)
+                    html.append("<DEL STYLE=\"white-space:pre-wrap;background:#FFE6E6;\" TITLE=\"i=").append(i)
                             .append("\">").append(text).append("</DEL>");
                     break;
                 case EQUAL:
