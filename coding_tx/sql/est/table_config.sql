@@ -514,6 +514,22 @@ INSERT INTO `table_conversion_key` VALUES (-338, '2020-09-02 14:23:27', b'1', 'm
 INSERT INTO `table_conversion_key` VALUES (-339, '2020-09-02 14:23:27', b'1', 'meta_object_field@node_content.dataSaveItemList.fieldSaveItems.eventModelField.bid', 'defaultTableDataHandler', b'0', b'0', '节点表', 'res_strategy_node');
 INSERT INTO `table_conversion_key` VALUES (-340, '2020-09-02 14:23:27', b'1', 'meta_object_field@node_content.dataSaveItemList.fieldSaveItems.eventModelField.fieldId', 'defaultTableDataHandler', b'0', b'0', '节点表', 'res_strategy_node');
 
+-- 策略组件
+
+INSERT INTO `table_conversion_key`(`id`, `create_time`, `used`, `conversion_key`, `handle_bean_name`, `is_json_object`, `is_multiple_relation`, `table_code_china_name`, `table_code_name`) VALUES (-605, '2020-09-02 14:23:27', b'1', 'meta_object_field@out_param_fields.fieldId', 'defaultTableDataHandler', b'0', b'0', '脚本表', 'res_script');
+INSERT INTO `table_conversion_key`(`id`, `create_time`, `used`, `conversion_key`, `handle_bean_name`, `is_json_object`, `is_multiple_relation`, `table_code_china_name`, `table_code_name`) VALUES (-604, '2020-09-02 14:23:27', b'1', 'meta_object_field@out_param_fields.bid', 'defaultTableDataHandler', b'0', b'0', '脚本表', 'res_script');
+INSERT INTO `table_conversion_key`(`id`, `create_time`, `used`, `conversion_key`, `handle_bean_name`, `is_json_object`, `is_multiple_relation`, `table_code_china_name`, `table_code_name`) VALUES (-603, '2020-09-02 14:23:27', b'1', 'meta_object_field@column_field_ids', 'defaultTableDataHandler', b'0', b'0', '决策矩阵表', 'res_matrix');
+INSERT INTO `table_conversion_key`(`id`, `create_time`, `used`, `conversion_key`, `handle_bean_name`, `is_json_object`, `is_multiple_relation`, `table_code_china_name`, `table_code_name`) VALUES (-602, '2020-09-02 14:23:27', b'1', 'meta_object_field@hit_output.outField.fieldId', 'defaultTableDataHandler', b'0', b'0', '规则版本表', 'res_rule');
+INSERT INTO `table_conversion_key`(`id`, `create_time`, `used`, `conversion_key`, `handle_bean_name`, `is_json_object`, `is_multiple_relation`, `table_code_china_name`, `table_code_name`) VALUES (-601, '2020-09-02 14:23:27', b'1', 'meta_object_field@items.conditionField.referFieldBids', 'defaultTableDataHandler', b'0', b'0', '评分卡表', 'res_score_card');
+INSERT INTO `table_conversion_key`(`id`, `create_time`, `used`, `conversion_key`, `handle_bean_name`, `is_json_object`, `is_multiple_relation`, `table_code_china_name`, `table_code_name`) VALUES (-600, '2020-09-02 14:23:27', b'1', 'meta_object_field@derive_content.dimensionFieldBids', 'defaultTableDataHandler', b'0', b'0', '字段表', 'meta_object_field');
+INSERT INTO `table_conversion_key`(`id`, `create_time`, `used`, `conversion_key`, `handle_bean_name`, `is_json_object`, `is_multiple_relation`, `table_code_china_name`, `table_code_name`) VALUES (-343, '2020-09-02 14:23:27', b'1', 'meta_object_field@score_field_id', 'defaultTableDataHandler', b'0', b'0', '规则版本表', 'res_score_card');
+INSERT INTO `table_conversion_key`(`id`, `create_time`, `used`, `conversion_key`, `handle_bean_name`, `is_json_object`, `is_multiple_relation`, `table_code_china_name`, `table_code_name`) VALUES (-342, '2020-09-02 14:23:27', b'1', 'meta_data_object_info|meta_model_object_info|meta_topic_object_info@items.conditionField.referFields.resourceObjectId', 'defaultTableDataHandler', b'0', b'0', '规则版本表', 'res_score_card');
+INSERT INTO `table_conversion_key`(`id`, `create_time`, `used`, `conversion_key`, `handle_bean_name`, `is_json_object`, `is_multiple_relation`, `table_code_china_name`, `table_code_name`) VALUES (-341, '2020-09-02 14:23:27', b'1', 'meta_object_field@items.conditionField.expressionUnits.code', 'defaultTableDataHandler', b'0', b'0', '规则版本表', 'res_score_card');
+
+
+
+
+
 
 
 

@@ -4,6 +4,7 @@ package ${package.Entity};
 import ${pkg};
 </#list>
 <#if swagger2>
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 </#if>
@@ -15,8 +16,8 @@ import io.swagger.annotations.ApiModelProperty;
 
 /**
 * <p>
-* ${table.comment!}
-* </p>
+    * ${table.comment!}
+    * </p>
 *
 * @author ${author}
 * @since ${date}

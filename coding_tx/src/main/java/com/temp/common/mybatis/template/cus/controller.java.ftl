@@ -1,6 +1,8 @@
 package ${package.Controller};
 
+
 import org.springframework.web.bind.annotation.RequestMapping;
+
 <#if restControllerStyle>
 import org.springframework.web.bind.annotation.RestController;
 <#else>
@@ -12,7 +14,8 @@ import ${superControllerClassPackage};
 
 /**
 * <p>
-* ${table.comment!}
+* ${table.comment!} 前端控制器
+    ${自定义参数!"有值"}
 * </p>
 *
 * @author ${author}
