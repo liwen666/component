@@ -39,3 +39,4 @@ mvn install:install-file -DgroupId=jrx.auth.frontend -DartifactId=restrict-front
 
 mvn install:install-file -DgroupId=io.confluent -DartifactId=kafka-schema-registry-client -Dversion=4.1.0 -Dpackaging=jar -Dfile=kafka-schema-registry-client-4.1.0.jar
 
+mvn install:install-file -DgroupId=org.apache.zeppelin -DartifactId=zeppelin-client -Dversion=0.9.0 -Dpackaging=jar -Dfile=zeppelin-client-0.9.0-SNAPSHOT.jar

@@ -71,5 +71,12 @@ public class TestFieldTest
         }
     }
 
+
+    @Test
+    public void str() {
+        String  name = "aa$";
+        System.out.println(name.replaceAll("a","a\\$"));
+
+    }
 }
 

@@ -1,11 +1,12 @@
 查看系统连接使用情况
-
+spring的自定义bean排除法
+@ComponentScan(value = "jrx.anyest", excludeFilters = @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = {RedisConfig.class}))
 show variables like '%connect%';
 
 SHOW VARIABLES LIKE '%log_bin%';
 
 设置单个用户最大连接数
-set global max_user_connections=6000;
+set global max_user_connections=1000;
 
 查看连接情况
 SHOW PROCESSLIST
@@ -13,7 +14,7 @@ SHOW PROCESSLIST
 show status
 
 
-set GLOBAL max_connections=15000
+set GLOBAL max_connections=1500
 
 
 #mysql  系统时间问题

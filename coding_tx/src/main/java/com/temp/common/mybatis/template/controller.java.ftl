@@ -12,7 +12,7 @@ import ${superControllerClassPackage};
 
 /**
 * <p>
-* ${table.comment!}
+* 描述 ${table.comment!}
 * </p>
 *
 * @author ${author}

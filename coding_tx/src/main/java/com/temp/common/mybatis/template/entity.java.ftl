@@ -8,14 +8,17 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 </#if>
 <#if entityLombokModel>
- import lombok.*;
- import lombok.experimental.Accessors;
- import lombok.extern.slf4j.Slf4j;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 </#if>
 
 /**
 * <p>
-* ${table.comment!}
+* 描述 ${table.comment!}
 * </p>
 *
 * @author ${author}
@@ -23,18 +26,16 @@ import io.swagger.annotations.ApiModelProperty;
 */
 
 <#if entityLombokModel>
-@Data
+@Getter
+@Setter
 @Slf4j
- @Builder
- @NoArgsConstructor
- @AllArgsConstructor
+@NoArgsConstructor
+@AllArgsConstructor
  <#if superEntityClass??>
- @EqualsAndHashCode(callSuper = true)
+@EqualsAndHashCode(callSuper = true)
  <#else>
- @EqualsAndHashCode(callSuper = false)
+@EqualsAndHashCode(callSuper = false)
  </#if>
-
-@Accessors(chain = true)
 </#if>
 <#if table.convert>
 @TableName("${table.name}")

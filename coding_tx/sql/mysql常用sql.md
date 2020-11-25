@@ -222,3 +222,37 @@ FROM
 	) c
 	JOIN res_strategy d ON d.strategy_id = c.strategy_id  ORDER BY object_field_id desc
 	
+	
+#查询字段
+select min(object_field_id) from meta_object_field where field_code in ('node_result','node_type_name','node_type','node_name','node_key') GROUP BY field_code HAVING count(1)>1  ORDER BY object_field_id desc
+
+
+#清理脏数据
+
+租户101 脏数据处理
+
+
+
+update meta_object_field set object_type='DATA' where field_code='node_result';
+update meta_object_field set object_type='DATA' where field_code='node_type_name';
+update meta_object_field set object_type='DATA' where field_code='node_type';
+update meta_object_field set object_type='DATA' where field_code='node_name';
+update meta_object_field set object_type='DATA' where field_code='node_key';
+
+
+select count(1) num, field_code ,resource_object_id from meta_object_field  where 1=1      and object_type !='NODE_FEATURE' GROUP BY resource_object_id,field_code ORDER BY num desc
+
+
+create table temp1  (select object_field_id  from meta_object_field where object_field_id not in (select min(object_field_id) from meta_object_field where field_code in ('node_result','node_type_name','node_type','node_name','node_key') GROUP BY field_code HAVING count(1)>1 )and field_code in ('node_result','node_type_name','node_type','node_name','node_key'));
+
+delete from meta_object_field where object_field_id in (select * from temp1);
+DROP table temp1;
+update meta_data_object set field_ids='22473,22484,22474,22485,22475,22486,22476,22487,22477,22478,22479,22480,22481,22482,22483' where data_object_id=290756
+
+
+
+update meta_data_object set field_ids='22473,22484,22474,22485,22475,22486,22476,22487,22477,22478,22479,22480,22481,22482,22483' where data_object_id=(select max(data_object_id)from meta_data_object where resource_id=22471)
+
+
+
+uat环境清理脏数据
