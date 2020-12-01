@@ -12,6 +12,12 @@ set global max_user_connections=1000;
 SHOW PROCESSLIST
 
 show status
+黄勇:
+show engine innodb status;
+
+黄勇:
+SELECT * FROM INFORMATION_SCHEMA.INNODB_TRX;
+
 
 
 set GLOBAL max_connections=1500
