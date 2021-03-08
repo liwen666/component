@@ -1,3 +1,4 @@
+import jrx.est.Application;
 import org.junit.Test;
 import org.springframework.util.AntPathMatcher;
 
@@ -43,5 +44,11 @@ public class TestPath {
         System.out.println(split[1]);
         System.out.println(split[2]);
         System.out.println(category.replaceAll("meta_category@","").replaceAll("@","/"));
+    }
+
+    @Test
+    public void classForName() throws ClassNotFoundException {
+        Class<? extends Application> appClass = (Class<? extends Application>) Class.forName("jrx.est.TestFieldTest", false, Thread.currentThread().getContextClassLoader());
+        System.out.println(appClass);
     }
 }

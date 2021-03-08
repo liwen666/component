@@ -5,12 +5,13 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import org.junit.Test;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
 import static org.junit.Assert.*;
 
-public class TestFieldTest
+public class TestFieldTest extends Application
 {
     @Test
     public void name() {
@@ -76,6 +77,21 @@ public class TestFieldTest
     public void str() {
         String  name = "aa$";
         System.out.println(name.replaceAll("a","a\\$"));
+
+    }
+
+    @Override
+    protected void doStop() {
+
+    }
+
+    @Override
+    public String getName() {
+        return null;
+    }
+
+    @Override
+    public void close() throws IOException {
 
     }
 }

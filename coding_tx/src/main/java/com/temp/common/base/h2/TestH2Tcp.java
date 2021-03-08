@@ -20,7 +20,7 @@ public class TestH2Tcp {
 //    private static final String JDBC_URL = "jdbc:h2:tcp://127.0.0.1/c:/Users/pc/Desktop/独立部署工作流/h2db/testbpmn";
 //    private static final String JDBC_URL = "jdbc:h2:tcp://127.0.0.1:8044/c:/Users/pc/Desktop/独立部署工作流/h2db/testbpmn";
 //		private static final String JDBC_URL = "jdbc:h2:mem:testbpmn";
-	 private static final String JDBC_URL = "jdbc:h2:tcp://192.168.9.180:8043/mem:testbpmn";
+	 private static final String JDBC_URL = "jdbc:h2:tcp://192.168.60.1:8043/mem:testbpmn";
 //    private static final String JDBC_URL = "jdbc:h2:tcp://127.0.0.1/C:/Users/pc/Desktop/独立部署工作流/h2db/testbpmn";
     //连接数据库时使用的用户名
     private static final String USER = "gacl";
@@ -37,11 +37,12 @@ public class TestH2Tcp {
         Statement stmt = conn.createStatement();
         //如果存在USER_INFO表就先删除USER_INFO表
         
-        ResultSet rs = stmt.executeQuery("SELECT * FROM act_hq_tem_def");
+        ResultSet rs = stmt.executeQuery("SELECT 1 as id FROM dual");
         
         //遍历结果集
         while (rs.next()) {
-            System.out.println(rs.getString("id") + "," + rs.getString("name"));
+            System.out.println(rs.getString("id"));
+//            System.out.println(rs.getString("id") + "," + rs.getString("name"));
         }
         //不可以连续执行两次查询，否则报object close错误
 //        ResultSet rs2 = stmt.executeQuery("SELECT * FROM act_hq_tem_def");

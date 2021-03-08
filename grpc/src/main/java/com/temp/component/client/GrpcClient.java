@@ -1,13 +1,8 @@
 package com.temp.component.client;
 
-import com.temp.component.grpc.GrpcRequest;
-import com.temp.component.grpc.GrpcResponse;
 import com.temp.component.grpc.GrpcServerGrpc;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
-import io.grpc.examples.helloworld.GreeterGrpc;
-import io.grpc.examples.helloworld.HelloReply;
-import io.grpc.examples.helloworld.HelloRequest;
 
 import java.util.concurrent.TimeUnit;
 

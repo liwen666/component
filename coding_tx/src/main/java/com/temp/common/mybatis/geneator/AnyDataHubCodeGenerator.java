@@ -89,7 +89,7 @@ public class AnyDataHubCodeGenerator {
         // 数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
 //        dsc.setUrl("jdbc:mysql://192.168.42.136:3306/data_flow_test?useUnicode=true&useSSL=false&characterEncoding=utf8");
-        dsc.setUrl("jdbc:mysql://192.168.137.111:3306/any_data_hub?useUnicode=true&useSSL=false&characterEncoding=utf8");
+        dsc.setUrl("jdbc:mysql://11.11.1.79:3306/any_data_hub2.0?useUnicode=true&useSSL=false&characterEncoding=utf8");
         // dsc.setSchemaName("public");
         dsc.setDriverName("com.mysql.jdbc.Driver");
         dsc.setUsername("root");
@@ -149,7 +149,8 @@ public class AnyDataHubCodeGenerator {
 //        strategy.setSuperControllerClass("com.baomidou.ant.common.BaseController");
 //        strategy.setInclude(scanner("表名"));
 //        strategy.setInclude("mc_user","meta_category","meta_data_object","meta_data_object_info","meta_data_source_info","meta_function","meta_function_info","meta_job_info","meta_job_object","meta_object_field","meta_work_info","meta_relation_info");
-        strategy.setInclude("meta_tenant");
+//        strategy.setInclude("meta_tenant");
+        strategy.setInclude("debezium_analysis_version","debezium_binlog_analysis_info");
 //        strategy.setExclude(..);
 //        strategy.setSuperEntityColumns("id");
         strategy.setControllerMappingHyphenStyle(true);
