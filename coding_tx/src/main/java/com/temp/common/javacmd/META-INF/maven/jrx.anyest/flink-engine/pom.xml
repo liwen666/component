@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>any-data-hub-component</artifactId>
+        <groupId>jrx.anyest</groupId>
+        <version>1.2.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>flink-engine</artifactId>
+    <dependencies>
+
+
+        <!-- Flink dependencies -->
+
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-core</artifactId>
+            <version>${flink.version}</version>
+        </dependency>
+
+        <!-- Add a logging Framework, to make the examples produce -->
+        <!--             logs when executing in the IDE            -->
+
+        <!--<dependency>-->
+            <!--<groupId>org.apache.logging.log4j</groupId>-->
+            <!--<artifactId>log4j-slf4j-impl</artifactId>-->
+            <!--<scope>compile</scope>-->
+        <!--</dependency>-->
+
+        <!--<dependency>-->
+            <!--<groupId>org.apache.logging.log4j</groupId>-->
+            <!--<artifactId>log4j-api</artifactId>-->
+            <!--<scope>compile</scope>-->
+        <!--</dependency>-->
+
+        <!--<dependency>-->
+            <!--<groupId>org.apache.logging.log4j</groupId>-->
+            <!--<artifactId>log4j-core</artifactId>-->
+            <!--<scope>compile</scope>-->
+        <!--</dependency>-->
+
+        <!--<dependency>-->
+            <!--<groupId>org.apache.flink</groupId>-->
+            <!--<artifactId>flink-test-utils-junit</artifactId>-->
+            <!--<version>${flink.version}</version>-->
+        <!--</dependency>-->
+
+
+
+        <!-- Table ecosystem -->
+
+
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-connector-kafka_${scala.binary.version}</artifactId>
+            <version>${flink.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-json</artifactId>
+            <version>${flink.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-connector-jdbc_${scala.binary.version}</artifactId>
+            <version>${flink.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-table-api-java-bridge_${scala.binary.version}</artifactId>
+            <version>${flink.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-table-api-scala-bridge_${scala.binary.version}</artifactId>
+            <version>${flink.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.ververica</groupId>
+            <artifactId>flink-connector-mysql-cdc</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-table-planner_${scala.binary.version}</artifactId>
+            <version>${flink.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-table-planner-blink_${scala.binary.version}</artifactId>
+            <version>${flink.version}</version>
+        </dependency>
+
+        <!-- Table connectors and formats -->
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-csv</artifactId>
+            <version>${flink.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-table-api-java</artifactId>
+            <version>${flink.version}</version>
+        </dependency>
+
+        <!-- Flink core -->
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-streaming-scala_${scala.binary.version}</artifactId>
+            <version>${flink.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-clients_${scala.binary.version}</artifactId>
+            <version>${flink.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>jrx.anyest</groupId>
+            <artifactId>any-data-client</artifactId>
+        </dependency>
+
+        <!-- Test dependencies -->
+        <!--<dependency>-->
+            <!--<groupId>org.apache.flink</groupId>-->
+            <!--<artifactId>flink-test-utils_${scala.binary.version}</artifactId>-->
+            <!--<version>${flink.version}</version>-->
+            <!--<scope>test</scope>-->
+        <!--</dependency>-->
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>net.alchim31.maven</groupId>
+                <artifactId>scala-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>scala-compile-first</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>add-source</goal>
+                            <goal>compile</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>scala-test-compile</id>
+                        <phase>process-test-resources</phase>
+                        <goals>
+                            <goal>testCompile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>UpdatingTopCityExample</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+
+                        <configuration>
+                            <classifier>UpdatingTopCityExample</classifier>
+
+                            <archive>
+                                <manifestEntries>
+                                    <program-class>org.apache.flink.table.examples.java.basics.UpdatingTopCityExample</program-class>
+                                </manifestEntries>
+                            </archive>
+
+                            <includes>
+                                <include>jrx/data/hub/flink/UpdatingTopCityExample*</include>
+                                <include>META-INF/LICENSE</include>
+                                <include>META-INF/NOTICE</include>
+                            </includes>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>SQLExampleData2PG</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+
+                        <configuration>
+                            <classifier>SQLExampleData2PG</classifier>
+
+                            <archive>
+                                <manifestEntries>
+                                    <program-class>jrx.data.hub.flink.data.SQLExampleData2PG</program-class>
+                                </manifestEntries>
+                            </archive>
+
+                            <includes>
+                                <include>jrx/data/hub/flink/data/SQLExampleData2PG*</include>
+                                <include>META-INF/LICENSE</include>
+                                <include>META-INF/NOTICE</include>
+                            </includes>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!--simplify the name of example JARs for build-target/examples -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>1.7</version>
+                <executions>
+                    <execution>
+                        <id>rename</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>rename</id>
+                        <configuration>
+                            <target>
+                                <!--<copy file="${project.basedir}/target/flink-engine-2.0.0-UpdatingTopCityExample.jar" tofile="${project.basedir}/target/UpdatingTopCityExample.jar"/>-->
+                                <!--<copy file="${project.basedir}/target/flink-engine-2.0.0-SQLExampleData2PG.jar" tofile="${project.basedir}/target/SQLExampleData2PG.jar"/>-->
+                            </target>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

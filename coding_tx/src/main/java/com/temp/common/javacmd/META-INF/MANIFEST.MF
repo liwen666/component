@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Implementation-Title: flink-engine
+Implementation-Version: 1.2.0
+Built-By: liwen
+Implementation-Vendor-Id: jrx.anyest
+program-class: jrx.data.hub.flink.data.SQLExampleData2PG
+Created-By: Apache Maven 3.3.9
+Build-Jdk: 1.8.0_191
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/any-data-hub-parent/any-data-hub-component/flink-en
+ gine
+

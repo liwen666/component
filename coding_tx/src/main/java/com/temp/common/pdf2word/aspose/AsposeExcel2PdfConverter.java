@@ -17,8 +17,9 @@ import com.aspose.cells.Workbook;
 public class AsposeExcel2PdfConverter {
 
     public static void main(String[] args) {
-        xls2pdf("c:/aaa.xls", "c:/aaa.pdf");
-        xls2pdf("c:/bbb.xlsx", "c:/bbb.pdf");
+//        xls2pdf("c:/aaa.xls", "c:/aaa.pdf");
+//        xls2pdf("c:/bbb.xlsx", "c:/bbb.pdf");
+        xls2pdf("D:\\文档\\开发文档\\数据管理平台任务细分.xlsx", "D:\\文档\\开发文档\\数据管理平台任务细分.pdf");
     }
 
     public static void xls2pdf(String excelPath, String pdfPath) {
