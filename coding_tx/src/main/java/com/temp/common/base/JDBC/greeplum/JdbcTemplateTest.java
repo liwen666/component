@@ -30,7 +30,7 @@ public class JdbcTemplateTest {
         //设置连接参数
         dataSourceSSO.setDriverClassName("com.pivotal.jdbc.GreenplumDriver");
 //        dataSourceSSO.setUrl("jdbc:pivotal:greenplum://172.16.101.19:5432;DatabaseName=zzz_data_tpl");
-        dataSourceSSO.setUrl("jdbc:pivotal:greenplum://172.16.101.19:5432;DatabaseName=postgres");
+        dataSourceSSO.setUrl("jdbc:pivotal:greenplum://10.0.22.87:5432;DatabaseName=postgres");
         dataSourceSSO.setUsername("gpadmin");
         dataSourceSSO.setPassword("gpadmin");
         //配置初始化大小、最小、最大
@@ -56,9 +56,10 @@ public class JdbcTemplateTest {
     public void gpSelect() throws SQLException, ClassNotFoundException {
         Connection greenplumConnection = JdbcUtils.getGreenplumConnection();
         Statement statement = greenplumConnection.createStatement();
-        ResultSet resultSet = statement.executeQuery("select * from zzz_data_tpl.gp_toolkit.user_tbl");
+//        ResultSet resultSet = statement.executeQuery("select * from anyest.gp_record");
+        ResultSet resultSet = statement.executeQuery("select * from gp_record");
         while (resultSet.next()) {
-            String id_ = resultSet.getString("name");
+            String id_ = resultSet.getString("key");
             System.out.println(id_);
 
         }
