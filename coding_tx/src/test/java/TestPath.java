@@ -1,8 +1,11 @@
+import com.temp.common.common.util.DateUtil;
+import com.temp.common.common.util.DateUtils;
 import jrx.est.Application;
 import org.junit.Test;
 import org.springframework.util.AntPathMatcher;
 
 import java.net.URL;
+import java.util.Date;
 
 /**
  * <p>
@@ -50,5 +53,16 @@ public class TestPath {
     public void classForName() throws ClassNotFoundException {
         Class<? extends Application> appClass = (Class<? extends Application>) Class.forName("jrx.est.TestFieldTest", false, Thread.currentThread().getContextClassLoader());
         System.out.println(appClass);
+    }
+
+
+    @Test
+    public void str() {
+        String abc="2021-03-23 17:11:22";
+        Date date = DateUtils.parse(abc);
+        long time = date.getTime();
+        System.out.println(time);
+
+
     }
 }

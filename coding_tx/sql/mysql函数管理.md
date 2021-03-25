@@ -83,3 +83,54 @@ END;;
 3.在MySQL配置文件my.ini或my.cnf中的[mysqld]段上加log-bin-trust-function-creators=1
 
 网络上的其他方案.也是一样的
+
+
+CREATE TABLE `sequence` (
+  `name` varchar(50) COLLATE utf8_bin NOT NULL COMMENT '序列的名字',
+  `current_value` int(11) NOT NULL COMMENT '序列的当前值',
+  `increment` int(11) NOT NULL DEFAULT '1' COMMENT '序列的自增值',
+  PRIMARY KEY (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+#获取当前值
+DROP FUNCTION IF EXISTS currval; 
+DELIMITER $ 
+CREATE FUNCTION currval (seq_name VARCHAR(50)) 
+     RETURNS INTEGER
+     LANGUAGE SQL 
+     DETERMINISTIC 
+     CONTAINS SQL 
+     SQL SECURITY DEFINER 
+     COMMENT ''
+BEGIN
+     DECLARE value INTEGER; 
+     SET value = 0; 
+			 SELECT current_value INTO value 
+          FROM sequence
+          WHERE name = seq_name; 
+			if value=0 then 
+			insert into sequence VALUES (seq_name,1,1);
+			end if;
+     RETURN value; 
+END
+$ 
+DELIMITER ; 
+
+#获取下一个值
+
+DROP FUNCTION IF EXISTS nextval; 
+DELIMITER $ 
+CREATE FUNCTION nextval (seq_name VARCHAR(50)) 
+     RETURNS INTEGER
+     LANGUAGE SQL 
+     DETERMINISTIC 
+     CONTAINS SQL 
+     SQL SECURITY DEFINER 
+     COMMENT ''
+BEGIN
+     UPDATE sequence
+          SET current_value = current_value + increment 
+          WHERE name = seq_name; 
+     RETURN currval(seq_name); 
+END
+$ 
+DELIMITER ; 

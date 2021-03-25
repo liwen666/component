@@ -75,3 +75,6 @@ CREATE TABLE `mc_team` (
 
  增加主键:alter table your_table_name add primary key (your_primary_key_name);//最后边的那个()一点要有;
 增加外键:alter table your_table_name add foreign key your_foreign_key_id(your_foerign_key_name) references zhu_jian_table_name(your_foreign_key_name);
+
+
+

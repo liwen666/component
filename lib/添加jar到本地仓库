@@ -68,3 +68,7 @@ mvn install:install-file -DgroupId=com.temp -DartifactId=aspose.pdf -Dversion=17
 
 mvn install:install-file -DgroupId=com.temp -DartifactId=spire.doc -Dversion=17.3.0 -Dpackaging=jar -Dfile=Spire.Doc.jar
 mvn install:install-file -DgroupId=com.temp -DartifactId=spire.pdf -Dversion=17.3.0 -Dpackaging=jar -Dfile=Spire.Pdf.jar
+
+
+
+D:\flink12.2\maven\apache-maven-3.6.3\bin\mvn -s D:\flink12.2\maven\apache-maven-3.6.3\conf\settings.xml  install:install-file -DgroupId=com.temp -DartifactId=spire.pdf -Dversion=17.3.0 -Dpackaging=jar -Dfile=Spire.Pdf.jar

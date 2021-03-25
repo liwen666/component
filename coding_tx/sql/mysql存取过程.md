@@ -30,6 +30,7 @@ END;
 
 #生成流水号函数
 DELIMITER //  
+DROP FUNCTION IF EXISTS `rand_num`//
 CREATE FUNCTION rand_num()
 RETURNS INT(5)
 DETERMINISTIC 
@@ -37,6 +38,30 @@ BEGIN
  DECLARE i INT DEFAULT 0;
  SET i = FLOOR(10+RAND()*500);
     #set i = CEIL(RAND() * 9000000000) + 1000000000;
+RETURN i;
+END//
+DELIMITER ;
+
+DELIMITER $$
+DROP FUNCTION IF EXISTS genPerson$$
+CREATE FUNCTION genPerson(name varchar(20)) RETURNS varchar(50)
+BEGIN
+  DECLARE str VARCHAR(50) DEFAULT '';
+  SET @tableName=name;
+  SET str=CONCAT('create table ', @tableName,'(id int, name varchar(20));');
+  return str;
+END $$
+DELIMITER ;
+
+
+DELIMITER //  
+DROP FUNCTION IF EXISTS `rand_num`//
+CREATE FUNCTION rand_num()
+RETURNS INT(5)
+DETERMINISTIC 
+BEGIN
+ DECLARE i INT DEFAULT 0;
+    set i = CEIL(RAND() * 9000000000) + 1000000000;
 RETURN i;
 END//
 DELIMITER ;
