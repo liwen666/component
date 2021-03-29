@@ -82,7 +82,7 @@ public class CharUtils {
 }
 class Char{
     public static void main(String[] args) {
-        String str="abcdefghijklmnopqrstuvwxyz1234567890!@$%^&*()_+=-|/\\{}[]'\"?><,.\r\n\t";
+        String str="  abcdefghijklmnopqrstuvwxyz1234567890!@$%^&*()_+=-|/\\{}[]'\"?><,.\r\n\t";
         char[] chars = str.toCharArray();
         List<Tuple2<String,Integer>> charArr= new ArrayList<>();
         for(char c:chars){
