@@ -1,12 +1,8 @@
 package com.temp.common.base.aspectj;
+
 import com.temp.common.base.aspectj.high.ControllerTx;
-import com.temp.common.base.springannotation.base.ScanClass;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.test.context.ContextConfiguration;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 
 
@@ -24,7 +20,7 @@ public class UserServiceTest {
 
       context.destroy();
 }
-       
+
 
 }
 class  UserServiceTx2{

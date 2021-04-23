@@ -1,4 +1,4 @@
-package com.temp.common.utils;
+package com.temp.common.complier.jarhome;
 
 import java.io.*;
 import java.util.Enumeration;
@@ -26,13 +26,15 @@ public class JarFileReplaceUtil {
     public static void replaceFile(String jarPath, String sourcePath, String destPath) throws IOException {
         String jarName = jarPath.substring(jarPath.lastIndexOf(File.separator), jarPath.lastIndexOf("."));
         File file = new File(jarPath);
+        File destFile = new File(jarPath.substring(0, jarPath.lastIndexOf(File.separator)) + jarName + "_cp.jar");
+        file.renameTo(destFile);
         // 将jar文件名重命名为jarName_cp.jar
 
         JarFile jarFile = null;
         InputStream in = null;
         JarOutputStream out = null;
         try {
-            jarFile = new JarFile(file);
+            jarFile = new JarFile(destFile);
             out = new JarOutputStream(new FileOutputStream(file));
             Enumeration<JarEntry> enumeration = jarFile.entries();
             while (enumeration.hasMoreElements()) {
@@ -81,6 +83,8 @@ public class JarFileReplaceUtil {
                 }
             }
         }
+
+        destFile.delete();
     }
 
     private static boolean isaBoolean(InputStream in) {
@@ -88,9 +92,9 @@ public class JarFileReplaceUtil {
     }
 
     public static void main(String[] args) {
-        String jarPath = "D:\\workspace\\scheduling-app\\flink-job-schedule\\target\\flink-job-schedule-1.0-SNAPSHOT.jar";
-        String sourcePath = "D:\\workspace\\scheduling-app\\job-upgrade\\target\\job-upgrade-1.0-SNAPSHOT.jar";
-        String destPath = "BOOT-INF\\lib\\job-upgrade-1.0-SNAPSHOT.jar";
+        String jarPath = "D:\\work\\any-data-hub-parent\\any-data-processor\\src\\main\\resources\\job\\rrrrr1\\dcbdf947400547859929fae8824d18e4\\job-cdc-1.0.0-SNAPSHOT.jar";
+        String sourcePath = "D:\\work\\any-data-hub-parent\\any-data-processor\\src\\main\\resources\\job\\rrrrr1\\dcbdf947400547859929fae8824d18e4\\job.json";
+        String destPath = "job.json";
         try {
             JarFileReplaceUtil.replaceFile(jarPath, sourcePath, destPath);
         } catch (IOException e) {

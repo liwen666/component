@@ -33,7 +33,7 @@ public class compiler2 {
                 fileInputStream.read(cache);
                 String java = new String(cache, "utf-8");
                 JavaParseObject build = new JavaParseObject().build(java);
-                Map<String, byte[]> results = new JavaStringCompiler().compile(e.getName(), java);
+                Map<String, byte[]> results = new JavaStringCompiler().compile(e.getName(), java,"");
                 File outFile = new File(outPath + e.getName().split("\\.")[0] + ".class");
                 FileOutputStream outputStream = new FileOutputStream(outFile);
                 outputStream.write(results.entrySet().iterator().next().getValue());

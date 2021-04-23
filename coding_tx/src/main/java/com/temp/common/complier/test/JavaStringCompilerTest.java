@@ -45,7 +45,7 @@ public class JavaStringCompilerTest {
 
 	@Test
 	public void testCompileSingleClass() throws Exception {
-		Map<String, byte[]> results = compiler.compile("UserProxy.java", SINGLE_JAVA);
+		Map<String, byte[]> results = compiler.compile("UserProxy.java", SINGLE_JAVA,"");
 		assertEquals(1, results.size());
 		assertTrue(results.containsKey("on.the.fly.UserProxy"));
 		Class<?> clazz = compiler.loadClass("on.the.fly.UserProxy", results);
@@ -99,7 +99,7 @@ public class JavaStringCompilerTest {
 
 	@Test
 	public void testCompileMultipleClasses() throws Exception {
-		Map<String, byte[]> results = compiler.compile("Multiple.java", MULTIPLE_JAVA);
+		Map<String, byte[]> results = compiler.compile("Multiple.java", MULTIPLE_JAVA,"");
 		assertEquals(4, results.size());
 		assertTrue(results.containsKey("on.the.fly.Multiple"));
 		assertTrue(results.containsKey("on.the.fly.Multiple$StaticBird"));

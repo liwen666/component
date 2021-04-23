@@ -19,6 +19,16 @@ jar -cvfm "C:\Users\liwen\Desktop\test\test.jar"  META-INF/MANIFEST.MF -C "." .
 
 jar -cvfm "C:\Users\liwen\Desktop\test\test.jar"  MANIFEST.MF -C "." .
 
+
+jar -cvfm "flink-job.jar"  META-INF/MANIFEST.MF -C "." .
+
+
+#springboot项目打包
+表示不产生清单，不压缩
+
+jar  -cvfM0 flink-job.jar . 
+
+
 #列出文件
 jar -tvf test.jar | grep MANIFEST.MF
 
