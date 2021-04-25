@@ -1,5 +1,6 @@
 package com.temp.common.complier.test.demo3;
 
+import com.temp.common.complier.high.SystemUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.flink.api.java.utils.ParameterTool;
 
@@ -42,7 +43,7 @@ public class DynamicClassLoad {
                 // 获取系统类加载器
                 URLClassLoader classLoader = (URLClassLoader) ClassLoader.getSystemClassLoader();
                 for (File file : jarFiles) {
-                    jarPaths.append(file.getPath()).append(";");
+                    jarPaths.append(file.getPath()).append((SystemUtils.isWin() ? ";" : ":"));
                     URL url = file.toURI().toURL();
                     try {
                         method.invoke(classLoader, url);

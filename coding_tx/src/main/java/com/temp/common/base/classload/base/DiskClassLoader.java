@@ -19,7 +19,8 @@ public class DiskClassLoader extends ClassLoader {
     @Override
     protected Class<?> findClass(String name) throws ClassNotFoundException {
         // TODO Auto-generated method stub
-        Class<?> loadedClass = findLoadedClass(name); //解决了重复加载报错问题，但是无法热加载
+        Class<?> loadedClass = findLoadedClass(name);
+        //解决了重复加载报错问题，但是无法热加载
         if(null==loadedClass){
             String fileName = getFileName(name);
 

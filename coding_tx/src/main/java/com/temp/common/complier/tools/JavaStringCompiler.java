@@ -2,6 +2,7 @@ package com.temp.common.complier.tools;
 
 import com.temp.common.base.sqlscript.controller.JsonUtil;
 import com.temp.common.common.util.JsonUtils;
+import com.temp.common.complier.high.SystemUtils;
 
 import javax.tools.*;
 import javax.tools.JavaCompiler.CompilationTask;
@@ -42,9 +43,10 @@ public class JavaStringCompiler {
             JavaFileObject javaFileObject = manager.makeStringSource(fileName, source);
             List<String> optionList = new ArrayList<>();
             optionList.add("-classpath");
-            optionList.add(System.getProperty("java.class.path") + ";" + jarsStr);
+            optionList.add(System.getProperty("java.class.path") + (SystemUtils.isWin() ? ";" : ":") + jarsStr);
             System.out.println(JsonUtils.obj2StringPretty(optionList));
             DiagnosticCollector diagnostics = new DiagnosticCollector<>();
+//            CompilationTask task = compiler.getTask(null, manager, diagnostics, optionList, null, Arrays.asList(javaFileObject));
             CompilationTask task = compiler.getTask(null, manager, null, optionList, null, Arrays.asList(javaFileObject));
             Boolean result = task.call();
             if (result == null || !result.booleanValue()) {
